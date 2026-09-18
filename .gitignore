@@ -1,13 +1,40 @@
+# Entorno virtual
 .venv/
+
+# Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .coverage
+htmlcov/
 
+# Jupyter
+.ipynb_checkpoints/
+
+# Editores
+.vscode/
+.idea/
+
+# Archivos temporales
+tmp/
+*.log
+
+# Datos: conservar carpetas, ignorar su contenido
 data/raw/**
 data/processed/**
 data/splits/**
-models/**
-reports/figures/**
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/splits/.gitkeep
 
-tmp/
+# Modelos entrenados
+models/**
+!models/.gitkeep
+
+# Gráficos generados
+reports/figures/**
+!reports/figures/.gitkeep
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
