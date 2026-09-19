@@ -8,6 +8,16 @@ muestre la categoría predicha y su nivel de confianza.
 Cuando la predicción no alcance un nivel mínimo de certeza, la aplicación deberá
 mostrar el mensaje "Pictograma no reconocido".
 
+## Fase piloto
+
+El desarrollo comenzará con cinco clases: agua, comer, baño, mamá y dolor.
+
+Esta fase permitirá validar la recolección de datos, el entrenamiento, la
+evaluación y la interfaz antes de ampliar el modelo a las diez categorías
+previstas para el MVP final.
+
+El objetivo final de diez clases se mantiene sin cambios.
+
 ## Clases del modelo
 
 El modelo reconocerá inicialmente diez categorías:

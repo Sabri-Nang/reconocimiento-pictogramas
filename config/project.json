@@ -1,5 +1,6 @@
 {
   "project_name": "reconocimiento-pictogramas",
+  "phase": "pilot-5",
   "random_seed": 42,
   "image": {
     "width": 128,
@@ -10,14 +11,9 @@
   "classes": [
     {"id": "agua", "display_name": "Agua"},
     {"id": "comer", "display_name": "Comer"},
-    {"id": "ayuda", "display_name": "Ayuda"},
-    {"id": "dolor", "display_name": "Dolor"},
     {"id": "bano", "display_name": "Baño"},
-    {"id": "jugar", "display_name": "Jugar"},
-    {"id": "si", "display_name": "Sí"},
-    {"id": "no", "display_name": "No"},
     {"id": "mama", "display_name": "Mamá"},
-    {"id": "papa", "display_name": "Papá"}
+    {"id": "dolor", "display_name": "Dolor"}
   ],
   "split": {
     "train": 0.70,
@@ -26,6 +22,7 @@
     "group_by_capture_session": true
   },
   "acceptance": {
+    "expected_class_count": 5,
     "minimum_test_accuracy": 0.70,
     "confidence_threshold": null
   }

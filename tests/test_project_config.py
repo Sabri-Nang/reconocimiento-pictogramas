@@ -18,11 +18,12 @@ def test_config_file_exists() -> None:
     assert CONFIG_PATH.is_file()
 
 
-def test_project_has_ten_unique_classes(project_config: dict) -> None:
+def test_project_has_expected_unique_classes(project_config: dict) -> None:
     class_ids = [item["id"] for item in project_config["classes"]]
+    expected_count = project_config["acceptance"]["expected_class_count"]
 
-    assert len(class_ids) == 10
-    assert len(set(class_ids)) == 10
+    assert len(class_ids) == expected_count
+    assert len(set(class_ids)) == expected_count
 
 
 def test_class_ids_are_valid_folder_names(project_config: dict) -> None:
