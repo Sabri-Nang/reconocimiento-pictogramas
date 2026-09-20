@@ -272,3 +272,83 @@ Las imágenes están excluidas de Git debido a su tamaño y posible sensibilidad
 El dataset deberá mantenerse en al menos dos ubicaciones controladas. No se
 publicarán fotografías que contengan información personal sin revisar previamente
 su contenido y autorización.
+
+## Plan de sesiones del piloto
+
+Cada sesión incluirá fotografías de las cinco clases activas:
+
+- agua;
+- comer;
+- bano;
+- mama;
+- dolor.
+
+Se tomarán aproximadamente 30 imágenes por clase y por sesión. Cada sesión
+contendrá alrededor de 150 imágenes.
+
+### Distribución prevista
+
+- `s001` a `s005`: entrenamiento.
+- `s006`: validación.
+- `s007`: prueba final.
+
+La asignación se define antes de entrenar para evitar elegir posteriormente las
+imágenes que produzcan mejores resultados.
+
+### Condiciones de cada sesión
+
+#### s001 - Captura base
+
+- Luz natural.
+- Fondo claro y liso.
+- Ambiente interior.
+- Imágenes principalmente frontales.
+- Distancias corta, media y larga.
+- Pictograma completamente visible.
+
+#### s002 - Cambio de iluminación
+
+- Luz artificial.
+- Fondo claro.
+- Sombras leves.
+- Diferentes posiciones dentro de la imagen.
+- Variaciones pequeñas de distancia.
+
+#### s003 - Cambio de fondo
+
+- Luz natural o artificial normal.
+- Fondos oscuros o de color.
+- Algunos objetos visibles alrededor.
+- Pictograma siempre identificable.
+
+#### s004 - Cambio de perspectiva
+
+- Inclinaciones hacia izquierda y derecha.
+- Fotografías levemente tomadas desde arriba y desde abajo.
+- Rotaciones pequeñas.
+- Distancias variadas.
+
+#### s005 - Condiciones combinadas
+
+- Más de una habitación.
+- Fondos claros y oscuros.
+- Luz natural y artificial.
+- Posiciones y distancias variadas.
+- Condiciones similares a un uso cotidiano.
+
+#### s006 - Validación
+
+- Capturada en otro momento.
+- Condiciones normales y variadas.
+- No deberá ser una repetición inmediata de las sesiones anteriores.
+- Se utilizará para comparar modelos y calibrar el umbral de confianza.
+
+#### s007 - Prueba final
+
+- Capturada otro día o en otro ambiente.
+- Condiciones normales de uso.
+- No se utilizará para modificar el modelo.
+- Permanecerá reservada hasta finalizar el entrenamiento y la selección.
+
+Las sesiones de validación y prueba no deben ser deliberadamente más difíciles.
+Su objetivo es representar imágenes nuevas en condiciones realistas.
