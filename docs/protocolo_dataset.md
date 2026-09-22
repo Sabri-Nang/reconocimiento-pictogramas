@@ -347,10 +347,65 @@ Todas las clases deberán fotografiarse sobre los mismos fondos para impedir que
 un fondo determinado quede asociado a una categoría particular.
 #### s004 - Cambio de perspectiva
 
-- Inclinaciones hacia izquierda y derecha.
-- Fotografías levemente tomadas desde arriba y desde abajo.
-- Rotaciones pequeñas.
-- Distancias variadas.
+#### s004 - Variación de perspectiva
+
+El objetivo de esta sesión será comprobar si el modelo puede reconocer los
+pictogramas cuando la cámara no se encuentra completamente de frente.
+
+Se utilizarán las siguientes condiciones comunes:
+
+- iluminación natural y uniforme;
+- fondo neutro y liso;
+- distancia principalmente media;
+- cámara trasera principal en 1x;
+- proporción de imagen 1:1;
+- flash y filtros desactivados.
+
+Se tomarán 30 fotografías por cada clase, distribuidas de la siguiente manera:
+
+- `0001-0005`: cámara desplazada hacia la izquierda;
+- `0006-0010`: cámara desplazada hacia la derecha;
+- `0011-0015`: cámara inclinada desde arriba;
+- `0016-0020`: cámara inclinada desde abajo;
+- `0021-0025`: tarjeta rotada hacia la izquierda;
+- `0026-0030`: tarjeta rotada hacia la derecha.
+
+La tarjeta permanecerá apoyada horizontalmente y plana sobre la mesa durante
+toda la sesión.
+
+En las fotografías laterales se moverá físicamente la cámara hacia la izquierda
+o hacia la derecha, manteniéndola por encima de la mesa y apuntando nuevamente
+al centro del pictograma. La tarjeta no se levantará ni se rotará. Como resultado,
+su forma podrá verse ligeramente trapezoidal por efecto de la perspectiva.
+
+En las fotografías desde arriba o desde abajo se cambiará la altura de la cámara,
+manteniendo el pictograma completo dentro del encuadre.
+
+En las fotografías con rotación, la cámara se mantendrá aproximadamente frontal
+y se girará la tarjeta sobre la superficie.
+
+Los ángulos serán progresivos y moderados:
+
+- primera fotografía: ángulo muy leve;
+- segunda fotografía: ángulo leve;
+- tercera fotografía: ángulo intermedio;
+- cuarta fotografía: ángulo algo mayor;
+- quinta fotografía: ángulo máximo aproximado de 20 a 25 grados.
+
+No se utilizarán perspectivas extremas. La tarjeta deberá permanecer completa,
+enfocada y visualmente reconocible.
+
+Los valores del campo `perspective` serán:
+
+- `lateral_izquierda`;
+- `lateral_derecha`;
+- `superior`;
+- `inferior`;
+- `rotacion_izquierda`;
+- `rotacion_derecha`.
+
+Todas las clases deberán fotografiarse bajo las mismas condiciones para evitar
+que una perspectiva o un fondo quede asociado a una categoría particular.
 
 #### s005 - Condiciones combinadas
 
