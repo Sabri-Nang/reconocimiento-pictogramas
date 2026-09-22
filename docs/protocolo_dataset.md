@@ -314,13 +314,37 @@ imágenes que produzcan mejores resultados.
 - Diferentes posiciones dentro de la imagen.
 - Variaciones pequeñas de distancia.
 
-#### s003 - Cambio de fondo
+#### s003 - Variación de fondos
 
-- Luz natural o artificial normal.
-- Fondos oscuros o de color.
-- Algunos objetos visibles alrededor.
-- Pictograma siempre identificable.
+El objetivo de esta sesión será evitar que el modelo dependa de un fondo
+específico para reconocer los pictogramas.
 
+Se utilizarán los mismos tres tipos de fondo para todas las clases:
+
+- fondo oscuro;
+- fondo de color;
+- fondo con objetos.
+
+La iluminación será principalmente natural y la cámara permanecerá mayormente
+frontal. Las perspectivas marcadas se reservarán para la sesión `s004`.
+
+Cada clase tendrá 30 imágenes distribuidas de la siguiente manera:
+
+- `0001-0003`: fondo oscuro y distancia corta;
+- `0004-0007`: fondo oscuro y distancia media;
+- `0008-0010`: fondo oscuro y distancia larga;
+- `0011-0013`: fondo de color y distancia corta;
+- `0014-0017`: fondo de color y distancia media;
+- `0018-0020`: fondo de color y distancia larga;
+- `0021-0023`: fondo con objetos y distancia corta;
+- `0024-0027`: fondo con objetos y distancia media;
+- `0028-0030`: fondo con objetos y distancia larga.
+
+Dentro de cada grupo se variará ligeramente la posición de la tarjeta y de la
+cámara. Los objetos del fondo no deberán cubrir el pictograma.
+
+Todas las clases deberán fotografiarse sobre los mismos fondos para impedir que
+un fondo determinado quede asociado a una categoría particular.
 #### s004 - Cambio de perspectiva
 
 - Inclinaciones hacia izquierda y derecha.
