@@ -1,0 +1,42 @@
+{
+  "s003": {
+    "expected_per_class": 30,
+    "defaults": {
+      "device": "moto_g75",
+      "lighting": "natural",
+      "perspective": "frontal",
+      "source": "propia",
+      "notes": ""
+    },
+    "ranges": [
+      {"start": 1, "end": 3, "background": "oscuro", "distance": "corta"},
+      {"start": 4, "end": 7, "background": "oscuro", "distance": "media"},
+      {"start": 8, "end": 10, "background": "oscuro", "distance": "larga"},
+      {"start": 11, "end": 13, "background": "color", "distance": "corta"},
+      {"start": 14, "end": 17, "background": "color", "distance": "media"},
+      {"start": 18, "end": 20, "background": "color", "distance": "larga"},
+      {"start": 21, "end": 23, "background": "objetos", "distance": "corta"},
+      {"start": 24, "end": 27, "background": "objetos", "distance": "media"},
+      {"start": 28, "end": 30, "background": "objetos", "distance": "larga"}
+    ]
+  },
+  "s004": {
+    "expected_per_class": 30,
+    "defaults": {
+      "device": "moto_g75",
+      "lighting": "natural",
+      "background": "neutro",
+      "distance": "media",
+      "source": "propia",
+      "notes": ""
+    },
+    "ranges": [
+      {"start": 1, "end": 5, "perspective": "lateral_izquierda"},
+      {"start": 6, "end": 10, "perspective": "lateral_derecha"},
+      {"start": 11, "end": 15, "perspective": "superior"},
+      {"start": 16, "end": 20, "perspective": "inferior"},
+      {"start": 21, "end": 25, "perspective": "rotacion_izquierda"},
+      {"start": 26, "end": 30, "perspective": "rotacion_derecha"}
+    ]
+  }
+}
