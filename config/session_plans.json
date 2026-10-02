@@ -38,5 +38,79 @@
       {"start": 21, "end": 25, "perspective": "rotacion_izquierda"},
       {"start": 26, "end": 30, "perspective": "rotacion_derecha"}
     ]
+  },
+"s005": {
+  "expected_per_class": 30,
+  "defaults": {
+    "device": "moto_g75",
+    "perspective": "frontal",
+    "source": "propia",
+    "notes": ""
+  },
+  "ranges": [
+    {
+      "start": 1,
+      "end": 3,
+      "lighting": "natural",
+      "background": "objetos",
+      "distance": "corta"
+    },
+    {
+      "start": 4,
+      "end": 7,
+      "lighting": "natural",
+      "background": "objetos",
+      "distance": "media"
+    },
+    {
+      "start": 8,
+      "end": 10,
+      "lighting": "natural",
+      "background": "objetos",
+      "distance": "larga"
+    },
+    {
+      "start": 11,
+      "end": 13,
+      "lighting": "artificial",
+      "background": "oscuro_color",
+      "distance": "corta"
+    },
+    {
+      "start": 14,
+      "end": 17,
+      "lighting": "artificial",
+      "background": "oscuro_color",
+      "distance": "media"
+    },
+    {
+      "start": 18,
+      "end": 20,
+      "lighting": "artificial",
+      "background": "oscuro_color",
+      "distance": "larga"
+    },
+    {
+      "start": 21,
+      "end": 23,
+      "lighting": "natural",
+      "background": "superficie_alternativa",
+      "distance": "corta"
+    },
+    {
+      "start": 24,
+      "end": 27,
+      "lighting": "natural",
+      "background": "superficie_alternativa",
+      "distance": "media"
+    },
+    {
+      "start": 28,
+      "end": 30,
+      "lighting": "natural",
+      "background": "superficie_alternativa",
+      "distance": "larga"
+    }
+  ]
   }
 }
