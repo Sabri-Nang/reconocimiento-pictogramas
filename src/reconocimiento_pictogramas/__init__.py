@@ -1,2 +1,6 @@
+"""Inicio de la aplicación local."""
+
+
 def main() -> None:
-    print("Hello from reconocimiento-pictogramas!")
+    from .ui import main as launch
+    launch()

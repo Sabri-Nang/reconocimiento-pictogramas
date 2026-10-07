@@ -112,5 +112,153 @@
       "distance": "larga"
     }
   ]
-  }
+  },
+  "s006": {
+  "expected_per_class": 30,
+  "defaults": {
+    "device": "moto_g75",
+    "background": "variado",
+    "source": "propia",
+    "notes": ""
+  },
+  "ranges": [
+    {
+      "start": 1,
+      "end": 3,
+      "lighting": "natural",
+      "distance": "corta",
+      "perspective": "frontal"
+    },
+    {
+      "start": 4,
+      "end": 7,
+      "lighting": "natural",
+      "distance": "media",
+      "perspective": "frontal"
+    },
+    {
+      "start": 8,
+      "end": 10,
+      "lighting": "natural",
+      "distance": "larga",
+      "perspective": "frontal"
+    },
+    {
+      "start": 11,
+      "end": 13,
+      "lighting": "artificial",
+      "distance": "corta",
+      "perspective": "frontal"
+    },
+    {
+      "start": 14,
+      "end": 17,
+      "lighting": "artificial",
+      "distance": "media",
+      "perspective": "frontal"
+    },
+    {
+      "start": 18,
+      "end": 20,
+      "lighting": "artificial",
+      "distance": "larga",
+      "perspective": "frontal"
+    },
+    {
+      "start": 21,
+      "end": 23,
+      "lighting": "mixta",
+      "distance": "corta",
+      "perspective": "mixta_leve"
+    },
+    {
+      "start": 24,
+      "end": 27,
+      "lighting": "mixta",
+      "distance": "media",
+      "perspective": "mixta_leve"
+    },
+    {
+      "start": 28,
+      "end": 30,
+      "lighting": "mixta",
+      "distance": "larga",
+      "perspective": "mixta_leve"
+    }
+  ]
+},
+"s007": {
+  "expected_per_class": 30,
+  "defaults": {
+    "device": "moto_g75",
+    "background": "variado_real",
+    "source": "propia",
+    "notes": ""
+  },
+  "ranges": [
+    {
+      "start": 1,
+      "end": 3,
+      "lighting": "natural",
+      "distance": "corta",
+      "perspective": "frontal"
+    },
+    {
+      "start": 4,
+      "end": 7,
+      "lighting": "natural",
+      "distance": "media",
+      "perspective": "frontal"
+    },
+    {
+      "start": 8,
+      "end": 10,
+      "lighting": "natural",
+      "distance": "larga",
+      "perspective": "frontal"
+    },
+    {
+      "start": 11,
+      "end": 13,
+      "lighting": "artificial",
+      "distance": "corta",
+      "perspective": "frontal"
+    },
+    {
+      "start": 14,
+      "end": 17,
+      "lighting": "artificial",
+      "distance": "media",
+      "perspective": "frontal"
+    },
+    {
+      "start": 18,
+      "end": 20,
+      "lighting": "artificial",
+      "distance": "larga",
+      "perspective": "frontal"
+    },
+    {
+      "start": 21,
+      "end": 23,
+      "lighting": "mixta",
+      "distance": "corta",
+      "perspective": "mixta_leve"
+    },
+    {
+      "start": 24,
+      "end": 27,
+      "lighting": "mixta",
+      "distance": "media",
+      "perspective": "mixta_leve"
+    },
+    {
+      "start": 28,
+      "end": 30,
+      "lighting": "mixta",
+      "distance": "larga",
+      "perspective": "mixta_leve"
+    }
+  ]
+}
 }

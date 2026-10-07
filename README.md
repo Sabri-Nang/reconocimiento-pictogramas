@@ -103,3 +103,19 @@ Una vez validado el clasificador podrán evaluarse:
 - construcción de frases;
 - API remota;
 - aplicación móvil.
+## Interfaz Gradio
+
+Ejecutar desde la carpeta del proyecto:
+
+```powershell
+uv run reconocimiento-pictogramas
+```
+
+Abrir http://127.0.0.1:7860. Cargar una imagen JPEG o PNG para ver la
+versión RGB de 128 × 128 píxeles. El botón Limpiar reinicia la pantalla.
+
+La interfaz utiliza las clases de `config/project.json` (piloto de cinco clases).
+Todavía no hay un modelo integrado: categoría y confianza permanecen pendientes,
+y el botón de reconocimiento está deshabilitado. No se generan predicciones
+simuladas. La inferencia y el rechazo por umbral se incorporarán tras entrenar
+el modelo y calibrar el umbral con validación.
