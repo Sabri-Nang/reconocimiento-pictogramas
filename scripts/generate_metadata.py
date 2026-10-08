@@ -194,7 +194,10 @@ def main() -> None:
         preserved_rows = [
             row
             for row in existing_rows
-            if row["session_id"] != arguments.session
+            if (
+                row["session_id"] != arguments.session
+                or row["class_id"] == "unknown"
+            )
         ]
 
         final_rows = preserved_rows + generated_rows
