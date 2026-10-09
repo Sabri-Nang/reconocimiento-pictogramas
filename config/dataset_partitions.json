@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "expected_per_class_session": 30,
+  "sessions": {
+    "train": [
+      "s001",
+      "s002",
+      "s003",
+      "s004",
+      "s005"
+    ],
+    "validation": [
+      "s006"
+    ],
+    "test": [
+      "s007"
+    ]
+  },
+  "note": "Partición explícita del piloto por sesión; prevalece sobre las proporciones orientativas. Prueba pendiente: no sustituir s007 por imágenes de entrenamiento o validación."
+}

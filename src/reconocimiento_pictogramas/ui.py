@@ -5,7 +5,8 @@ import json
 from pathlib import Path
 
 import gradio as gr
-from PIL import Image, ImageOps, UnidentifiedImageError
+from PIL import Image
+from .preprocessing import prepare_image as preprocess_image
 
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG = json.loads((ROOT / "config/project.json").read_text(encoding="utf-8"))
@@ -16,17 +17,8 @@ PENDING = "Imagen preparada. El reconocimiento estará disponible cuando se inte
 def prepare_image(path: str | None) -> Image.Image:
     if not path:
         raise ValueError("Seleccioná una imagen JPEG o PNG.")
-    try:
-        with Image.open(path) as image:
-            if image.format not in {"JPEG", "PNG"}:
-                raise ValueError("Solo se admiten imágenes JPEG y PNG.")
-            image.load()
-            size = (CONFIG["image"]["width"], CONFIG["image"]["height"])
-            return ImageOps.exif_transpose(image).convert("RGB").resize(
-                size, Image.Resampling.LANCZOS
-            )
-    except (OSError, UnidentifiedImageError, Image.DecompressionBombError) as error:
-        raise ValueError("No se pudo leer la imagen. Probá con otro archivo.") from error
+    size = (CONFIG["image"]["width"], CONFIG["image"]["height"])
+    return preprocess_image(path, size)
 
 
 def load_image(path):

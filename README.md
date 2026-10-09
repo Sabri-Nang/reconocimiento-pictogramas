@@ -119,3 +119,35 @@ Todavía no hay un modelo integrado: categoría y confianza permanecen pendiente
 y el botón de reconocimiento está deshabilitado. No se generan predicciones
 simuladas. La inferencia y el rechazo por umbral se incorporarán tras entrenar
 el modelo y calibrar el umbral con validación.
+
+## Preparar el dataset piloto
+
+La asignación explícita está en `config/dataset_partitions.json`: s001-s005
+para entrenamiento, s006 para validación y s007 para prueba. Esta asignación
+por sesiones prevalece sobre las proporciones orientativas de project.json.
+
+Validar capturas, metadata, cantidades y duplicados entre todas las sesiones:
+
+```powershell
+uv run python scripts/prepare_dataset.py
+```
+
+Generar imágenes procesadas y manifiestos:
+
+```powershell
+uv run python scripts/prepare_dataset.py --apply
+uv run pytest -q
+```
+
+Los originales se conservan. El módulo `preprocessing.py`, también utilizado
+por la interfaz, aplica orientación EXIF, RGB y redimensionado LANCZOS a
+128 x 128. Guarda PNG sin aumentos ni normalización (uint8 0-255).
+La normalización específica de cada modelo debe definirse al entrenarlo.
+
+Se generan `data/splits/train.csv`, `validation.csv`, `test.csv` y
+`summary.json`, con rutas relativas, índices de clase y SHA-256 del original.
+Si s007 todavía no existe, test.csv solo tiene cabecera y summary.json marca
+la prueba como pendiente: no constituye una evaluación final disponible.
+Una sesión de prueba parcial provoca un error; no se reemplaza con otras fotos.
+Los desconocidos no se incluyen en estos manifiestos de clases conocidas.
+Aún deben reunirse y separarse para calibración y evaluación del rechazo.
