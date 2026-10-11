@@ -1,0 +1,94 @@
+{
+  "run": "mobilenet_20261009_111839",
+  "partition": "validation",
+  "validation_accuracy": 0.8266666531562805,
+  "validation_loss": 0.48963338136672974,
+  "best_epoch": 30,
+  "epochs_completed": 30,
+  "classification_report": {
+    "agua": {
+      "precision": 0.9130434782608695,
+      "recall": 0.7,
+      "f1-score": 0.7924528301886793,
+      "support": 30.0
+    },
+    "comer": {
+      "precision": 0.7428571428571429,
+      "recall": 0.8666666666666667,
+      "f1-score": 0.8,
+      "support": 30.0
+    },
+    "bano": {
+      "precision": 0.90625,
+      "recall": 0.9666666666666667,
+      "f1-score": 0.9354838709677419,
+      "support": 30.0
+    },
+    "mama": {
+      "precision": 0.71875,
+      "recall": 0.7666666666666667,
+      "f1-score": 0.7419354838709677,
+      "support": 30.0
+    },
+    "dolor": {
+      "precision": 0.8928571428571429,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.8620689655172413,
+      "support": 30.0
+    },
+    "accuracy": 0.8266666666666667,
+    "macro avg": {
+      "precision": 0.8347515527950311,
+      "recall": 0.8266666666666665,
+      "f1-score": 0.826388230108926,
+      "support": 150.0
+    },
+    "weighted avg": {
+      "precision": 0.8347515527950311,
+      "recall": 0.8266666666666667,
+      "f1-score": 0.826388230108926,
+      "support": 150.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      21,
+      1,
+      1,
+      5,
+      2
+    ],
+    [
+      0,
+      26,
+      1,
+      2,
+      1
+    ],
+    [
+      0,
+      0,
+      29,
+      1,
+      0
+    ],
+    [
+      2,
+      4,
+      1,
+      23,
+      0
+    ],
+    [
+      0,
+      4,
+      0,
+      1,
+      25
+    ]
+  ],
+  "test_evaluated": false,
+  "threshold_calibrated": false,
+  "training_seconds": 62.02122320001945,
+  "head_epochs": 20
+}

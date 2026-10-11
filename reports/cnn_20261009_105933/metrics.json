@@ -1,0 +1,92 @@
+{
+  "run": "cnn_20261009_105933",
+  "partition": "validation",
+  "validation_accuracy": 0.8600000143051147,
+  "validation_loss": 0.4967857897281647,
+  "best_epoch": 13,
+  "epochs_completed": 19,
+  "classification_report": {
+    "agua": {
+      "precision": 0.9090909090909091,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.7692307692307693,
+      "support": 30.0
+    },
+    "comer": {
+      "precision": 0.7567567567567568,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.835820895522388,
+      "support": 30.0
+    },
+    "bano": {
+      "precision": 0.896551724137931,
+      "recall": 0.8666666666666667,
+      "f1-score": 0.8813559322033898,
+      "support": 30.0
+    },
+    "mama": {
+      "precision": 0.8787878787878788,
+      "recall": 0.9666666666666667,
+      "f1-score": 0.9206349206349206,
+      "support": 30.0
+    },
+    "dolor": {
+      "precision": 0.896551724137931,
+      "recall": 0.8666666666666667,
+      "f1-score": 0.8813559322033898,
+      "support": 30.0
+    },
+    "accuracy": 0.86,
+    "macro avg": {
+      "precision": 0.8675477985822813,
+      "recall": 0.8600000000000001,
+      "f1-score": 0.8576796899589715,
+      "support": 150.0
+    },
+    "weighted avg": {
+      "precision": 0.8675477985822814,
+      "recall": 0.86,
+      "f1-score": 0.8576796899589715,
+      "support": 150.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      20,
+      7,
+      3,
+      0,
+      0
+    ],
+    [
+      2,
+      28,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      26,
+      1,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      29,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      3,
+      26
+    ]
+  ],
+  "test_evaluated": false,
+  "threshold_calibrated": false
+}

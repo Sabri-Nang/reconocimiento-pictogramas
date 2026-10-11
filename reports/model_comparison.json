@@ -1,0 +1,29 @@
+{
+  "partition": "validation s006",
+  "selection_rule": "Mayor exactitud, luego macro F1, luego menor pérdida; selección provisional del piloto",
+  "benchmark": "CPU, cuatro threads intra-op, dos inter-op, tf.function, batch1, 5 calentamientos y 30 mediciones, excluye carga y preprocesamiento",
+  "results": [
+    {
+      "run": "cnn_20261009_105933",
+      "validation_accuracy": 0.8600000143051147,
+      "validation_loss": 0.4967857897281647,
+      "macro_f1": 0.8576796899589715,
+      "model_bytes": 3941286,
+      "parameters": 323045,
+      "inference_median_ms": 1.7728999955579638,
+      "inference_p95_ms": 2.2568350163055584
+    },
+    {
+      "run": "mobilenet_20261009_111839",
+      "validation_accuracy": 0.8266666531562805,
+      "validation_loss": 0.48963338136672974,
+      "macro_f1": 0.826388230108926,
+      "model_bytes": 8927902,
+      "parameters": 942005,
+      "inference_median_ms": 4.837299988139421,
+      "inference_p95_ms": 5.376584982150233
+    }
+  ],
+  "selected_run": "cnn_20261009_105933",
+  "test_evaluated": false
+}
