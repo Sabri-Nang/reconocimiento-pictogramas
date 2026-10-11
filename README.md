@@ -115,10 +115,11 @@ Abrir http://127.0.0.1:7860. Cargar una imagen JPEG o PNG para ver la
 versión RGB de 128 × 128 píxeles. El botón Limpiar reinicia la pantalla.
 
 La interfaz utiliza las clases de `config/project.json` (piloto de cinco clases).
-Todavía no hay un modelo integrado: categoría y confianza permanecen pendientes,
-y el botón de reconocimiento está deshabilitado. No se generan predicciones
-simuladas. La inferencia y el rechazo por umbral se incorporarán tras entrenar
-el modelo y calibrar el umbral con validación.
+Carga el checkpoint definido en `config/selected_model.json` al reconocer una
+imagen y muestra categoría y probabilidad del modelo. El rechazo todavía está
+pendiente de calibración: mientras el umbral sea null, siempre devuelve una
+clase conocida y lo advierte en la pantalla. Los modelos están ignorados por
+Git; otra instalación debe entrenarlos o copiar el checkpoint seleccionado.
 
 ## Preparar el dataset piloto
 
@@ -151,3 +152,60 @@ la prueba como pendiente: no constituye una evaluación final disponible.
 Una sesión de prueba parcial provoca un error; no se reemplaza con otras fotos.
 Los desconocidos no se incluyen en estos manifiestos de clases conocidas.
 Aún deben reunirse y separarse para calibración y evaluación del rechazo.
+
+## Entrenar la CNN base
+
+```powershell
+uv run python scripts/train_cnn.py --epochs 30 --batch-size 32
+```
+
+Lee exclusivamente train.csv y validation.csv; comprueba que no compartan
+sesiones, rutas ni hashes. Recibe PNG RGB 128 x 128 con valores 0-255.
+La normalización y los aumentos de entrenamiento están dentro del modelo;
+los aumentos se desactivan durante evaluación e inferencia.
+Selecciona el checkpoint por mínima pérdida de validación con early stopping.
+Cada ejecución crea una carpeta nueva en models/ y reports/ con best.keras,
+configuración, hashes de manifiestos, historial, predicciones, métricas por
+clase, curvas y matriz de confusión de validación. No calibra rechazo ni evalúa
+prueba. La exactitud de validación no acredita el criterio de prueba final.
+
+## Comparar con MobileNetV3-Small
+
+```powershell
+uv run python scripts/train_mobilenet.py --epochs 20 --fine-tune-epochs 10
+```
+
+Utiliza las mismas particiones y aumentos que la CNN. Descarga los pesos
+ImageNet oficiales de Keras y los guarda en models/.keras_cache (ignorado).
+Primero congela la base y entrena el clasificador; luego ajusta las últimas
+30 capas con Adam 1e-5, manteniendo BatchNormalization congelada.
+El checkpoint final es el de menor val_loss entre ambas etapas.
+MobileNetV3 incorpora normalización a -1..1 y recibe RGB 128x128 de 0-255:
+no aplicar otra normalización antes. Los resultados se guardan en una carpeta
+nueva models/mobilenet_* y reports/mobilenet_*. No carga prueba ni desconocidos.
+
+## Selección provisional e inferencia
+
+```powershell
+uv run python scripts/compare_models.py --runs cnn_20261009_105933 mobilenet_20261009_111839
+uv run reconocimiento-pictogramas
+```
+
+El comparador comprueba los hashes de ambos manifiestos, ordena por exactitud,
+macro F1 y pérdida de validación y guarda config/selected_model.json.
+Benchmark: CPU, cuatro threads intra-op y dos inter-op, batch 1,
+cinco calentamientos y 30 mediciones; excluye carga del modelo y preprocesamiento.
+La selección es del piloto de cinco clases, no confirma hipótesis de prueba.
+No se utiliza s007 ni desconocidos para seleccionar el modelo.
+Si se cambia la selección o el umbral, reiniciar Gradio para recargar la configuración.
+
+## Auditar desconocidos
+
+```powershell
+uv run python scripts/audit_unknown.py
+```
+
+Verifica nombres, formato, apertura y duplicados contra conocidas y desconocidas.
+Guarda inventario y reporte en reports/, sin modificar capturas ni asignar
+particiones. La revisión visual y la independencia de sesiones se comprueban
+antes de decidir qué negativos usar en calibración o prueba.
