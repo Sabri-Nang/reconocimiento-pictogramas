@@ -1,0 +1,12 @@
+{
+  "images": 160,
+  "session_counts": {
+    "s001": 40,
+    "s002": 40,
+    "s003": 40,
+    "s004": 40
+  },
+  "errors": [],
+  "partition_assigned": false,
+  "visual_quality_reviewed": false
+}
