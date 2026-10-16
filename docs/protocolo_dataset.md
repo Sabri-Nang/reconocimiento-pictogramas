@@ -2,150 +2,105 @@
 
 ## Objetivo
 
-Construir un conjunto de imágenes variado y equilibrado para entrenar y evaluar
-un modelo capaz de reconocer diez pictogramas.
+Construir un dataset reproducible para entrenar, validar y evaluar un sistema de
+reconocimiento de pictogramas. Las capturas deben representar condiciones de uso
+realistas y mantener separadas las sesiones destinadas a entrenamiento,
+validación y prueba.
 
-Las imágenes deberán representar condiciones realistas de uso y permitir una
-separación confiable entre entrenamiento, validación y prueba.
+El proyecto se encuentra en la fase `dataset-10`. Las diez clases activas son:
 
-## Clases
+1. `agua`;
+2. `comer`;
+3. `bano`;
+4. `mama`;
+5. `dolor`;
+6. `papa`;
+7. `no`;
+8. `si`;
+9. `jugar`;
+10. `ayuda`.
 
-Las clases iniciales son:
+Los identificadores y nombres de carpetas deben coincidir con
+`config/project.json`. Los identificadores internos no llevan tildes.
 
-1. agua
-2. comer
-3. ayuda
-4. dolor
-5. bano
-6. jugar
-7. si
-8. no
-9. mama
-10. papa
+## Diseño y cantidad del dataset
 
-Los nombres de las carpetas deberán coincidir exactamente con los identificadores
-definidos en `config/project.json`.
+Cada sesión conocida contiene 30 imágenes por clase:
 
-## Cantidad inicial
+- 10 clases activas;
+- 30 imágenes por clase y sesión;
+- 300 imágenes conocidas por sesión;
+- 7 sesiones planificadas (`s001` a `s007`);
+- 210 imágenes finales por clase;
+- 2.100 imágenes conocidas al finalizar el dataset.
 
-El objetivo será reunir, como mínimo:
+Las imágenes `unknown` se distribuyen así:
 
-- 200 imágenes por cada clase conocida;
-- 2.000 imágenes conocidas en total;
-- 300 imágenes negativas o desconocidas.
+- 40 imágenes en cada sesión de `s001` a `s005`;
+- 50 imágenes en `s006`;
+- 50 imágenes en `s007`;
+- 300 imágenes `unknown` al finalizar.
 
-Las imágenes negativas no formarán inicialmente una clase del modelo. Se
-utilizarán para medir falsos reconocimientos y calibrar el umbral de confianza.
+El objetivo total es, por lo tanto, 2.400 imágenes: 2.100 conocidas y 300
+desconocidas.
+
+Al momento de actualizar este protocolo están completas `s001` a `s006`:
+
+- 180 imágenes por cada clase conocida;
+- 1.800 imágenes conocidas;
+- 250 imágenes `unknown`;
+- 2.050 imágenes registradas en total.
+
+La sesión `s007` permanece pendiente y reservada para la prueba final.
+
+## Dispositivo y configuración común
+
+Las capturas propias se realizaron con un `moto_g75` y las siguientes reglas
+comunes:
+
+- cámara trasera principal en 1x;
+- modo Foto normal;
+- proporción 1:1;
+- formato JPEG;
+- flash, filtros, modo Retrato y Ultra-Res desactivados;
+- lente limpia;
+- pictograma completo, enfocado y con margen visible;
+- sin ráfagas de imágenes casi idénticas.
+
+La dificultad debe ser realista. No se conservan fotografías completamente
+oscuras, corruptas o imposibles de interpretar.
 
 ## Estructura de carpetas
 
-Las imágenes originales se almacenarán de esta manera:
+Las imágenes originales se almacenan de esta manera:
 
 ```text
 data/raw/
 ├── known/
 │   ├── agua/
 │   ├── comer/
-│   ├── ayuda/
-│   ├── dolor/
 │   ├── bano/
-│   ├── jugar/
-│   ├── si/
-│   ├── no/
 │   ├── mama/
-│   └── papa/
+│   ├── dolor/
+│   ├── papa/
+│   ├── no/
+│   ├── si/
+│   ├── jugar/
+│   └── ayuda/
 └── unknown/
 ```
 
-Las imágenes originales no deberán editarse ni sobrescribirse. Cualquier
-transformación se guardará posteriormente en `data/processed`.
+Las clases conocidas se separan por carpeta. Todas las imágenes desconocidas se
+guardan juntas en `data/raw/unknown/`; su sesión se identifica mediante el nombre
+del archivo.
 
-## Sesiones de captura
+Las imágenes originales no deben editarse ni sobrescribirse durante el
+preprocesamiento. Las conversiones se generan posteriormente en
+`data/processed/`.
 
-Las fotografías se reunirán en sesiones independientes.
+## Convención de nombres y orden de captura
 
-Una sesión representa un grupo de imágenes tomadas:
-
-- durante el mismo período;
-- con el mismo dispositivo;
-- en un lugar determinado;
-- bajo condiciones relacionadas.
-
-Cada sesión tendrá un identificador:
-
-```text
-s001
-s002
-s003
-```
-
-Para evitar resultados artificialmente altos, las imágenes de una misma sesión
-no se repartirán entre entrenamiento, validación y prueba.
-
-## Condiciones de captura
-
-Para cada pictograma se deberán variar deliberadamente las siguientes condiciones.
-
-### Iluminación
-
-- luz natural;
-- luz artificial;
-- iluminación frontal;
-- iluminación lateral;
-- iluminación moderadamente baja;
-- presencia de sombras leves.
-
-No se utilizarán imágenes totalmente oscuras en las que el pictograma sea
-imposible de identificar.
-
-### Distancia
-
-Se tomarán imágenes aproximadamente desde:
-
-- corta distancia;
-- distancia media;
-- distancia larga, manteniendo el pictograma visible.
-
-### Perspectiva
-
-Se incluirán:
-
-- captura frontal;
-- inclinación hacia la izquierda;
-- inclinación hacia la derecha;
-- inclinación desde arriba;
-- inclinación desde abajo.
-
-Las deformaciones deben ser realistas y no impedir completamente la lectura.
-
-### Fondo
-
-Se utilizarán diferentes fondos:
-
-- pared clara;
-- pared oscura;
-- mesa;
-- tela;
-- fondo con objetos;
-- fondo de color.
-
-### Posición
-
-El pictograma podrá aparecer:
-
-- centrado;
-- desplazado hacia los lados;
-- desplazado hacia arriba o abajo;
-- ocupando diferentes proporciones de la imagen.
-
-### Orientación
-
-Se permitirán rotaciones pequeñas. No se tomarán imágenes invertidas a menos que
-esa situación pueda ocurrir en el uso real.
-
-## Convención de nombres
-
-Cada archivo se nombrará con el siguiente formato:
+Las imágenes conocidas usan:
 
 ```text
 <clase>_<sesion>_<numero>.<extension>
@@ -154,280 +109,278 @@ Cada archivo se nombrará con el siguiente formato:
 Ejemplos:
 
 ```text
-agua_s001_0001.jpg
-agua_s001_0002.jpg
-comer_s002_0001.png
+agua_s004_0001.jpg
+mama_s006_0030.jpg
 ```
 
-Para imágenes negativas:
+Las imágenes desconocidas usan:
 
 ```text
-unknown_s003_0001.jpg
-unknown_s003_0002.jpg
+unknown_<sesion>_<numero>.<extension>
 ```
 
-El número deberá ser único dentro de la combinación de clase y sesión.
-
-## Imágenes desconocidas
-
-El conjunto `unknown` incluirá ejemplos como:
-
-- fotografías sin pictogramas;
-- objetos cotidianos;
-- habitaciones;
-- manos;
-- hojas en blanco;
-- texto sin pictogramas;
-- pictogramas pertenecientes a otras categorías;
-- imágenes parcialmente visibles;
-- imágenes desenfocadas de manera moderada.
-
-No se incluirán en `unknown` imágenes de las diez clases conocidas con una
-etiqueta incorrecta.
-
-## Metadatos
-
-Cada imagen deberá registrarse en:
+Ejemplos:
 
 ```text
-data/metadata.csv
+unknown_s005_0001.jpg
+unknown_s006_0050.jpg
 ```
 
-El archivo contendrá estas columnas:
+La numeración comienza en `0001` para cada combinación de clase y sesión. Los
+archivos se ordenan por `DateTimeOriginal` y `SubsecTimeOriginal` de EXIF antes de
+renombrarlos. Esto es necesario porque el número determina las condiciones que
+se registran en la metadata.
 
-```text
-filename,class_id,session_id,device,lighting,background,distance,perspective,source,notes
-```
+## Sesiones y separación experimental
 
-Ejemplo:
+Una sesión representa un conjunto de imágenes capturadas en condiciones
+relacionadas. Todas las imágenes de una misma sesión deben permanecer juntas:
 
-```csv
-filename,class_id,session_id,device,lighting,background,distance,perspective,source,notes
-agua_s001_0001.jpg,agua,s001,telefono,natural,mesa,media,frontal,propia,
-```
-
-Para las imágenes negativas, `class_id` tendrá el valor `unknown`.
-
-## Fuentes y licencias
-
-Se deberá registrar la procedencia de cada pictograma y de cada imagen que no sea
-propia.
-
-No se incorporarán imágenes descargadas sin conocer su fuente o condiciones de
-uso. La fuente y cualquier requisito de atribución deberán documentarse antes de
-usar el material.
-
-## Criterios de calidad
-
-Se conservarán imágenes con variaciones realistas aunque no sean perfectas.
-
-Se descartarán imágenes que:
-
-- estén completamente oscuras;
-- no permitan identificar visualmente el pictograma;
-- estén dañadas o no puedan abrirse;
-- sean duplicados exactos;
-- tengan una etiqueta incorrecta;
-- hayan sido modificadas accidentalmente;
-- no tengan una procedencia conocida.
-
-Las imágenes con dificultad realista no deben eliminarse solamente porque el
-modelo pueda clasificarlas incorrectamente.
-
-## Separación de datos
-
-La división prevista será:
-
-- 70 % para entrenamiento;
-- 15 % para validación;
-- 15 % para prueba.
-
-La separación se realizará mediante un script y tendrá en cuenta el
-`session_id`. No se copiarán manualmente imágenes a las particiones.
-
-El conjunto de prueba permanecerá apartado y no se utilizará para:
-
-- seleccionar el modelo;
-- modificar hiperparámetros;
-- elegir aumentos de datos;
-- calibrar el umbral de confianza.
-
-## Control antes del entrenamiento
-
-Antes de entrenar se verificará:
-
-- que existan las diez clases;
-- que las clases tengan cantidades similares;
-- que todos los archivos puedan abrirse;
-- que no existan duplicados exactos;
-- que cada imagen figure en los metadatos;
-- que los nombres respeten la convención;
-- que ninguna sesión aparezca en más de una partición;
-- que la resolución y los formatos puedan procesarse correctamente.
-
-## Respaldo
-
-Las imágenes están excluidas de Git debido a su tamaño y posible sensibilidad.
-
-El dataset deberá mantenerse en al menos dos ubicaciones controladas. No se
-publicarán fotografías que contengan información personal sin revisar previamente
-su contenido y autorización.
-
-## Plan de sesiones del piloto
-
-Cada sesión incluirá fotografías de las cinco clases activas:
-
-- agua;
-- comer;
-- bano;
-- mama;
-- dolor.
-
-Se tomarán aproximadamente 30 imágenes por clase y por sesión. Cada sesión
-contendrá alrededor de 150 imágenes.
-
-### Distribución prevista
-
-- `s001` a `s005`: entrenamiento.
-- `s006`: validación.
+- `s001` a `s005`: entrenamiento y desarrollo;
+- `s006`: validación;
 - `s007`: prueba final.
 
-La asignación se define antes de entrenar para evitar elegir posteriormente las
-imágenes que produzcan mejores resultados.
+La distribución efectiva por sesiones es aproximadamente 70/15/15. Nunca se
+deben repartir imágenes de una misma sesión entre entrenamiento, validación y
+prueba.
 
-### Condiciones de cada sesión
+### s001 - Captura base
 
-#### s001 - Captura base
+Condiciones registradas:
 
-- Luz natural.
-- Fondo claro y liso.
-- Ambiente interior.
-- Imágenes principalmente frontales.
-- Distancias corta, media y larga.
-- Pictograma completamente visible.
+- iluminación natural;
+- fondo de madera;
+- perspectiva frontal;
+- pictograma completo.
 
-#### s002 - Cambio de iluminación
+Distribución para `agua`, `papa`, `no`, `si`, `jugar` y `ayuda`:
 
-- Luz artificial.
-- Fondo claro.
-- Sombras leves.
-- Diferentes posiciones dentro de la imagen.
-- Variaciones pequeñas de distancia.
+- `0001-0009`: distancia corta;
+- `0010-0020`: distancia larga;
+- `0021-0030`: distancia media.
 
-#### s003 - Variación de fondos
+Excepciones históricas registradas para las clases iniciales:
 
-El objetivo de esta sesión será evitar que el modelo dependa de un fondo
-específico para reconocer los pictogramas.
+- `bano`, `dolor` y `mama`: `0001-0010` corta, `0011-0020` larga y
+  `0021-0030` media;
+- `comer`: `0001-0010` corta, `0011-0020` media y `0021-0030` larga.
 
-Se utilizarán los mismos tres tipos de fondo para todas las clases:
+Estas diferencias reflejan el orden real de captura y están representadas como
+reglas por clase en `config/session_plans.json`.
 
-- fondo oscuro;
-- fondo de color;
-- fondo con objetos.
+### s002 - Cambio de iluminación
 
-La iluminación será principalmente natural y la cámara permanecerá mayormente
-frontal. Las perspectivas marcadas se reservarán para la sesión `s004`.
+Condiciones registradas:
 
-Cada clase tendrá 30 imágenes distribuidas de la siguiente manera:
+- iluminación artificial;
+- fondo claro;
+- perspectiva frontal.
 
-- `0001-0003`: fondo oscuro y distancia corta;
-- `0004-0007`: fondo oscuro y distancia media;
-- `0008-0010`: fondo oscuro y distancia larga;
-- `0011-0013`: fondo de color y distancia corta;
-- `0014-0017`: fondo de color y distancia media;
-- `0018-0020`: fondo de color y distancia larga;
-- `0021-0023`: fondo con objetos y distancia corta;
-- `0024-0027`: fondo con objetos y distancia media;
-- `0028-0030`: fondo con objetos y distancia larga.
+Distribución por clase:
 
-Dentro de cada grupo se variará ligeramente la posición de la tarjeta y de la
-cámara. Los objetos del fondo no deberán cubrir el pictograma.
+- `0001-0010`: distancia corta;
+- `0011-0020`: distancia media;
+- `0021-0030`: distancia larga.
 
-Todas las clases deberán fotografiarse sobre los mismos fondos para impedir que
-un fondo determinado quede asociado a una categoría particular.
-#### s004 - Cambio de perspectiva
+### s003 - Variación de fondos
 
-#### s004 - Variación de perspectiva
+La iluminación es natural y la perspectiva frontal. Se utilizan los mismos
+fondos para las diez clases:
 
-El objetivo de esta sesión será comprobar si el modelo puede reconocer los
-pictogramas cuando la cámara no se encuentra completamente de frente.
+- `0001-0003`: fondo oscuro, distancia corta;
+- `0004-0007`: fondo oscuro, distancia media;
+- `0008-0010`: fondo oscuro, distancia larga;
+- `0011-0013`: fondo de color, distancia corta;
+- `0014-0017`: fondo de color, distancia media;
+- `0018-0020`: fondo de color, distancia larga;
+- `0021-0023`: fondo con objetos, distancia corta;
+- `0024-0027`: fondo con objetos, distancia media;
+- `0028-0030`: fondo con objetos, distancia larga.
 
-Se utilizarán las siguientes condiciones comunes:
+Los objetos del fondo no deben cubrir el pictograma. Todas las clases deben
+aparecer bajo las mismas condiciones generales para evitar que el modelo asocie
+un fondo con una categoría.
 
-- iluminación natural y uniforme;
-- fondo neutro y liso;
-- distancia principalmente media;
-- cámara trasera principal en 1x;
-- proporción de imagen 1:1;
-- flash y filtros desactivados.
+### s004 - Variación de perspectiva y orientación
 
-Se tomarán 30 fotografías por cada clase, distribuidas de la siguiente manera:
+Condiciones comunes:
+
+- iluminación natural uniforme;
+- fondo neutro;
+- distancia media;
+- tarjeta completa y apoyada sobre la superficie.
+
+Distribución por clase:
 
 - `0001-0005`: cámara desplazada hacia la izquierda;
 - `0006-0010`: cámara desplazada hacia la derecha;
-- `0011-0015`: cámara inclinada desde arriba;
-- `0016-0020`: cámara inclinada desde abajo;
+- `0011-0015`: cámara desde arriba;
+- `0016-0020`: cámara desde abajo;
 - `0021-0025`: tarjeta rotada hacia la izquierda;
 - `0026-0030`: tarjeta rotada hacia la derecha.
 
-La tarjeta permanecerá apoyada horizontalmente y plana sobre la mesa durante
-toda la sesión.
+En los bloques laterales se mueve físicamente la cámara y se vuelve a apuntar al
+centro. La tarjeta no se gira. En los bloques superior e inferior se modifica la
+altura de la cámara. Solo en los dos últimos bloques se rota la tarjeta sobre la
+superficie y la cámara permanece aproximadamente frontal.
 
-En las fotografías laterales se moverá físicamente la cámara hacia la izquierda
-o hacia la derecha, manteniéndola por encima de la mesa y apuntando nuevamente
-al centro del pictograma. La tarjeta no se levantará ni se rotará. Como resultado,
-su forma podrá verse ligeramente trapezoidal por efecto de la perspectiva.
+Dentro de cada bloque de cinco, la variación es progresiva: desde un ángulo muy
+leve hasta un máximo aproximado de 20 a 25 grados. No se utilizan perspectivas
+extremas.
 
-En las fotografías desde arriba o desde abajo se cambiará la altura de la cámara,
-manteniendo el pictograma completo dentro del encuadre.
+Los valores de metadata son `lateral_izquierda`, `lateral_derecha`, `superior`,
+`inferior`, `rotacion_izquierda` y `rotacion_derecha`.
 
-En las fotografías con rotación, la cámara se mantendrá aproximadamente frontal
-y se girará la tarjeta sobre la superficie.
+### s005 - Condiciones combinadas de entrenamiento
 
-Los ángulos serán progresivos y moderados:
+Distribución por clase:
 
-- primera fotografía: ángulo muy leve;
-- segunda fotografía: ángulo leve;
-- tercera fotografía: ángulo intermedio;
-- cuarta fotografía: ángulo algo mayor;
-- quinta fotografía: ángulo máximo aproximado de 20 a 25 grados.
+- `0001-0003`: luz natural, fondo con objetos, distancia corta;
+- `0004-0007`: luz natural, fondo con objetos, distancia media;
+- `0008-0010`: luz natural, fondo con objetos, distancia larga;
+- `0011-0013`: luz artificial, fondo oscuro o de color, distancia corta;
+- `0014-0017`: luz artificial, fondo oscuro o de color, distancia media;
+- `0018-0020`: luz artificial, fondo oscuro o de color, distancia larga;
+- `0021-0023`: luz natural, superficie alternativa, distancia corta;
+- `0024-0027`: luz natural, superficie alternativa, distancia media;
+- `0028-0030`: luz natural, superficie alternativa, distancia larga.
 
-No se utilizarán perspectivas extremas. La tarjeta deberá permanecer completa,
-enfocada y visualmente reconocible.
+La perspectiva registrada es frontal. Se permiten cambios realistas de posición
+dentro del encuadre, pero la imagen debe seguir siendo legible.
 
-Los valores del campo `perspective` serán:
+### s006 - Validación
 
-- `lateral_izquierda`;
-- `lateral_derecha`;
-- `superior`;
-- `inferior`;
-- `rotacion_izquierda`;
-- `rotacion_derecha`.
+La sesión fue capturada en otro momento y no debe usarse para entrenar. Se emplea
+para comparar modelos, ajustar hiperparámetros y calibrar el umbral de confianza.
 
-Todas las clases deberán fotografiarse bajo las mismas condiciones para evitar
-que una perspectiva o un fondo quede asociado a una categoría particular.
+Distribución por clase:
 
-#### s005 - Condiciones combinadas
+- `0001-0003`: luz natural, distancia corta, perspectiva frontal;
+- `0004-0007`: luz natural, distancia media, perspectiva frontal;
+- `0008-0010`: luz natural, distancia larga, perspectiva frontal;
+- `0011-0013`: luz artificial, distancia corta, perspectiva frontal;
+- `0014-0017`: luz artificial, distancia media, perspectiva frontal;
+- `0018-0020`: luz artificial, distancia larga, perspectiva frontal;
+- `0021-0023`: luz mixta, distancia corta, perspectiva leve combinada;
+- `0024-0027`: luz mixta, distancia media, perspectiva leve combinada;
+- `0028-0030`: luz mixta, distancia larga, perspectiva leve combinada.
 
-- Más de una habitación.
-- Fondos claros y oscuros.
-- Luz natural y artificial.
-- Posiciones y distancias variadas.
-- Condiciones similares a un uso cotidiano.
+Los fondos son variados y realistas. No se deben elegir únicamente las imágenes
+que el modelo reconoce bien. Las decisiones tomadas con `s006` deben documentarse
+antes de evaluar `s007`.
 
-#### s006 - Validación
+### s007 - Prueba final pendiente
 
-- Capturada en otro momento.
-- Condiciones normales y variadas.
-- No deberá ser una repetición inmediata de las sesiones anteriores.
-- Se utilizará para comparar modelos y calibrar el umbral de confianza.
+`s007` debe capturarse otro día o en otro ambiente y mantenerse apartada hasta
+finalizar el desarrollo. El plan previsto replica la estructura general de
+`s006`, pero utiliza fondos reales variados y no debe copiar sus escenas.
 
-#### s007 - Prueba final
+- `0001-0010`: luz natural, perspectiva frontal y tres distancias;
+- `0011-0020`: luz artificial, perspectiva frontal y tres distancias;
+- `0021-0030`: luz mixta, tres distancias y perspectiva leve combinada.
 
-- Capturada otro día o en otro ambiente.
-- Condiciones normales de uso.
-- No se utilizará para modificar el modelo.
-- Permanecerá reservada hasta finalizar el entrenamiento y la selección.
+Está prohibido usar `s007` para elegir arquitectura, aumentos, épocas o umbral.
+Tampoco se deben eliminar fotografías porque el modelo se equivoque ni repetir
+la evaluación hasta obtener un resultado favorable.
 
-Las sesiones de validación y prueba no deben ser deliberadamente más difíciles.
-Su objetivo es representar imágenes nuevas en condiciones realistas.
+## Imágenes `unknown`
+
+`unknown` agrupa imágenes válidas que no pertenecen a ninguna de las diez
+clases activas. Pueden incluir:
+
+- objetos cotidianos y muebles;
+- manos o sectores de una habitación;
+- hojas en blanco, texto y tarjetas vacías;
+- dibujos u otros pictogramas ajenos a las diez clases;
+- fondos sin tarjetas y objetos parcialmente visibles.
+
+No deben incluir ninguno de los diez pictogramas conocidos, imágenes corruptas,
+fotografías completamente negras, ráfagas casi idénticas, rostros, documentos,
+direcciones ni otra información personal.
+
+No se crean subclases para cada objeto: una silla, una taza y una hoja en blanco
+utilizan el mismo `class_id=unknown`. La variedad es deliberada.
+
+Distribución y función:
+
+- `s001`: 40 imágenes, luz natural y fondo de madera;
+- `s002`: 40 imágenes, luz artificial y fondo claro;
+- `s003`: 40 imágenes, fondos oscuros, de color y con objetos;
+- `s004`: 40 imágenes, perspectivas moderadas;
+- `s005`: 40 imágenes, condiciones combinadas;
+- `s006`: 50 imágenes de validación para calibrar el umbral;
+- `s007`: 50 imágenes pendientes para la evaluación final del rechazo.
+
+Las imágenes `unknown` de `s001` a `s005` forman parte del desarrollo; las de
+`s006` pertenecen a validación y las de `s007` a prueba.
+
+## Metadatos
+
+Cada imagen se registra en `data/metadata.csv` con las columnas:
+
+```text
+filename,class_id,session_id,device,lighting,background,distance,perspective,source,notes
+```
+
+Las imágenes conocidas usan su identificador de clase. Las desconocidas usan
+`class_id=unknown`. La metadata debe describir la captura real y no condiciones
+supuestas.
+
+Las reglas reproducibles se encuentran en:
+
+- `config/session_plans.json` para clases conocidas;
+- `config/unknown_session_plans.json` para imágenes desconocidas.
+
+Los generadores son:
+
+```powershell
+uv run python scripts/generate_metadata.py --session s006
+uv run python scripts/generate_metadata.py --session s006 --apply
+
+uv run python scripts/generate_unknown_metadata.py --session s006
+uv run python scripts/generate_unknown_metadata.py --session s006 --apply
+```
+
+Sin `--apply`, los scripts solo muestran una vista previa. Ambos reemplazan de
+forma idempotente las filas de su propio tipo y conservan el resto de la
+metadata.
+
+## Criterios de calidad y auditoría
+
+Antes de incorporar una sesión se debe comprobar:
+
+- cantidad exacta por clase y sesión;
+- nombres consecutivos sin números repetidos;
+- archivos JPEG o PNG legibles;
+- ausencia de duplicados exactos;
+- una fila de metadata por imagen;
+- coincidencia entre archivos y metadata;
+- condiciones iguales entre clases dentro de cada bloque;
+- ausencia de filtración entre entrenamiento, validación y prueba.
+
+Las imágenes difíciles pero realistas no se eliminan solamente porque el modelo
+las clasifique mal.
+
+## Fuentes, privacidad y respaldo
+
+Las imágenes actuales son propias y registran `source=propia`. Cualquier material
+externo futuro debe incluir fuente y licencia antes de incorporarse.
+
+Las imágenes están excluidas de Git por tamaño y sensibilidad. El dataset debe
+mantenerse en al menos dos ubicaciones controladas y revisarse antes de compartir
+para evitar información personal.
+
+## Incorporación de las cinco clases adicionales
+
+Las clases `papa`, `no`, `si`, `jugar` y `ayuda` se incorporaron después de las
+cinco clases iniciales. Para mantener un diseño equilibrado se reprodujeron los
+perfiles de captura de `s001` a `s006`, con 30 imágenes por combinación de clase
+y sesión. La metadata conserva el identificador del perfil reproducido y el
+orden cronológico EXIF de cada carpeta.
+
+Aunque compartan identificador de sesión experimental, las nuevas capturas se
+realizaron en fechas posteriores. Esta circunstancia debe considerarse al
+interpretar resultados y está documentada en este protocolo; ninguna imagen de
+`s006` puede pasar a entrenamiento. Quedan pendientes las 30 imágenes de `s007`
+por cada clase y las 50 imágenes `unknown` de prueba para alcanzar las 2.400
+imágenes planificadas.

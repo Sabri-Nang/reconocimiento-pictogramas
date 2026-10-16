@@ -8,19 +8,21 @@ muestre la categoría predicha y su nivel de confianza.
 Cuando la predicción no alcance un nivel mínimo de certeza, la aplicación deberá
 mostrar el mensaje "Pictograma no reconocido".
 
-## Fase piloto
+## Estado del dataset
 
-El desarrollo comenzará con cinco clases: agua, comer, baño, mamá y dolor.
+El desarrollo comenzó con cinco clases: agua, comer, baño, mamá y dolor.
 
-Esta fase permitirá validar la recolección de datos, el entrenamiento, la
-evaluación y la interfaz antes de ampliar el modelo a las diez categorías
-previstas para el MVP final.
+Después de validar el proceso de recolección se incorporaron ayuda, jugar, sí,
+no y papá. El dataset actual contiene las diez categorías previstas para el MVP,
+con las sesiones `s001` a `s006` completas. La sesión `s007`, reservada para la
+prueba final, permanece pendiente.
 
-El objetivo final de diez clases se mantiene sin cambios.
+Los modelos entrenados durante el piloto de cinco clases deben volver a
+entrenarse antes de considerarlos compatibles con el dataset ampliado.
 
 ## Clases del modelo
 
-El modelo reconocerá inicialmente diez categorías:
+El modelo reconocerá diez categorías:
 
 1. Agua
 2. Comer

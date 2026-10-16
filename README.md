@@ -114,12 +114,15 @@ uv run reconocimiento-pictogramas
 Abrir http://127.0.0.1:7860. Cargar una imagen JPEG o PNG para ver la
 versión RGB de 128 × 128 píxeles. El botón Limpiar reinicia la pantalla.
 
-La interfaz utiliza las clases de `config/project.json` (piloto de cinco clases).
+La interfaz utiliza las diez clases definidas en `config/project.json`.
 Carga el checkpoint definido en `config/selected_model.json` al reconocer una
 imagen y muestra categoría y probabilidad del modelo. El rechazo todavía está
 pendiente de calibración: mientras el umbral sea null, siempre devuelve una
 clase conocida y lo advierte en la pantalla. Los modelos están ignorados por
 Git; otra instalación debe entrenarlos o copiar el checkpoint seleccionado.
+El checkpoint seleccionado actualmente corresponde al piloto de cinco clases;
+debe regenerarse la preparación y entrenarse un modelo de diez salidas antes de
+usar las clases incorporadas.
 
 ## Preparar el dataset piloto
 
@@ -195,7 +198,8 @@ El comparador comprueba los hashes de ambos manifiestos, ordena por exactitud,
 macro F1 y pérdida de validación y guarda config/selected_model.json.
 Benchmark: CPU, cuatro threads intra-op y dos inter-op, batch 1,
 cinco calentamientos y 30 mediciones; excluye carga del modelo y preprocesamiento.
-La selección es del piloto de cinco clases, no confirma hipótesis de prueba.
+La selección registrada corresponde al piloto de cinco clases y debe repetirse
+después de entrenar los modelos con las diez clases. No confirma hipótesis de prueba.
 No se utiliza s007 ni desconocidos para seleccionar el modelo.
 Si se cambia la selección o el umbral, reiniciar Gradio para recargar la configuración.
 

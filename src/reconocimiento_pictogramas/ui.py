@@ -48,7 +48,7 @@ def build_app() -> gr.Blocks:
     names = ", ".join(item["display_name"] for item in CONFIG["classes"])
     with gr.Blocks(title="Reconocimiento de pictogramas") as app:
         gr.Markdown("# Reconocimiento de pictogramas\nCargá una imagen para preparar su reconocimiento.")
-        gr.Markdown(f"**Piloto de cinco clases:** {names}.")
+        gr.Markdown(f"**Clases configuradas:** {names}.")
         gr.Markdown("**Piloto experimental:** modelo entrenado. El rechazo de desconocidos requiere calibrar el umbral; la confianza mostrada es la probabilidad del modelo.")
         with gr.Row():
             with gr.Column():
