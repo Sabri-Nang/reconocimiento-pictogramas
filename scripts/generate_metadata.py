@@ -73,9 +73,11 @@ def generate_session_rows(
     rows = []
     expected = plan["expected_per_class"]
     defaults = plan["defaults"]
-    ranges = plan["ranges"]
+    default_ranges = plan["ranges"]
+    class_ranges = plan.get("class_ranges", {})
 
     for class_id in class_ids:
+        ranges = class_ranges.get(class_id, default_ranges)
         class_path = KNOWN_DATA_PATH / class_id
         pattern = re.compile(
             rf"^{re.escape(class_id)}_{re.escape(session_id)}_(\d{{4}})"

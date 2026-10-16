@@ -1,4 +1,58 @@
 {
+  "s001": {
+    "expected_per_class": 30,
+    "defaults": {
+      "device": "moto_g75",
+      "lighting": "natural",
+      "background": "madera",
+      "perspective": "frontal",
+      "source": "propia",
+      "notes": ""
+    },
+    "ranges": [
+      {"start": 1, "end": 9, "distance": "corta"},
+      {"start": 10, "end": 20, "distance": "larga"},
+      {"start": 21, "end": 30, "distance": "media"}
+    ],
+    "class_ranges": {
+      "bano": [
+        {"start": 1, "end": 10, "distance": "corta"},
+        {"start": 11, "end": 20, "distance": "larga"},
+        {"start": 21, "end": 30, "distance": "media"}
+      ],
+      "comer": [
+        {"start": 1, "end": 10, "distance": "corta"},
+        {"start": 11, "end": 20, "distance": "media"},
+        {"start": 21, "end": 30, "distance": "larga"}
+      ],
+      "dolor": [
+        {"start": 1, "end": 10, "distance": "corta"},
+        {"start": 11, "end": 20, "distance": "larga"},
+        {"start": 21, "end": 30, "distance": "media"}
+      ],
+      "mama": [
+        {"start": 1, "end": 10, "distance": "corta"},
+        {"start": 11, "end": 20, "distance": "larga"},
+        {"start": 21, "end": 30, "distance": "media"}
+      ]
+    }
+  },
+  "s002": {
+    "expected_per_class": 30,
+    "defaults": {
+      "device": "moto_g75",
+      "lighting": "artificial",
+      "background": "fondo_claro",
+      "perspective": "frontal",
+      "source": "propia",
+      "notes": ""
+    },
+    "ranges": [
+      {"start": 1, "end": 10, "distance": "corta"},
+      {"start": 11, "end": 20, "distance": "media"},
+      {"start": 21, "end": 30, "distance": "larga"}
+    ]
+  },
   "s003": {
     "expected_per_class": 30,
     "defaults": {

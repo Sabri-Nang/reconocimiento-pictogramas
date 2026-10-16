@@ -1,6 +1,6 @@
 {
   "project_name": "reconocimiento-pictogramas",
-  "phase": "pilot-5",
+  "phase": "dataset-10",
   "random_seed": 42,
   "image": {
     "width": 128,
@@ -13,7 +13,12 @@
     {"id": "comer", "display_name": "Comer"},
     {"id": "bano", "display_name": "Baño"},
     {"id": "mama", "display_name": "Mamá"},
-    {"id": "dolor", "display_name": "Dolor"}
+    {"id": "dolor", "display_name": "Dolor"},
+    {"id": "papa", "display_name": "Papá"},
+    {"id": "no", "display_name": "No"},
+    {"id": "si", "display_name": "Sí"},
+    {"id": "jugar", "display_name": "Jugar"},
+    {"id": "ayuda", "display_name": "Ayuda"}
   ],
   "split": {
     "train": 0.70,
@@ -22,7 +27,7 @@
     "group_by_capture_session": true
   },
   "acceptance": {
-    "expected_class_count": 5,
+    "expected_class_count": 10,
     "minimum_test_accuracy": 0.70,
     "confidence_threshold": null
   }
