@@ -38,3 +38,9 @@ reports/figures/**
 # Sistema operativo
 .DS_Store
 Thumbs.db
+# Artefactos locales regenerables de auditoría y preparación
+/reports/dataset_preparation_backups/
+/reports/dataset_10_audit/contact_sheets/
+
+# Estado transitorio de las ejecuciones de validación cruzada
+/reports/cv*/progress.json

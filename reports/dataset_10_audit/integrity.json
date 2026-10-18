@@ -1,0 +1,147 @@
+{
+  "classes": [
+    "agua",
+    "comer",
+    "bano",
+    "mama",
+    "dolor",
+    "papa",
+    "no",
+    "si",
+    "jugar",
+    "ayuda"
+  ],
+  "known_images": 1800,
+  "unknown_images": 250,
+  "metadata_rows": 2050,
+  "counts_by_class_session": {
+    "agua": {
+      "s001": 30,
+      "s002": 30,
+      "s003": 30,
+      "s004": 30,
+      "s005": 30,
+      "s006": 30
+    },
+    "comer": {
+      "s001": 30,
+      "s002": 30,
+      "s003": 30,
+      "s004": 30,
+      "s005": 30,
+      "s006": 30
+    },
+    "bano": {
+      "s001": 30,
+      "s002": 30,
+      "s003": 30,
+      "s004": 30,
+      "s005": 30,
+      "s006": 30
+    },
+    "mama": {
+      "s001": 30,
+      "s002": 30,
+      "s003": 30,
+      "s004": 30,
+      "s005": 30,
+      "s006": 30
+    },
+    "dolor": {
+      "s001": 30,
+      "s002": 30,
+      "s003": 30,
+      "s004": 30,
+      "s005": 30,
+      "s006": 30
+    },
+    "papa": {
+      "s001": 30,
+      "s002": 30,
+      "s003": 30,
+      "s004": 30,
+      "s005": 30,
+      "s006": 30
+    },
+    "no": {
+      "s001": 30,
+      "s002": 30,
+      "s003": 30,
+      "s004": 30,
+      "s005": 30,
+      "s006": 30
+    },
+    "si": {
+      "s001": 30,
+      "s002": 30,
+      "s003": 30,
+      "s004": 30,
+      "s005": 30,
+      "s006": 30
+    },
+    "jugar": {
+      "s001": 30,
+      "s002": 30,
+      "s003": 30,
+      "s004": 30,
+      "s005": 30,
+      "s006": 30
+    },
+    "ayuda": {
+      "s001": 30,
+      "s002": 30,
+      "s003": 30,
+      "s004": 30,
+      "s005": 30,
+      "s006": 30
+    },
+    "unknown": {
+      "s001": 40,
+      "s002": 40,
+      "s003": 40,
+      "s004": 40,
+      "s005": 40,
+      "s006": 50
+    }
+  },
+  "dimensions": {
+    "3072x3072": 2050
+  },
+  "errors": [],
+  "test_evaluated": false,
+  "visual_review": "Revisadas 1800 conocidas y 250 desconocidas en 14 hojas de contacto; inspeccionados originales ayuda_s001_0005 y ayuda_s001_0011. No se detectaron etiquetas claramente incorrectas. No equivale a inspeccionar cada original a resolución completa.",
+  "near_duplicates_checked": false,
+  "visual_findings": [
+    {
+      "files": [
+        "ayuda_s001_0005.jpg",
+        "ayuda_s001_0011.jpg"
+      ],
+      "issue": "Desenfoque/movimiento visible; pictograma identificable. Conservar con observación, revisar posible recaptura antes de fijar las rondas.",
+      "excluded": false
+    },
+    {
+      "scope": "Tomas lejanas, especialmente s002",
+      "issue": "Tarjeta pequeña a 128x128; conservar como condición difícil, evaluar errores por escala.",
+      "excluded": false
+    },
+    {
+      "scope": "unknown",
+      "issue": "Predominan objetos, fondos y fotos movidas. Considerar también pictogramas ajenos a las diez clases para ampliar cobertura del rechazo.",
+      "excluded": false
+    }
+  ],
+  "processed_verification": {
+    "images": 1800,
+    "mode": "RGB",
+    "size": [
+      128,
+      128
+    ],
+    "development_rows": 1800,
+    "train_reference_rows": 1500,
+    "validation_reference_rows": 300,
+    "test_rows": 0,
+    "cross_validation_implemented": false
+  }
+}

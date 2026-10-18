@@ -16,5 +16,5 @@
       "s007"
     ]
   },
-  "note": "Partición explícita del piloto por sesión; prevalece sobre las proporciones orientativas. Prueba pendiente: no sustituir s007 por imágenes de entrenamiento o validación."
+  "note": "Partición de referencia para diez clases: s001-s005 entrenamiento y s006 validación. Las rondas de validación cruzada se definirán aparte. s007 está reservada para prueba final; no se sustituye ni se utiliza durante el desarrollo."
 }
