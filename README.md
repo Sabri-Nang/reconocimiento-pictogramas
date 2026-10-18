@@ -213,3 +213,68 @@ Verifica nombres, formato, apertura y duplicados contra conocidas y desconocidas
 Guarda inventario y reporte en reports/, sin modificar capturas ni asignar
 particiones. La revisión visual y la independencia de sesiones se comprueban
 antes de decidir qué negativos usar en calibración o prueba.
+
+## Dataset completo de diez clases (octubre de 2026)
+
+```powershell
+uv run python scripts/audit_full_dataset.py
+uv run python scripts/prepare_dataset.py --apply --workers 4
+```
+
+La auditoría completa abre las capturas conocidas y desconocidas, verifica
+metadata, clases, nombres, cantidades de conocidas y duplicados exactos globales.
+Escribe reports/dataset_10_audit/integrity.json e inventory.csv.
+No determina automáticamente calidad visual ni duplicados aproximados.
+Si encuentra s007, se detiene para mantener esa prueba fuera del desarrollo.
+
+La preparación procesa solo conocidas; las filas unknown no son clases de
+entrenamiento y se auditan aparte. Conserva los manifiestos previos en
+reports/dataset_preparation_backups/. Genera PNG RGB128x128, train.csv con
+s001-s005, validation.csv con s006, test.csv vacío mientras falta s007 y
+un development.csv con todas las conocidas s001-s006 para preparar las futuras
+rondas de validación cruzada. Estas particiones de referencia no implementan
+validación cruzada todavía. Los modelos y resultados del piloto se conservan.
+No se entrena ni se cambia el modelo seleccionado al preparar datos.
+
+## Validación cruzada con diez clases
+
+```powershell
+uv run python scripts/train_cross_validation.py
+```
+
+Seis rondas por arquitectura, cada una con 1200 imágenes de entrenamiento,
+300 de validación interna para parada temprana y 300 externas para evaluar.
+s007 queda reservada para la prueba final y no participa en las rondas.
+Los modelos se reinician en cada ronda. Se guardan gráficos por época,
+historiales por paso, checkpoints y resultados externos. Ver
+[el protocolo detallado](docs/validacion_cruzada_10_clases.md).
+
+## Continuación del ajuste fino de MobileNet
+
+```powershell
+uv run python scripts/extend_mobilenet_cv.py
+uv run python scripts/describe_cv_results.py --run-id IDENTIFICADOR_GENERADO
+uv run python scripts/compare_cv_experiments.py --reference cv10_20261018_000712 --candidate IDENTIFICADOR_GENERADO
+```
+
+config/cv_mobilenet_extended.json fija el experimento de referencia y el límite
+de épocas adicionales. La época 0 representa su checkpoint; conserva el estado
+Adam, utiliza las mismas rondas y elige por pérdida interna, sin usar s007.
+El objetivo de desarrollo se compara con el conteo exacto (1440/1800 para 80%),
+sin redondear un resultado inferior. Los resultados no son prueba final.
+
+## Archivos versionados y artefactos locales
+
+Git conserva código, configuración, documentación y evidencia de los experimentos:
+protocolos, manifiestos por ronda, historiales por época y paso, predicciones,
+métricas, verificaciones y gráficos. Estos archivos permiten revisar los resultados
+sin volver a entrenar. Los checkpoints referenciados se conservan localmente.
+
+`.gitignore` excluye el entorno virtual, cachés, capturas originales, imágenes
+procesadas, particiones generadas en `data/splits/`, pesos en `models/`, respaldos
+automáticos de particiones, nuevas hojas de contacto de la auditoría y el estado
+transitorio `progress.json` de las ejecuciones de validación cruzada.
+Las hojas de contacto se regeneran con `scripts/create_dataset_contact_sheets.py`.
+Los archivos ignorados permanecen en disco y requieren respaldo separado; Git
+no respalda las capturas ni los modelos. Las imágenes históricas ya versionadas
+se conservan: agregar una regla no elimina archivos de commits anteriores.

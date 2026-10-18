@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "trainings": 12,
+  "models": [
+    {
+      "architecture": "cnn",
+      "fold": 1,
+      "model_sha256": "a094498e17f941e51df3ff71a15ce3e7b938ba5c9266d76b3ffb3561cbcfa221",
+      "epochs": 7,
+      "steps": 266
+    },
+    {
+      "architecture": "cnn",
+      "fold": 2,
+      "model_sha256": "992af3991821fc48cda0dc387a0ac1c92f24d26d22cfff8c931cbc419eb56cc8",
+      "epochs": 13,
+      "steps": 494
+    },
+    {
+      "architecture": "cnn",
+      "fold": 3,
+      "model_sha256": "98b9beb50cbb08c82b8695255e286ebe8cebe7745f0e3f541b76554bbe80385d",
+      "epochs": 25,
+      "steps": 950
+    },
+    {
+      "architecture": "cnn",
+      "fold": 4,
+      "model_sha256": "8d6d5216650a7baae30b1898593a04e2a5851e4736fe002d7277d1fc23c2a113",
+      "epochs": 22,
+      "steps": 836
+    },
+    {
+      "architecture": "cnn",
+      "fold": 5,
+      "model_sha256": "56f1b5e84957382cc758f7d19fd7db7115152635c907507cf824a725cb3f9cb3",
+      "epochs": 15,
+      "steps": 570
+    },
+    {
+      "architecture": "cnn",
+      "fold": 6,
+      "model_sha256": "b7b8a3a8cdb0bdd07aba1e7dbcad1e0ff2262054c5ee7fee7238759e9859f91b",
+      "epochs": 8,
+      "steps": 304
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 1,
+      "model_sha256": "28017b8404f8340c3b42948fd4cb827fcc6cd0f1a9236c5c2c495d479a779389",
+      "epochs": 30,
+      "steps": 1140
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 2,
+      "model_sha256": "3d81d6ccb8caf5b820d336ad99e1dadef98b993d3a3070f93e028e978da187cd",
+      "epochs": 30,
+      "steps": 1140
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 3,
+      "model_sha256": "3ec969f8d7abdfeee069b85eea77e51371f8f34600a1d20f094328d436e5abd6",
+      "epochs": 30,
+      "steps": 1140
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 4,
+      "model_sha256": "56dc2741ff1a19ec10fe9ebe5948216ea54638e0eedc5f8e061587e9c7bd6dde",
+      "epochs": 30,
+      "steps": 1140
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 5,
+      "model_sha256": "5693145d749544c4f4397e5741d6b3ba02e8fff27d6b2137d8aff6aa12c25860",
+      "epochs": 22,
+      "steps": 836
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 6,
+      "model_sha256": "f942f92207411b5f0f3488359a1e88e309927fdbb3017b53cd81e6ff5c9c8b13",
+      "epochs": 28,
+      "steps": 1064
+    }
+  ],
+  "test_used": false
+}

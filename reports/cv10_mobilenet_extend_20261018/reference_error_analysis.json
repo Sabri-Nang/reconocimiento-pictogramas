@@ -1,0 +1,161 @@
+{
+  "source_run": "cv10_20261018_000712",
+  "target_development_accuracy": 0.8,
+  "test_used": false,
+  "error_pairs": [
+    {
+      "true": "no",
+      "predicted": "dolor",
+      "count": 25
+    },
+    {
+      "true": "dolor",
+      "predicted": "no",
+      "count": 22
+    },
+    {
+      "true": "comer",
+      "predicted": "mama",
+      "count": 21
+    },
+    {
+      "true": "papa",
+      "predicted": "mama",
+      "count": 20
+    },
+    {
+      "true": "agua",
+      "predicted": "ayuda",
+      "count": 18
+    },
+    {
+      "true": "mama",
+      "predicted": "papa",
+      "count": 18
+    },
+    {
+      "true": "jugar",
+      "predicted": "bano",
+      "count": 15
+    },
+    {
+      "true": "jugar",
+      "predicted": "dolor",
+      "count": 14
+    },
+    {
+      "true": "si",
+      "predicted": "ayuda",
+      "count": 14
+    },
+    {
+      "true": "si",
+      "predicted": "mama",
+      "count": 14
+    },
+    {
+      "true": "papa",
+      "predicted": "comer",
+      "count": 12
+    },
+    {
+      "true": "papa",
+      "predicted": "bano",
+      "count": 11
+    },
+    {
+      "true": "jugar",
+      "predicted": "mama",
+      "count": 11
+    },
+    {
+      "true": "bano",
+      "predicted": "mama",
+      "count": 10
+    },
+    {
+      "true": "papa",
+      "predicted": "dolor",
+      "count": 10
+    }
+  ],
+  "by_condition": {
+    "distance": {
+      "corta": {
+        "correct": 390,
+        "total": 464,
+        "accuracy": 0.8405172413793104
+      },
+      "larga": {
+        "correct": 261,
+        "total": 476,
+        "accuracy": 0.5483193277310925
+      },
+      "media": {
+        "correct": 691,
+        "total": 860,
+        "accuracy": 0.8034883720930233
+      }
+    },
+    "perspective": {
+      "frontal": {
+        "correct": 1018,
+        "total": 1400,
+        "accuracy": 0.7271428571428571
+      },
+      "lateral_izquierda": {
+        "correct": 48,
+        "total": 50,
+        "accuracy": 0.96
+      },
+      "lateral_derecha": {
+        "correct": 41,
+        "total": 50,
+        "accuracy": 0.82
+      },
+      "superior": {
+        "correct": 42,
+        "total": 50,
+        "accuracy": 0.84
+      },
+      "inferior": {
+        "correct": 45,
+        "total": 50,
+        "accuracy": 0.9
+      },
+      "rotacion_izquierda": {
+        "correct": 48,
+        "total": 50,
+        "accuracy": 0.96
+      },
+      "rotacion_derecha": {
+        "correct": 47,
+        "total": 50,
+        "accuracy": 0.94
+      },
+      "mixta_leve": {
+        "correct": 53,
+        "total": 100,
+        "accuracy": 0.53
+      }
+    },
+    "lighting": {
+      "natural": {
+        "correct": 889,
+        "total": 1200,
+        "accuracy": 0.7408333333333333
+      },
+      "artificial": {
+        "correct": 400,
+        "total": 500,
+        "accuracy": 0.8
+      },
+      "mixta": {
+        "correct": 53,
+        "total": 100,
+        "accuracy": 0.53
+      }
+    }
+  },
+  "interpretation": "Asociaciones descriptivas sobre desarrollo; no demuestran que una condición sea la causa del error."
+}

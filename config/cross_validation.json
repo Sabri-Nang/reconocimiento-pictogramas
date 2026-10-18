@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "sessions": ["s001", "s002", "s003", "s004", "s005", "s006"],
+  "reserved_final_test": "s007",
+  "batch_size": 32,
+  "seed": 42,
+  "expected_per_class_session": 30,
+  "cnn_epochs": 30,
+  "mobilenet_head_epochs": 20,
+  "mobilenet_fine_tune_epochs": 10,
+  "patience": 6,
+  "fine_tune_patience": 4,
+  "monitor": "val_loss",
+  "min_delta": 0.0,
+  "note": "Seis rondas con holdout interno fijo rotativo para early stopping. No es una búsqueda exhaustiva anidada de hiperparámetros. Cada modelo parte de nuevo en cada ronda. No utiliza desconocidos ni s007."
+}

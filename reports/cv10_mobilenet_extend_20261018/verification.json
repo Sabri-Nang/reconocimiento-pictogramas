@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "trainings": 6,
+  "models": [
+    {
+      "architecture": "mobilenet",
+      "fold": 1,
+      "model_sha256": "56a67b2887fffe0b70d8ec30b3ecb3ed805f78f7917462691b2c0ab4ee7192af",
+      "epochs": 30,
+      "steps": 1140
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 2,
+      "model_sha256": "4278a9c20d5e7c105147480458321f7016d2750b15294d330800a208280fe16d",
+      "epochs": 21,
+      "steps": 798
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 3,
+      "model_sha256": "ea9da0ebb6657478655a0cd1219ee584f3009a6f11549ed96498d28a5fc59dca",
+      "epochs": 28,
+      "steps": 1064
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 4,
+      "model_sha256": "6f5b07f349e7bf540f3bf933e370cad0c75b398668b7cabfeb984153224156e4",
+      "epochs": 30,
+      "steps": 1140
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 5,
+      "model_sha256": "02dc21ac7bc6921fed813b69233ed336605093e6367e5d4263a462e1bf3f8e90",
+      "epochs": 30,
+      "steps": 1140
+    },
+    {
+      "architecture": "mobilenet",
+      "fold": 6,
+      "model_sha256": "c0b8d991ca57ac7850589e4d36f31aa1ad59c0f041614d8835555ac83cae1dd4",
+      "epochs": 30,
+      "steps": 1140
+    }
+  ],
+  "test_used": false
+}

@@ -1,0 +1,50 @@
+{
+  "reference": "cv10_20261018_000712",
+  "candidate": "cv10_mobilenet_extend_20261018",
+  "images": 1800,
+  "reference_correct": 1342,
+  "candidate_correct": 1441,
+  "reference_accuracy": 0.7455555555555555,
+  "candidate_accuracy": 0.8005555555555556,
+  "delta_percentage_points": 5.5,
+  "target_accuracy": 0.8,
+  "target_met_on_development": true,
+  "by_distance": {
+    "reference": {
+      "corta": {
+        "correct": 390,
+        "total": 464,
+        "accuracy": 0.8405172413793104
+      },
+      "larga": {
+        "correct": 261,
+        "total": 476,
+        "accuracy": 0.5483193277310925
+      },
+      "media": {
+        "correct": 691,
+        "total": 860,
+        "accuracy": 0.8034883720930233
+      }
+    },
+    "candidate": {
+      "corta": {
+        "correct": 417,
+        "total": 464,
+        "accuracy": 0.8987068965517241
+      },
+      "larga": {
+        "correct": 282,
+        "total": 476,
+        "accuracy": 0.592436974789916
+      },
+      "media": {
+        "correct": 742,
+        "total": 860,
+        "accuracy": 0.8627906976744186
+      }
+    }
+  },
+  "test_used": false,
+  "interpretation": "Comparación adaptativa de desarrollo. No es prueba independiente ni confirma H1."
+}

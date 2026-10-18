@@ -1,0 +1,206 @@
+{
+  "config": {
+    "version": 1,
+    "sessions": [
+      "s001",
+      "s002",
+      "s003",
+      "s004",
+      "s005",
+      "s006"
+    ],
+    "reserved_final_test": "s007",
+    "batch_size": 32,
+    "seed": 42,
+    "expected_per_class_session": 30,
+    "cnn_epochs": 30,
+    "mobilenet_head_epochs": 20,
+    "mobilenet_fine_tune_epochs": 10,
+    "patience": 6,
+    "fine_tune_patience": 4,
+    "monitor": "val_loss",
+    "min_delta": 0.0,
+    "note": "Continuación de MobileNet desde su checkpoint seleccionado, conservando optimizador Adam1e-5. Hasta30 épocas adicionales, misma paciencia4. Seis rondas completas, sin s007. Búsqueda adaptativa de desarrollo, no prueba independiente.",
+    "source_run": "cv10_20261018_000712",
+    "extra_fine_tune_epochs": 30
+  },
+  "project": {
+    "project_name": "reconocimiento-pictogramas",
+    "phase": "dataset-10",
+    "random_seed": 42,
+    "image": {
+      "width": 128,
+      "height": 128,
+      "channels": 3,
+      "color_mode": "rgb"
+    },
+    "classes": [
+      {
+        "id": "agua",
+        "display_name": "Agua"
+      },
+      {
+        "id": "comer",
+        "display_name": "Comer"
+      },
+      {
+        "id": "bano",
+        "display_name": "Baño"
+      },
+      {
+        "id": "mama",
+        "display_name": "Mamá"
+      },
+      {
+        "id": "dolor",
+        "display_name": "Dolor"
+      },
+      {
+        "id": "papa",
+        "display_name": "Papá"
+      },
+      {
+        "id": "no",
+        "display_name": "No"
+      },
+      {
+        "id": "si",
+        "display_name": "Sí"
+      },
+      {
+        "id": "jugar",
+        "display_name": "Jugar"
+      },
+      {
+        "id": "ayuda",
+        "display_name": "Ayuda"
+      }
+    ],
+    "split": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15,
+      "group_by_capture_session": true
+    },
+    "acceptance": {
+      "expected_class_count": 10,
+      "minimum_test_accuracy": 0.7,
+      "confidence_threshold": null
+    }
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "train": [
+        "s003",
+        "s004",
+        "s005",
+        "s006"
+      ],
+      "stop": [
+        "s002"
+      ],
+      "outer": [
+        "s001"
+      ]
+    },
+    {
+      "fold": 2,
+      "train": [
+        "s001",
+        "s004",
+        "s005",
+        "s006"
+      ],
+      "stop": [
+        "s003"
+      ],
+      "outer": [
+        "s002"
+      ]
+    },
+    {
+      "fold": 3,
+      "train": [
+        "s001",
+        "s002",
+        "s005",
+        "s006"
+      ],
+      "stop": [
+        "s004"
+      ],
+      "outer": [
+        "s003"
+      ]
+    },
+    {
+      "fold": 4,
+      "train": [
+        "s001",
+        "s002",
+        "s003",
+        "s006"
+      ],
+      "stop": [
+        "s005"
+      ],
+      "outer": [
+        "s004"
+      ]
+    },
+    {
+      "fold": 5,
+      "train": [
+        "s001",
+        "s002",
+        "s003",
+        "s004"
+      ],
+      "stop": [
+        "s006"
+      ],
+      "outer": [
+        "s005"
+      ]
+    },
+    {
+      "fold": 6,
+      "train": [
+        "s002",
+        "s003",
+        "s004",
+        "s005"
+      ],
+      "stop": [
+        "s001"
+      ],
+      "outer": [
+        "s006"
+      ]
+    }
+  ],
+  "development_sha256": "1f88bb1013b130f344c022965599cd39c8f29162c2eb0985894d41f080fa6937",
+  "test_used": false,
+  "unknown_used": false,
+  "visual_findings": [
+    {
+      "files": [
+        "ayuda_s001_0005.jpg",
+        "ayuda_s001_0011.jpg"
+      ],
+      "issue": "Desenfoque/movimiento visible; pictograma identificable. Conservar con observación, revisar posible recaptura antes de fijar las rondas.",
+      "excluded": false
+    },
+    {
+      "scope": "Tomas lejanas, especialmente s002",
+      "issue": "Tarjeta pequeña a 128x128; conservar como condición difícil, evaluar errores por escala.",
+      "excluded": false
+    },
+    {
+      "scope": "unknown",
+      "issue": "Predominan objetos, fondos y fotos movidas. Considerar también pictogramas ajenos a las diez clases para ampliar cobertura del rechazo.",
+      "excluded": false
+    }
+  ]
+}
