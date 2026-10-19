@@ -1,0 +1,226 @@
+{
+  "architecture": "cnn",
+  "fold": 7,
+  "seed": 48,
+  "train_sessions": [
+    "s002",
+    "s003",
+    "s004",
+    "s005",
+    "s006"
+  ],
+  "stop_session": "s001",
+  "outer_session": "s008",
+  "outer_images": 300,
+  "outer_accuracy": 0.86,
+  "outer_correct": 258,
+  "outer_errors": 42,
+  "macro_f1": 0.8587240619502083,
+  "classification_report": {
+    "agua": {
+      "precision": 1.0,
+      "recall": 0.6,
+      "f1-score": 0.75,
+      "support": 30.0
+    },
+    "comer": {
+      "precision": 0.9,
+      "recall": 0.6,
+      "f1-score": 0.72,
+      "support": 30.0
+    },
+    "bano": {
+      "precision": 0.9642857142857143,
+      "recall": 0.9,
+      "f1-score": 0.9310344827586207,
+      "support": 30.0
+    },
+    "mama": {
+      "precision": 0.9655172413793104,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.9491525423728814,
+      "support": 30.0
+    },
+    "dolor": {
+      "precision": 0.8235294117647058,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.875,
+      "support": 30.0
+    },
+    "papa": {
+      "precision": 0.6382978723404256,
+      "recall": 1.0,
+      "f1-score": 0.7792207792207793,
+      "support": 30.0
+    },
+    "no": {
+      "precision": 0.7352941176470589,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.78125,
+      "support": 30.0
+    },
+    "si": {
+      "precision": 1.0,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.9655172413793104,
+      "support": 30.0
+    },
+    "jugar": {
+      "precision": 0.9354838709677419,
+      "recall": 0.9666666666666667,
+      "f1-score": 0.9508196721311475,
+      "support": 30.0
+    },
+    "ayuda": {
+      "precision": 0.8709677419354839,
+      "recall": 0.9,
+      "f1-score": 0.8852459016393442,
+      "support": 30.0
+    },
+    "accuracy": 0.86,
+    "macro avg": {
+      "precision": 0.8833375970320441,
+      "recall": 0.86,
+      "f1-score": 0.8587240619502083,
+      "support": 300.0
+    },
+    "weighted avg": {
+      "precision": 0.8833375970320441,
+      "recall": 0.86,
+      "f1-score": 0.8587240619502083,
+      "support": 300.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      18,
+      2,
+      1,
+      0,
+      2,
+      2,
+      3,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      18,
+      0,
+      1,
+      0,
+      9,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      27,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      28,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      28,
+      0,
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      25,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      28,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      29,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      27
+    ]
+  ],
+  "best_epoch": 23,
+  "epochs_executed": 29,
+  "training_seconds": 249.87033350000274,
+  "model_parameters": 651050,
+  "image_size": [
+    192,
+    192
+  ],
+  "model_path": "models/cv10_s008_192_20261019/fold_07/cnn/best.keras",
+  "test_used": false
+}

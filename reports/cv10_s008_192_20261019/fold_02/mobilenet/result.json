@@ -1,0 +1,226 @@
+{
+  "architecture": "mobilenet",
+  "fold": 2,
+  "seed": 43,
+  "train_sessions": [
+    "s001",
+    "s004",
+    "s005",
+    "s006",
+    "s008"
+  ],
+  "stop_session": "s003",
+  "outer_session": "s002",
+  "outer_images": 300,
+  "outer_accuracy": 0.9266666666666666,
+  "outer_correct": 278,
+  "outer_errors": 22,
+  "macro_f1": 0.9273266659822708,
+  "classification_report": {
+    "agua": {
+      "precision": 0.8333333333333334,
+      "recall": 1.0,
+      "f1-score": 0.9090909090909091,
+      "support": 30.0
+    },
+    "comer": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.9090909090909091,
+      "support": 30.0
+    },
+    "bano": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "mama": {
+      "precision": 0.9615384615384616,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.8928571428571429,
+      "support": 30.0
+    },
+    "dolor": {
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1-score": 0.8888888888888888,
+      "support": 30.0
+    },
+    "papa": {
+      "precision": 0.7435897435897436,
+      "recall": 0.9666666666666667,
+      "f1-score": 0.8405797101449275,
+      "support": 30.0
+    },
+    "no": {
+      "precision": 0.9,
+      "recall": 0.9,
+      "f1-score": 0.9,
+      "support": 30.0
+    },
+    "si": {
+      "precision": 0.967741935483871,
+      "recall": 1.0,
+      "f1-score": 0.9836065573770492,
+      "support": 30.0
+    },
+    "jugar": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "ayuda": {
+      "precision": 0.9655172413793104,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.9491525423728814,
+      "support": 30.0
+    },
+    "accuracy": 0.9266666666666666,
+    "macro avg": {
+      "precision": 0.9371720715324721,
+      "recall": 0.9266666666666667,
+      "f1-score": 0.9273266659822708,
+      "support": 300.0
+    },
+    "weighted avg": {
+      "precision": 0.937172071532472,
+      "recall": 0.9266666666666666,
+      "f1-score": 0.9273266659822709,
+      "support": 300.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      25,
+      0,
+      0,
+      0,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      25,
+      0,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      3,
+      0,
+      0,
+      0,
+      24,
+      0,
+      3,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      29,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      27,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      30,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      28
+    ]
+  ],
+  "best_epoch": 60,
+  "epochs_executed": 60,
+  "training_seconds": 379.4546713000018,
+  "model_parameters": 944890,
+  "image_size": [
+    192,
+    192
+  ],
+  "model_path": "models/cv10_s008_192_20261019/fold_02/mobilenet/best.keras",
+  "test_used": false
+}

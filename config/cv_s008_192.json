@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "sessions": [
+    "s001",
+    "s002",
+    "s003",
+    "s004",
+    "s005",
+    "s006",
+    "s008"
+  ],
+  "reserved_final_test": "s007",
+  "batch_size": 32,
+  "seed": 42,
+  "expected_per_class_session": 30,
+  "cnn_epochs": 30,
+  "mobilenet_head_epochs": 20,
+  "mobilenet_fine_tune_epochs": 40,
+  "patience": 6,
+  "fine_tune_patience": 4,
+  "monitor": "val_loss",
+  "min_delta": 0.0,
+  "note": "Comparacion192 frente a128: mismas siete rondas, semillas, batch32, presupuestos CNN30 y MobileNet20+40, aumentos y parada. Originales EXIF/RGB/LANCZOS. CNN Flatten aumenta parametros; MobileNet usa promedio global. s007 excluida. No modifica aplicacion.",
+  "architectures": [
+    "cnn",
+    "mobilenet"
+  ],
+  "development_manifest": "reports/resolution_192_20261019/development_192.csv",
+  "audit_path": "reports/resolution_192_20261019/integrity.json",
+  "inventory_path": "reports/session_s008_review/inventory_7sessions.csv",
+  "image_size": [
+    192,
+    192
+  ]
+}

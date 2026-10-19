@@ -1,0 +1,15 @@
+{
+  "resolution": 192,
+  "architecture": "cnn",
+  "fold": 1,
+  "model_parameters": 651050,
+  "batch_size": 1,
+  "warmup": 3,
+  "repetitions": 20,
+  "median_ms": 11.574599993764423,
+  "p95_ms": 12.424325003667036,
+  "preprocessing_median_ms": 135.89270001102705,
+  "scope": "CPU local, llamada eager al clasificador y salida numpy; excluye carga del modelo, detector kNN, red y camara. Referencia fold1, no todas las rondas.",
+  "raw_path": "data/raw/known/agua/agua_s001_0001.jpg",
+  "test_used": false
+}

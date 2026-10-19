@@ -56,3 +56,6 @@ Thumbs.db
 # Hojas de contacto regenerables; conservar las copias locales
 /reports/revision_visual/*.jpg
 /reports/revision_visual/*.png
+
+# Hojas visuales de nuevas sesiones: copias locales regenerables
+/reports/session_s008_review/contact_sheets/

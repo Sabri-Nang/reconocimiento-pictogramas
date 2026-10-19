@@ -1,0 +1,253 @@
+{
+  "model_path": "models/mobilenet_app_20261018/best.keras",
+  "model_sha256": "556486f2ce505efc590be6f3f30352c3e8dbaed6bfcfe3ef987d2c861e02122e",
+  "selected_config_sha256": "77458482b9e1b4bda24e1f1ec77bfb0553966f04ffe032246059784afa983f5b",
+  "threshold": 0.7831352047946099,
+  "metrics": {
+    "known_images": 300,
+    "unknown_images": 50,
+    "known_correct_without_rejection": 247,
+    "known_accuracy_without_rejection": 0.8233333333333334,
+    "known_rejected": 0,
+    "known_rejection_rate": 0.0,
+    "known_accepted": 300,
+    "known_coverage": 1.0,
+    "known_correct_accepted": 247,
+    "known_accuracy_with_rejection": 0.8233333333333334,
+    "accuracy_among_accepted_known": 0.8233333333333334,
+    "known_wrong_accepted": 53,
+    "unknown_rejected": 29,
+    "unknown_rejection_rate": 0.58,
+    "unknown_false_accepted": 21,
+    "unknown_false_acceptance_rate": 0.42000000000000004
+  },
+  "classification_report": {
+    "agua": {
+      "precision": 0.9,
+      "recall": 0.9,
+      "f1-score": 0.9,
+      "support": 30.0
+    },
+    "comer": {
+      "precision": 0.875,
+      "recall": 0.4666666666666667,
+      "f1-score": 0.6086956521739131,
+      "support": 30.0
+    },
+    "bano": {
+      "precision": 0.8709677419354839,
+      "recall": 0.9,
+      "f1-score": 0.8852459016393442,
+      "support": 30.0
+    },
+    "mama": {
+      "precision": 0.9285714285714286,
+      "recall": 0.8666666666666667,
+      "f1-score": 0.896551724137931,
+      "support": 30.0
+    },
+    "dolor": {
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1-score": 0.8571428571428571,
+      "support": 30.0
+    },
+    "papa": {
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1-score": 0.8888888888888888,
+      "support": 30.0
+    },
+    "no": {
+      "precision": 1.0,
+      "recall": 0.4666666666666667,
+      "f1-score": 0.6363636363636364,
+      "support": 30.0
+    },
+    "si": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.9090909090909091,
+      "support": 30.0
+    },
+    "jugar": {
+      "precision": 0.7692307692307693,
+      "recall": 1.0,
+      "f1-score": 0.8695652173913043,
+      "support": 30.0
+    },
+    "ayuda": {
+      "precision": 0.5660377358490566,
+      "recall": 1.0,
+      "f1-score": 0.7228915662650602,
+      "support": 30.0
+    },
+    "accuracy": 0.8233333333333334,
+    "macro avg": {
+      "precision": 0.8659807675586737,
+      "recall": 0.8233333333333335,
+      "f1-score": 0.8174436353093844,
+      "support": 300.0
+    },
+    "weighted avg": {
+      "precision": 0.8659807675586738,
+      "recall": 0.8233333333333334,
+      "f1-score": 0.8174436353093845,
+      "support": 300.0
+    }
+  },
+  "by_distance": {
+    "corta": {
+      "correct": 92,
+      "total": 100
+    },
+    "media": {
+      "correct": 85,
+      "total": 100
+    },
+    "larga": {
+      "correct": 70,
+      "total": 100
+    }
+  },
+  "confusion_matrix": [
+    [
+      27,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      14,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      2,
+      11
+    ],
+    [
+      0,
+      0,
+      27,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      26,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      3,
+      0,
+      1,
+      24,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      2,
+      1,
+      0,
+      0,
+      7,
+      0,
+      14,
+      0,
+      0,
+      6
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      25,
+      3,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      30,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      30
+    ]
+  ],
+  "classes": [
+    "agua",
+    "comer",
+    "bano",
+    "mama",
+    "dolor",
+    "papa",
+    "no",
+    "si",
+    "jugar",
+    "ayuda"
+  ],
+  "test_used": false,
+  "trained_on_s008": false,
+  "threshold_recalibrated": false,
+  "interpretation": "Diagnostico de desarrollo con modelo y umbral congelados antes de usar s008 para entrenar; no prueba final. Desconocidos solo objetos y escenas, sin otros pictogramas.",
+  "metadata_sha256": "3af5afe3653ab696bb01a02375f6d4a3bad971707bfcc745eadd9d8cf5c41515",
+  "script_sha256": "b2abbac9e6373dd60492a3bea71cac86b9546fb25074b3c384c56944329077aa"
+}

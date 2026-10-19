@@ -1,0 +1,12 @@
+{
+  "images": 2100,
+  "errors": [],
+  "size": [
+    192,
+    192
+  ],
+  "test_used": false,
+  "source_manifest_sha256": "2fe9a0d87f40cb0dee696bedfe722a3f34dc1fb03d2eccd9426d1856c4bb15d2",
+  "original_hashes_verified": true,
+  "source": "originales, no PNG128"
+}

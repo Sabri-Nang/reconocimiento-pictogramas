@@ -1,0 +1,13 @@
+{
+  "scope": "11 hojas de contacto, 350 imagenes",
+  "findings": [
+    "Revisadas las once hojas: 300 conocidas y 50 desconocidas. Etiquetas visuales conocidas coherentes; no se observaron tarjetas de clases conocidas entre desconocidos en estas miniaturas.",
+    "Desenfoque visible en mama_s008_0010, papa_s008_0001 y si_s008_0003/0006; se conservan sin excluir por resultados.",
+    "Desconocidos con desenfoque o movimiento marcado: 0006,0009,0015,0022,0029,0039,0040; se conservan y se informa esta composicion. No equivalen a todos los tipos posibles de desconocidos.",
+    "Hay reflejos, sombras y repeticion de objetos o escenas. La ausencia de duplicados exactos no demuestra independencia entre tomas.",
+    "Las distancias son etiquetas declaradas por orden de captura; el tamano aparente de la tarjeta varia dentro de cada grupo. No se midio distancia fisica.",
+    "Revision de miniaturas, no certificacion individual a resolucion completa. Sin exclusiones."
+  ],
+  "excluded_images": [],
+  "test_used": false
+}

@@ -1,0 +1,586 @@
+{
+  "architectures": {
+    "cnn": {
+      "variants": {
+        "128": {
+          "correct": 1637,
+          "total": 2100,
+          "by": {
+            "distance": {
+              "corta": {
+                "correct": 478,
+                "total": 564,
+                "accuracy": 0.8475177304964538
+              },
+              "larga": {
+                "correct": 365,
+                "total": 576,
+                "accuracy": 0.6336805555555556
+              },
+              "media": {
+                "correct": 794,
+                "total": 960,
+                "accuracy": 0.8270833333333333
+              }
+            },
+            "session_id": {
+              "s001": {
+                "correct": 157,
+                "total": 300,
+                "accuracy": 0.5233333333333333
+              },
+              "s002": {
+                "correct": 213,
+                "total": 300,
+                "accuracy": 0.71
+              },
+              "s003": {
+                "correct": 229,
+                "total": 300,
+                "accuracy": 0.7633333333333333
+              },
+              "s004": {
+                "correct": 286,
+                "total": 300,
+                "accuracy": 0.9533333333333334
+              },
+              "s005": {
+                "correct": 227,
+                "total": 300,
+                "accuracy": 0.7566666666666667
+              },
+              "s006": {
+                "correct": 247,
+                "total": 300,
+                "accuracy": 0.8233333333333334
+              },
+              "s008": {
+                "correct": 278,
+                "total": 300,
+                "accuracy": 0.9266666666666666
+              }
+            },
+            "class_id": {
+              "agua": {
+                "correct": 129,
+                "total": 210,
+                "accuracy": 0.6142857142857143
+              },
+              "ayuda": {
+                "correct": 126,
+                "total": 210,
+                "accuracy": 0.6
+              },
+              "bano": {
+                "correct": 166,
+                "total": 210,
+                "accuracy": 0.7904761904761904
+              },
+              "comer": {
+                "correct": 174,
+                "total": 210,
+                "accuracy": 0.8285714285714286
+              },
+              "dolor": {
+                "correct": 180,
+                "total": 210,
+                "accuracy": 0.8571428571428571
+              },
+              "jugar": {
+                "correct": 163,
+                "total": 210,
+                "accuracy": 0.7761904761904762
+              },
+              "mama": {
+                "correct": 170,
+                "total": 210,
+                "accuracy": 0.8095238095238095
+              },
+              "no": {
+                "correct": 162,
+                "total": 210,
+                "accuracy": 0.7714285714285715
+              },
+              "papa": {
+                "correct": 173,
+                "total": 210,
+                "accuracy": 0.8238095238095238
+              },
+              "si": {
+                "correct": 194,
+                "total": 210,
+                "accuracy": 0.9238095238095239
+              }
+            }
+          },
+          "macro_f1": 0.7793849084856892,
+          "training_seconds": 638.8788370999828,
+          "epochs": 155,
+          "mean_training_seconds_per_epoch": 4.121798949032147,
+          "latency": {
+            "resolution": 128,
+            "architecture": "cnn",
+            "fold": 1,
+            "model_parameters": 323370,
+            "batch_size": 1,
+            "warmup": 3,
+            "repetitions": 20,
+            "median_ms": 10.519099996599834,
+            "p95_ms": 10.992300009093015,
+            "preprocessing_median_ms": 136.24950000667013,
+            "scope": "CPU local, llamada eager al clasificador y salida numpy; excluye carga del modelo, detector kNN, red y camara. Referencia fold1, no todas las rondas.",
+            "raw_path": "data/raw/known/agua/agua_s001_0001.jpg",
+            "test_used": false
+          }
+        },
+        "192": {
+          "correct": 1477,
+          "total": 2100,
+          "by": {
+            "distance": {
+              "corta": {
+                "correct": 428,
+                "total": 564,
+                "accuracy": 0.7588652482269503
+              },
+              "larga": {
+                "correct": 318,
+                "total": 576,
+                "accuracy": 0.5520833333333334
+              },
+              "media": {
+                "correct": 731,
+                "total": 960,
+                "accuracy": 0.7614583333333333
+              }
+            },
+            "session_id": {
+              "s001": {
+                "correct": 46,
+                "total": 300,
+                "accuracy": 0.15333333333333332
+              },
+              "s002": {
+                "correct": 200,
+                "total": 300,
+                "accuracy": 0.6666666666666666
+              },
+              "s003": {
+                "correct": 210,
+                "total": 300,
+                "accuracy": 0.7
+              },
+              "s004": {
+                "correct": 275,
+                "total": 300,
+                "accuracy": 0.9166666666666666
+              },
+              "s005": {
+                "correct": 250,
+                "total": 300,
+                "accuracy": 0.8333333333333334
+              },
+              "s006": {
+                "correct": 238,
+                "total": 300,
+                "accuracy": 0.7933333333333333
+              },
+              "s008": {
+                "correct": 258,
+                "total": 300,
+                "accuracy": 0.86
+              }
+            },
+            "class_id": {
+              "agua": {
+                "correct": 119,
+                "total": 210,
+                "accuracy": 0.5666666666666667
+              },
+              "ayuda": {
+                "correct": 121,
+                "total": 210,
+                "accuracy": 0.5761904761904761
+              },
+              "bano": {
+                "correct": 179,
+                "total": 210,
+                "accuracy": 0.8523809523809524
+              },
+              "comer": {
+                "correct": 138,
+                "total": 210,
+                "accuracy": 0.6571428571428571
+              },
+              "dolor": {
+                "correct": 151,
+                "total": 210,
+                "accuracy": 0.719047619047619
+              },
+              "jugar": {
+                "correct": 144,
+                "total": 210,
+                "accuracy": 0.6857142857142857
+              },
+              "mama": {
+                "correct": 134,
+                "total": 210,
+                "accuracy": 0.638095238095238
+              },
+              "no": {
+                "correct": 153,
+                "total": 210,
+                "accuracy": 0.7285714285714285
+              },
+              "papa": {
+                "correct": 159,
+                "total": 210,
+                "accuracy": 0.7571428571428571
+              },
+              "si": {
+                "correct": 179,
+                "total": 210,
+                "accuracy": 0.8523809523809524
+              }
+            }
+          },
+          "macro_f1": 0.7098263367508746,
+          "training_seconds": 1350.1220070999989,
+          "epochs": 156,
+          "mean_training_seconds_per_epoch": 8.654628250641018,
+          "latency": {
+            "resolution": 192,
+            "architecture": "cnn",
+            "fold": 1,
+            "model_parameters": 651050,
+            "batch_size": 1,
+            "warmup": 3,
+            "repetitions": 20,
+            "median_ms": 11.574599993764423,
+            "p95_ms": 12.424325003667036,
+            "preprocessing_median_ms": 135.89270001102705,
+            "scope": "CPU local, llamada eager al clasificador y salida numpy; excluye carga del modelo, detector kNN, red y camara. Referencia fold1, no todas las rondas.",
+            "raw_path": "data/raw/known/agua/agua_s001_0001.jpg",
+            "test_used": false
+          }
+        }
+      },
+      "corrected_errors": 139,
+      "new_errors": 299,
+      "delta_correct": -160,
+      "delta_percentage_points": -7.619047619047619
+    },
+    "mobilenet": {
+      "variants": {
+        "128": {
+          "correct": 1777,
+          "total": 2100,
+          "by": {
+            "distance": {
+              "corta": {
+                "correct": 533,
+                "total": 564,
+                "accuracy": 0.9450354609929078
+              },
+              "larga": {
+                "correct": 373,
+                "total": 576,
+                "accuracy": 0.6475694444444444
+              },
+              "media": {
+                "correct": 871,
+                "total": 960,
+                "accuracy": 0.9072916666666667
+              }
+            },
+            "session_id": {
+              "s001": {
+                "correct": 246,
+                "total": 300,
+                "accuracy": 0.82
+              },
+              "s002": {
+                "correct": 278,
+                "total": 300,
+                "accuracy": 0.9266666666666666
+              },
+              "s003": {
+                "correct": 231,
+                "total": 300,
+                "accuracy": 0.77
+              },
+              "s004": {
+                "correct": 287,
+                "total": 300,
+                "accuracy": 0.9566666666666667
+              },
+              "s005": {
+                "correct": 257,
+                "total": 300,
+                "accuracy": 0.8566666666666667
+              },
+              "s006": {
+                "correct": 236,
+                "total": 300,
+                "accuracy": 0.7866666666666666
+              },
+              "s008": {
+                "correct": 242,
+                "total": 300,
+                "accuracy": 0.8066666666666666
+              }
+            },
+            "class_id": {
+              "agua": {
+                "correct": 187,
+                "total": 210,
+                "accuracy": 0.8904761904761904
+              },
+              "ayuda": {
+                "correct": 179,
+                "total": 210,
+                "accuracy": 0.8523809523809524
+              },
+              "bano": {
+                "correct": 196,
+                "total": 210,
+                "accuracy": 0.9333333333333333
+              },
+              "comer": {
+                "correct": 177,
+                "total": 210,
+                "accuracy": 0.8428571428571429
+              },
+              "dolor": {
+                "correct": 171,
+                "total": 210,
+                "accuracy": 0.8142857142857143
+              },
+              "jugar": {
+                "correct": 172,
+                "total": 210,
+                "accuracy": 0.819047619047619
+              },
+              "mama": {
+                "correct": 183,
+                "total": 210,
+                "accuracy": 0.8714285714285714
+              },
+              "no": {
+                "correct": 160,
+                "total": 210,
+                "accuracy": 0.7619047619047619
+              },
+              "papa": {
+                "correct": 160,
+                "total": 210,
+                "accuracy": 0.7619047619047619
+              },
+              "si": {
+                "correct": 192,
+                "total": 210,
+                "accuracy": 0.9142857142857143
+              }
+            }
+          },
+          "macro_f1": 0.8461849811498101,
+          "training_seconds": 1685.3254090999835,
+          "epochs": 414,
+          "mean_training_seconds_per_epoch": 4.070834321497545,
+          "latency": {
+            "resolution": 128,
+            "architecture": "mobilenet",
+            "fold": 1,
+            "model_parameters": 944890,
+            "batch_size": 1,
+            "warmup": 3,
+            "repetitions": 20,
+            "median_ms": 96.79985000548186,
+            "p95_ms": 100.6377449943102,
+            "preprocessing_median_ms": 133.84439999936149,
+            "scope": "CPU local, llamada eager al clasificador y salida numpy; excluye carga del modelo, detector kNN, red y camara. Referencia fold1, no todas las rondas.",
+            "raw_path": "data/raw/known/agua/agua_s001_0001.jpg",
+            "test_used": false
+          }
+        },
+        "192": {
+          "correct": 1964,
+          "total": 2100,
+          "by": {
+            "distance": {
+              "corta": {
+                "correct": 551,
+                "total": 564,
+                "accuracy": 0.9769503546099291
+              },
+              "larga": {
+                "correct": 477,
+                "total": 576,
+                "accuracy": 0.828125
+              },
+              "media": {
+                "correct": 936,
+                "total": 960,
+                "accuracy": 0.975
+              }
+            },
+            "session_id": {
+              "s001": {
+                "correct": 275,
+                "total": 300,
+                "accuracy": 0.9166666666666666
+              },
+              "s002": {
+                "correct": 278,
+                "total": 300,
+                "accuracy": 0.9266666666666666
+              },
+              "s003": {
+                "correct": 280,
+                "total": 300,
+                "accuracy": 0.9333333333333333
+              },
+              "s004": {
+                "correct": 300,
+                "total": 300,
+                "accuracy": 1.0
+              },
+              "s005": {
+                "correct": 283,
+                "total": 300,
+                "accuracy": 0.9433333333333334
+              },
+              "s006": {
+                "correct": 259,
+                "total": 300,
+                "accuracy": 0.8633333333333333
+              },
+              "s008": {
+                "correct": 289,
+                "total": 300,
+                "accuracy": 0.9633333333333334
+              }
+            },
+            "class_id": {
+              "agua": {
+                "correct": 205,
+                "total": 210,
+                "accuracy": 0.9761904761904762
+              },
+              "ayuda": {
+                "correct": 199,
+                "total": 210,
+                "accuracy": 0.9476190476190476
+              },
+              "bano": {
+                "correct": 204,
+                "total": 210,
+                "accuracy": 0.9714285714285714
+              },
+              "comer": {
+                "correct": 195,
+                "total": 210,
+                "accuracy": 0.9285714285714286
+              },
+              "dolor": {
+                "correct": 199,
+                "total": 210,
+                "accuracy": 0.9476190476190476
+              },
+              "jugar": {
+                "correct": 197,
+                "total": 210,
+                "accuracy": 0.9380952380952381
+              },
+              "mama": {
+                "correct": 200,
+                "total": 210,
+                "accuracy": 0.9523809523809523
+              },
+              "no": {
+                "correct": 182,
+                "total": 210,
+                "accuracy": 0.8666666666666667
+              },
+              "papa": {
+                "correct": 182,
+                "total": 210,
+                "accuracy": 0.8666666666666667
+              },
+              "si": {
+                "correct": 201,
+                "total": 210,
+                "accuracy": 0.9571428571428572
+              }
+            }
+          },
+          "macro_f1": 0.9352104640621105,
+          "training_seconds": 2499.826261899987,
+          "epochs": 398,
+          "mean_training_seconds_per_epoch": 6.2809705072863995,
+          "latency": {
+            "resolution": 192,
+            "architecture": "mobilenet",
+            "fold": 1,
+            "model_parameters": 944890,
+            "batch_size": 1,
+            "warmup": 3,
+            "repetitions": 20,
+            "median_ms": 97.52375000243774,
+            "p95_ms": 99.37248500500573,
+            "preprocessing_median_ms": 138.6082999961218,
+            "scope": "CPU local, llamada eager al clasificador y salida numpy; excluye carga del modelo, detector kNN, red y camara. Referencia fold1, no todas las rondas.",
+            "raw_path": "data/raw/known/agua/agua_s001_0001.jpg",
+            "test_used": false
+          }
+        }
+      },
+      "corrected_errors": 219,
+      "new_errors": 32,
+      "delta_correct": 187,
+      "delta_percentage_points": 8.904761904761905
+    }
+  },
+  "rejection": {
+    "128": {
+      "known_images": 2100,
+      "unknown_images": 300,
+      "known_correct_without_rejection": 1777,
+      "known_rejected": 10,
+      "known_accepted": 2090,
+      "known_correct_accepted": 1777,
+      "known_wrong_accepted": 313,
+      "unknown_rejected": 197,
+      "unknown_false_accepted": 103,
+      "known_accuracy_without_rejection": 0.8461904761904762,
+      "known_accuracy_with_rejection": 0.8461904761904762,
+      "known_rejection_rate": 0.004761904761904762,
+      "accuracy_among_accepted_known": 0.8502392344497608,
+      "unknown_rejection_rate": 0.6566666666666666,
+      "unknown_false_acceptance_rate": 0.3433333333333333
+    },
+    "192": {
+      "known_images": 2100,
+      "unknown_images": 300,
+      "known_correct_without_rejection": 1964,
+      "known_rejected": 5,
+      "known_accepted": 2095,
+      "known_correct_accepted": 1961,
+      "known_wrong_accepted": 134,
+      "unknown_rejected": 208,
+      "unknown_false_accepted": 92,
+      "known_accuracy_without_rejection": 0.9352380952380952,
+      "known_accuracy_with_rejection": 0.9338095238095238,
+      "known_rejection_rate": 0.002380952380952381,
+      "accuracy_among_accepted_known": 0.9360381861575179,
+      "unknown_rejection_rate": 0.6933333333333334,
+      "unknown_false_acceptance_rate": 0.30666666666666664
+    }
+  },
+  "folds_equal": true,
+  "matched_images": 2100,
+  "test_used": false,
+  "application_unchanged": true,
+  "cnn_caveat": "Flatten cambia numero de parametros; efecto combinado de resolucion y capacidad.",
+  "interpretation": "Desarrollo adaptativo, siete rondas compartiendo datos. Desviacion entre sesiones no es intervalo de confianza."
+}

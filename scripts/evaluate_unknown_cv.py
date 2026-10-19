@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
 from reconocimiento_pictogramas.preprocessing import prepare_image
 from reconocimiento_pictogramas.rejection import calibrate_threshold, evaluate_rejection
+from train_cross_validation import save_figure
 
 
 def read(path):
@@ -51,17 +52,19 @@ def evaluate(source_run, run, method="softmax"):
     protocol = read(source / 'protocol.json')
     classes = [c['id'] for c in protocol['project']['classes']]
     sessions = protocol['config']['sessions']
-    assert sessions == [f's{i:03d}' for i in range(1, 7)]
+    assert len(sessions)>=3 and len(set(sessions))==len(sessions) and 's007' not in sessions
+    known_count=len(sessions)*protocol['config']['expected_per_class_session']*len(classes)
     assert len(classes) == len(set(classes)) == 10
-    assert hashlib.sha256((ROOT/'data/splits/development.csv').read_bytes()).hexdigest() == protocol['development_sha256']
-    audit = read(ROOT/'reports/dataset_10_audit/integrity.json')
+    assert hashlib.sha256(contained(protocol.get('development_manifest','data/splits/development.csv')).read_bytes()).hexdigest() == protocol['development_sha256']
+    audit = read(contained(protocol['config'].get('audit_path','reports/dataset_10_audit/integrity.json')))
     assert not audit['errors']
-    inventory = rows(ROOT/'reports/dataset_10_audit/inventory.csv')
+    inventory = rows(contained(protocol['config'].get('inventory_path','reports/dataset_10_audit/inventory.csv')))
     unknown = [r for r in inventory if r['class_id']=='unknown' and r['session_id'] in sessions]
-    assert len(unknown) == 250 and len({r['raw_path'] for r in unknown}) == 250
-    assert len({r['sha256'] for r in inventory if r['session_id'] in sessions}) == 2050
+    unknown_count=sum(50 if session in {'s006','s008'} else 40 for session in sessions)
+    assert len(unknown) == unknown_count and len({r['raw_path'] for r in unknown}) == unknown_count
+    assert len({r['sha256'] for r in inventory if r['session_id'] in sessions}) == known_count+unknown_count
     for session in sessions:
-        assert sum(r['session_id']==session for r in unknown) == (50 if session=='s006' else 40)
+        assert sum(r['session_id']==session for r in unknown) == (50 if session in {'s006','s008'} else 40)
     for row in unknown:
         assert Path(row['raw_path']).name.startswith(f"unknown_{row['session_id']}_")
         assert hashlib.sha256(contained(row['raw_path']).read_bytes()).hexdigest() == row['sha256']
@@ -87,7 +90,7 @@ def evaluate(source_run, run, method="softmax"):
         result=read(folder/'mobilenet/result.json')
         checkpoint=contained(result['model_path'])
         model=tf.keras.models.load_model(checkpoint, compile=False)
-        assert model.output_shape[-1]==10 and tuple(model.input_shape[1:])==(128,128,3)
+        assert model.output_shape[-1]==10 and tuple(model.input_shape[1:])==(image_size[1],image_size[0],3)
         dest=out/f'fold_{number:02d}'; dest.mkdir()
         selected={role:rows(folder/f'{role}.csv') for role in ['train','stop','outer']}
         for field in ['raw_path','processed_path','sha256','session_id']:
@@ -97,17 +100,18 @@ def evaluate(source_run, run, method="softmax"):
         extractor=None
         if method=='knn':
             from reconocimiento_pictogramas.feature_rejection import neighbor_similarity, normalize_features
-            assert len(selected['train'])==1200
+            reference_count=len(fold['train'])*protocol['config']['expected_per_class_session']*len(classes)
+            assert len(selected['train'])==reference_count
             assert {r['session_id'] for r in selected['train']}==set(fold['train'])
             extractor=tf.keras.Model(model.input,[model.output,model.layers[-1].input])
             reference_images=[np.asarray(prepare_image(contained(r['processed_path']),image_size),dtype=np.uint8) for r in selected['train']]
-            references=np.concatenate([np.asarray(extractor(np.stack(reference_images[i:i+32]),training=False)[1]) for i in range(0,1200,32)])
+            references=np.concatenate([np.asarray(extractor(np.stack(reference_images[i:i+32]),training=False)[1]) for i in range(0,reference_count,32)])
             normalize_features(references)
             detector_folder=ROOT/'models'/run/f'fold_{number:02d}'
             detector_folder.mkdir(parents=True,exist_ok=False)
             archive=detector_folder/'references.npz'
             np.savez_compressed(archive,features=references,raw_paths=np.array([r['raw_path'] for r in selected['train']]))
-            save(dest/'reference_manifest.json',dict(role='train',sessions=fold['train'],images=1200,
+            save(dest/'reference_manifest.json',dict(role='train',sessions=fold['train'],images=reference_count,
                 feature_dimension=int(references.shape[1]),feature_layer='input_to_final_Dense_after_disabled_dropout',
                 k=5,archive=archive.relative_to(ROOT).as_posix(),archive_sha256=hashlib.sha256(archive.read_bytes()).hexdigest(),
                 paths_and_hashes=[dict(raw_path=r['raw_path'],sha256=r['sha256']) for r in selected['train']]))
@@ -172,7 +176,7 @@ def evaluate(source_run, run, method="softmax"):
         internal_records.extend(internal);external_records.extend(external)
         print(json.dumps(stats['external'],ensure_ascii=False),flush=True)
         tf.keras.backend.clear_session()
-    assert len({r['raw_path'] for r in external_records})==2050==len(external_records)
+    assert len({r['raw_path'] for r in external_records})==known_count+unknown_count==len(external_records)
     write(out/'external_predictions.csv',external_records)
     write(out/'internal_predictions.csv',internal_records)
     totals={key:sum(r['external'][key] for r in results) for key in ['known_images','unknown_images','known_correct_without_rejection','known_rejected','known_accepted','known_correct_accepted','known_wrong_accepted','unknown_rejected','unknown_false_accepted']}
@@ -182,11 +186,12 @@ def evaluate(source_run, run, method="softmax"):
         accuracy_among_accepted_known=totals['known_correct_accepted']/totals['known_accepted'] if totals['known_accepted'] else None,
         unknown_rejection_rate=totals['unknown_rejected']/totals['unknown_images'],
         unknown_false_acceptance_rate=totals['unknown_false_accepted']/totals['unknown_images'])
-    assert totals['known_images']==1800 and totals['unknown_images']==250
-    assert totals['known_correct_without_rejection']==1441
+    assert totals['known_images']==known_count and totals['unknown_images']==unknown_count
+    expected_correct=sum(int(r['correct']) for r in rows(source/'mobilenet_out_of_fold_predictions.csv'))
+    assert totals['known_correct_without_rejection']==expected_correct
     save(out/'summary.json',dict(method=method,source_run=source_run,folds=results,pooled=totals,test_used=False,final_threshold_selected=False))
-    save(out/'verification.json',dict(folds=6,external_images=2050,known_images=1800,unknown_images=250,external_paths_unique=True,
-        original_external_predictions_match=True,thresholds_saved_before_external_inference=True,unknown_hashes_verified=250,
+    save(out/'verification.json',dict(folds=len(sessions),external_images=known_count+unknown_count,known_images=known_count,unknown_images=unknown_count,external_paths_unique=True,
+        original_external_predictions_match=True,thresholds_saved_before_external_inference=True,unknown_hashes_verified=unknown_count,
         source_manifest_unchanged=True,disjoint_sessions_paths_hashes=True,test_used=False,
         script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),python=sys.version))
     plot_and_explain(out,results,internal_records,totals)
@@ -204,22 +209,22 @@ def plot_and_explain(out,results,internal,totals):
         values=[float(r['score']) for r in internal if int(r['known'])==is_known]
         axes[0].hist(values,bins=np.linspace(0,1,26),density=True,histtype='step',linewidth=2,label=label)
     axes[0].set(xlabel='Similitud con vecinos (no probabilidad)' if method=='knn' else 'Máxima puntuación softmax',ylabel='Densidad (grupos normalizados)',title='Puntuaciones usadas para calibrar');axes[0].legend()
-    positions=np.arange(6);width=.25
+    positions=np.arange(len(results));width=.25
     for offset,key,label in [(-width,'unknown_rejection_rate','Desconocidos rechazados'),(0,'known_rejection_rate','Conocidos rechazados'),(width,'known_accuracy_with_rejection','Conocidos correctos / todos los conocidos')]:
         axes[1].bar(positions+offset,[r['external'][key]*100 for r in results],width,label=label)
     axes[1].axhline(70,color='black',linestyle='--',label='Objetivo de rechazo 70%')
     axes[1].set(xticks=positions,xticklabels=[r['evaluation_session'] for r in results],ylim=(0,101),ylabel='Porcentaje (%)',title='Sesiones externas con umbrales congelados');axes[1].legend(fontsize=7)
-    fig.tight_layout(rect=(0,.07,1,1));fig.text(.02,.02,'Desarrollo: 1800 conocidas y250 desconocidas. Cada modelo tiene su propio umbral. s007 no utilizada.',fontsize=9)
-    fig.savefig(out/'rejection_evaluation.png',dpi=150);plt.close(fig)
+    fig.tight_layout(rect=(0,.07,1,1));fig.text(.02,.02,f"Desarrollo: {totals['known_images']} conocidas y {totals['unknown_images']} desconocidas. Cada modelo tiene su propio umbral. s007 no utilizada.",fontsize=9)
+    save_figure(fig,out/'rejection_evaluation.png',dpi=150);plt.close(fig)
     lines=['# Evaluación de rechazo de desconocidos con MobileNet','',
         'Se calibró un umbral por ronda usando únicamente unknown de la sesión interna. Se eligió el menor que rechaza al menos70% (incluida igualdad). Esa regla minimiza el rechazo de conocidos bajo la restricción elegida. No se fijó un umbral global de aplicación.','',
         'La sesión interna conocida ya se usó para parada temprana. Sus métricas son de calibración, no independientes. La externa no eligió el umbral de su ronda. Las rondas comparten datos y el modelo fue elegido adaptativamente durante el desarrollo. s007 no participó.','',
         '## Resultados externos agrupados','',
-        f"- Conocidos sin rechazo: {totals['known_correct_without_rejection']}/1800 = {totals['known_accuracy_without_rejection']:.2%}.",
-        f"- Desconocidos rechazados: {totals['unknown_rejected']}/250 = {totals['unknown_rejection_rate']:.2%}.",
-        f"- Desconocidos aceptados por error: {totals['unknown_false_accepted']}/250.",
-        f"- Conocidos rechazados: {totals['known_rejected']}/1800 = {totals['known_rejection_rate']:.2%}.",
-        f"- Conocidos correctamente clasificados y aceptados: {totals['known_correct_accepted']}/1800 = {totals['known_accuracy_with_rejection']:.2%}.",
+        f"- Conocidos sin rechazo: {totals['known_correct_without_rejection']}/{totals['known_images']} = {totals['known_accuracy_without_rejection']:.2%}.",
+        f"- Desconocidos rechazados: {totals['unknown_rejected']}/{totals['unknown_images']} = {totals['unknown_rejection_rate']:.2%}.",
+        f"- Desconocidos aceptados por error: {totals['unknown_false_accepted']}/{totals['unknown_images']}.",
+        f"- Conocidos rechazados: {totals['known_rejected']}/{totals['known_images']} = {totals['known_rejection_rate']:.2%}.",
+        f"- Conocidos correctamente clasificados y aceptados: {totals['known_correct_accepted']}/{totals['known_images']} = {totals['known_accuracy_with_rejection']:.2%}.",
         f"- Exactitud entre conocidos aceptados: {totals['accuracy_among_accepted_known']:.2%}. Este denominador excluye rechazados y no sustituye la exactitud sobre todos los conocidos.",'',
         '## Rondas','']
     for r in results:

@@ -1,0 +1,15 @@
+{
+  "folds": 7,
+  "external_images": 2400,
+  "known_images": 2100,
+  "unknown_images": 300,
+  "external_paths_unique": true,
+  "original_external_predictions_match": true,
+  "thresholds_saved_before_external_inference": true,
+  "unknown_hashes_verified": 300,
+  "source_manifest_unchanged": true,
+  "disjoint_sessions_paths_hashes": true,
+  "test_used": false,
+  "script_sha256": "3fdbf7028b42cbba7d139697e83baed3f6dd4105318bbc56ba1b822022326e0e",
+  "python": "3.11.15 (main, Aug  7 2026, 02:24:19) [MSC v.1944 64 bit (AMD64)]"
+}

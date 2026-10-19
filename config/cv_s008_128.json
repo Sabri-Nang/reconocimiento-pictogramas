@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "sessions": [
+    "s001",
+    "s002",
+    "s003",
+    "s004",
+    "s005",
+    "s006",
+    "s008"
+  ],
+  "reserved_final_test": "s007",
+  "batch_size": 32,
+  "seed": 42,
+  "expected_per_class_session": 30,
+  "cnn_epochs": 30,
+  "mobilenet_head_epochs": 20,
+  "mobilenet_fine_tune_epochs": 40,
+  "patience": 6,
+  "fine_tune_patience": 4,
+  "monitor": "val_loss",
+  "min_delta": 0.0,
+  "note": "Siete rondas, cinco sesiones train (1500), una stop (300), una externa (300). Reinicio por ronda; CNN30 epocas, MobileNet20 cabeza+40 ajuste fino continuo. Resolucion128 para separar ampliacion de datos de cambio de resolucion. No replica exactamente la continuacion historica10+30; comparacion adaptativa, no causal. s007 excluida. Unknown no entrena el clasificador; se evaluara con calibracion interna separada.",
+  "architectures": [
+    "cnn",
+    "mobilenet"
+  ],
+  "development_manifest": "reports/session_s008_review/development_7sessions_128.csv",
+  "audit_path": "reports/session_s008_review/integrity.json",
+  "inventory_path": "reports/session_s008_review/inventory_7sessions.csv"
+}

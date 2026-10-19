@@ -1,0 +1,441 @@
+{
+  "session": "s008",
+  "class_id": "jugar",
+  "count": 30,
+  "distances": {
+    "corta": 10,
+    "media": 10,
+    "larga": 10
+  },
+  "order": "DateTimeOriginal + SubsecTimeOriginal EXIF",
+  "distance_basis": "Mismo plan s008: primeras 10 corta, siguientes 10 media, ultimas 10 larga",
+  "exact_duplicates_detected": 0,
+  "duplicate_check_scope": "Inventario previo y hashes actuales s008; sin recalcular sesiones anteriores",
+  "metadata_unconfirmed": [
+    "lighting",
+    "background",
+    "perspective"
+  ],
+  "images": [
+    {
+      "original": "IMG_20261019_111031932_HDR.jpg",
+      "date": "2026:10:19 11:10:32",
+      "subsec": "351160",
+      "sha256": "c0d2d398f77b4fc453cc28b1c52ce00482f0b2e6ad3c0eca33a55dc76e334b66",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0001.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_111034553_HDR.jpg",
+      "date": "2026:10:19 11:10:35",
+      "subsec": "034794",
+      "sha256": "e27a4f137c961e8bbdfb9a23465a0f033c83302ddd1c48c60157fdb2d5c654bc",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0002.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_111038193_HDR.jpg",
+      "date": "2026:10:19 11:10:38",
+      "subsec": "592183",
+      "sha256": "36d252ca865c758edef1f6911aee6b4873b2092ff3ce08bdefaf3a0428dd5404",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0003.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_111043842_HDR.jpg",
+      "date": "2026:10:19 11:10:44",
+      "subsec": "237741",
+      "sha256": "97f89beb2f25d067a62b6bf21308e6af070fe435cf8971cc59183af6948607f5",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0004.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_111047118_HDR.jpg",
+      "date": "2026:10:19 11:10:47",
+      "subsec": "493913",
+      "sha256": "f29a849c659c70dc44cd701076d8ca015fc19f468400d13ee8802d6e458113f1",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0005.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_111049753_HDR.jpg",
+      "date": "2026:10:19 11:10:50",
+      "subsec": "209641",
+      "sha256": "ef92bc714e0d1ac6fd9a48b76c91138a79e0cb0d416e32c50c472680ec1cb9f7",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0006.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_111053975_HDR.jpg",
+      "date": "2026:10:19 11:10:54",
+      "subsec": "346681",
+      "sha256": "90a02fa60e5065f8c70dafec64e4525f26056f3ba31381fd27c43444d2590a2c",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0007.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_111104462_HDR.jpg",
+      "date": "2026:10:19 11:11:04",
+      "subsec": "827512",
+      "sha256": "a196dd6d911b9c4b64888aae1464221fa7de4d9040e30b76761105b4e702f2f7",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0008.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_111137767_HDR.jpg",
+      "date": "2026:10:19 11:11:38",
+      "subsec": "297339",
+      "sha256": "a6ed6727e398ac640b7c907f2292ef899dd204925b48fb72c14cb9c30e6fc713",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0009.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_111141793_HDR.jpg",
+      "date": "2026:10:19 11:11:42",
+      "subsec": "239531",
+      "sha256": "aceabcefaafeb1aeb6f9e1ca2ff0495a9bec83d00b4a6cd828833e3dd32bd46a",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0010.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_111150290_HDR.jpg",
+      "date": "2026:10:19 11:11:50",
+      "subsec": "791600",
+      "sha256": "d849b07671d9b663d73d679432313ecada8479a9d27722dbea846947f0550e8b",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0011.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_111202186_HDR.jpg",
+      "date": "2026:10:19 11:12:02",
+      "subsec": "581071",
+      "sha256": "bf4976a297a3a0ecbaf277b5e75e7cebcdeb3cbc707edce450e524f1f4b940b7",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0012.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_111209354_HDR.jpg",
+      "date": "2026:10:19 11:12:09",
+      "subsec": "743096",
+      "sha256": "043d876459e4cfe2fa48303d65e9497758d1657e2aab1000349f96cb918031b3",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0013.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_111212698_HDR.jpg",
+      "date": "2026:10:19 11:12:13",
+      "subsec": "114581",
+      "sha256": "90f404413ee4cc91fb4dc888107db3e34f4155619bf2139be6b7c1b3451ab2b9",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0014.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_111216688_HDR.jpg",
+      "date": "2026:10:19 11:12:17",
+      "subsec": "056161",
+      "sha256": "23ca43de847cb58b1e89e48d37c17dbef83b5660549ae07bc159228ba9cea5f4",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0015.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_111220329_HDR.jpg",
+      "date": "2026:10:19 11:12:20",
+      "subsec": "787854",
+      "sha256": "3df9ad561ce3261cd96da07f211cfa40249dd0d835161543bf704a3fc6f1074a",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0016.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_111224571_HDR.jpg",
+      "date": "2026:10:19 11:12:25",
+      "subsec": "032300",
+      "sha256": "bc62385d3d039a092e846c6c33839fbf21790a92bfa1ddf219201753cd8ae341",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0017.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_111228286_HDR.jpg",
+      "date": "2026:10:19 11:12:28",
+      "subsec": "697668",
+      "sha256": "e4a3810c112c309c46e57b7bdebe67d682170d6bfe9d4f2d447eb4acbb911e93",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0018.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_111323880_HDR.jpg",
+      "date": "2026:10:19 11:13:24",
+      "subsec": "278347",
+      "sha256": "10b8e9762596a3af1ba315bcc893474bd3ad2e1dbfc1f75c1d8e795308c0c4d0",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0019.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_111327819_HDR.jpg",
+      "date": "2026:10:19 11:13:28",
+      "subsec": "181960",
+      "sha256": "92263e6c6e84f912af67dfb60b18b13d64b362d67106d50bc3c614cbd38fe3f0",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0020.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_111348963_HDR.jpg",
+      "date": "2026:10:19 11:13:49",
+      "subsec": "451603",
+      "sha256": "8b3f3bdbbef5a649d0b411d3f5a41fd932a74ff0d1bf2b1446c0f6914206eda2",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0021.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_111350913_HDR.jpg",
+      "date": "2026:10:19 11:13:51",
+      "subsec": "523733",
+      "sha256": "9b36b13bbf6b2f61a634e0aca49fa52422e4f703ab75e9db53d440165e0b5161",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0022.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_111353752_HDR.jpg",
+      "date": "2026:10:19 11:13:54",
+      "subsec": "399973",
+      "sha256": "4859c8f0ab86350489eb9a2bb7d1a262b0429e05df2c99f5632482364fcdd433",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0023.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_111401225_HDR.jpg",
+      "date": "2026:10:19 11:14:01",
+      "subsec": "585647",
+      "sha256": "b9f36bf714a7d9ea7e9bddb95b33554f82324caaa0eed61701116753391129da",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0024.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_111405723_HDR.jpg",
+      "date": "2026:10:19 11:14:06",
+      "subsec": "116008",
+      "sha256": "f73ad0d1e360ebc440da3f2182b334a872155b0ad261c1dfd50aa5fd3fc57c39",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0025.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_111409639_HDR.jpg",
+      "date": "2026:10:19 11:14:10",
+      "subsec": "029819",
+      "sha256": "7bc32208fc5a3fd1df250f033b32c0b511753fc66e3fdf367c8747475f2444eb",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0026.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_111416116_HDR.jpg",
+      "date": "2026:10:19 11:14:16",
+      "subsec": "623608",
+      "sha256": "4a84ad9f14af458af304ffb4a75f0493bcab938c56e2859ff7c2444413c4e093",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0027.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_111420592_HDR.jpg",
+      "date": "2026:10:19 11:14:21",
+      "subsec": "070639",
+      "sha256": "c9ff02151710067e896f64fbf845c1dfa080316c1b08bc6da138244ae4b4bf28",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0028.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_111424047_HDR.jpg",
+      "date": "2026:10:19 11:14:24",
+      "subsec": "493001",
+      "sha256": "33fdb0166d3ee8822abade2dc5d8a9fc861fbac6eb777113ecac069c941a7fda",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0029.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_111427202_HDR.jpg",
+      "date": "2026:10:19 11:14:27",
+      "subsec": "639984",
+      "sha256": "e41285ca1f7a7c8cf1c10f271b5054cea872fafa7048602d36d0023f14abb561",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "jugar_s008_0030.jpg",
+      "distance": "larga"
+    }
+  ]
+}

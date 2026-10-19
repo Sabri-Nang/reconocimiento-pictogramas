@@ -1,0 +1,18 @@
+{
+  "python": "3.11.15 (main, Aug  7 2026, 02:24:19) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "package_versions": {
+    "tensorflow": "2.21.0",
+    "keras": "3.15.1",
+    "numpy": "2.4.6",
+    "pillow": "12.3.0",
+    "scikit-learn": "1.9.1"
+  },
+  "source_sha256": {
+    "scripts/train_cross_validation.py": "588f87b98b413619aac05fcae6c227a4937eff3195b839345a81dfe068600fe5",
+    "src/reconocimiento_pictogramas/cross_validation.py": "54bc8b5f42be7274f9331e8ff50f5819633314a85674cce2e121fa59d5ddab8d",
+    "src/reconocimiento_pictogramas/preprocessing.py": "9cc81f5d90e7802f705d593ec7fe2b124da64890a600dd7a02da13f7aa4b8e66",
+    "config/cv_s008_128.json": "12378036f548a7f6d555677b2ca506097929b84d33a1920eaf98f01133e16abf"
+  },
+  "test_used": false
+}

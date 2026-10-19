@@ -1,0 +1,618 @@
+{
+  "session": "s008",
+  "class_id": "unknown",
+  "count": 50,
+  "order": "DateTimeOriginal + SubsecTimeOriginal EXIF",
+  "exact_duplicates_detected": 0,
+  "duplicate_check_scope": "Inventario previo y hashes actuales s008; sin recalcular sesiones anteriores",
+  "declared_content": "Objetos cotidianos y escenas sin tarjetas, segun usuario; contenido no auditado visualmente durante esta importacion",
+  "limitation": "No permite estimar el rechazo de otros pictogramas fuera de las diez clases",
+  "metadata_unconfirmed": [
+    "lighting",
+    "background",
+    "distance",
+    "perspective"
+  ],
+  "images": [
+    {
+      "original": "IMG_20261019_113747751_HDR.jpg",
+      "date": "2026:10:19 11:37:48",
+      "subsec": "317172",
+      "sha256": "eed5bc836cfe31daf3a5775098287c0fd8873aa1c51a47f4c6494917935bdb81",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0001.jpg"
+    },
+    {
+      "original": "IMG_20261019_113749528_HDR.jpg",
+      "date": "2026:10:19 11:37:50",
+      "subsec": "242391",
+      "sha256": "a181557ca36e0354359383bcfb060ffb7f0d42228712482d6d0050d02bf41f9f",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0002.jpg"
+    },
+    {
+      "original": "IMG_20261019_113751650_HDR.jpg",
+      "date": "2026:10:19 11:37:52",
+      "subsec": "343419",
+      "sha256": "99b7feec4cc92c47886cc9856b6983f951a5d48f72024228795a1e41255ee9e3",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0003.jpg"
+    },
+    {
+      "original": "IMG_20261019_113755407_HDR.jpg",
+      "date": "2026:10:19 11:37:55",
+      "subsec": "918578",
+      "sha256": "f040d2e2c03468b14fd914c2be1e5ea8648d34c70ddcccf5e518f9cb56027942",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0004.jpg"
+    },
+    {
+      "original": "IMG_20261019_113757857_HDR.jpg",
+      "date": "2026:10:19 11:37:58",
+      "subsec": "527409",
+      "sha256": "65aacd61484d5421b5afe7caec32d72d41d08b6168a370f058c19c4f974e0f44",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0005.jpg"
+    },
+    {
+      "original": "IMG_20261019_113800290_HDR.jpg",
+      "date": "2026:10:19 11:38:00",
+      "subsec": "935905",
+      "sha256": "2b63348917da3cd6d728e7c06a7c3b16d6ff4b715fda1f9fd71d95d760e4b187",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0006.jpg"
+    },
+    {
+      "original": "IMG_20261019_113817857_HDR.jpg",
+      "date": "2026:10:19 11:38:18",
+      "subsec": "534232",
+      "sha256": "3f3becd8f9059fd9872d134699de94e209b2cde3cbbbd692c046b96b8c87e789",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0007.jpg"
+    },
+    {
+      "original": "IMG_20261019_113826314_HDR.jpg",
+      "date": "2026:10:19 11:38:26",
+      "subsec": "850147",
+      "sha256": "22c1beed25ae4c9d08865a36d570242ace56670a54e6383498f40fb4925bb33f",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0008.jpg"
+    },
+    {
+      "original": "IMG_20261019_113830287_HDR.jpg",
+      "date": "2026:10:19 11:38:30",
+      "subsec": "754354",
+      "sha256": "0f418f4cd91d8760e4d8c3a244375851d7aecc3a3e9a0d1827b5ca5a5db5fe63",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0009.jpg"
+    },
+    {
+      "original": "IMG_20261019_113832180_HDR.jpg",
+      "date": "2026:10:19 11:38:32",
+      "subsec": "786174",
+      "sha256": "2b8c07a8d013a507b6f16c5b828e04bd7051f42c847a3f462072396a398acb7a",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0010.jpg"
+    },
+    {
+      "original": "IMG_20261019_113835678_HDR_AE.jpg",
+      "date": "2026:10:19 11:38:36",
+      "subsec": "305507",
+      "sha256": "531562583bf6b4ea9c82494113993810fe994b1fe94e75617170cbea99b80970",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0011.jpg"
+    },
+    {
+      "original": "IMG_20261019_113837576_HDR_AE.jpg",
+      "date": "2026:10:19 11:38:38",
+      "subsec": "207976",
+      "sha256": "566321a1c6ac7b572b981c1dfb747569b5c2ab51bbb9e77883e8b14b24ed2cfc",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0012.jpg"
+    },
+    {
+      "original": "IMG_20261019_113839637_HDR.jpg",
+      "date": "2026:10:19 11:38:40",
+      "subsec": "121330",
+      "sha256": "4ac657dcf73f286c7ca75da207eef8aba209a1a889c9cda67695c222040c4778",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0013.jpg"
+    },
+    {
+      "original": "IMG_20261019_113842263_HDR_AE.jpg",
+      "date": "2026:10:19 11:38:42",
+      "subsec": "795185",
+      "sha256": "818bfa07b0eb0fcec6d3972a452762def28cd0e21c2d59c6d8a880a7c6581460",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0014.jpg"
+    },
+    {
+      "original": "IMG_20261019_113845011_HDR.jpg",
+      "date": "2026:10:19 11:38:45",
+      "subsec": "511940",
+      "sha256": "38952c3aeeb14f47454bdc35ee6ac7d7ac131445cb1c06654e468171396fc7ea",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0015.jpg"
+    },
+    {
+      "original": "IMG_20261019_113848608_HDR_AE.jpg",
+      "date": "2026:10:19 11:38:49",
+      "subsec": "144878",
+      "sha256": "82a5391a958594d2915167fe21d9c212b206852efdbe9291d7cb7a59cd9a44d6",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0016.jpg"
+    },
+    {
+      "original": "IMG_20261019_113856720_AE.jpg",
+      "date": "2026:10:19 11:38:57",
+      "subsec": "264858",
+      "sha256": "78bf85547eafb9118f348533945ed463e7558edb329d55a330854c8f75eac01b",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0017.jpg"
+    },
+    {
+      "original": "IMG_20261019_113858652_HDR_AE.jpg",
+      "date": "2026:10:19 11:38:59",
+      "subsec": "213084",
+      "sha256": "17ea707ee5fcf33fbb6f0ceaa3e1f1c241114d7e4e8fbafac8665fc76069884a",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0018.jpg"
+    },
+    {
+      "original": "IMG_20261019_113901101_HDR.jpg",
+      "date": "2026:10:19 11:39:01",
+      "subsec": "692335",
+      "sha256": "d8bd70b4f3fc92e0ab3c81b828ed51814fc8c0106f2795e8f99ec34ffb713c76",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0019.jpg"
+    },
+    {
+      "original": "IMG_20261019_113903139_HDR.jpg",
+      "date": "2026:10:19 11:39:03",
+      "subsec": "723844",
+      "sha256": "4e95720c2c3a5e4c1526b12568bb7f2510d292f8db28945cec8301f452a0c052",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0020.jpg"
+    },
+    {
+      "original": "IMG_20261019_113906681_HDR.jpg",
+      "date": "2026:10:19 11:39:07",
+      "subsec": "323130",
+      "sha256": "851c0f91b678d92350635d6458cdbedd7977f2d0d209931a07a54e7c302dff10",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0021.jpg"
+    },
+    {
+      "original": "IMG_20261019_113911645_HDR.jpg",
+      "date": "2026:10:19 11:39:12",
+      "subsec": "351207",
+      "sha256": "83829cb39df26cc74c887e589437a4f87aecd6b936a70366e2912c6ebd4d97aa",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0022.jpg"
+    },
+    {
+      "original": "IMG_20261019_113916346_HDR.jpg",
+      "date": "2026:10:19 11:39:16",
+      "subsec": "828075",
+      "sha256": "e678e7e83b5c3c0905cf4498dc4e49d24fc8f0eb6146d099eb393f1e1718ef8f",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0023.jpg"
+    },
+    {
+      "original": "IMG_20261019_113919236_HDR.jpg",
+      "date": "2026:10:19 11:39:19",
+      "subsec": "826031",
+      "sha256": "25698316df1a65106c350a5dbfb1d692d570b388d5be02f7a74908e84a9f8a6d",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0024.jpg"
+    },
+    {
+      "original": "IMG_20261019_113929268_HDR.jpg",
+      "date": "2026:10:19 11:39:29",
+      "subsec": "846479",
+      "sha256": "f86fcc42289cee118e8484f2aa87e015a694117f892ed10bb7e1a35b571403c2",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0025.jpg"
+    },
+    {
+      "original": "IMG_20261019_113934126_HDR.jpg",
+      "date": "2026:10:19 11:39:34",
+      "subsec": "587421",
+      "sha256": "6d2c8a78a795ca409844548b2ee686155d0358c65716caef49b19bf086c98e90",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0026.jpg"
+    },
+    {
+      "original": "IMG_20261019_113938503_HDR.jpg",
+      "date": "2026:10:19 11:39:38",
+      "subsec": "941108",
+      "sha256": "395e787780ea49cce87f3d0366249bb883d65ddefe4f0911637cdde74f199a35",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0027.jpg"
+    },
+    {
+      "original": "IMG_20261019_113940357_HDR.jpg",
+      "date": "2026:10:19 11:39:41",
+      "subsec": "023818",
+      "sha256": "d138ea071559f0435a5a3d8b31506ca4aee4f0b5f6aef9c452a874407ed9b24f",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0028.jpg"
+    },
+    {
+      "original": "IMG_20261019_113943593_HDR.jpg",
+      "date": "2026:10:19 11:39:44",
+      "subsec": "477131",
+      "sha256": "55f260173c953e3e33ef8f9fc1a9f54741e56bae2b7f3a034b79bad70cd19803",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0029.jpg"
+    },
+    {
+      "original": "IMG_20261019_113947119_HDR.jpg",
+      "date": "2026:10:19 11:39:47",
+      "subsec": "655871",
+      "sha256": "8e1cb407adb9cd0a76063cd87c47ad93b820a161a9c2726d67ff6da82b80a2fa",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0030.jpg"
+    },
+    {
+      "original": "IMG_20261019_113950715_HDR.jpg",
+      "date": "2026:10:19 11:39:51",
+      "subsec": "163914",
+      "sha256": "b60196b1bdc3f432bfadec02d7d17134047bf045f643e10b147facb55d3be629",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0031.jpg"
+    },
+    {
+      "original": "IMG_20261019_113955115_HDR.jpg",
+      "date": "2026:10:19 11:39:55",
+      "subsec": "557745",
+      "sha256": "5b5689ad6cb6c71f4bfdd7fee34f53c3ab9abca2ff2e3a656da1843dd937ea95",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0032.jpg"
+    },
+    {
+      "original": "IMG_20261019_113957814_HDR.jpg",
+      "date": "2026:10:19 11:39:58",
+      "subsec": "396151",
+      "sha256": "d41ae778c33d41516a2d8774af766c5e906cd76ecc874fd1582166286ec3b5d6",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0033.jpg"
+    },
+    {
+      "original": "IMG_20261019_114003604_HDR.jpg",
+      "date": "2026:10:19 11:40:04",
+      "subsec": "095621",
+      "sha256": "c92c9f55f529eb271cf2cd39ea0dda3956b1674e40c34033eb4e76b75298cdb7",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0034.jpg"
+    },
+    {
+      "original": "IMG_20261019_114006857_HDR.jpg",
+      "date": "2026:10:19 11:40:07",
+      "subsec": "402477",
+      "sha256": "57e02ecdb2fa32dce2381498f8a3a376165d62a8c4f19f803df6fe2c1c88aef1",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0035.jpg"
+    },
+    {
+      "original": "IMG_20261019_114010552_HDR.jpg",
+      "date": "2026:10:19 11:40:11",
+      "subsec": "025536",
+      "sha256": "665770fa777d4738288cb859e08cd2cdcc43adeff35c67b69d0cbb1f2b51230e",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0036.jpg"
+    },
+    {
+      "original": "IMG_20261019_114013531_HDR.jpg",
+      "date": "2026:10:19 11:40:14",
+      "subsec": "046837",
+      "sha256": "3508d74c769b7829ac7fd915b2121e5c450dfcec4f1403e2d682f5c3298704f6",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0037.jpg"
+    },
+    {
+      "original": "IMG_20261019_114016381_HDR.jpg",
+      "date": "2026:10:19 11:40:16",
+      "subsec": "857185",
+      "sha256": "3d98a7c03d2e10cde11091770144a9691be114a3858514cd72a92c2268964df6",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0038.jpg"
+    },
+    {
+      "original": "IMG_20261019_114019376_HDR.jpg",
+      "date": "2026:10:19 11:40:19",
+      "subsec": "991212",
+      "sha256": "daa53eaa9b408572b90ff7b143456ecbfa7b8909384496a543e8bbbdc43ebd0a",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0039.jpg"
+    },
+    {
+      "original": "IMG_20261019_114021668_HDR.jpg",
+      "date": "2026:10:19 11:40:22",
+      "subsec": "384310",
+      "sha256": "2a2a37b3ce9fad42409a09a9b4002de3c36740543922cd78880b61153ace0757",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0040.jpg"
+    },
+    {
+      "original": "IMG_20261019_114024624_HDR.jpg",
+      "date": "2026:10:19 11:40:25",
+      "subsec": "153992",
+      "sha256": "e4ce660df0c721f1ada3a91e1649e692456754213fe1c0adc9f66c716d162674",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0041.jpg"
+    },
+    {
+      "original": "IMG_20261019_114028843_HDR.jpg",
+      "date": "2026:10:19 11:40:29",
+      "subsec": "501214",
+      "sha256": "7fe89a2ac66ccd984d55611f677e9b084f9be159d2ea62c706c6ea3e207029b9",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0042.jpg"
+    },
+    {
+      "original": "IMG_20261019_114032369_HDR.jpg",
+      "date": "2026:10:19 11:40:32",
+      "subsec": "876153",
+      "sha256": "9fbccfdf3cac14b5d4174592187a4f0375c7a231fad4af276bd89deb5601a417",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0043.jpg"
+    },
+    {
+      "original": "IMG_20261019_114035140_HDR.jpg",
+      "date": "2026:10:19 11:40:35",
+      "subsec": "658258",
+      "sha256": "9dc445bea14b12cab0ce1ce4b798ec70782237b2a14a2e5597f686809510e59e",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0044.jpg"
+    },
+    {
+      "original": "IMG_20261019_114037945_HDR.jpg",
+      "date": "2026:10:19 11:40:38",
+      "subsec": "504340",
+      "sha256": "02847cc8c283edeca2cf2b5618039d3528fcb32c0471c434335be04f646237da",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0045.jpg"
+    },
+    {
+      "original": "IMG_20261019_114911092_HDR.jpg",
+      "date": "2026:10:19 11:49:11",
+      "subsec": "884559",
+      "sha256": "37a84db47b8f94f363cd73dd9b961a1b622375083967667f2af9f1901cbf6796",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0046.jpg"
+    },
+    {
+      "original": "IMG_20261019_114916484_HDR.jpg",
+      "date": "2026:10:19 11:49:16",
+      "subsec": "901514",
+      "sha256": "aab7b3062a69f9ef0b8c4663ffe871c0fd1df581ec8a40a94e2492e1659623c0",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0047.jpg"
+    },
+    {
+      "original": "IMG_20261019_115030438_HDR.jpg",
+      "date": "2026:10:19 11:50:31",
+      "subsec": "084777",
+      "sha256": "797f8442e49145be7919f118d5daebd98fec53b432977c9498190498a32722ef",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0048.jpg"
+    },
+    {
+      "original": "IMG_20261019_115037427_HDR.jpg",
+      "date": "2026:10:19 11:50:38",
+      "subsec": "088674",
+      "sha256": "b59a94904c838ee05af5d99bd984940a031cbb12831e01e58e86840f507670d0",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0049.jpg"
+    },
+    {
+      "original": "IMG_20261019_115048483_HDR.jpg",
+      "date": "2026:10:19 11:50:49",
+      "subsec": "014258",
+      "sha256": "b2983b266c17a1eac306907e479c182ee077a8c1c3639b12ee7e1f838aaacab7",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "unknown_s008_0050.jpg"
+    }
+  ]
+}

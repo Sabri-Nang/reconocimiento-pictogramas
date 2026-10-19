@@ -1,0 +1,440 @@
+{
+  "session": "s008",
+  "class_id": "agua",
+  "count": 30,
+  "distances": {
+    "corta": 10,
+    "media": 10,
+    "larga": 10
+  },
+  "order": "DateTimeOriginal + SubsecTimeOriginal EXIF",
+  "exact_duplicates_detected": 0,
+  "duplicate_check_scope": "Inventario previo y hashes actuales s008; sin recalcular sesiones anteriores",
+  "metadata_unconfirmed": [
+    "lighting",
+    "background",
+    "perspective"
+  ],
+  "images": [
+    {
+      "original": "IMG_20261019_110310476_HDR.jpg",
+      "date": "2026:10:19 11:03:10",
+      "subsec": "952277",
+      "sha256": "cd993eb59157a6397980365096b27dc21dbf1734837337f85f10d4494e10c499",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0001.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_110314088_HDR.jpg",
+      "date": "2026:10:19 11:03:14",
+      "subsec": "545202",
+      "sha256": "42412324cdd4a424ad25e389381566884a16f74dafe0440783d3fdecae04e79e",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0002.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_110541931_HDR.jpg",
+      "date": "2026:10:19 11:05:42",
+      "subsec": "378026",
+      "sha256": "1d58c5cde98f0d86d915c71161aa938473242749d36b225423d0f14ae072519e",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0003.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_110545620_HDR.jpg",
+      "date": "2026:10:19 11:05:45",
+      "subsec": "998182",
+      "sha256": "d9b2edf0623abfa99d5b90738b51df76e5cb997a321ec352eec8693cd0f6d97d",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0004.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_110550903_AE.jpg",
+      "date": "2026:10:19 11:05:51",
+      "subsec": "209122",
+      "sha256": "5e7bc012d322e461f5da028caa817c8938949674b7e32e6e67ae02c586334f64",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0005.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_110559454_HDR.jpg",
+      "date": "2026:10:19 11:05:59",
+      "subsec": "824036",
+      "sha256": "609146c2bd90131536030b793ebf78cbc0eb6075c913ea2022775b60bab5902c",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0006.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_110602879_HDR.jpg",
+      "date": "2026:10:19 11:06:03",
+      "subsec": "407358",
+      "sha256": "2adcbd1caef7e6256a65b1464c9ebd43970f3dd3188c1cac71b3f3f24fdddb64",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0007.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_110605571_HDR.jpg",
+      "date": "2026:10:19 11:06:06",
+      "subsec": "295198",
+      "sha256": "e65944a56b5175111b22638f325527468423245f10db80db7c623fa725dba66b",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0008.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_110610236_AE.jpg",
+      "date": "2026:10:19 11:06:10",
+      "subsec": "619390",
+      "sha256": "97e298a38f980da354bf9d82712a6704f1853c1c2ee408cc1c06229b28d212a1",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0009.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_110612164_HDR_AE.jpg",
+      "date": "2026:10:19 11:06:12",
+      "subsec": "600081",
+      "sha256": "0868ae32b771319c0dde8c344cc7e9cb8ba2c2f4f88b0a13c931bc29f4cba295",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0010.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_110612666_HDR_AE.jpg",
+      "date": "2026:10:19 11:06:13",
+      "subsec": "123004",
+      "sha256": "2fb21a56ce232b841dae5b6112794f0238899816c1abcc0ed3c8ea71ccef3920",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0011.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_110631654_HDR.jpg",
+      "date": "2026:10:19 11:06:32",
+      "subsec": "064923",
+      "sha256": "071905d34ed9ff9289def8a0f8c86f88a962d137144e72cdababbe3d2bd92d65",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0012.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_110634708_HDR.jpg",
+      "date": "2026:10:19 11:06:35",
+      "subsec": "120848",
+      "sha256": "b6175c6b21b09aebf0bdf16464b6ddd88f43d5daf5c893705303b17d8af168c0",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0013.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_110637523_HDR_AE.jpg",
+      "date": "2026:10:19 11:06:37",
+      "subsec": "982093",
+      "sha256": "5cca539b8d27c8f1ce6622760a0d72367d2a8a63c967abb61e4ff559b3f08ea8",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0014.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_110645873_HDR.jpg",
+      "date": "2026:10:19 11:06:46",
+      "subsec": "244170",
+      "sha256": "eeb0e378af3a46c72221eecd16a217960600d1de69b9c892dc511c320324d6b6",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0015.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_110650168_HDR.jpg",
+      "date": "2026:10:19 11:06:50",
+      "subsec": "523889",
+      "sha256": "9b3435fd69994e4d5e446f496a06d88e76ee4fd1b95660e82896582b31f3108d",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0016.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_110653048_HDR.jpg",
+      "date": "2026:10:19 11:06:53",
+      "subsec": "468487",
+      "sha256": "4e362b73eff6cf3ce5fbf9262ed349afadc85100e9a899cafc75ef10a36589db",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0017.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_110701237_HDR.jpg",
+      "date": "2026:10:19 11:07:01",
+      "subsec": "610462",
+      "sha256": "7004429aac3508dd606574b9dab48026389bb888aa285aa09153debea462385e",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0018.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_110704130_HDR.jpg",
+      "date": "2026:10:19 11:07:04",
+      "subsec": "548981",
+      "sha256": "9d602d502be23e1647671da355e0cae8967165f41344680478d1b01c9e63f37a",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0019.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_110708956_HDR.jpg",
+      "date": "2026:10:19 11:07:09",
+      "subsec": "301638",
+      "sha256": "43146f9c3851fff10a7b4c5b06bc7ca16d95b2b407d73fe80014a2e61cf6a8a3",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0020.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_110712280_HDR.jpg",
+      "date": "2026:10:19 11:07:12",
+      "subsec": "702319",
+      "sha256": "fb1c577f9f208f5f92c28faa1599c362b17b7115950d311aa8b7f0d2f9bccc66",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0021.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_110714312_HDR.jpg",
+      "date": "2026:10:19 11:07:15",
+      "subsec": "185532",
+      "sha256": "598e167488f738880f4f5590906695b149de1ae89832d908c8426277d6249176",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0022.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_110720788_HDR_AE.jpg",
+      "date": "2026:10:19 11:07:21",
+      "subsec": "138996",
+      "sha256": "a2c8430f19825e826f137131b3157b2e24c032cf6e3e2f854c771c3b55ada378",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0023.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_110726645_HDR.jpg",
+      "date": "2026:10:19 11:07:27",
+      "subsec": "032772",
+      "sha256": "3cf01d6a414cd02a1a598b4d6c821a5c0241f9de724cdb58b3cba269cd323c2a",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0024.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_110729336_HDR.jpg",
+      "date": "2026:10:19 11:07:29",
+      "subsec": "752779",
+      "sha256": "dd03c934e7a19e518d1ad894f9c6d0cbfc9b8a828f43c23d3e2844007f0cbf6b",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0025.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_110735719_HDR.jpg",
+      "date": "2026:10:19 11:07:36",
+      "subsec": "117524",
+      "sha256": "0cad6afad252797c6c22a33f10f29b0ef857e63c4261b7f501abcb4a10806b05",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0026.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_110738701_HDR.jpg",
+      "date": "2026:10:19 11:07:39",
+      "subsec": "174333",
+      "sha256": "ad627847fb32654c1c315f26515df077d06d41dc630407adb14af7e0fb29288c",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0027.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_110748772_HDR.jpg",
+      "date": "2026:10:19 11:07:49",
+      "subsec": "138654",
+      "sha256": "6f3be980eb92c87e5e5ad8f54194ca7e00fe50c7077564a8840d66d72661d324",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0028.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_110751278_HDR.jpg",
+      "date": "2026:10:19 11:07:51",
+      "subsec": "783921",
+      "sha256": "75eaf7d5472cd54107befd018089afe22aef01386626536ae91b7fa17c6fa8d3",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0029.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_110800208_HDR.jpg",
+      "date": "2026:10:19 11:08:00",
+      "subsec": "834272",
+      "sha256": "c70c096371b9220f9141722198fdcc1b1aa509c2ec6cce49139d0e1a76ed4010",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "extension": ".jpg",
+      "filename": "agua_s008_0030.jpg",
+      "distance": "larga"
+    }
+  ]
+}

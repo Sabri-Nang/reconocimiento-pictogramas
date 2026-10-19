@@ -1,0 +1,33 @@
+{
+  "images": 2100,
+  "errors": [],
+  "size": [
+    192,
+    192
+  ],
+  "test_used": false,
+  "source_manifest_sha256": "2fe9a0d87f40cb0dee696bedfe722a3f34dc1fb03d2eccd9426d1856c4bb15d2",
+  "original_hashes_verified": true,
+  "source": "originales, no PNG128",
+  "development_sha256": "fc117bb3d5eb2d6b1f826b77144146df3e21565140f6ed8c5a9de4af6d8c3033",
+  "protected_files_sha256": {
+    "config/project.json": "ea045cf773f938e52c8167ee9f6427c66d2291a6f4ac442904d470c13d52c4d2",
+    "config/selected_model.json": "77458482b9e1b4bda24e1f1ec77bfb0553966f04ffe032246059784afa983f5b",
+    "reports/session_s008_review/development_7sessions_128.csv": "2fe9a0d87f40cb0dee696bedfe722a3f34dc1fb03d2eccd9426d1856c4bb15d2"
+  },
+  "python": "3.11.15 (main, Aug  7 2026, 02:24:19) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "tensorflow": "2.21.0",
+    "keras": "3.15.1",
+    "numpy": "2.4.6",
+    "pillow": "12.3.0",
+    "scikit-learn": "1.9.1"
+  },
+  "source_hashes": {
+    "scripts/train_cross_validation.py": "1ca3cba738164855540a7d1273567da81247ffe48cd0b4da6a929f10cf1503e4",
+    "scripts/evaluate_unknown_cv.py": "3fdbf7028b42cbba7d139697e83baed3f6dd4105318bbc56ba1b822022326e0e",
+    "scripts/prepare_resolution_192.py": "e1e152c2b09ff76a29bcab0e40b0cfc59be08465eff7c24c3526bd237dc817d7"
+  },
+  "cnn_caveat": "La capa Flatten cambia cantidad de parametros; no se aisla solo resolucion con capacidad constante."
+}

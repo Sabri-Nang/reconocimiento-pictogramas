@@ -1,0 +1,873 @@
+{
+  "session": "s008",
+  "counts": {
+    "comer": 30,
+    "bano": 30
+  },
+  "distances": {
+    "comer": {
+      "corta": 10,
+      "media": 10,
+      "larga": 10
+    },
+    "bano": {
+      "corta": 10,
+      "media": 10,
+      "larga": 10
+    }
+  },
+  "order": "DateTimeOriginal + SubsecTimeOriginal EXIF",
+  "exact_duplicates_detected": 0,
+  "duplicate_check_scope": "Inventario previo y hashes actuales s008; sin recalcular sesiones anteriores",
+  "metadata_unconfirmed": [
+    "lighting",
+    "background",
+    "perspective"
+  ],
+  "images": {
+    "comer": [
+      {
+        "original": "IMG_20261019_112044335_HDR.jpg",
+        "date": "2026:10:19 11:20:44",
+        "subsec": "820609",
+        "sha256": "0cac77530da78ad91cc5a8c4cd8e967d128cecc648b9d9582e23aec1ee276f33",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0001.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_112051017_HDR.jpg",
+        "date": "2026:10:19 11:20:51",
+        "subsec": "432417",
+        "sha256": "b86f5fe04723d2817233bbbb1f86e895e05ce192b179ff81600097b008c74f1d",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0002.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_112055872_HDR.jpg",
+        "date": "2026:10:19 11:20:56",
+        "subsec": "318413",
+        "sha256": "93d061e796332fab6d6a5ccc50691f5569b2fde0a270f46ec8797ba7073f8cf6",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0003.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_112100027_HDR.jpg",
+        "date": "2026:10:19 11:21:00",
+        "subsec": "451086",
+        "sha256": "2a7bb65f9c4ceeaf3412298dfa3fe53a5e995c358c6ba47a0f0411740acb24bb",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0004.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_112115114_HDR.jpg",
+        "date": "2026:10:19 11:21:15",
+        "subsec": "495296",
+        "sha256": "1834a1de1cf8bb811f5cfa4866235aa7217093f6cde48c5150377da01fc61954",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0005.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_112117440_HDR.jpg",
+        "date": "2026:10:19 11:21:18",
+        "subsec": "138388",
+        "sha256": "340e6db7c5b336e099069130074094c565e6922e91dc46e0196c404a030e0d75",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0006.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_112121352_HDR.jpg",
+        "date": "2026:10:19 11:21:21",
+        "subsec": "747557",
+        "sha256": "1b5ff8300dfa16e52bd845cfa453fc58ee064f6c9c6b165309b1087387a4c3de",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0007.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_112124424_HDR.jpg",
+        "date": "2026:10:19 11:21:24",
+        "subsec": "891288",
+        "sha256": "ab269c52cd8e3a34c1228ecd214f0cb37b82810dede3cb1a59a6b7ec64b6628f",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0008.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_112128431_HDR.jpg",
+        "date": "2026:10:19 11:21:28",
+        "subsec": "847825",
+        "sha256": "4ad87826339a1960412bb1fd32f89cc196f0307a55724760f52efc7eb8726001",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0009.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_112131595_HDR.jpg",
+        "date": "2026:10:19 11:21:32",
+        "subsec": "105504",
+        "sha256": "687b297b529d2e275ca8967d2d6b7cb6d19530e4b1b760f1ab94515b4b5de4c9",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0010.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_112150420_HDR.jpg",
+        "date": "2026:10:19 11:21:50",
+        "subsec": "848048",
+        "sha256": "87358d1225a3a1aed42f28a2dd0834ba51861bef95f04ec2ee1dbfa3a09a9044",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0011.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_112153046_HDR.jpg",
+        "date": "2026:10:19 11:21:53",
+        "subsec": "481448",
+        "sha256": "5b9fcb2785975aa4d2295dc08d7857379882c333ac84544b67bf0317887e3dcc",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0012.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_112155789_HDR.jpg",
+        "date": "2026:10:19 11:21:56",
+        "subsec": "462403",
+        "sha256": "2ba5f58c9caea74d4cc3e97f00dddaab7248f18ac5a6f1bd680db831866f5938",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0013.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_112158635_HDR.jpg",
+        "date": "2026:10:19 11:21:59",
+        "subsec": "310811",
+        "sha256": "96cb6f5b6ecd2219a34e0a9e692b888014873179b39c2af0d1ef4db657da4d2d",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0014.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_112201502_HDR.jpg",
+        "date": "2026:10:19 11:22:02",
+        "subsec": "077638",
+        "sha256": "eb8fc25c3fd2083ee747e6b83dd77794166a68e6cc9621fb671093039ab60910",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0015.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_112205544_HDR.jpg",
+        "date": "2026:10:19 11:22:05",
+        "subsec": "926237",
+        "sha256": "d950caa8e0fcb7bc61480f9c5cd4cb0ce040208a8ebd452fa33aa5a89e77b56b",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0016.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_112209296_HDR.jpg",
+        "date": "2026:10:19 11:22:09",
+        "subsec": "669903",
+        "sha256": "f5a1a2bd22318c0b2ece1ba9799645a2c9dbbfe8936d69a120f4c657450d11d9",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0017.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_112211354_HDR.jpg",
+        "date": "2026:10:19 11:22:12",
+        "subsec": "043696",
+        "sha256": "7384a8722afac88807776d911e1a2253e259f4d97166708a6f5ffb672486342b",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0018.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_112214398_HDR.jpg",
+        "date": "2026:10:19 11:22:15",
+        "subsec": "106446",
+        "sha256": "ace1189b1a5d0b50a454a8fec975c65c05e3f746d3e7cef7ef6713f7cb265680",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0019.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_112219697_HDR.jpg",
+        "date": "2026:10:19 11:22:20",
+        "subsec": "074807",
+        "sha256": "89a5e6be0cbb110e1289991782b724610f734602f65f239bcaf37370b9e85bee",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0020.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_112236366_HDR.jpg",
+        "date": "2026:10:19 11:22:36",
+        "subsec": "842046",
+        "sha256": "3493391618d14ebb2a0071809aa0bc321ff63852fa8e976f3d78ddec1259fbf2",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0021.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_112238544_HDR.jpg",
+        "date": "2026:10:19 11:22:39",
+        "subsec": "229754",
+        "sha256": "1883c75e49c01dca41129e600c2be1dd48899c4815e2588a10ba60c132ec83c2",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0022.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_112241763_HDR.jpg",
+        "date": "2026:10:19 11:22:42",
+        "subsec": "377110",
+        "sha256": "d7f005448bc3040dbbfe514665e84146d68d24de9e0493ec4cc9f98f8844e83d",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0023.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_112247259_HDR.jpg",
+        "date": "2026:10:19 11:22:47",
+        "subsec": "644430",
+        "sha256": "2c4f0400274436db97b3b63322320ec74e210b13ed5c53129d67d692f8237c81",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0024.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_112259391_HDR.jpg",
+        "date": "2026:10:19 11:22:59",
+        "subsec": "826592",
+        "sha256": "bcb7e0da27d98cac7617e32f4cbead74a662ec781980cd88855cb8104dd13101",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0025.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_112302617_HDR.jpg",
+        "date": "2026:10:19 11:23:03",
+        "subsec": "013266",
+        "sha256": "b3b6eda0e2e525a6a0cd7d1702872c1fb197d510a335f616e82fd4f0389f5946",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0026.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_112306541_HDR.jpg",
+        "date": "2026:10:19 11:23:06",
+        "subsec": "915515",
+        "sha256": "7b4d03f9efb705bb5453cec835379d455eb7411c376adddee77c0651996518c2",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0027.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_112312763_HDR.jpg",
+        "date": "2026:10:19 11:23:13",
+        "subsec": "124811",
+        "sha256": "bf3913f3890e82dac9fed93a6639f788100f2068ca83939b36d6565a1ea0ba56",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0028.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_112315402_HDR.jpg",
+        "date": "2026:10:19 11:23:15",
+        "subsec": "833571",
+        "sha256": "75a256a34966287ab939cd45caa3d0940f9b602e1620ede49ba1bd5b9067dab7",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0029.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_112319141_HDR.jpg",
+        "date": "2026:10:19 11:23:19",
+        "subsec": "621206",
+        "sha256": "88b61083425fb8ce05518db908dd4e5752718721ab595739b183f1857e551d9d",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "comer_s008_0030.jpg",
+        "distance": "larga"
+      }
+    ],
+    "bano": [
+      {
+        "original": "IMG_20261019_113102172_HDR.jpg",
+        "date": "2026:10:19 11:31:02",
+        "subsec": "596100",
+        "sha256": "71ba19d58247440e229ac5fadeb4d7ba5b324f91ded56dab9d30f68c2e54be62",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0001.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_113104565_HDR.jpg",
+        "date": "2026:10:19 11:31:05",
+        "subsec": "085646",
+        "sha256": "cb86f0bfce8d0b0dbbd76155b97902956914182c0fc70c4eabd7bda43742da47",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0002.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_113108086_HDR.jpg",
+        "date": "2026:10:19 11:31:08",
+        "subsec": "457307",
+        "sha256": "e255c35e18c7f76faea783e5d384bca389251848571625f99fbfd150300e277e",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0003.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_113111115_HDR.jpg",
+        "date": "2026:10:19 11:31:11",
+        "subsec": "529108",
+        "sha256": "2832b0b10caf49742e81a0f1ae905764c9c6c4b35c9cc7e11c1e5552b38ae60d",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0004.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_113115907_HDR.jpg",
+        "date": "2026:10:19 11:31:16",
+        "subsec": "271421",
+        "sha256": "8cbebdd78a10353c80be3d4c8e66f9bdca85ba41c3f66d420a43a373d6bd4148",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0005.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_113119274_HDR.jpg",
+        "date": "2026:10:19 11:31:19",
+        "subsec": "642328",
+        "sha256": "427f8b04757d26e923b8a5bf95b6afb2ba31a0a1bc7bd1f0f8c52acc652adc6d",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0006.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_113121500_HDR.jpg",
+        "date": "2026:10:19 11:31:22",
+        "subsec": "128910",
+        "sha256": "6c9f4891c1b978e233913adf76262d79934601ad2da70cffc86bfa278cf1e326",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0007.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_113123613_HDR.jpg",
+        "date": "2026:10:19 11:31:24",
+        "subsec": "093579",
+        "sha256": "2b3a6b2f1c8e8944b75eb5c2053642a36d1b6674264b5e17c1fe0b53fca50574",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0008.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_113126295_HDR.jpg",
+        "date": "2026:10:19 11:31:26",
+        "subsec": "817850",
+        "sha256": "7335a6038f10f549cacc81a2411e0b232ff6654ea15c664f5fdaa8a3dfdc0657",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0009.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_113130936_HDR.jpg",
+        "date": "2026:10:19 11:31:31",
+        "subsec": "377452",
+        "sha256": "4d2b791a5c1c100917920a3b5c8177b0f2dc9e445830af36f815710f8cf3feb9",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0010.jpg",
+        "distance": "corta"
+      },
+      {
+        "original": "IMG_20261019_113210318_HDR.jpg",
+        "date": "2026:10:19 11:32:10",
+        "subsec": "815281",
+        "sha256": "c790485fed39b7145b6a0a09355f9290ec8f3c59b0b1ca0af33d6752bb2b646e",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0011.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_113216856_HDR.jpg",
+        "date": "2026:10:19 11:32:17",
+        "subsec": "262393",
+        "sha256": "fa6edf8263dc5dd7d0e06ce1d4d3bbea83ea61b1af3d9ad53d5426260325bc88",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0012.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_113219651_HDR.jpg",
+        "date": "2026:10:19 11:32:20",
+        "subsec": "135675",
+        "sha256": "cba569340a69615c1ebcc89a34cf56389bfcc5d6bd9877f97a1c8ff9dbbd79e8",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0013.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_113224239_HDR.jpg",
+        "date": "2026:10:19 11:32:24",
+        "subsec": "619057",
+        "sha256": "3dba8126147317eeec09d73913f184b0d52dc52ca240481d1d04076c870f72d4",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0014.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_113228037_HDR.jpg",
+        "date": "2026:10:19 11:32:28",
+        "subsec": "476939",
+        "sha256": "6896d55b5fc7926a9c963cc40f9cd232ae0be1b1db6ec600546571d2ccaefd20",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0015.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_113232370_HDR.jpg",
+        "date": "2026:10:19 11:32:32",
+        "subsec": "807318",
+        "sha256": "e7e0eec77ccb26fa6b960e4c74f5f665eb5ed730cb455d08379ff31b4d2712f1",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0016.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_113236126_HDR.jpg",
+        "date": "2026:10:19 11:32:36",
+        "subsec": "531001",
+        "sha256": "cc71e7253dd8072dca75bbbe9ce6fbe630b5710502e5673b6f9cc70593a922b0",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0017.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_113253717_HDR.jpg",
+        "date": "2026:10:19 11:32:54",
+        "subsec": "134651",
+        "sha256": "df3f787aeca8e631ba3e78237fd2478874f6be7b1cbc2fa01d5ffbe836e80e3a",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0018.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_113357872_HDR.jpg",
+        "date": "2026:10:19 11:33:58",
+        "subsec": "264300",
+        "sha256": "4f0c72c2460f06d77c462bf15fae24c8b6a46944df6504d3301f7f4f0b5cf03d",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0019.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_113359340_HDR.jpg",
+        "date": "2026:10:19 11:33:59",
+        "subsec": "858000",
+        "sha256": "af068f798b2534f554364787d989598e32d210ca8f21eec7a4b6121de1c3ba1d",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0020.jpg",
+        "distance": "media"
+      },
+      {
+        "original": "IMG_20261019_113403081_HDR.jpg",
+        "date": "2026:10:19 11:34:03",
+        "subsec": "709018",
+        "sha256": "16c9a2080f6e54278da7d1529d2f93ac8724b89e70c9a94d100e9c7d45d5ba7a",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0021.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_113404956_HDR.jpg",
+        "date": "2026:10:19 11:34:05",
+        "subsec": "360151",
+        "sha256": "bf388719b0aa505c19e95c8f654299b5f7d80c40e015efc7117e5271f4058a53",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0022.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_113407565_HDR.jpg",
+        "date": "2026:10:19 11:34:07",
+        "subsec": "967387",
+        "sha256": "1eaf549a1add2753dddeb0d7521c0dd27b03909a4eee9fda8dca713bb70997bf",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0023.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_113409714_HDR.jpg",
+        "date": "2026:10:19 11:34:10",
+        "subsec": "375718",
+        "sha256": "4772a772668a8f89cca55c908e79a56410975ef378474e76d3ef7e732f16d27e",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0024.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_113413939_HDR.jpg",
+        "date": "2026:10:19 11:34:14",
+        "subsec": "603037",
+        "sha256": "ab9dd4856a021dc3da48f7dd72a5a180f9ebe7f312cced2dd0219b92c90b573a",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0025.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_113421964_HDR.jpg",
+        "date": "2026:10:19 11:34:22",
+        "subsec": "799933",
+        "sha256": "1811d454cad4f19e0429218dbd7be9bc8fcde8d283b58a1abae2495da077418d",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0026.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_113424995_HDR.jpg",
+        "date": "2026:10:19 11:34:25",
+        "subsec": "816424",
+        "sha256": "d0a6fc5544a29588a31d5a01674218acdcdd28fc39e973729c5955b0ada2d32b",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0027.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_113427707_HDR.jpg",
+        "date": "2026:10:19 11:34:28",
+        "subsec": "293338",
+        "sha256": "553bb58643efcbc4e6afcbb4bd2487fa0eba78bff5cf7ec57c438ed8222e1030",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0028.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_113432011_HDR.jpg",
+        "date": "2026:10:19 11:34:32",
+        "subsec": "653161",
+        "sha256": "c88dad896c9a2f6a078ffa5e6133c2f88de18e57e7efc5b9536f07aa9520ee2a",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0029.jpg",
+        "distance": "larga"
+      },
+      {
+        "original": "IMG_20261019_113538619_HDR.jpg",
+        "date": "2026:10:19 11:35:39",
+        "subsec": "032768",
+        "sha256": "ea4a7ed852b01fbe289c8902e5a7c5c1bedf20d58351ccfbcd9495f0edc47faf",
+        "size": [
+          3072,
+          3072
+        ],
+        "device_exif": "moto g75 5G",
+        "extension": ".jpg",
+        "filename": "bano_s008_0030.jpg",
+        "distance": "larga"
+      }
+    ]
+  }
+}

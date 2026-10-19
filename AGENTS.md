@@ -21,7 +21,7 @@ Aplican a todo este repositorio. Comunicarse y documentar en español.
 - `data/`: originales, procesadas y particiones; `models/`: checkpoints locales; `reports/`: evidencia de experimentos; `docs/`: decisiones y protocolos.
 
 ## Inferencia y preprocesamiento
-- Reutilizar `preprocessing.py`: orientación EXIF, RGB, redimensionado LANCZOS a 128 × 128. Entradas procesadas uint8 de 0 a 255, sin aumentos ni normalización externa.
+- Reutilizar `preprocessing.py`: orientación EXIF, RGB y redimensionado LANCZOS. La aplicación vigente recibe128×128; los experimentos pueden fijar192×192 mediante image_size en su configuración, sin alterar config/project.json ni la selección de la aplicación. Entradas procesadas uint8 de 0 a 255, sin aumentos ni normalización externa.
 - La normalización específica y los aumentos pertenecen al modelo. MobileNetV3 incorpora su normalización: evitar aplicarla dos veces.
 - Mantener IDs internos sin tildes y textos visibles acentuados. Preservar exactamente el orden entre clases, manifiestos y salidas del modelo.
 - Verificar existencia del checkpoint, coincidencia de clases y cantidad de salidas. No eludir controles de compatibilidad ni completar salidas artificialmente.
@@ -35,11 +35,11 @@ Aplican a todo este repositorio. Comunicarse y documentar en español.
 - s007 está reservada para prueba final. No usarla para entrenamiento, elección de arquitectura, hiperparámetros, época, umbral o comparaciones de desarrollo.
 - Los desconocidos se auditan aparte; no son una undécima clase de entrenamiento. Separar negativos de calibración y evaluación conforme al protocolo.
 - Preparación: `uv run python scripts/prepare_dataset.py` valida; agregar `--apply --workers 4` genera procesadas y manifiestos. Revisar el alcance antes de ejecutar escrituras sobre datos.
-- Validación cruzada: seis rondas s001–s006; cuatro sesiones entrenan, una valida internamente y una evalúa externamente. La interna elige checkpoint por val_loss; la externa se evalúa después de seleccionarlo.
+- Validación cruzada histórica: seis rondas s001–s006 con 1200/300/300. La ampliación actual usa siete rondas s001–s006 y s008, con 1500/300/300; cinco sesiones entrenan, una valida internamente y una evalúa externamente. Configuraciones cv_s008_128.json y cv_s008_192.json. La interna elige checkpoint por val_loss; la externa se evalúa después de seleccionarlo. No reutilizar desconocidos como clase de entrenamiento.
 - Reiniciar modelos por ronda, salvo el experimento explícito de continuación de MobileNet. Mantener semillas y protocolo registrados; no alterar datos ni configuración al reanudar una ejecución.
 - Comando base: `uv run python scripts/train_cross_validation.py`. Reanudar con `--resume --run-id ID`; una ronda incompleta se reinicia. Usar las configuraciones específicas para variantes.
 - Las métricas externas cruzadas son resultados de desarrollo, no prueba final. La desviación entre sesiones no es un intervalo de confianza.
-- Distinguir objetivos de resultados: 70 % es el mínimo académico de prueba; 80 % en desarrollo requiere al menos 1440/1800 aciertos, sin redondear hacia arriba. No afirmar convergencia solo por alcanzar el límite de épocas.
+- Distinguir objetivos de resultados: 70 % es el mínimo académico de prueba; 80 % en desarrollo requiere al menos 1440/1800 o1680/2100 aciertos según el experimento, sin redondear hacia arriba. No afirmar convergencia solo por alcanzar el límite de épocas.
 
 ## Cambios y comprobaciones
 - Preferir cambios acotados, rutas con `pathlib` relativas al proyecto y texto UTF-8. Evitar rutas absolutas de una máquina.
@@ -49,3 +49,8 @@ Aplican a todo este repositorio. Comunicarse y documentar en español.
 - Para revisar resultados: `scripts/describe_cv_results.py --run-id ID` y `scripts/compare_cv_experiments.py --reference ID --candidate ID`, ejecutados con `uv run python`.
 - Respetar `.gitignore`: datos y pesos son locales y requieren respaldo separado; evidencia de experimentos en reports puede estar versionada. No agregar artefactos ignorados por la fuerza ni borrar capturas, modelos o informes sin solicitud explícita.
 - Actualizar README y documentación del protocolo cuando cambien ejecución, selección, procesamiento o metodología.
+
+## Resultados vigentes y límites
+- Consultar docs/resultados_y_decisiones.md: CNN128:77,95 %, CNN192:70,33 %; MobileNet128:84,62 %, MobileNet192:93,52 %, sobre2100 externas. No son prueba final ni rendimiento demostrado de la aplicación.
+- A192 la CNN con Flatten aumenta323370 a 651050 parámetros; MobileNet conserva944890. No atribuir la diferencia exclusivamente a resolución.
+- Rechazo kNN192:208/300 desconocidas (69,33 %),5/2100 conocidas rechazadas;1961 conocidas correctas aceptadas. No declarar cumplimiento del 70 %. No activar un checkpoint o umbral de CV automáticamente.

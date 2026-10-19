@@ -384,3 +384,7 @@ interpretar resultados y está documentada en este protocolo; ninguna imagen de
 `s006` puede pasar a entrenamiento. Quedan pendientes las 30 imágenes de `s007`
 por cada clase y las 50 imágenes `unknown` de prueba para alcanzar las 2.400
 imágenes planificadas.
+
+## Ampliación de desarrollo s008
+
+s008 incorpora 300 conocidas (30 por clase) y 50 objetos o escenas sin tarjetas. Es desarrollo, no reemplaza s007. Ayuda conserva numeración de importación: 0001–0008 y0025–0026 cortas;0009–0016 y0027–0028 medias;0017–0024 y0029–0030 largas. Usar metadata, sin inferir distancias por bloques de diez para esa clase. Los planes automáticos históricos no describen s008; no regenerar sus filas con ellos. Ver [revisión y entrenamiento](entrenamiento_s008.md).

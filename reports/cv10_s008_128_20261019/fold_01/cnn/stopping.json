@@ -1,0 +1,22 @@
+{
+  "monitor": "val_loss",
+  "best_epoch": 4,
+  "best_phase": "desde_cero",
+  "best_val_loss": 1.8354218006134033,
+  "stopped_epoch": 10,
+  "best_epoch_last_step": 188,
+  "stopped_training_step": 470,
+  "steps_per_epoch": 47,
+  "last_batch_images": 28,
+  "stages": [
+    {
+      "phase": "desde_cero",
+      "max_epochs": 30,
+      "completed": 10,
+      "patience": 6,
+      "stop_reason": "Paciencia agotada sin reducir val_loss",
+      "stopped_global_epoch": 10
+    }
+  ],
+  "outer_used_for_stopping": false
+}

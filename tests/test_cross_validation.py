@@ -28,3 +28,20 @@ def test_final_test_is_rejected():
 
 def test_missing_class_images_rejected():
     with pytest.raises(ValueError,match='Cantidad'):validate_records(records()[:-1],[f'c{i}' for i in range(10)])
+
+
+def test_seven_sessions_keep_final_test_out_and_rotate():
+    sessions=[f's{i:03d}' for i in range(1,7)]+['s008']
+    folds=make_folds(sessions)
+    assert len(folds)==7
+    assert {f['outer'][0] for f in folds}==set(sessions)
+    for f in folds:
+        assert len(f['train'])==5
+        assert len(set(f['train']+f['stop']+f['outer']))==7
+        assert 's007' not in f['train']+f['stop']+f['outer']
+    rows=records()+[dict(raw_path=f'8/{c}/{i}.jpg',processed_path=f'8/{c}/{i}.png',sha256=f'8-{c}-{i}',session_id='s008',class_id=f'c{c}',class_index=str(c)) for c in range(10) for i in range(30)]
+    assert validate_records(rows,[f'c{i}' for i in range(10)],sessions=sessions)
+    with pytest.raises(ValueError,match='Cantidad'):
+        validate_records(rows[:-1],[f'c{i}' for i in range(10)],sessions=sessions)
+    with pytest.raises(ValueError,match='s007'):
+        make_folds(sessions+['s007'])

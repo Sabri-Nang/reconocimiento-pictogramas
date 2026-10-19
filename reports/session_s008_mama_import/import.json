@@ -1,0 +1,420 @@
+{
+  "session": "s008",
+  "class_id": "mama",
+  "count": 30,
+  "expected": 30,
+  "distances": {
+    "corta": 10,
+    "media": 10,
+    "larga": 10
+  },
+  "missing": [],
+  "order": "DateTimeOriginal + SubsecTimeOriginal EXIF",
+  "exact_duplicates_within_import": 0,
+  "exact_duplicates_against_previous_audit": 0,
+  "duplicate_check_scope": "Inventario previo; no recalculo de hashes del dataset completo",
+  "unknown_scope": "Escenas sin tarjetas y objetos cotidianos; sin otros pictogramas disponibles. No permite estimar rechazo de pictogramas fuera de clases.",
+  "metadata_unconfirmed": [
+    "background"
+  ],
+  "images": [
+    {
+      "original": "IMG_20261019_100720558_HDR.jpg",
+      "date": "2026:10:19 10:07:20",
+      "subsec": "959833",
+      "sha256": "1a218d75404e4a48c69d0a119d7d0129ef762279a948b3334d59bb027b9b2e43",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0001.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_100724255_HDR.jpg",
+      "date": "2026:10:19 10:07:24",
+      "subsec": "681520",
+      "sha256": "124b670ad60faaa6386e105902ef347129bc032b99adeaf31bcff87788c1b06c",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0002.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_100737751_HDR_AE.jpg",
+      "date": "2026:10:19 10:07:38",
+      "subsec": "126065",
+      "sha256": "f4701398946a20816a685264af30361fcca77063b783c23e7949597c155a9585",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0003.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_100754679_HDR.jpg",
+      "date": "2026:10:19 10:07:55",
+      "subsec": "115812",
+      "sha256": "3eb8e8acfcc138745f440f02483998fdf31314828840974576a157472c36b612",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0004.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_100812551_HDR.jpg",
+      "date": "2026:10:19 10:08:12",
+      "subsec": "920378",
+      "sha256": "a6b4461153635e6bc6543f7c33628cd15997a2e42db59c8df8fa55e4d0aa4358",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0005.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_100831635_HDR.jpg",
+      "date": "2026:10:19 10:08:31",
+      "subsec": "979646",
+      "sha256": "1233ffa7da2fe223e25218e56e511137557edaff3becbc201fe97103e2500818",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0006.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_101325487_HDR.jpg",
+      "date": "2026:10:19 10:13:26",
+      "subsec": "041011",
+      "sha256": "cfbf2ad54608b60b139b2be793ea98b44a9b64eec086650a70a1ba4752de9fe1",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0007.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_101329079_HDR.jpg",
+      "date": "2026:10:19 10:13:29",
+      "subsec": "523830",
+      "sha256": "f49ae3748c2a98ddcfc91f709ab6b85270135babec1125c02a85024fae700376",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0008.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_101335831_HDR.jpg",
+      "date": "2026:10:19 10:13:36",
+      "subsec": "208249",
+      "sha256": "4f59f3febae8e89559453c4b57a6790724cbc74b9dbeccebf2ae58dbcfc7fcc8",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0009.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_101337838_HDR.jpg",
+      "date": "2026:10:19 10:13:38",
+      "subsec": "486720",
+      "sha256": "5c54882a1aa8d190c512692a9250b97176d80e2513d0c85118090a5957253260",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0010.jpg",
+      "distance": "corta"
+    },
+    {
+      "original": "IMG_20261019_101340944_HDR.jpg",
+      "date": "2026:10:19 10:13:41",
+      "subsec": "805006",
+      "sha256": "7fc24379f5703e03eef5b8a9e6729959d1e77f8a1759ce38a3c0ebd4d578fed2",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0011.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_101345376_AE.jpg",
+      "date": "2026:10:19 10:13:45",
+      "subsec": "794080",
+      "sha256": "bac767c078f75b67e7e47fa04f10cf735fc073aec63de8fde49639c6bb14da2f",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0012.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_101356516_HDR.jpg",
+      "date": "2026:10:19 10:13:56",
+      "subsec": "953732",
+      "sha256": "8c061043cf0dedf71ab5eee66321074d58537543f3f745f9dc0956af3176d50d",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0013.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_101358164_HDR.jpg",
+      "date": "2026:10:19 10:13:58",
+      "subsec": "821938",
+      "sha256": "c9066b4492b600aa092afae2cbf42d6a4f6de475647afcb176e19c2449687103",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0014.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_101401825_HDR.jpg",
+      "date": "2026:10:19 10:14:02",
+      "subsec": "270621",
+      "sha256": "124972537e4227952c4c3e49b5368c692bd36120bb8d3ffd350559e766b73f5a",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0015.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_101407996_HDR.jpg",
+      "date": "2026:10:19 10:14:08",
+      "subsec": "532412",
+      "sha256": "51132be178429ce1759140100ad896218d05440f3567b87cc486a928164b07ac",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0016.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_101411646_HDR_AE.jpg",
+      "date": "2026:10:19 10:14:12",
+      "subsec": "345390",
+      "sha256": "f455620991ff878e93bf5b06fd33726dd68ac267f783771907129877ab4ef903",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0017.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_101420134_HDR.jpg",
+      "date": "2026:10:19 10:14:20",
+      "subsec": "631550",
+      "sha256": "61c1599fcdbe3ad5bc2d1e86eaaaff852b2de4190d8343e2daffe689dd56f648",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0018.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_101424332_HDR.jpg",
+      "date": "2026:10:19 10:14:24",
+      "subsec": "877542",
+      "sha256": "1ae37036257369d83d0e0f2a83b73ec4837d1868f3f13f22df0715bef56b4076",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0019.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_101429743_HDR.jpg",
+      "date": "2026:10:19 10:14:30",
+      "subsec": "120331",
+      "sha256": "eaf9f6964e1f2d41d3cd1a2f4772d5314a8885f291486b9840eb2b4d3dca229a",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0020.jpg",
+      "distance": "media"
+    },
+    {
+      "original": "IMG_20261019_101445432_HDR.jpg",
+      "date": "2026:10:19 10:14:45",
+      "subsec": "898522",
+      "sha256": "d3cad1e2c6f708426f013c67336b86cfc3ea31bae686c318ed3f3b687669250c",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0021.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_101452763_HDR.jpg",
+      "date": "2026:10:19 10:14:53",
+      "subsec": "170297",
+      "sha256": "4455def360070565e00069c8456c7c4a1f444dbcf9cfff2bff0581c4d050b854",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0022.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_101459835_HDR_AE.jpg",
+      "date": "2026:10:19 10:15:00",
+      "subsec": "598550",
+      "sha256": "841360200577f54c0dcc6234931f7ea9c19fe6d7183682900433e98282c12bf4",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0023.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_101507650_AE.jpg",
+      "date": "2026:10:19 10:15:08",
+      "subsec": "025520",
+      "sha256": "7d2ee7d328e2985977f8d770c1472ec9c1ca09ce88137659f6f24c780e4b11b2",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0024.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_101510002_AE.jpg",
+      "date": "2026:10:19 10:15:10",
+      "subsec": "393994",
+      "sha256": "4c98cfe7df111effbcf8fa5ba7669e188d3a896c7a2887f42999792c83fcfa92",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0025.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_101515284_AE.jpg",
+      "date": "2026:10:19 10:15:15",
+      "subsec": "904472",
+      "sha256": "e7b775284286122e0adb312480be26b609978b0e33b952a00893f89d3e1f1891",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0026.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_101517498_HDR_AE.jpg",
+      "date": "2026:10:19 10:15:18",
+      "subsec": "094347",
+      "sha256": "4bbb1c5192bc2274a03bae2d38e11ae5bfaf65498dc6f9f6b7190fd0102aa5d5",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0027.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_101523237_HDR.jpg",
+      "date": "2026:10:19 10:15:23",
+      "subsec": "629382",
+      "sha256": "cc61950abaaa5d0e0c95b46913a5f162e1cdcc4504200e4b0da343b5309ecefb",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0028.jpg",
+      "distance": "larga"
+    },
+    {
+      "original": "IMG_20261019_104528076_HDR.jpg",
+      "date": "2026:10:19 10:45:28",
+      "subsec": "660761",
+      "sha256": "e5c813716b40df5f2a62f2fb116228547664afb9f6c6094113e3de24ac39fe18",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0029.jpg",
+      "distance": "larga",
+      "source_archive": "Photos-1-001.zip"
+    },
+    {
+      "original": "IMG_20261019_104531196_HDR.jpg",
+      "date": "2026:10:19 10:45:31",
+      "subsec": "638714",
+      "sha256": "0fad18a0d12a82a4ba1abdda84e986083811a1cc83a1ced3271c2c0273d4643b",
+      "size": [
+        3072,
+        3072
+      ],
+      "device_exif": "moto g75 5G",
+      "filename": "mama_s008_0030.jpg",
+      "distance": "larga",
+      "source_archive": "Photos-1-001.zip"
+    }
+  ],
+  "completion_note": "Dos tomas lejanas adicionales importadas del ZIP; originales JPEG preservados byte a byte. Sin entrenamiento ni procesamiento.",
+  "conditions": {
+    "lighting": "natural_o_artificial",
+    "perspective": "variada",
+    "scope": "Confirmacion general del usuario para las 30 fotos de mama; sin detalle individual. No implica iluminacion mixta en cada toma."
+  }
+}

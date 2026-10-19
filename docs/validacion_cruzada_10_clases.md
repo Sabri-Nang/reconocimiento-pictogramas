@@ -242,3 +242,7 @@ El experimento nuevo conserva ambos ensayos anteriores. El comparador recalcula
 las dos reglas desde las puntuaciones internas y verifica que coincidan modelos,
 clases, imágenes y puntuaciones externas. No se selecciona un umbral final ni
 se modifica la aplicación; s007 permanece reservada.
+
+## Extensión con s008
+
+El protocolo histórico de seis rondas se conserva. La nueva ejecución usa siete sesiones (s001–s006 y s008), cinco de entrenamiento por ronda, una interna y una externa. Consultar [protocolo s008](entrenamiento_s008.md). s007 permanece reservada.

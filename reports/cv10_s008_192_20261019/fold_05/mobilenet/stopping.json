@@ -1,0 +1,30 @@
+{
+  "monitor": "val_loss",
+  "best_epoch": 60,
+  "best_phase": "ajuste_fino",
+  "best_val_loss": 0.3400207459926605,
+  "stopped_epoch": 60,
+  "best_epoch_last_step": 2820,
+  "stopped_training_step": 2820,
+  "steps_per_epoch": 47,
+  "last_batch_images": 28,
+  "stages": [
+    {
+      "phase": "clasificador_congelado",
+      "max_epochs": 20,
+      "completed": 20,
+      "patience": 6,
+      "stop_reason": "Límite de épocas alcanzado",
+      "stopped_global_epoch": 20
+    },
+    {
+      "phase": "ajuste_fino",
+      "max_epochs": 40,
+      "completed": 40,
+      "patience": 4,
+      "stop_reason": "Límite de épocas alcanzado",
+      "stopped_global_epoch": 60
+    }
+  ],
+  "outer_used_for_stopping": false
+}

@@ -1,0 +1,7 @@
+{
+  "reason": "OSError22 al guardar epoch_curves.png al finalizar CNN ronda7. Sin resultado externo guardado.",
+  "action": "Reinicio de la ronda incompleta con la misma semilla y protocolo. Se conservan seis rondas completas y se respalda la ronda incompleta.",
+  "backup": "reports/dataset_preparation_backups/cv_s008_fold07_interrupted_20261019_123544",
+  "source_sha256": "da41df259ec622e0ec9f2a393b7e9b50f80425b510387fd03bb71feb5b90bd28",
+  "test_used": false
+}

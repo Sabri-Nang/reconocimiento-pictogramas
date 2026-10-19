@@ -1,0 +1,220 @@
+{
+  "config": {
+    "version": 2,
+    "sessions": [
+      "s001",
+      "s002",
+      "s003",
+      "s004",
+      "s005",
+      "s006",
+      "s008"
+    ],
+    "reserved_final_test": "s007",
+    "batch_size": 32,
+    "seed": 42,
+    "expected_per_class_session": 30,
+    "cnn_epochs": 30,
+    "mobilenet_head_epochs": 20,
+    "mobilenet_fine_tune_epochs": 40,
+    "patience": 6,
+    "fine_tune_patience": 4,
+    "monitor": "val_loss",
+    "min_delta": 0.0,
+    "note": "Comparacion192 frente a128: mismas siete rondas, semillas, batch32, presupuestos CNN30 y MobileNet20+40, aumentos y parada. Originales EXIF/RGB/LANCZOS. CNN Flatten aumenta parametros; MobileNet usa promedio global. s007 excluida. No modifica aplicacion.",
+    "architectures": [
+      "cnn",
+      "mobilenet"
+    ],
+    "development_manifest": "reports/resolution_192_20261019/development_192.csv",
+    "audit_path": "reports/resolution_192_20261019/integrity.json",
+    "inventory_path": "reports/session_s008_review/inventory_7sessions.csv",
+    "image_size": [
+      192,
+      192
+    ]
+  },
+  "project": {
+    "project_name": "reconocimiento-pictogramas",
+    "phase": "dataset-10",
+    "random_seed": 42,
+    "image": {
+      "width": 192,
+      "height": 192,
+      "channels": 3,
+      "color_mode": "rgb"
+    },
+    "classes": [
+      {
+        "id": "agua",
+        "display_name": "Agua"
+      },
+      {
+        "id": "comer",
+        "display_name": "Comer"
+      },
+      {
+        "id": "bano",
+        "display_name": "Baño"
+      },
+      {
+        "id": "mama",
+        "display_name": "Mamá"
+      },
+      {
+        "id": "dolor",
+        "display_name": "Dolor"
+      },
+      {
+        "id": "papa",
+        "display_name": "Papá"
+      },
+      {
+        "id": "no",
+        "display_name": "No"
+      },
+      {
+        "id": "si",
+        "display_name": "Sí"
+      },
+      {
+        "id": "jugar",
+        "display_name": "Jugar"
+      },
+      {
+        "id": "ayuda",
+        "display_name": "Ayuda"
+      }
+    ],
+    "split": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15,
+      "group_by_capture_session": true
+    },
+    "acceptance": {
+      "expected_class_count": 10,
+      "minimum_test_accuracy": 0.7,
+      "confidence_threshold": null
+    }
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "train": [
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s008"
+      ],
+      "stop": [
+        "s002"
+      ],
+      "outer": [
+        "s001"
+      ]
+    },
+    {
+      "fold": 2,
+      "train": [
+        "s001",
+        "s004",
+        "s005",
+        "s006",
+        "s008"
+      ],
+      "stop": [
+        "s003"
+      ],
+      "outer": [
+        "s002"
+      ]
+    },
+    {
+      "fold": 3,
+      "train": [
+        "s001",
+        "s002",
+        "s005",
+        "s006",
+        "s008"
+      ],
+      "stop": [
+        "s004"
+      ],
+      "outer": [
+        "s003"
+      ]
+    },
+    {
+      "fold": 4,
+      "train": [
+        "s001",
+        "s002",
+        "s003",
+        "s006",
+        "s008"
+      ],
+      "stop": [
+        "s005"
+      ],
+      "outer": [
+        "s004"
+      ]
+    },
+    {
+      "fold": 5,
+      "train": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s008"
+      ],
+      "stop": [
+        "s006"
+      ],
+      "outer": [
+        "s005"
+      ]
+    },
+    {
+      "fold": 6,
+      "train": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005"
+      ],
+      "stop": [
+        "s008"
+      ],
+      "outer": [
+        "s006"
+      ]
+    },
+    {
+      "fold": 7,
+      "train": [
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006"
+      ],
+      "stop": [
+        "s001"
+      ],
+      "outer": [
+        "s008"
+      ]
+    }
+  ],
+  "development_sha256": "fc117bb3d5eb2d6b1f826b77144146df3e21565140f6ed8c5a9de4af6d8c3033",
+  "development_manifest": "reports/resolution_192_20261019/development_192.csv",
+  "test_used": false,
+  "unknown_used": false,
+  "visual_findings": []
+}

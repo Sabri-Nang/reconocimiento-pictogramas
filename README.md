@@ -378,3 +378,31 @@ el nuevo enlace. Las pruebas locales no sustituyen la prueba en el celular.
 ## Próximos experimentos y limpieza del repositorio
 
 Consultar [la estrategia de mejora y conservación de archivos](docs/estrategia_mejora_entrenamiento.md) para comparar 128×128 con 192×192, planificar nuevas sesiones y mantener s007 reservada para la prueba final.
+
+La incorporación de s008, su evaluación previa y la nueva validación cruzada de siete sesiones se documentan en [entrenamiento s008](docs/entrenamiento_s008.md).
+
+El análisis de errores de las siete rondas está en [el informe de resultados](reports/cv10_s008_128_20261019/error_analysis/lectura_resultados.md), con un [gráfico comparativo](reports/cv10_s008_128_20261019/error_analysis/classification_analysis.png). Son resultados de desarrollo, sin s007.
+
+La [evaluación de rechazo con los nuevos MobileNet](reports/cv10_s008_unknown_knn_20261019/lectura_resultados.md) obtuvo 65,67 % de rechazo de desconocidas y 0,48 % de rechazo de conocidas en desarrollo. El objetivo de rechazo del 70 % todavía no se cumple de forma agrupada; la aplicación conserva su selección anterior.
+
+El [experimento de resolución192](docs/experimento_resolucion_192.md) compara las mismas siete rondas con128, recalibra rechazo y mide latencia, conservando la aplicación actual.
+
+## Resultados actuales de desarrollo
+
+Con siete sesiones (s001–s006 y s008), cada ronda utiliza **1.500 imágenes para
+entrenar, 300 para parada temprana y 300 para evaluación externa**. s007 continúa
+reservada para la prueba final.
+
+- MobileNet: **84,62 % a128×128 y93,52 % a192×192**.
+- CNN compacta: **77,95 % a128×128 y70,33 % a192×192**.
+- Rechazo MobileNet192: **208/300 desconocidas (69,33 %)** y5/2100 conocidas
+  rechazadas (0,24 %). Todavía no alcanza el objetivo de rechazo70 %.
+
+MobileNet192 es el mejor candidato de clasificación evaluado. **La aplicación
+conserva el modelo128 anterior**; el modelo único192 ysu calibración todavía
+requieren preparación antes de activarlo. No se hereda el promedio de CV como
+rendimiento de un modelo único. Estos resultados no son prueba final.
+
+Ver [resultados y decisiones](docs/resultados_y_decisiones.md),
+[comparación completa](reports/resolution_192_20261019/lectura_resultados.md) y
+[gráficos128/192](reports/resolution_192_20261019/comparison.png).
