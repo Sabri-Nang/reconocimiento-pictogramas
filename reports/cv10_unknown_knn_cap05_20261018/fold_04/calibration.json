@@ -1,0 +1,29 @@
+{
+  "method": "knn",
+  "calibration_rule": "known_rejection_cap",
+  "known_rejection_cap": 0.05,
+  "threshold": 0.8516817194833693,
+  "model_sha256": "6f5b07f349e7bf540f3bf933e370cad0c75b398668b7cabfeb984153224156e4",
+  "calibration_session": "s005",
+  "evaluation_session": "s004",
+  "selection": "Mayor umbral que rechaza como máximo5% de todas las conocidas internas; por monotonía maximiza rechazo de unknown bajo ese límite. Sin consultar externas.",
+  "internal_metrics": {
+    "known_images": 300,
+    "unknown_images": 40,
+    "known_correct_without_rejection": 240,
+    "known_accuracy_without_rejection": 0.8,
+    "known_rejected": 15,
+    "known_rejection_rate": 0.05,
+    "known_accepted": 285,
+    "known_coverage": 0.95,
+    "known_correct_accepted": 231,
+    "known_accuracy_with_rejection": 0.77,
+    "accuracy_among_accepted_known": 0.8105263157894737,
+    "known_wrong_accepted": 54,
+    "unknown_rejected": 40,
+    "unknown_rejection_rate": 1.0,
+    "unknown_false_accepted": 0,
+    "unknown_false_acceptance_rate": 0.0
+  },
+  "external_used": false
+}

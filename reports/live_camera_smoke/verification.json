@@ -1,0 +1,28 @@
+{
+  "stable_sequence": [
+    "—",
+    "—",
+    "Agua"
+  ],
+  "empty_frame_clears_outputs": true,
+  "annotated_output": true,
+  "camera_hardware_tested": false,
+  "phone_https_tested": false,
+  "source": "Reproducción de captura s006 por API: integración, no evaluación de video real",
+  "unit_tests_passed": 46,
+  "card_detection": "heurística cuadrilateral, no detector entrenado",
+  "full_frame_classification": true,
+  "stability_required_frames": 3,
+  "stream_interval_seconds": 0.5,
+  "selected_model_sha256": "556486f2ce505efc590be6f3f30352c3e8dbaed6bfcfe3ef987d2c861e02122e",
+  "source_sha256": {
+    "src\\reconocimiento_pictogramas\\live.py": "e0851ea9808f359f55436de17daadc495fc72f32481e2c9fdeca3a8b74c2a4b9",
+    "src\\reconocimiento_pictogramas\\ui.py": "0fc4f218dfc70cef6480824e32fd389e07852fe3e926364511373d9e3213ee13",
+    "src\\reconocimiento_pictogramas\\inference.py": "1cf444812581207f5d9df979c3b353d68542a6441530d9128921ccca413973c3"
+  },
+  "https_tunnel_authorized_by_user": true,
+  "public_https_auth_verified": true,
+  "unauthenticated_config_status": 401,
+  "authenticated_config_status": 200,
+  "phone_hardware_tested": false
+}

@@ -42,8 +42,11 @@ El modelo reconocerá diez categorías:
 3. La imagen se redimensiona a 128 por 128 píxeles.
 4. El modelo calcula la probabilidad correspondiente a cada clase.
 5. Se selecciona la categoría con mayor probabilidad.
-6. Si la confianza supera el umbral, se muestra la categoría y su confianza.
-7. Si no supera el umbral, se informa que el pictograma no fue reconocido.
+6. El detector de aplicación compara características con cinco vecinos conocidos
+   de entrenamiento y obtiene una similitud (no una probabilidad).
+7. Si la similitud supera el umbral calibrado para ese modelo, se muestra la
+   categoría; si no, se informa «Pictograma no reconocido». La puntuación de
+   clase se muestra separada de la similitud.
 
 ## Criterios de aceptación
 
@@ -94,7 +97,7 @@ La primera versión no incluirá:
 - reproducción de audio o síntesis de voz;
 - API remota;
 - despliegue en la nube;
-- aplicación móvil;
+- aplicación móvil nativa;
 - construcción de frases con varios pictogramas;
 - utilización clínica sin supervisión o validación profesional.
 
@@ -110,3 +113,55 @@ Estas funciones podrán agregarse después de validar el clasificador.
 - Evaluación sobre imágenes no utilizadas durante el entrenamiento.
 - Interfaz local desarrollada con Gradio.
 - Documentación de instalación, entrenamiento y uso.
+
+## Selección de aplicación de octubre de2026
+
+Se prepara un MobileNet único de diez clases con s001-s005 para entrenamiento,
+s006 para parada y calibración conservadora de rechazo, y s007 reservada.
+Las referencias son vectores de entrenamiento; no incluyen validación. La
+interfaz verifica checkpoint, referencias y orden de clases antes de predecir.
+Las métricas de s006 son internas; no confirman criterios de prueba final.
+
+## Extensión solicitada: cámara del navegador
+
+Se incorpora una pestaña de cámara en vivo, también accesible desde navegador
+móvil mediante HTTPS. La cámara trasera se solicita como preferencia; el
+navegador y el dispositivo determinan su disponibilidad y requieren permiso.
+Se procesan fotogramas a intervalos nominales de0,5 segundos; no es video
+clasificado a30fps ni se garantiza esa frecuencia en cualquier computadora/red.
+
+Un contorno cuadrilateral activa la clasificación del fotograma completo.
+La búsqueda geométrica no es un detector de objetos entrenado: puede perder
+tarjetas o detectar otros rectángulos. Se conserva el encuadre completo para
+no cambiar el preprocesamiento/modelo/umbral calibrados. No se atribuye clase
+a una región recortada ni se afirma localizar múltiples tarjetas correctamente.
+
+La palabra aparece como globo sobre el resultado anotado tras tres predicciones
+consecutivas aceptadas de la misma clase y ubicación similar. Si se pierde la
+tarjeta, cambia la clase, hay rechazo o error, se retira la palabra y se vuelve
+a confirmar. Esta estabilidad no convierte una clasificación errónea repetida
+en correcta. La vista móvil actual usa un video único con superposición de coordenadas y palabra.
+
+Los fotogramas se procesan en memoria y no se agregan al dataset; Gradio puede
+crear archivos temporales de transporte. No se entrena ni usa s007. No se
+modificaron los pesos ni el umbral. Falta evaluar video real y acceso móvil
+HTTPS en el dispositivo del usuario; las pruebas por API no sustituyen eso.
+
+Corrección de estabilidad de video: se toleran hasta15 segundos entre
+fotogramas aceptados de la misma clase y ubicación similar. El antiguo
+límite3s reiniciaba la confirmación cuando la red o inferencia demoraban4s.
+La interfaz muestra el progreso1/3 y2/3 y la clase candidata. Se mantienen
+las tres observaciones y el mismo umbral; no se rebaja el rechazo.
+Se comprobó con la cola real de streaming local, no con cámara móvil.
+
+Corrección por captura móvil con tarjeta no detectada: se añade búsqueda por
+superficie clara rectangular como respaldo al borde. La tarjeta de la captura
+proporcionada no se detectaba por bordes y sí con el respaldo. Es una
+comprobación de integración, no una evaluación general del detector.
+
+La cámara móvil actual usa HTML/getUserMedia y RPC autenticada de Gradio,
+con un único fotograma pendiente. Sustituye el componente webcam/cola de
+streaming anterior; evita el estado nativo «Esperando» y el desfase de dos
+paneles. El navegador dibuja las coordenadas sobre el video; al detener
+cancela la captura y descarta las respuestas de la sesión anterior. La
+clasificación y el umbral conservan su carácter experimental.

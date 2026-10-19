@@ -1,0 +1,123 @@
+{
+  "source_run": "cv10_mobilenet_extend_20261018",
+  "source_protocol_sha256": "09a8646ff09ab56ae4580f1e1fdbf9bfe9ca8a94a09f7412b1620829adf5b6ac",
+  "development_sha256": "1f88bb1013b130f344c022965599cd39c8f29162c2eb0985894d41f080fa6937",
+  "classes": [
+    "agua",
+    "comer",
+    "bano",
+    "mama",
+    "dolor",
+    "papa",
+    "no",
+    "si",
+    "jugar",
+    "ayuda"
+  ],
+  "folds": [
+    {
+      "fold": 1,
+      "train": [
+        "s003",
+        "s004",
+        "s005",
+        "s006"
+      ],
+      "stop": [
+        "s002"
+      ],
+      "outer": [
+        "s001"
+      ]
+    },
+    {
+      "fold": 2,
+      "train": [
+        "s001",
+        "s004",
+        "s005",
+        "s006"
+      ],
+      "stop": [
+        "s003"
+      ],
+      "outer": [
+        "s002"
+      ]
+    },
+    {
+      "fold": 3,
+      "train": [
+        "s001",
+        "s002",
+        "s005",
+        "s006"
+      ],
+      "stop": [
+        "s004"
+      ],
+      "outer": [
+        "s003"
+      ]
+    },
+    {
+      "fold": 4,
+      "train": [
+        "s001",
+        "s002",
+        "s003",
+        "s006"
+      ],
+      "stop": [
+        "s005"
+      ],
+      "outer": [
+        "s004"
+      ]
+    },
+    {
+      "fold": 5,
+      "train": [
+        "s001",
+        "s002",
+        "s003",
+        "s004"
+      ],
+      "stop": [
+        "s006"
+      ],
+      "outer": [
+        "s005"
+      ]
+    },
+    {
+      "fold": 6,
+      "train": [
+        "s002",
+        "s003",
+        "s004",
+        "s005"
+      ],
+      "stop": [
+        "s001"
+      ],
+      "outer": [
+        "s006"
+      ]
+    }
+  ],
+  "score": "mean_top5_cosine_similarity_scaled_0_1",
+  "method": "knn",
+  "reference_role": "train_only",
+  "neighbors": 5,
+  "rejection_rule": "score <= threshold",
+  "target_unknown_rejection": 0.7,
+  "selection": "Menor umbral que rechaza al menos70% de desconocidos de la sesión interna; minimiza rechazo de conocidos para esta restricción.",
+  "inner_known_reused_for_early_stopping": true,
+  "external_used_to_select_threshold": false,
+  "interpretation": "Desarrollo adaptativo. Sesión interna compartida con parada temprana; externa separada de la calibración en cada ronda. No prueba final.",
+  "unknown_cv_rotation": "Extensión explícita del protocolo CV: unknown sigue el rol interno/externo de la sesión. La referencia fija s006 para calibración final no se sustituye.",
+  "final_threshold_selected": false,
+  "test_used": false,
+  "created_utc": "2026-10-18T05:46:16.446724+00:00"
+}

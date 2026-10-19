@@ -1,0 +1,21 @@
+{
+  "folds": 6,
+  "external_images": 2050,
+  "known_images": 1800,
+  "unknown_images": 250,
+  "external_paths_unique": true,
+  "original_external_predictions_match": true,
+  "thresholds_saved_before_external_inference": true,
+  "unknown_hashes_verified": 250,
+  "source_manifest_unchanged": true,
+  "disjoint_sessions_paths_hashes": true,
+  "test_used": false,
+  "script_sha256": "a39068484d65d44c270433af7563b0eaa74c2c6aac77757814b610b0fdc5cecc",
+  "python": "3.11.15 (main, Aug  7 2026, 02:24:19) [MSC v.1944 64 bit (AMD64)]",
+  "reference_archives_verified": 6,
+  "train_reference_rows_per_fold": 1200,
+  "feature_reference_roles_verified": true,
+  "comparison_same_models_and_predictions": true,
+  "thresholds_recomputed_from_internal_scores": true,
+  "tests_passed": 32
+}

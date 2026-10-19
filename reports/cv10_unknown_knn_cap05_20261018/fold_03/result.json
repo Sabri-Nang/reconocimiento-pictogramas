@@ -1,0 +1,43 @@
+{
+  "fold": 3,
+  "threshold": 0.9173506281983456,
+  "calibration_session": "s004",
+  "evaluation_session": "s003",
+  "model_path": "models/cv10_mobilenet_extend_20261018/fold_03/mobilenet/best.keras",
+  "internal": {
+    "known_images": 300,
+    "unknown_images": 40,
+    "known_correct_without_rejection": 279,
+    "known_accuracy_without_rejection": 0.93,
+    "known_rejected": 15,
+    "known_rejection_rate": 0.05,
+    "known_accepted": 285,
+    "known_coverage": 0.95,
+    "known_correct_accepted": 266,
+    "known_accuracy_with_rejection": 0.8866666666666667,
+    "accuracy_among_accepted_known": 0.9333333333333333,
+    "known_wrong_accepted": 19,
+    "unknown_rejected": 40,
+    "unknown_rejection_rate": 1.0,
+    "unknown_false_accepted": 0,
+    "unknown_false_acceptance_rate": 0.0
+  },
+  "external": {
+    "known_images": 300,
+    "unknown_images": 40,
+    "known_correct_without_rejection": 223,
+    "known_accuracy_without_rejection": 0.7433333333333333,
+    "known_rejected": 210,
+    "known_rejection_rate": 0.7,
+    "known_accepted": 90,
+    "known_coverage": 0.3,
+    "known_correct_accepted": 86,
+    "known_accuracy_with_rejection": 0.2866666666666667,
+    "accuracy_among_accepted_known": 0.9555555555555556,
+    "known_wrong_accepted": 4,
+    "unknown_rejected": 40,
+    "unknown_rejection_rate": 1.0,
+    "unknown_false_accepted": 0,
+    "unknown_false_acceptance_rate": 0.0
+  }
+}

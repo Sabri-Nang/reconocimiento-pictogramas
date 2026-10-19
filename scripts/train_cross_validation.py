@@ -28,8 +28,8 @@ def contained(relative):
     if not path.is_relative_to(ROOT):raise ValueError('Ruta fuera del repositorio')
     return path
 
-def prepare_run(run):
-    project=read_json(ROOT/'config/project.json');cfg=read_json(ROOT/'config/cross_validation.json')
+def prepare_run(run,config_path=None):
+    project=read_json(ROOT/'config/project.json');cfg=read_json(config_path or ROOT/'config/cross_validation.json')
     classes=[c['id'] for c in project['classes']]
     rows=read_csv(ROOT/'data/splits/development.csv')
     validate_records(rows,classes,cfg['expected_per_class_session'])
@@ -109,7 +109,7 @@ def worker(run,number,architecture):
     L=tf.keras.layers
     augmentation=[L.RandomRotation(.04,seed=seed),L.RandomTranslation(.05,.05,seed=seed+1),L.RandomZoom(.1,seed=seed+2)]
     if architecture=='cnn':
-        model=tf.keras.Sequential([L.Input((height,width,3)),L.Rescaling(1./255),*augmentation,L.Conv2D(16,3,padding='same',activation='relu'),L.MaxPooling2D(),L.Conv2D(32,3,padding='same',activation='relu'),L.MaxPooling2D(),L.Conv2D(64,3,padding='same',activation='relu'),L.MaxPooling2D(),L.Conv2D(64,3,padding='same',activation='relu'),L.MaxPooling2D(),L.Flatten(),L.Dense(64,activation='relu'),L.Dropout(.3,seed=seed),L.Dense(len(classes),activation='softmax')],name='cnn_10')
+        model=tf.keras.Sequential([L.Input((height,width,3)),L.Rescaling(1./255),*augmentation,L.Conv2D(16,3,padding='same',activation='relu'),L.MaxPooling2D(),L.Conv2D(32,3,padding='same',activation='relu'),L.MaxPooling2D(),L.Conv2D(64,3,padding='same',activation='relu'),L.MaxPooling2D(),L.Conv2D(64,3,padding='same',activation='relu'),L.MaxPooling2D(),(L.GlobalAveragePooling2D() if cfg.get('cnn_pooling','flatten')=='global_average' else L.Flatten()),L.Dense(64,activation='relu'),L.Dropout(.3,seed=seed),L.Dense(len(classes),activation='softmax')],name='cnn_10')
     else:
         base=tf.keras.applications.MobileNetV3Small(input_shape=(height,width,3),include_top=False,weights='imagenet',include_preprocessing=True,pooling='avg')
         base.trainable=False
@@ -118,7 +118,7 @@ def worker(run,number,architecture):
         z=base(z,training=False);z=L.Dropout(.3,seed=seed)(z)
         model=tf.keras.Model(inputs,L.Dense(len(classes),activation='softmax')(z),name='mobilenet_10')
     def compile_model(lr):model.compile(optimizer=tf.keras.optimizers.Adam(lr),loss='sparse_categorical_crossentropy',metrics=['accuracy'])
-    compile_model(1e-3)
+    compile_model(cfg.get('cnn_learning_rate',1e-3) if architecture=='cnn' else 1e-3)
     lines=[];model.summary(print_fn=lambda line:lines.append(line))
     (dest/'architecture.txt').write_text('\n'.join(lines).rstrip()+'\n',encoding='utf-8')
     rows=[];stages=[];step=0;boundary=None
@@ -186,7 +186,7 @@ def aggregate(run):
     from sklearn.metrics import classification_report
     protocol=read_json(ROOT/'reports'/run/'protocol.json');classes=[c['id'] for c in protocol['project']['classes']]
     out=ROOT/'reports'/run;summary={}
-    for architecture in ['cnn','mobilenet']:
+    for architecture in protocol['config'].get('architectures',['cnn','mobilenet']):
         results=[read_json(out/f'fold_{i:02d}'/architecture/'result.json') for i in range(1,7)]
         predictions=[r for i in range(1,7) for r in read_csv(out/f'fold_{i:02d}'/architecture/'outer_predictions.csv')]
         if len({r['raw_path'] for r in predictions})!=1800:raise ValueError('Predicciones externas incompletas/repetidas')
@@ -199,11 +199,11 @@ def aggregate(run):
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     fig,axes=plt.subplots(1,2,figsize=(12,4.7))
-    for arch in ['cnn','mobilenet']:
+    for arch in protocol['config'].get('architectures',['cnn','mobilenet']):
         values=[r['outer_accuracy']*100 for r in summary[arch]['folds']]
         axes[0].plot(range(1,7),values,marker='o',label=arch.upper())
     axes[0].set(xticks=range(1,7),xticklabels=protocol['config']['sessions'],xlabel='Sesión de evaluación externa',ylabel='Exactitud (%)',title='Diez clases: resultado externo por sesión',ylim=(0,101));axes[0].legend()
-    names=['cnn','mobilenet'];axes[1].bar([n.upper() for n in names],[summary[n]['mean_accuracy']*100 for n in names],yerr=[summary[n]['std_across_sessions']*100 for n in names],capsize=5)
+    names=list(summary);axes[1].bar([n.upper() for n in names],[summary[n]['mean_accuracy']*100 for n in names],yerr=[summary[n]['std_across_sessions']*100 for n in names],capsize=5)
     axes[1].set(ylabel='Exactitud (%)',title='Promedio ± desviación entre seis sesiones',ylim=(0,105))
     fig.tight_layout(rect=(0,.07,1,1));fig.text(.02,.02,'Fuente: 1.800 predicciones externas por arquitectura. Barras: desviación entre sesiones, no intervalo de confianza. s007 no utilizada.',fontsize=8)
     fig.savefig(out/'comparison.png',dpi=150);plt.close(fig)
@@ -211,7 +211,7 @@ def aggregate(run):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--run-id');parser.add_argument('--worker',action='store_true');parser.add_argument('--fold',type=int);parser.add_argument('--architecture',choices=['cnn','mobilenet']);parser.add_argument('--resume',action='store_true')
+    parser.add_argument('--config',type=Path);parser.add_argument('--run-id');parser.add_argument('--worker',action='store_true');parser.add_argument('--fold',type=int);parser.add_argument('--architecture',choices=['cnn','mobilenet']);parser.add_argument('--resume',action='store_true')
     args=parser.parse_args()
     if args.worker:
         if not args.run_id or not args.fold or not args.architecture:parser.error('Faltan argumentos del worker')
@@ -221,9 +221,9 @@ def main():
     if args.resume:
         protocol=read_json(ROOT/'reports'/run/'protocol.json')
         if hashlib.sha256((ROOT/'data/splits/development.csv').read_bytes()).hexdigest()!=protocol['development_sha256']:raise ValueError('El manifiesto cambió; iniciar otro experimento')
-    else:protocol=prepare_run(run)
+    else:protocol=prepare_run(run,args.config)
     print(f'RUN_ID={run}',flush=True)
-    for arch in ['cnn','mobilenet']:
+    for arch in protocol['config'].get('architectures',['cnn','mobilenet']):
         for fold in range(1,7):
             if (ROOT/'reports'/run/f'fold_{fold:02d}'/arch/'result.json').exists():continue
             save_json(ROOT/'reports'/run/'progress.json',dict(status='running',architecture=arch,fold=fold))

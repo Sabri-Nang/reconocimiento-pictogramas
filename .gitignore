@@ -44,3 +44,15 @@ Thumbs.db
 
 # Estado transitorio de las ejecuciones de validación cruzada
 /reports/cv*/progress.json
+
+# Capturas de comprobación de cámara (contienen imágenes del dataset)
+/reports/live_camera_smoke/*.png
+# Credenciales y certificados locales de acceso móvil
+.runtime/
+
+# Estado local de Gradio y certificados generados
+/.gradio/
+
+# Hojas de contacto regenerables; conservar las copias locales
+/reports/revision_visual/*.jpg
+/reports/revision_visual/*.png

@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "trainings": 6,
+  "models": [
+    {
+      "architecture": "cnn",
+      "fold": 1,
+      "model_sha256": "37f09504a5ae63b00813a100f0d4c1b6169e06bd594f035ebd48930b5a118c57",
+      "epochs": 15,
+      "steps": 570
+    },
+    {
+      "architecture": "cnn",
+      "fold": 2,
+      "model_sha256": "d34f82b5e499e0c3ba4cb8956bced6108a39af1fd3fdbea47059a525fc4a4dfe",
+      "epochs": 14,
+      "steps": 532
+    },
+    {
+      "architecture": "cnn",
+      "fold": 3,
+      "model_sha256": "b14b2813c0051ef3a9252078312aa0f9b798c3e6fac738d13a89967310526514",
+      "epochs": 21,
+      "steps": 798
+    },
+    {
+      "architecture": "cnn",
+      "fold": 4,
+      "model_sha256": "03303e4aea2ed96005c9b8917112cc7706e165e2dae883c9d08c6043c07304e2",
+      "epochs": 30,
+      "steps": 1140
+    },
+    {
+      "architecture": "cnn",
+      "fold": 5,
+      "model_sha256": "d146feacaf4703892af33aca704a75227208972b5f5b2c530ad7ec4f5a166973",
+      "epochs": 8,
+      "steps": 304
+    },
+    {
+      "architecture": "cnn",
+      "fold": 6,
+      "model_sha256": "750e4926e2fd209843049757b12981a2a9cee8a1ddfb15168cd18d6bd0fe2b0d",
+      "epochs": 7,
+      "steps": 266
+    }
+  ],
+  "test_used": false
+}

@@ -1,0 +1,28 @@
+{
+  "method": "knn",
+  "threshold": 0.7982905586222087,
+  "model_sha256": "56a67b2887fffe0b70d8ec30b3ecb3ed805f78f7917462691b2c0ab4ee7192af",
+  "calibration_session": "s002",
+  "evaluation_session": "s001",
+  "target_unknown_rejection": 0.7,
+  "internal_metrics": {
+    "known_images": 300,
+    "unknown_images": 40,
+    "known_correct_without_rejection": 273,
+    "known_accuracy_without_rejection": 0.91,
+    "known_rejected": 0,
+    "known_rejection_rate": 0.0,
+    "known_accepted": 300,
+    "known_coverage": 1.0,
+    "known_correct_accepted": 273,
+    "known_accuracy_with_rejection": 0.91,
+    "accuracy_among_accepted_known": 0.91,
+    "known_wrong_accepted": 27,
+    "unknown_rejected": 28,
+    "unknown_rejection_rate": 0.7,
+    "unknown_false_accepted": 12,
+    "unknown_false_acceptance_rate": 0.30000000000000004,
+    "unknown_detection_auroc": 0.9999166666666667
+  },
+  "external_used": false
+}

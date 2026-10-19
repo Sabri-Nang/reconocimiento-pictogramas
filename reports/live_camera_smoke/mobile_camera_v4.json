@@ -1,0 +1,20 @@
+{
+  "unit_tests_passed": 52,
+  "user_screenshot_card_detection_before": false,
+  "user_screenshot_card_detection_after": true,
+  "full_frame_classification": true,
+  "model_and_threshold_unchanged": true,
+  "one_frame_in_flight": true,
+  "local_rpc_sequence": [
+    "—",
+    "—",
+    "Agua"
+  ],
+  "direct_rpc_auth_verified": true,
+  "phone_hardware_tested": false,
+  "source_sha256": {
+    "src/reconocimiento_pictogramas/live.py": "4c3fd78ac13e9e7c6326b65ebfa93b1782ab450b169a6f7846b18d21997da3ba",
+    "src/reconocimiento_pictogramas/camera_widget.py": "15251e9023b3d9e1734bf2b98dde09addf1b88d94fd370f34eca115fcefe19bd",
+    "src/reconocimiento_pictogramas/ui.py": "3794c9139b20aa5b7b38be6d970c9d5fd7164164ea2def2733da5985f49a86a8"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "model_path": "models/cnn_20261009_105933/best.keras",
+  "classes": [
+    "agua",
+    "comer",
+    "bano",
+    "mama",
+    "dolor"
+  ],
+  "image_size": [
+    128,
+    128
+  ],
+  "confidence_threshold": null,
+  "status": "piloto; umbral no calibrado; prueba pendiente",
+  "comparison_path": "reports/model_comparison.json"
+}

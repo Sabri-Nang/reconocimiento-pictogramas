@@ -40,6 +40,7 @@ def load_partition(name, classes, size):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--run-id")
     parser.add_argument("--epochs", type=int, default=20)
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--fine-tune-epochs", type=int, default=10)
@@ -62,11 +63,17 @@ def main():
     for split, rows in [("train", train_rows), ("validation", val_rows)]:
         if {r["session_id"] for r in rows} != set(plan["sessions"][split]):
             raise ValueError(f"Sesiones inconsistentes: {split}")
-    run = datetime.now(timezone.utc).strftime("mobilenet_%Y%m%d_%H%M%S")
+    run = args.run_id or datetime.now(timezone.utc).strftime("mobilenet_%Y%m%d_%H%M%S")
+    if not run.startswith("mobilenet_") or any(c in run for c in ["/", "\\", ":"]):
+        parser.error("Identificador inválido")
+    for row in train_rows + val_rows:
+        raw = (ROOT / row["raw_path"]).resolve()
+        if not raw.is_relative_to(ROOT) or hashlib.sha256(raw.read_bytes()).hexdigest() != row["sha256"]:
+            raise ValueError("Captura modificada desde la preparación")
     model_dir = ROOT / "models" / run
     report_dir = ROOT / "reports" / run
-    model_dir.mkdir(parents=True)
-    report_dir.mkdir(parents=True)
+    model_dir.mkdir(parents=True,exist_ok=False)
+    report_dir.mkdir(parents=True,exist_ok=False)
     layers = tf.keras.layers
     base = tf.keras.applications.MobileNetV3Small(
         input_shape=(size[1],size[0],3), include_top=False,
@@ -79,7 +86,7 @@ def main():
     features = base(augmented, training=False)
     features = layers.Dropout(0.3,seed=seed)(features)
     outputs = layers.Dense(len(classes),activation="softmax")(features)
-    model = tf.keras.Model(inputs, outputs, name="mobilenet_pilot")
+    model = tf.keras.Model(inputs, outputs, name=f"mobilenet_{len(classes)}_classes")
     model.compile(optimizer=tf.keras.optimizers.Adam(1e-3), loss="sparse_categorical_crossentropy", metrics=["accuracy"])
     with (report_dir / "architecture.txt").open("w",encoding="utf-8") as f:
         model.summary(print_fn=lambda line:f.write(line+"\n"))
@@ -127,6 +134,7 @@ def main():
             writer.writerow([row["raw_path"],row["class_id"],classes[int(pred)],float(prob.max())])
     experiment=dict(run=run,seed=seed,classes=classes,image_size=list(size),epochs=args.epochs,batch_size=args.batch_size,tensorflow=tf.__version__,input_range="uint8 0..255; MobileNetV3 incluye Rescaling a -1..1", pretrained_weights="ImageNet", fine_tune_epochs=args.fine_tune_epochs,augmentation="rotation 0.04, translation 0.05, zoom 0.1; solo entrenamiento",selection="mínimo val_loss; early stopping patience 6",manifests_sha256={name:hashlib.sha256((ROOT/f"data/splits/{name}.csv").read_bytes()).hexdigest() for name in ["train","validation"]})
     (model_dir / "experiment.json").write_text(json.dumps(experiment,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    (report_dir / "experiment.json").write_text(json.dumps(experiment,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     fig,axes=plt.subplots(1,2,figsize=(10,4))
     for ax,metric,label in zip(axes,["loss","accuracy"],["Pérdida","Exactitud (proporción)"]):
         for key,title in [(metric,"Entrenamiento"),("val_"+metric,"Validación s006")]:

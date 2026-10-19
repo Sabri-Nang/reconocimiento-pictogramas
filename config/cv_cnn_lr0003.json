@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "sessions": [
+    "s001",
+    "s002",
+    "s003",
+    "s004",
+    "s005",
+    "s006"
+  ],
+  "reserved_final_test": "s007",
+  "batch_size": 32,
+  "seed": 42,
+  "expected_per_class_session": 30,
+  "cnn_epochs": 30,
+  "mobilenet_head_epochs": 20,
+  "mobilenet_fine_tune_epochs": 10,
+  "patience": 6,
+  "fine_tune_patience": 4,
+  "monitor": "val_loss",
+  "min_delta": 0.0,
+  "note": "Único cambio de entrenamiento: Adam0.0003 frente a Adam0.001. CNN original con Flatten, mismas rondas, semillas, aumentos, lotes32, máximo30 épocas y paciencia6. Desarrollo adaptativo; sin s007 ni desconocidos.",
+  "architectures": [
+    "cnn"
+  ],
+  "cnn_pooling": "flatten",
+  "cnn_learning_rate": 0.0003,
+  "reference_run": "cv10_20261018_000712"
+}

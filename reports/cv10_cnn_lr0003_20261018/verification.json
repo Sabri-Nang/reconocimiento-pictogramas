@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "trainings": 6,
+  "models": [
+    {
+      "architecture": "cnn",
+      "fold": 1,
+      "model_sha256": "48b84b2b63727d9a444920d6b55ed8d76067cfc7f8035562725e2854def6dc5e",
+      "epochs": 8,
+      "steps": 304
+    },
+    {
+      "architecture": "cnn",
+      "fold": 2,
+      "model_sha256": "a29ee242831521de891e4c4b2ee51ea02e1d235c703dd2bc39ac3824f1001852",
+      "epochs": 19,
+      "steps": 722
+    },
+    {
+      "architecture": "cnn",
+      "fold": 3,
+      "model_sha256": "332ddab7030f88da6dfd1abd45e94652ab0d6454aaa13508e43332f0d6e3fd2f",
+      "epochs": 19,
+      "steps": 722
+    },
+    {
+      "architecture": "cnn",
+      "fold": 4,
+      "model_sha256": "f7d733ad5f7eb4b4a4df4eee80ae6fd31a03f8a25daff248843e94aea5d8b413",
+      "epochs": 26,
+      "steps": 988
+    },
+    {
+      "architecture": "cnn",
+      "fold": 5,
+      "model_sha256": "23fde30b5d83043c96e0adbbadacc8ae84eb5a9967e6d70daff62083d0dc00ae",
+      "epochs": 12,
+      "steps": 456
+    },
+    {
+      "architecture": "cnn",
+      "fold": 6,
+      "model_sha256": "7db8d81700a6bc0e77cac236ad41a44010e1bbd5b2a43c8e4b178fe709c33c22",
+      "epochs": 16,
+      "steps": 608
+    }
+  ],
+  "test_used": false
+}

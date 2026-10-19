@@ -1,0 +1,32 @@
+{
+  "run": "mobilenet_app_20261018",
+  "seed": 42,
+  "classes": [
+    "agua",
+    "comer",
+    "bano",
+    "mama",
+    "dolor",
+    "papa",
+    "no",
+    "si",
+    "jugar",
+    "ayuda"
+  ],
+  "image_size": [
+    128,
+    128
+  ],
+  "epochs": 20,
+  "batch_size": 32,
+  "tensorflow": "2.21.0",
+  "input_range": "uint8 0..255; MobileNetV3 incluye Rescaling a -1..1",
+  "pretrained_weights": "ImageNet",
+  "fine_tune_epochs": 40,
+  "augmentation": "rotation 0.04, translation 0.05, zoom 0.1; solo entrenamiento",
+  "selection": "mínimo val_loss; early stopping patience 6",
+  "manifests_sha256": {
+    "train": "27a280175a4cf15fe6a8905e12a09d7154c4e33d0902d9469a146f6b756d5d46",
+    "validation": "e365be49eb23e836374dd524282dcf584b1a542cbb5497e3ddf8975c60e94181"
+  }
+}

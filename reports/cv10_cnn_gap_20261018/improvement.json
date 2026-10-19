@@ -1,0 +1,51 @@
+{
+  "architecture": "cnn",
+  "reference": "cv10_20261018_000712",
+  "candidate": "cv10_cnn_gap_20261018",
+  "images": 1800,
+  "reference_correct": 915,
+  "candidate_correct": 453,
+  "reference_accuracy": 0.5083333333333333,
+  "candidate_accuracy": 0.25166666666666665,
+  "delta_percentage_points": -25.666666666666664,
+  "target_accuracy": 0.8,
+  "target_met_on_development": false,
+  "by_distance": {
+    "reference": {
+      "corta": {
+        "correct": 217,
+        "total": 464,
+        "accuracy": 0.4676724137931034
+      },
+      "larga": {
+        "correct": 168,
+        "total": 476,
+        "accuracy": 0.35294117647058826
+      },
+      "media": {
+        "correct": 530,
+        "total": 860,
+        "accuracy": 0.6162790697674418
+      }
+    },
+    "candidate": {
+      "corta": {
+        "correct": 88,
+        "total": 464,
+        "accuracy": 0.1896551724137931
+      },
+      "larga": {
+        "correct": 86,
+        "total": 476,
+        "accuracy": 0.18067226890756302
+      },
+      "media": {
+        "correct": 279,
+        "total": 860,
+        "accuracy": 0.3244186046511628
+      }
+    }
+  },
+  "test_used": false,
+  "interpretation": "Comparación adaptativa de desarrollo. No es prueba independiente ni confirma H1."
+}

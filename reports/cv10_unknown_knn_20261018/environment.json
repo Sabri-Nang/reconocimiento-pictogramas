@@ -1,0 +1,15 @@
+{
+  "packages": {
+    "tensorflow": "2.21.0",
+    "keras": "3.15.1",
+    "numpy": "2.4.6",
+    "pillow": "12.3.0",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "source_sha256": {
+    "src/reconocimiento_pictogramas/feature_rejection.py": "46534a677fd3ac15a802c71ce5937bafc128d0fcadb63a31b40bc74221fb1165",
+    "scripts/evaluate_unknown_cv.py": "a39068484d65d44c270433af7563b0eaa74c2c6aac77757814b610b0fdc5cecc",
+    "scripts/compare_rejection_results.py": "26dbe234e1b37d8ff3953293116345b84f507a9bf2bc7ffab128aa7c95726628"
+  }
+}

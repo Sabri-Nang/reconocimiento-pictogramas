@@ -115,14 +115,16 @@ Abrir http://127.0.0.1:7860. Cargar una imagen JPEG o PNG para ver la
 versión RGB de 128 × 128 píxeles. El botón Limpiar reinicia la pantalla.
 
 La interfaz utiliza las diez clases definidas en `config/project.json`.
-Carga el checkpoint definido en `config/selected_model.json` al reconocer una
-imagen y muestra categoría y probabilidad del modelo. El rechazo todavía está
-pendiente de calibración: mientras el umbral sea null, siempre devuelve una
-clase conocida y lo advierte en la pantalla. Los modelos están ignorados por
-Git; otra instalación debe entrenarlos o copiar el checkpoint seleccionado.
-El checkpoint seleccionado actualmente corresponde al piloto de cinco clases;
-debe regenerarse la preparación y entrenarse un modelo de diez salidas antes de
-usar las clases incorporadas.
+Carga el MobileNet y el detector definidos en `config/selected_model.json`.
+Muestra la categoría, la puntuación softmax de esa clase y, por separado, la
+similitud con los cinco ejemplos conocidos más cercanos de entrenamiento.
+La similitud no es probabilidad. Si es menor o igual al umbral calibrado,
+la respuesta es «Pictograma no reconocido», aunque la puntuación de clase sea alta.
+
+El checkpoint y las referencias de características están ignorados por Git:
+otra instalación necesita ambos archivos indicados en la configuración.
+Se verifican sus hashes, el orden de clases y dimensiones. Reiniciar Gradio
+tras modificar la selección para vaciar las cachés. La prueba s007 sigue pendiente.
 
 ## Preparar el dataset piloto
 
@@ -187,21 +189,27 @@ MobileNetV3 incorpora normalización a -1..1 y recibe RGB 128x128 de 0-255:
 no aplicar otra normalización antes. Los resultados se guardan en una carpeta
 nueva models/mobilenet_* y reports/mobilenet_*. No carga prueba ni desconocidos.
 
-## Selección provisional e inferencia
+## Modelo de aplicación y calibración
 
 ```powershell
-uv run python scripts/compare_models.py --runs cnn_20261009_105933 mobilenet_20261009_111839
+uv run python scripts/train_mobilenet.py --run-id mobilenet_app_20261018 --epochs 20 --fine-tune-epochs 40
+uv run python scripts/calibrate_app_model.py --run-id mobilenet_app_20261018 --activate
 uv run reconocimiento-pictogramas
 ```
 
-El comparador comprueba los hashes de ambos manifiestos, ordena por exactitud,
-macro F1 y pérdida de validación y guarda config/selected_model.json.
-Benchmark: CPU, cuatro threads intra-op y dos inter-op, batch 1,
-cinco calentamientos y 30 mediciones; excluye carga del modelo y preprocesamiento.
-La selección registrada corresponde al piloto de cinco clases y debe repetirse
-después de entrenar los modelos con las diez clases. No confirma hipótesis de prueba.
-No se utiliza s007 ni desconocidos para seleccionar el modelo.
-Si se cambia la selección o el umbral, reiniciar Gradio para recargar la configuración.
+Los comandos documentan esta ejecución: para repetirla, usar otro identificador
+en ambos scripts. Entrena un único modelo desde ImageNet con1500 imágenes de
+s001-s005; s006 elige la época por val_loss y calibra el detector. No se elige
+un checkpoint de CV como modelo de aplicación. Máximo20 épocas con base
+congelada y40 de ajuste fino continuo, paciencia6/4; no es una repetición exacta
+de la continuación CV de10+30 épocas desde checkpoints intermedios.
+
+El detector conservador se eligió explícitamente: referencia de características
+construida solo con train y menor umbral que rechaza al menos70% de los50 unknown
+de s006. Los resultados de s006 son internos y no independientes: esa misma
+sesión conocida eligió la época. Los porcentajes de CV no son el resultado de
+este único modelo. Se conservan configuración anterior, métricas y calibración
+en reports/mobilenet_app_20261018/. s007 nunca se utiliza en estos comandos.
 
 ## Auditar desconocidos
 
@@ -278,3 +286,95 @@ Las hojas de contacto se regeneran con `scripts/create_dataset_contact_sheets.py
 Los archivos ignorados permanecen en disco y requieren respaldo separado; Git
 no respalda las capturas ni los modelos. Las imágenes históricas ya versionadas
 se conservan: agregar una regla no elimina archivos de commits anteriores.
+
+## Evaluar rechazo de desconocidos con MobileNet
+
+```powershell
+uv run python scripts/evaluate_unknown_cv.py --source-run cv10_mobilenet_extend_20261018 --run-id cv10_unknown_20261018
+```
+
+Calibra un umbral por ronda en la sesión interna y evalúa después la externa.
+El objetivo70% se refiere al porcentaje de unknown rechazados; no fija un
+umbral0.70. Informa también conocidos rechazados y exactitud sobre todos los
+conocidos. No entrena, no usa s007 y no cambia el modelo ni el umbral de la
+aplicación. Ver el protocolo y límites en docs/validacion_cruzada_10_clases.md.
+
+Para comparar el rechazo por similitud de características con cinco vecinos
+de entrenamiento (sin modificar pesos ni clases):
+
+```powershell
+uv run python scripts/evaluate_unknown_cv.py --method knn --run-id cv10_unknown_knn_20261018
+uv run python scripts/compare_rejection_results.py --reference cv10_unknown_20261018 --candidate cv10_unknown_knn_20261018
+```
+
+La similitud no es una probabilidad. Referencias: train; umbral: sesión interna;
+evaluación: sesión externa. Los archivos de referencia quedan en models/,
+fuera de Git. El protocolo detallado describe los límites de la comparación.
+
+Para evaluar otra regla de calibración con las mismas puntuaciones de vecinos:
+
+```powershell
+uv run python scripts/calibrate_rejection_known_cap.py --source-run cv10_unknown_knn_20261018 --run-id cv10_unknown_knn_cap05_20261018
+uv run python scripts/compare_rejection_results.py --reference cv10_unknown_knn_20261018 --candidate cv10_unknown_knn_cap05_20261018
+```
+
+Limita el rechazo de conocidos internos al5% y evalúa después la sesión externa.
+Ese límite no es garantía externa. No vuelve a entrenar ni modifica la aplicación.
+
+## Cámara en vivo desde el navegador
+
+En «Cámara en vivo», tocar **Iniciar cámara**, aceptar el permiso y mostrar
+una tarjeta a la vez. La cámara trasera es una preferencia que resuelve el
+navegador. Hay una única vista con el video y el globo superpuesto. «Detener
+y limpiar» apaga las pistas de cámara y retira palabra y estado.
+
+El navegador envía un JPEG de hasta640 píxeles de lado mayor por vez mediante
+una llamada autenticada del componente HTML. Espera la respuesta antes de
+enviar otro; no se acumula una cola de fotogramas ni se utiliza el protocolo
+de streaming de Gradio. El video de la cámara sigue visible durante el análisis.
+Se muestra el contador de imágenes y el tiempo de respuesta. El intervalo
+mínimo tras cada respuesta es0,7s: no equivale a clasificación a30fps.
+
+El detector geométrico busca bordes cuadrilaterales y, si no los encuentra,
+una superficie clara de papel aproximadamente rectangular. Puede fallar o
+confundir otros rectángulos: no es un detector entrenado. La clasificación
+sigue usando el fotograma completo, el MobileNet y el umbral calibrados.
+El globo se confirma con tres observaciones consecutivas aceptadas de la misma
+clase y posición parecida, tolerando pausas de hasta15s. Se retira ante ausencia,
+rechazo o cambio de clase. La estabilización no garantiza que la clase sea correcta.
+
+Los JPEG se decodifican en memoria y se responde con coordenadas, palabra y
+estado; no se guardan fotogramas ni se añaden al dataset. La pestaña Foto
+conserva el flujo de carga de imágenes y sus archivos temporales de Gradio.
+No se utiliza s007 ni se reentrena al usar la cámara.
+
+Servidor local:
+
+```powershell
+uv run reconocimiento-pictogramas
+```
+
+En el celular se necesita HTTPS confiable. Para certificado y clave propios:
+
+```powershell
+uv run reconocimiento-pictogramas --host 0.0.0.0 --port 7861 --ssl-certfile RUTA_CERTIFICADO --ssl-keyfile RUTA_CLAVE
+```
+
+El certificado debe ser confiable en el celular. No se instalan certificados
+automáticamente. Alternativa autorizada por el usuario: enlace HTTPS temporal
+de Gradio con contraseña. Los fotogramas pasan por ese servicio hacia la PC:
+
+```powershell
+$env:PICTOGRAMAS_PASSWORD = Read-Host 'Contraseña del enlace temporal'
+uv run reconocimiento-pictogramas --port 7862 --share
+```
+
+Usuario: pictogramas. El modo local no requiere contraseña. Credenciales y
+certificados locales se excluyen de Git bajo .runtime/. Probar en Chrome o
+Safari del celular; el navegador requiere permiso de cámara. Tras actualizar
+el servidor puede cambiar el enlace temporal: cerrar la página anterior y usar
+el nuevo enlace. Las pruebas locales no sustituyen la prueba en el celular.
+
+## Próximos experimentos y limpieza del repositorio
+
+Consultar [la estrategia de mejora y conservación de archivos](docs/estrategia_mejora_entrenamiento.md) para comparar 128×128 con 192×192, planificar nuevas sesiones y mantener s007 reservada para la prueba final.

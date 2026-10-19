@@ -1,17 +1,46 @@
 {
-  "model_path": "models/cnn_20261009_105933/best.keras",
+  "model_path": "models/mobilenet_app_20261018/best.keras",
+  "model_sha256": "556486f2ce505efc590be6f3f30352c3e8dbaed6bfcfe3ef987d2c861e02122e",
   "classes": [
     "agua",
     "comer",
     "bano",
     "mama",
-    "dolor"
+    "dolor",
+    "papa",
+    "no",
+    "si",
+    "jugar",
+    "ayuda"
   ],
   "image_size": [
     128,
     128
   ],
   "confidence_threshold": null,
-  "status": "piloto; umbral no calibrado; prueba pendiente",
-  "comparison_path": "reports/model_comparison.json"
+  "rejection_detector": {
+    "method": "knn_cosine",
+    "neighbors": 5,
+    "threshold": 0.7831352047946099,
+    "calibrated": true,
+    "calibration_rule": "unknown_rejection_target",
+    "target_unknown_rejection": 0.7,
+    "references_path": "models/mobilenet_app_20261018/rejection_references.npz",
+    "references_sha256": "abeafe8ed4600ed4961f77e9ee66dfea9c230dc2cbb7a0d51cf4b440cf1ab7c7",
+    "model_sha256": "556486f2ce505efc590be6f3f30352c3e8dbaed6bfcfe3ef987d2c861e02122e",
+    "reference_sessions": [
+      "s001",
+      "s002",
+      "s003",
+      "s004",
+      "s005"
+    ],
+    "calibration_sessions": [
+      "s006"
+    ]
+  },
+  "status": "MobileNet diez clases; detector conservador calibrado internamente en s006; prueba final s007 pendiente",
+  "comparison_path": "reports/cv10_unknown_knn_20261018/detector_comparison.json",
+  "calibration_path": "reports/mobilenet_app_20261018/rejection/calibration.json",
+  "test_evaluated": false
 }

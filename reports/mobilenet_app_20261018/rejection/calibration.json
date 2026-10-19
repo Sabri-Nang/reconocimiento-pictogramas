@@ -1,0 +1,40 @@
+{
+  "model_sha256": "556486f2ce505efc590be6f3f30352c3e8dbaed6bfcfe3ef987d2c861e02122e",
+  "references_sha256": "abeafe8ed4600ed4961f77e9ee66dfea9c230dc2cbb7a0d51cf4b440cf1ab7c7",
+  "method": "knn_cosine",
+  "neighbors": 5,
+  "threshold": 0.7831352047946099,
+  "reference_images": 1500,
+  "reference_sessions": [
+    "s001",
+    "s002",
+    "s003",
+    "s004",
+    "s005"
+  ],
+  "calibration_session": "s006",
+  "calibration_known_images": 300,
+  "calibration_unknown_images": 50,
+  "metrics": {
+    "known_images": 300,
+    "unknown_images": 50,
+    "known_correct_without_rejection": 237,
+    "known_accuracy_without_rejection": 0.79,
+    "known_rejected": 1,
+    "known_rejection_rate": 0.0033333333333333335,
+    "known_accepted": 299,
+    "known_coverage": 0.9966666666666667,
+    "known_correct_accepted": 237,
+    "known_accuracy_with_rejection": 0.79,
+    "accuracy_among_accepted_known": 0.7926421404682275,
+    "known_wrong_accepted": 62,
+    "unknown_rejected": 35,
+    "unknown_rejection_rate": 0.7,
+    "unknown_false_accepted": 15,
+    "unknown_false_acceptance_rate": 0.30000000000000004
+  },
+  "rule": "Menor umbral que rechaza al menos70% de unknown internos",
+  "known_validation_reused_for_early_stopping": true,
+  "independent_evaluation": false,
+  "test_used": false
+}

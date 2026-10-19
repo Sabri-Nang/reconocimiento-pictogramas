@@ -1,0 +1,21 @@
+{
+  "checks": [
+    {
+      "file": "agua_s006_0001.jpg",
+      "category": "Agua",
+      "status": "Pictograma reconocido por MobileNet.",
+      "class_score": "99.7%",
+      "similarity": "0.9537 · mínimo para aceptar: mayor que 0.7831"
+    },
+    {
+      "file": "unknown_s006_0002.jpg",
+      "category": "Pictograma no reconocido",
+      "status": "Pictograma no reconocido: similitud insuficiente.",
+      "class_score": "69.8%",
+      "similarity": "0.7600 · mínimo para aceptar: mayor que 0.7831"
+    }
+  ],
+  "empty_input_clears_outputs": true,
+  "local_url": "http://127.0.0.1:7860",
+  "source": "Muestras de calibración para comprobar integración, no evaluación adicional"
+}
