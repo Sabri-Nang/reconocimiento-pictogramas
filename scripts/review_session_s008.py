@@ -65,7 +65,7 @@ def main():
     from sklearn.metrics import classification_report,confusion_matrix
     model,config=load_selected_model();joint,refs=load_selected_detector()
     assert config["classes"]==classes
-    selected_bytes=(ROOT/"config/selected_model.json").read_bytes()
+    selected_bytes=(ROOT/"config/application.json").read_bytes()
     detector=config["rejection_detector"];threshold=detector["threshold"]
     results=[]
     for start in range(0,len(inventory),32):
@@ -82,7 +82,7 @@ def main():
     report=classification_report([r["class_id"] for r in known],[r["predicted_class"] for r in known],labels=classes,output_dict=True,zero_division=0)
     by_distance={d:dict(correct=sum(r["correct"] for r in known if r["distance"]==d),total=sum(r["distance"]==d for r in known)) for d in ("corta","media","larga")}
     summary=dict(model_path=config["model_path"],model_sha256=config["model_sha256"],selected_config_sha256=hashlib.sha256(selected_bytes).hexdigest(),threshold=threshold,metrics=metrics,classification_report=report,by_distance=by_distance,confusion_matrix=confusion_matrix([r["class_id"] for r in known],[r["predicted_class"] for r in known],labels=classes).tolist(),classes=classes,test_used=False,trained_on_s008=False,threshold_recalibrated=False,interpretation="Diagnostico de desarrollo con modelo y umbral congelados antes de usar s008 para entrenar; no prueba final. Desconocidos solo objetos y escenas, sin otros pictogramas.")
-    assert (ROOT/"config/selected_model.json").read_bytes()==selected_bytes
+    assert (ROOT/"config/application.json").read_bytes()==selected_bytes
     write(out/"predictions.csv",results)
     (out/"evaluation.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(metrics,ensure_ascii=False),flush=True)

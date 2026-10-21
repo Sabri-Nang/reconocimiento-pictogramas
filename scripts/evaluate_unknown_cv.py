@@ -11,34 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
 from reconocimiento_pictogramas.preprocessing import prepare_image
 from reconocimiento_pictogramas.rejection import calibrate_threshold, evaluate_rejection
-from train_cross_validation import save_figure
-
-
-def read(path):
-    return json.loads(path.read_text(encoding='utf-8'))
-
-
-def rows(path):
-    with path.open(encoding='utf-8', newline='') as handle:
-        return list(csv.DictReader(handle))
-
-
-def save(path, value):
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False)+'\n', encoding='utf-8')
-
-
-def write(path, records):
-    with path.open('w', encoding='utf-8', newline='') as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(records[0]))
-        writer.writeheader()
-        writer.writerows(records)
-
-
-def contained(relative):
-    path = (ROOT / relative).resolve()
-    if not path.is_relative_to(ROOT):
-        raise ValueError('Ruta fuera del repositorio')
-    return path
+from reconocimiento_pictogramas.artifacts import contained, read_json as read, read_csv as rows, save_json as save, write_csv as write, save_figure
 
 
 def evaluate(source_run, run, method="softmax"):
@@ -233,7 +206,7 @@ def plot_and_explain(out,results,internal,totals):
         'El70% solicitado es una tasa de rechazo, no un umbral0.70. Los umbrales no son probabilidades de pertenecer a las diez clases. La confianza puede ser alta en imágenes ajenas.','',
         'Los negativos actuales contienen principalmente objetos y fondos: faltan más pictogramas ajenos difíciles. No puede afirmarse rechazo general de cualquier desconocido ni cumplimiento final de hipótesis.','',
         'Si no se logra suficiente rechazo externo sin perder demasiados conocidos, comparar otro detector (por ejemplo distancia en características) o mejorar la representación de MobileNet. La regla y sus ajustes se evalúan solo en desarrollo. El modelo final debe tener su propia calibración separada antes de s007.','',
-        'Este protocolo extiende a unknown la rotación de sesiones de CV; no modifica la partición fija documentada para un entrenamiento final con s006 de calibración. No se modificó selected_model.json.']
+         'Este protocolo extiende a unknown la rotación de sesiones de CV; no modifica la partición fija documentada para un entrenamiento final con s006 de calibración. No se modificó application.json.']
     (out/'lectura_resultados.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 
 

@@ -1,6 +1,5 @@
 """Ejecuta CNN y MobileNet por sesión, con parada interna y evaluación externa."""
 import argparse
-import csv
 import hashlib
 import json
 import math
@@ -13,23 +12,10 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
 from reconocimiento_pictogramas.cross_validation import make_folds, validate_records
+from reconocimiento_pictogramas.artifacts import contained, read_csv, read_json, save_json, write_csv
 
-def read_json(path):return json.loads(path.read_text(encoding='utf-8'))
-def save_json(path,data):
-    path.parent.mkdir(parents=True,exist_ok=True)
-    path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-def read_csv(path):
-    with path.open(encoding='utf-8',newline='') as f:return list(csv.DictReader(f))
-def write_csv(path,rows,fields=None):
-    with path.open('w',encoding='utf-8',newline='') as f:
-        writer=csv.DictWriter(f,fieldnames=fields or list(rows[0]));writer.writeheader();writer.writerows(rows)
-def contained(relative):
-    path=(ROOT/relative).resolve()
-    if not path.is_relative_to(ROOT):raise ValueError('Ruta fuera del repositorio')
-    return path
-
-def prepare_run(run):
-    project=read_json(ROOT/'config/project.json');cfg=read_json(ROOT/'config/cv_mobilenet_extended.json')
+def prepare_run(run, config_path):
+    project=read_json(ROOT/'config/project.json');cfg=read_json(config_path)
     classes=[c['id'] for c in project['classes']]
     rows=read_csv(ROOT/'data/splits/development.csv')
     validate_records(rows,classes,cfg['expected_per_class_session'])
@@ -218,6 +204,7 @@ def aggregate(run):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--config',type=Path,required=True,help='Configuración completa del experimento.')
     parser.add_argument('--run-id');parser.add_argument('--worker',action='store_true');parser.add_argument('--fold',type=int);parser.add_argument('--architecture',choices=['mobilenet']);parser.add_argument('--resume',action='store_true')
     args=parser.parse_args()
     if args.worker:
@@ -228,13 +215,13 @@ def main():
     if args.resume:
         protocol=read_json(ROOT/'reports'/run/'protocol.json')
         if hashlib.sha256((ROOT/'data/splits/development.csv').read_bytes()).hexdigest()!=protocol['development_sha256']:raise ValueError('El manifiesto cambió; iniciar otro experimento')
-    else:protocol=prepare_run(run)
+    else:protocol=prepare_run(run,args.config)
     print(f'RUN_ID={run}',flush=True)
     for arch in ['mobilenet']:
         for fold in range(1,7):
             if (ROOT/'reports'/run/f'fold_{fold:02d}'/arch/'result.json').exists():continue
             save_json(ROOT/'reports'/run/'progress.json',dict(status='running',architecture=arch,fold=fold))
-            subprocess.run([sys.executable,str(Path(__file__).resolve()),'--worker','--run-id',run,'--fold',str(fold),'--architecture',arch],check=True,cwd=ROOT)
+            subprocess.run([sys.executable,str(Path(__file__).resolve()),'--worker','--config',str(args.config),'--run-id',run,'--fold',str(fold),'--architecture',arch],check=True,cwd=ROOT)
     aggregate(run)
     save_json(ROOT/'reports'/run/'progress.json',dict(status='completed',test_used=False))
 if __name__=='__main__':main()

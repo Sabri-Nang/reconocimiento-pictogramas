@@ -8,7 +8,7 @@ from pathlib import Path
 from collections import defaultdict
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
-from train_cross_validation import read_json,read_csv,save_json,save_figure,contained
+from reconocimiento_pictogramas.artifacts import read_json,read_csv,save_json,save_figure,contained
 RUNS={128:'cv10_s008_128_20261019',192:'cv10_s008_192_20261019'}
 OUT=ROOT/'reports/resolution_192_20261019'
 

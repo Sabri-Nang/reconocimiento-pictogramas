@@ -1,0 +1,23 @@
+name: quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: latest
+          enable-cache: true
+      - name: Configurar Python
+        run: uv python install 3.11
+      - name: Instalar entorno bloqueado
+        run: uv sync --locked
+      - name: Validar configuración
+        run: uv run python scripts/validate_config.py
+      - name: Ejecutar pruebas
+        run: uv run pytest -q

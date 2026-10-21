@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version", "model_path", "model_sha256", "classes", "image_size", "confidence_threshold", "rejection_detector", "test_evaluated"],
+  "properties": {
+    "version": {"type": "integer", "minimum": 1},
+    "model_path": {"type": "string", "pattern": "^models/"},
+    "model_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "classes": {"type": "array", "minItems": 10, "maxItems": 10, "items": {"type": "string", "pattern": "^[a-z0-9_]+$"}},
+    "image_size": {"type": "array", "prefixItems": [{"type": "integer", "minimum": 32}, {"type": "integer", "minimum": 32}], "minItems": 2, "maxItems": 2},
+    "confidence_threshold": {"type": "null"},
+    "rejection_detector": {"type": "object", "required": ["method", "neighbors", "threshold", "calibrated", "references_path", "references_sha256", "model_sha256"], "properties": {"method": {"const": "knn_cosine"}, "neighbors": {"type": "integer", "minimum": 1}, "threshold": {"type": "number", "minimum": 0, "maximum": 1}, "calibrated": {"const": true}, "references_path": {"type": "string", "pattern": "^models/"}, "references_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "model_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": true},
+    "test_evaluated": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

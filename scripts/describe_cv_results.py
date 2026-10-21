@@ -11,13 +11,10 @@ def rows(path):
     with path.open(encoding='utf-8',newline='') as f:return list(csv.DictReader(f))
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--run-id',required=True);args=p.parse_args()
-    from train_cross_validation import plot_history as original_plot
-    from extend_mobilenet_cv import plot_history as extended_plot
+    from reconocimiento_pictogramas.training_artifacts import plot_history
     base=ROOT/'reports'/args.run_id
     protocol=read(base/'protocol.json');summary=read(base/'summary.json')
     classes=[c['id'] for c in protocol['project']['classes']]
-    extended=bool(protocol['config'].get('source_run'))
-    plot_history=extended_plot if extended else original_plot
     architectures=list(summary['results'])
     lines=['# Lectura de los entrenamientos de diez clases','',
         'Se completaron seis rondas por arquitectura. Cada ronda utiliza 1200 imágenes para aprender, 300 para seleccionar la época y 300 para evaluar al terminar. s007 y desconocidos no participaron.',

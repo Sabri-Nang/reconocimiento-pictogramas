@@ -2,7 +2,7 @@
 import subprocess
 import sys
 from pathlib import Path
-from train_cross_validation import save_json,read_json
+from reconocimiento_pictogramas.artifacts import save_json,read_json
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'reports/resolution_192_20261019'
 RUN='cv10_s008_192_20261019'

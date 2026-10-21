@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["project_name", "phase", "random_seed", "image", "classes", "split", "acceptance"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "project_name": {"type": "string"},
+    "phase": {"type": "string", "enum": ["dataset-10"]},
+    "random_seed": {"type": "integer"},
+    "image": {"type": "object", "required": ["width", "height", "channels", "color_mode"], "properties": {"width": {"type": "integer", "minimum": 32}, "height": {"type": "integer", "minimum": 32}, "channels": {"const": 3}, "color_mode": {"const": "rgb"}}, "additionalProperties": false},
+    "classes": {"type": "array", "minItems": 10, "maxItems": 10, "items": {"type": "object", "required": ["id", "display_name"], "properties": {"id": {"type": "string", "pattern": "^[a-z0-9_]+$"}, "display_name": {"type": "string"}}, "additionalProperties": false}},
+    "split": {"type": "object", "required": ["train", "validation", "test", "group_by_capture_session"], "properties": {"train": {"type": "number", "minimum": 0, "maximum": 1}, "validation": {"type": "number", "minimum": 0, "maximum": 1}, "test": {"type": "number", "minimum": 0, "maximum": 1}, "group_by_capture_session": {"type": "boolean"}}, "additionalProperties": false},
+    "acceptance": {"type": "object", "required": ["expected_class_count", "minimum_test_accuracy", "confidence_threshold"], "properties": {"expected_class_count": {"const": 10}, "minimum_test_accuracy": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}, "confidence_threshold": {"type": ["number", "null"]}}, "additionalProperties": false}
+  },
+  "additionalProperties": false
+}

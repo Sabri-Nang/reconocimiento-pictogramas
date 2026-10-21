@@ -1,6 +1,5 @@
 """Ejecuta CNN y MobileNet por sesión, con parada interna y evaluación externa."""
 import argparse
-import csv
 import hashlib
 import json
 import math
@@ -8,47 +7,12 @@ import os
 import subprocess
 import sys
 import time
-import io
-import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
 from reconocimiento_pictogramas.cross_validation import make_folds, validate_records
-
-def read_json(path):return json.loads(path.read_text(encoding='utf-8'))
-def save_json(path,data):
-    path.parent.mkdir(parents=True,exist_ok=True)
-    path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-def read_csv(path):
-    with path.open(encoding='utf-8',newline='') as f:return list(csv.DictReader(f))
-def write_csv(path,rows,fields=None):
-    with path.open('w',encoding='utf-8',newline='') as f:
-        writer=csv.DictWriter(f,fieldnames=fields or list(rows[0]));writer.writeheader();writer.writerows(rows)
-def contained(relative):
-    path=(ROOT/relative).resolve()
-    if not path.is_relative_to(ROOT):raise ValueError('Ruta fuera del repositorio')
-    return path
-
-def save_figure(fig, path, dpi):
-    """Renderiza en memoria y reemplaza el PNG mediante un archivo temporal."""
-    buffer=io.BytesIO()
-    fig.savefig(buffer,format='png',dpi=dpi)
-    path=Path(path)
-    for attempt in range(5):
-        temporary=None
-        try:
-            with tempfile.NamedTemporaryFile(dir=path.parent,suffix='.png',delete=False) as handle:
-                temporary=Path(handle.name)
-                handle.write(buffer.getvalue())
-            os.replace(temporary,path)
-            return
-        except OSError:
-            if attempt==4:raise
-            time.sleep(.25*(attempt+1))
-        finally:
-            if temporary is not None and temporary.exists():temporary.unlink()
-
+from reconocimiento_pictogramas.artifacts import contained, read_csv, read_json, save_json, save_figure, write_csv
 
 def experiment_project(project, cfg):
     """Copia la configuración general y aplica solo el tamaño experimental."""
@@ -245,7 +209,8 @@ def aggregate(run):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--config',type=Path);parser.add_argument('--run-id');parser.add_argument('--worker',action='store_true');parser.add_argument('--fold',type=int);parser.add_argument('--architecture',choices=['cnn','mobilenet']);parser.add_argument('--resume',action='store_true')
+    parser.add_argument('--config',type=Path,required=True,help='Configuración completa del experimento.')
+    parser.add_argument('--run-id');parser.add_argument('--worker',action='store_true');parser.add_argument('--fold',type=int);parser.add_argument('--architecture',choices=['cnn','mobilenet']);parser.add_argument('--resume',action='store_true')
     args=parser.parse_args()
     if args.worker:
         if not args.run_id or not args.fold or not args.architecture:parser.error('Faltan argumentos del worker')
@@ -262,7 +227,7 @@ def main():
             if (ROOT/'reports'/run/f'fold_{fold:02d}'/arch/'result.json').exists():continue
             save_json(ROOT/'reports'/run/'progress.json',dict(status='running',architecture=arch,fold=fold))
             try:
-                subprocess.run([sys.executable,str(Path(__file__).resolve()),'--worker','--run-id',run,'--fold',str(fold),'--architecture',arch],check=True,cwd=ROOT)
+                subprocess.run([sys.executable,str(Path(__file__).resolve()),'--worker','--config',str(args.config),'--run-id',run,'--fold',str(fold),'--architecture',arch],check=True,cwd=ROOT)
             except subprocess.CalledProcessError as error:
                 save_json(ROOT/'reports'/run/'progress.json',dict(status='failed',architecture=arch,fold=fold,exit_code=error.returncode))
                 raise

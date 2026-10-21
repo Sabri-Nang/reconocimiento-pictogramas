@@ -56,3 +56,29 @@ def test_known_cap_zero_and_one():
     assert calibrate_known_cap([.2, .7], 1) == 1
     with pytest.raises(ValueError):
         calibrate_known_cap([0, 0, .8], 0)
+
+
+from reconocimiento_pictogramas.rejection import calibrate_target_with_known_cap
+
+
+def test_target_and_cap_feasible_minimal_threshold():
+    result=calibrate_target_with_known_cap([.1,.2,.3,.4],[.3]+[.9]*99,.75,.01)
+    assert result['feasible'] and result['threshold']==.3
+    assert result['candidate_unknown_rejected']==3
+    assert result['candidate_known_rejected']==result['allowed_known_rejected']==1
+
+
+def test_target_and_cap_infeasible_has_no_deployable_threshold():
+    result=calibrate_target_with_known_cap([.1,.2,.3,.4],[.3,.3]+[.9]*98,.75,.01)
+    assert not result['feasible'] and result['threshold'] is None
+    assert result['candidate_known_rejected']==2
+
+
+def test_target_and_cap_ties_cannot_bypass_known_limit():
+    result=calibrate_target_with_known_cap([.2,.2,.2,.9],[.2,.2,.8,.9],.75,.25)
+    assert not result['feasible'] and result['threshold'] is None
+
+
+@pytest.mark.parametrize('cap',[-.1,1.1,float('nan')])
+def test_target_and_cap_invalid_cap(cap):
+    with pytest.raises(ValueError):calibrate_target_with_known_cap([.2],[.9],.75,cap)

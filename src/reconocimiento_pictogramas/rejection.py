@@ -1,4 +1,4 @@
-"""Calibración de rechazo por puntuación máxima, independiente de TensorFlow."""
+"""Calibración de rechazo por puntuaciones, independiente de TensorFlow."""
 import math
 import numpy as np
 
@@ -68,3 +68,23 @@ def calibrate_known_cap(known_scores, rejection_cap=0.05):
     if threshold < 0:
         raise ValueError("No existe umbral [0,1] que respete el límite con score cero.")
     return threshold
+
+
+def calibrate_target_with_known_cap(unknown_scores, known_scores, target=.75, rejection_cap=.01):
+    """Mínimo umbral que cumple el objetivo unknown y el límite known internos.
+
+    Si el mínimo ya rechaza demasiadas conocidas, ningún umbral mayor resuelve
+    ambas restricciones. Devuelve threshold=None: no activar una regla inviable.
+    No recibe puntuaciones externas ni usa etiquetas de acierto para excluir conocidas.
+    """
+    if not math.isfinite(rejection_cap) or not 0 <= rejection_cap <= 1:
+        raise ValueError("Límite de rechazo inválido.")
+    unknown=scores(unknown_scores);known=scores(known_scores)
+    candidate=calibrate_threshold(unknown,target)
+    allowed=math.floor(rejection_cap*len(known))
+    rejected=int((known<=candidate).sum())
+    feasible=rejected<=allowed
+    return dict(feasible=feasible,threshold=candidate if feasible else None,
+        candidate_threshold=candidate,target_unknown_rejection=target,
+        known_rejection_cap=rejection_cap,allowed_known_rejected=allowed,
+        candidate_known_rejected=rejected,candidate_unknown_rejected=int((unknown<=candidate).sum()))

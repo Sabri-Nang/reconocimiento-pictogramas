@@ -1,6 +1,6 @@
 {
-  "model_path": "models/mobilenet_app_20261018/best.keras",
-  "model_sha256": "556486f2ce505efc590be6f3f30352c3e8dbaed6bfcfe3ef987d2c861e02122e",
+  "model_path": "models/mobilenet_app_192_20261020/best.keras",
+  "model_sha256": "53e5bca0cd99a4ad20a6a3407578c51b74c59ef14480945558c582a61d3bac68",
   "classes": [
     "agua",
     "comer",
@@ -14,33 +14,34 @@
     "ayuda"
   ],
   "image_size": [
-    128,
-    128
+    192,
+    192
   ],
   "confidence_threshold": null,
   "rejection_detector": {
     "method": "knn_cosine",
     "neighbors": 5,
-    "threshold": 0.7831352047946099,
+    "threshold": 0.8024037084471637,
     "calibrated": true,
-    "calibration_rule": "unknown_rejection_target",
-    "target_unknown_rejection": 0.7,
-    "references_path": "models/mobilenet_app_20261018/rejection_references.npz",
-    "references_sha256": "abeafe8ed4600ed4961f77e9ee66dfea9c230dc2cbb7a0d51cf4b440cf1ab7c7",
-    "model_sha256": "556486f2ce505efc590be6f3f30352c3e8dbaed6bfcfe3ef987d2c861e02122e",
+    "calibration_rule": "unknown_target_with_known_cap",
+    "target_unknown_rejection": 0.8,
+    "known_rejection_cap": 0.01,
+    "references_path": "models/mobilenet_app_192_20261020/rejection_references.npz",
+    "references_sha256": "98b7aeb42542b2be1478155e50e8bf087c6ccd2aad9829a48d14575025741430",
+    "model_sha256": "53e5bca0cd99a4ad20a6a3407578c51b74c59ef14480945558c582a61d3bac68",
     "reference_sessions": [
       "s001",
       "s002",
       "s003",
       "s004",
-      "s005"
+      "s005",
+      "s008"
     ],
     "calibration_sessions": [
       "s006"
     ]
   },
-  "status": "MobileNet diez clases; detector conservador calibrado internamente en s006; prueba final s007 pendiente",
-  "comparison_path": "reports/cv10_unknown_knn_20261018/detector_comparison.json",
-  "calibration_path": "reports/mobilenet_app_20261018/rejection/calibration.json",
+  "status": "MobileNet192 único; selección ycalibración internas s006; prueba final pendiente",
+  "calibration_path": "reports/mobilenet_app_192_20261020/calibration.json",
   "test_evaluated": false
 }

@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
 from reconocimiento_pictogramas.preprocessing import prepare_image
 from reconocimiento_pictogramas.cross_validation import validate_records
-from train_cross_validation import read_json,read_csv,write_csv,save_json,contained
+from reconocimiento_pictogramas.artifacts import read_json,read_csv,write_csv,save_json,contained
 
 OUT=ROOT/'reports/resolution_192_20261019'
 CONFIG=ROOT/'config/cv_s008_192.json'
@@ -46,7 +46,7 @@ def main():
     cfg.update(image_size=[192,192],development_manifest=manifest.relative_to(ROOT).as_posix(),audit_path=(OUT/'integrity.json').relative_to(ROOT).as_posix(),note='Comparacion192 frente a128: mismas siete rondas, semillas, batch32, presupuestos CNN30 y MobileNet20+40, aumentos y parada. Originales EXIF/RGB/LANCZOS. CNN Flatten aumenta parametros; MobileNet usa promedio global. s007 excluida. No modifica aplicacion.')
     save_json(CONFIG,cfg)
     packages={n:importlib.metadata.version(n) for n in ('tensorflow','keras','numpy','pillow','scikit-learn')}
-    fingerprints={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in ('config/project.json','config/selected_model.json','reports/session_s008_review/development_7sessions_128.csv')}
+    fingerprints={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in ('config/project.json','config/application.json','reports/session_s008_review/development_7sessions_128.csv')}
     save_json(OUT/'preparation.json',dict(**audit,development_sha256=hashlib.sha256(manifest.read_bytes()).hexdigest(),protected_files_sha256=fingerprints,python=sys.version,platform=platform.platform(),packages=packages,source_hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in ('scripts/train_cross_validation.py','scripts/evaluate_unknown_cv.py','scripts/prepare_resolution_192.py')},cnn_caveat='La capa Flatten cambia cantidad de parametros; no se aisla solo resolucion con capacidad constante.'))
     print('Preparacion completa:2100 RGB192; originales y128 preservados.',flush=True)
 if __name__=='__main__':main()

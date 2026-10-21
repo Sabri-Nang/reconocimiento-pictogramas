@@ -53,3 +53,25 @@ def test_changed_detector_references_are_rejected(tmp_path,monkeypatch):
 def test_invalid_model_output_fails(output):
     with pytest.raises(ValueError):
         inference.validate_probabilities(output,2)
+
+
+def test_photo_and_frame_use_selected_192_resolution(tmp_path,monkeypatch):
+    image=Image.new('RGB',(500,300),'red');path=tmp_path/'input.jpg';image.save(path)
+    def model(x,training=False):
+        assert x.shape==(1,192,192,3) and x.dtype==np.uint8 and training is False
+        return np.array([[.8,.2]])
+    cfg=dict(classes=['agua','comer'],image_size=[192,192],confidence_threshold=None)
+    monkeypatch.setattr(inference,'load_selected_model',lambda:(model,cfg))
+    assert inference.classify_image(path)['image'].size==(192,192)
+    assert inference.classify_frame(image)['image'].size==(192,192)
+
+
+def test_preview_tracks_selected_resolution(tmp_path,monkeypatch):
+    import json
+    from reconocimiento_pictogramas import ui
+    folder=tmp_path/'config';folder.mkdir();(folder/'application.json').write_text(json.dumps({'image_size':[192,192]}),encoding='utf-8')
+    monkeypatch.setattr(ui,'ROOT',tmp_path)
+    path=tmp_path/'input.png';Image.new('RGB',(50,50),'blue').save(path)
+    assert ui.prepare_image(path).size==(192,192)
+    (folder/'application.json').write_text(json.dumps({'image_size':[128,128]}),encoding='utf-8')
+    assert ui.prepare_image(path).size==(128,128)

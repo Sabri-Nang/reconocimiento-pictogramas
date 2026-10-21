@@ -5,6 +5,8 @@ import math
 from functools import lru_cache
 from pathlib import Path
 import numpy as np
+from .artifacts import read_json
+from .config_validation import validate_application_config
 from .preprocessing import prepare_image
 from .feature_rejection import neighbor_similarity, normalize_features
 ROOT=Path(__file__).resolve().parents[2]
@@ -30,8 +32,9 @@ def validate_probabilities(probabilities, count):
 
 @lru_cache(maxsize=1)
 def load_selected_model():
-    config=json.loads((ROOT/'config/selected_model.json').read_text(encoding='utf-8'))
-    project=json.loads((ROOT/'config/project.json').read_text(encoding='utf-8'))
+    config=read_json(ROOT/'config/application.json')
+    project=read_json(ROOT/'config/project.json')
+    validate_application_config(config, project)
     if config['classes'] != [c['id'] for c in project['classes']]:
         raise ValueError('Las clases del modelo no coinciden con el proyecto.')
     path=artifact_path(config.get('model_path'))
@@ -108,5 +111,6 @@ def classify_prepared_image(image):
     index=int(probabilities.argmax());confidence=float(probabilities[index])
     rejected=threshold is not None and score<=threshold
     return dict(image=image,label='desconocido' if rejected else config['classes'][index],confidence=confidence,
+        probabilities={label:float(probabilities[i]) for i,label in enumerate(config['classes'])},
         threshold_calibrated=threshold is not None,rejected=rejected,rejection_method=method,
         rejection_score=score,rejection_threshold=threshold)

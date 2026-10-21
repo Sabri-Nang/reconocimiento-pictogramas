@@ -2,6 +2,8 @@ import json
 from pathlib import Path
 
 import pytest
+from reconocimiento_pictogramas.artifacts import read_json
+from reconocimiento_pictogramas.config_validation import validate_application_config
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -16,6 +18,16 @@ def project_config() -> dict:
 
 def test_config_file_exists() -> None:
     assert CONFIG_PATH.is_file()
+
+
+def test_application_config_is_separate_from_dataset_config() -> None:
+    application = PROJECT_ROOT / "config" / "application.json"
+    assert application.is_file()
+
+
+def test_application_config_is_compatible_with_project(project_config: dict) -> None:
+    application = read_json(PROJECT_ROOT / "config" / "application.json")
+    validate_application_config(application, project_config)
 
 
 def test_project_has_expected_unique_classes(project_config: dict) -> None:
