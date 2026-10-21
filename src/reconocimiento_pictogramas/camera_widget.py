@@ -2,7 +2,7 @@
 HTML = """
 <div class="camera-live">
   <div class="camera-controls"><button type="button" data-start>Iniciar cámara</button><button type="button" data-stop disabled>Detener y limpiar</button></div>
-  <div class="camera-view"><video playsinline muted autoplay></video><canvas data-overlay></canvas></div>
+  <div class="camera-view"><video aria-label="Vista de la cámara" playsinline muted autoplay></video><canvas data-overlay aria-hidden="true"></canvas></div>
   <div class="camera-word" data-word aria-live="polite">—</div>
   <p data-status aria-live="polite">Tocá Iniciar cámara y permití el acceso.</p>
   <small data-timing></small>
@@ -10,15 +10,18 @@ HTML = """
 """
 CSS = """
 .camera-controls {display:flex; gap:12px; flex-wrap:wrap; margin:12px 0;}
-button {padding:12px 18px; border-radius:10px; border:1px solid #777; font-size:16px; cursor:pointer;}
-button[data-start] {background:#087e4b; color:white;}
-button:disabled {opacity:.5;cursor:default;}
+button {padding:12px 18px; border-radius:10px; border:2px solid #475569; font-family:Verdana,Arial,sans-serif; font-size:1.125rem; line-height:1.5; min-height:48px; white-space:normal; cursor:pointer;}
+button[data-start] {background:#1E40AF; color:white;}
+button:disabled {background:#E2E8F0; color:#475569; cursor:default;}
+button:focus-visible {outline:3px solid #1E40AF; outline-offset:4px; box-shadow:0 0 0 4px white;}
+.camera-live {font-family:Verdana,Arial,sans-serif; color:#0F172A; background:#FFFFFF;}
+button[data-stop] {background:#FFFFFF; color:#1E40AF;}
 .camera-view {position:relative; width:100%; max-width:720px; margin:auto; background:#171717; border-radius:12px; overflow:hidden;min-height:180px;}
 video {width:100%; display:block; height:auto; object-fit:contain;}
 canvas {position:absolute; inset:0; width:100%; height:100%;pointer-events:none;}
-.camera-word {font-size:36px; font-weight:700; margin:12px 0; text-align:center;}
-p {font-size:17px; margin:8px 0;}
-small {color:#888;}
+.camera-word {font-size:2rem; overflow-wrap:anywhere; font-weight:700; margin:12px 0; text-align:center;}
+p {font-size:1.125rem; line-height:1.5; margin:8px 0;}
+small {color:#475569; font-size:1rem;}
 """
 JS = """
 const root=element.querySelector('.camera-live');
@@ -36,7 +39,7 @@ function draw(){
   ctx.clearRect(0,0,overlay.width,overlay.height);
   if(result && performance.now()-received<15000){
    const sx=overlay.width/result.width, sy=overlay.height/result.height;
-   ctx.strokeStyle=result.accepted?'#00d481':'#ffb340';ctx.fillStyle=result.accepted?'#087e4b':'#965900';ctx.lineWidth=4;
+   ctx.strokeStyle=result.accepted?'#00d481':'#ffb340';ctx.fillStyle=result.accepted?'#1E40AF':'#78350F';ctx.lineWidth=4;
    if(result.card){const points=result.card.points;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0]*sx,p[1]*sy):ctx.moveTo(p[0]*sx,p[1]*sy));ctx.closePath();ctx.stroke();}
    const text=result.text || '';const font=Math.max(20,Math.round(overlay.width/23));ctx.font=`bold ${font}px sans-serif`;
    const width=Math.min(overlay.width-16,ctx.measureText(text).width+24),height=font+22;

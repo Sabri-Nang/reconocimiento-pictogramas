@@ -1,5 +1,8 @@
 # Reconocimiento de pictogramas
 
+Estado: **vigente**. Para configuración, resultados y clasificación de
+documentos consultar [docs/estado_actual.md](docs/estado_actual.md).
+
 Aplicación local que utiliza aprendizaje automático para reconocer pictogramas
 a partir de imágenes.
 
@@ -8,6 +11,23 @@ El usuario cargará una imagen y la aplicación mostrará:
 - la categoría reconocida;
 - el nivel de confianza;
 - un aviso cuando el pictograma no pueda reconocerse con suficiente certeza.
+
+## Modelo actual de la aplicación
+
+**Prueba final s007 completada el 21/10/2026:** 291/300 conocidas correctas (97 %),
+0/300 conocidas rechazadas y 29/50 desconocidas rechazadas (58 %). La clasificación
+supera el objetivo del 70 %; el rechazo de desconocidos no lo alcanza.
+Ver [informe, métricas y límites de la prueba final](docs/prueba_final_s007.md).
+
+La aplicación utiliza **MobileNet192 único**, entrenado con1800 conocidas de
+s001–s005 ys008 yvalidado/calibrado internamente con s006. En esa validación
+obtuvo278/300 aciertos (92,67%), rechazó40/50 desconocidas (80%) y2/300 conocidas
+(0,67%). El umbral de similitud es0,8024037084471637. Estos valores internos
+no sustituyen la prueba final s007 ni son el promedio de validación cruzada.
+
+Consultar [modelo, calibración ypruebas de integración](docs/modelo_aplicacion_192.md).
+Foto ycámara toman la resolución del modelo seleccionado. El modelo128 anterior
+se conserva como respaldo. Tras cambiar selección, reiniciar el servidor.
 
 ## Alcance del MVP
 
@@ -112,10 +132,10 @@ uv run reconocimiento-pictogramas
 ```
 
 Abrir http://127.0.0.1:7860. Cargar una imagen JPEG o PNG para ver la
-versión RGB de 128 × 128 píxeles. El botón Limpiar reinicia la pantalla.
+versión RGB de 192 × 192 píxeles del modelo seleccionado. El botón Limpiar reinicia la pantalla.
 
 La interfaz utiliza las diez clases definidas en `config/project.json`.
-Carga el MobileNet y el detector definidos en `config/selected_model.json`.
+Carga el MobileNet y el detector definidos en `config/application.json`.
 Muestra la categoría, la puntuación softmax de esa clase y, por separado, la
 similitud con los cinco ejemplos conocidos más cercanos de entrenamiento.
 La similitud no es probabilidad. Si es menor o igual al umbral calibrado,
@@ -124,7 +144,7 @@ la respuesta es «Pictograma no reconocido», aunque la puntuación de clase sea
 El checkpoint y las referencias de características están ignorados por Git:
 otra instalación necesita ambos archivos indicados en la configuración.
 Se verifican sus hashes, el orden de clases y dimensiones. Reiniciar Gradio
-tras modificar la selección para vaciar las cachés. La prueba s007 sigue pendiente.
+tras modificar la selección para vaciar las cachés. La prueba final s007 ya se completó; ver `docs/prueba_final_s007.md`.
 
 ## Preparar el dataset piloto
 
@@ -192,13 +212,12 @@ nueva models/mobilenet_* y reports/mobilenet_*. No carga prueba ni desconocidos.
 ## Modelo de aplicación y calibración
 
 ```powershell
-uv run python scripts/train_mobilenet.py --run-id mobilenet_app_20261018 --epochs 20 --fine-tune-epochs 40
-uv run python scripts/calibrate_app_model.py --run-id mobilenet_app_20261018 --activate
+uv run python scripts/train_app_192.py --activate
 uv run reconocimiento-pictogramas
 ```
 
-Los comandos documentan esta ejecución: para repetirla, usar otro identificador
-en ambos scripts. Entrena un único modelo desde ImageNet con1500 imágenes de
+El comando crea un paquete nuevo con un identificador de experimento propio.
+Entrena un único modelo desde ImageNet con1800 imágenes de
 s001-s005; s006 elige la época por val_loss y calibra el detector. No se elige
 un checkpoint de CV como modelo de aplicación. Máximo20 épocas con base
 congelada y40 de ajuste fino continuo, paciencia6/4; no es una repetición exacta
@@ -247,7 +266,7 @@ No se entrena ni se cambia el modelo seleccionado al preparar datos.
 ## Validación cruzada con diez clases
 
 ```powershell
-uv run python scripts/train_cross_validation.py
+uv run python scripts/train_cross_validation.py --config config/cv_s008_128.json --run-id ID_NUEVO
 ```
 
 Seis rondas por arquitectura, cada una con 1200 imágenes de entrenamiento,
@@ -260,7 +279,7 @@ historiales por paso, checkpoints y resultados externos. Ver
 ## Continuación del ajuste fino de MobileNet
 
 ```powershell
-uv run python scripts/extend_mobilenet_cv.py
+uv run python scripts/extend_mobilenet_cv.py --config config/cv_mobilenet_extended.json --run-id ID_NUEVO
 uv run python scripts/describe_cv_results.py --run-id IDENTIFICADOR_GENERADO
 uv run python scripts/compare_cv_experiments.py --reference cv10_20261018_000712 --candidate IDENTIFICADOR_GENERADO
 ```
@@ -398,11 +417,113 @@ reservada para la prueba final.
 - Rechazo MobileNet192: **208/300 desconocidas (69,33 %)** y5/2100 conocidas
   rechazadas (0,24 %). Todavía no alcanza el objetivo de rechazo70 %.
 
-MobileNet192 es el mejor candidato de clasificación evaluado. **La aplicación
-conserva el modelo128 anterior**; el modelo único192 ysu calibración todavía
-requieren preparación antes de activarlo. No se hereda el promedio de CV como
+MobileNet192 es el mejor candidato de clasificación evaluado. Al finalizar la comparación, la aplicación conservaba el modelo128.
+Ahora el modelo único192 está activado; consultar el estado actual al comienzo
+del README. No se hereda el promedio de CV como
 rendimiento de un modelo único. Estos resultados no son prueba final.
 
 Ver [resultados y decisiones](docs/resultados_y_decisiones.md),
 [comparación completa](reports/resolution_192_20261019/lectura_resultados.md) y
 [gráficos128/192](reports/resolution_192_20261019/comparison.png).
+
+La [recalibración de rechazo](docs/rechazo_objetivo_y_limite.md) con objetivo interno80 % y límite1 % obtuvo **225/300 desconocidas rechazadas (75 %)**, **6/2100 conocidas rechazadas (0,29 %)** y conservó1961 conocidas correctas aceptadas. Es un resultado de desarrollo. El paquete único192 posterior tiene su propia calibración; ver el estado actual al comienzo del README.
+
+
+## Interfaz con frase y voz
+
+Ejecutar `uv sync` y `uv run reconocimiento-pictogramas`. La aplicación sigue
+siendo local por defecto. El diseño es secuencial, con pestañas «Subir Foto» y
+«Cámara en Vivo», frase comunicativa destacada, puntuaciones visibles y explicación desplegable.
+La cámara toma una captura: no realiza clasificación continua del video. Para
+analizarla hay que pulsar «Identificar Pictograma». Se conserva el módulo de
+streaming anterior como referencia, pero no se monta en esta nueva interfaz.
+
+`predecir(imagen)` en ui.py recibe PIL.Image y devuelve frase, diccionario de
+probabilidades por categoría y ruta MP3 (o None si no hay audio). Reutiliza
+classify_frame y su preprocesamiento. inference.py solo expone adicionalmente
+las probabilidades que ya calcula; no cambia pesos, clases, rechazo o umbral.
+No se introduce el 75 % de softmax: el rechazo sigue usando kNN y su umbral
+calibrado. Un rechazo muestra «Tarjeta no reconocida. Intenta enfocarla nuevamente.».
+
+Las frases están en config/communication.json. gTTS envía únicamente la frase
+fija a Google Translate TTS y necesita Internet. Los MP3 se cachean en un
+directorio temporal exclusivo del proceso, sin guardar imágenes ni audio en el
+dataset. Si falla la voz, la clasificación sigue disponible y se informa el
+problema. No hay garantía de servicio ni modo sin conexión para generar audio.
+La reproducción automática depende del navegador; el reproductor permite
+iniciarla manualmente y repetirla. En móvil, la cámara requiere HTTPS.
+
+El diseño usa gr.themes.Soft, Verdana/Arial, contraste alto, foco visible y
+botones de al menos48px. En Gradio5 CSS/tema se pasan a Blocks; en Gradio6,
+a launch. Se mantiene la versión6 instalada, sin degradar dependencias.
+Pendiente validación física con móvil, lector de pantalla y reproducción en
+Safari/Chrome móvil. Los cambios no certifican conformidad WCAG.
+
+
+## Paleta serena y ejemplo del tema
+
+Los ocho tokens solicitados viven en `src/reconocimiento_pictogramas/sensory_theme.py`.
+`accessible_theme.py` los aplica también al diseño principal. El fondo es crema;
+las tarjetas blancas, las áreas de apoyo menta y los botones principales mostaza
+con texto carbón. El azul se reserva para foco, bordes y enlaces. Se conservan
+los tonos en modo oscuro para no invertir inesperadamente esta paleta.
+
+Ejecutar `uv run python scripts/demo_tema_tea.py` y abrir http://127.0.0.1:7864.
+Este ejemplo contiene texto, selector, botón y resultado; no carga el modelo.
+El ejemplo y la aplicación usan Soft con overrides `.set()` y respetan la
+ubicación de theme/css según Gradio5 o6. La ejecución se verifica con Gradio6.
+
+El rojo original se utiliza en bordes; su superficie de mensaje se aclara para
+que el texto carbón supere4,5:1. Se comprueban las parejas de texto configuradas
+mediante luminancia sRGB. Esto no certifica accesibilidad integral ni demuestra
+beneficio clínico. Las preferencias sensoriales deben validarse con usuarios.
+
+
+## Cámara móvil y etiquetas en español
+
+La captura solicita por defecto la cámara trasera mediante facingMode ideal
+environment, sin efecto espejo. Si no existe, el navegador puede elegir otra;
+se mantienen el permiso de cámara y el requisito HTTPS. La selección física
+de la cámara debe comprobarse en el teléfono del usuario.
+
+La página declara español y marca su contenido como no traducible, con meta
+notranslate y atributo translate=no. Esto evita que traducción automática
+confunda «Comer» con el sustantivo inglés «comer» y lo muestre como
+«Contendiente». Ninguna clase del modelo tiene ese nombre. Si una página ya
+estaba traducida, elegir «Mostrar original» en Chrome y recargar la nueva URL.
+
+
+Corrección de cámara trasera: WebcamOptions recibe restricciones de medios
+completas, con `{"video":{"facingMode":{"ideal":"environment"}}}`. El
+frontend instalado lee `constraints.video`; colocar facingMode directamente
+en la raíz lo dejaba sin efecto. Se comprueba la estructura serializada para
+el navegador. La preferencia trasera permite conservar el selector de cámara
+y el uso en equipos sin cámara posterior. La prueba física en móvil depende
+del navegador y debe confirmarse tras abrir el enlace actualizado.
+
+
+## Sistema de diseño y guía de componentes
+
+`DESIGN_TOKENS` en sensory_theme.py centraliza colores, tipografía, escala de
+espaciado, radios y objetivos táctiles. TOKENS sigue siendo alias de colors.
+create_theme(primary_action="primary") usa azul/blanco para el botón Primary;
+el valor predeterminado accent conserva la acción mostaza de la aplicación.
+Secondary usa menta/carbón; Accent, mostaza/carbón. Hover no cambia el color.
+
+Ejecutar `uv run python scripts/showcase_design_system.py` y abrir
+http://127.0.0.1:7865. El módulo design_system.py contiene la guía completa:
+tipografía y notas, botones activos/deshabilitados, Textbox, Radio,
+CheckboxGroup, tarjetas, éxito, aviso y validación de campos. Los mensajes
+usan texto además de color. La guía no carga el modelo ni genera audio.
+No contiene animaciones decorativas ni navegación inesperada. Se conserva
+foco visible, controles de al menos48px y texto en unidades relativas.
+Las combinaciones configuradas cumplen contraste de texto4,5:1; esto no es
+una certificación WCAG integral. Faltan validación con lector de pantalla,
+usuarios y preferencias sensoriales individuales.
+
+
+El aviso de bienvenida lee `test_evaluated` de la configuración activa
+`config/application.json`. Con el modelo actual informa que la evaluación
+final ya se realizó; no conserva el aviso histórico de prueba pendiente.
+La finalización de la evaluación no significa ausencia de errores: consultar
+las métricas y límites documentados en `docs/prueba_final_s007.md`.
