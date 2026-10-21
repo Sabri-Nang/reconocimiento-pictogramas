@@ -1,0 +1,48 @@
+{
+  "run": "mobilenet_app_192_20261020",
+  "classes": [
+    "agua",
+    "comer",
+    "bano",
+    "mama",
+    "dolor",
+    "papa",
+    "no",
+    "si",
+    "jugar",
+    "ayuda"
+  ],
+  "image_size": [
+    192,
+    192
+  ],
+  "seed": 42,
+  "train_sessions": [
+    "s001",
+    "s002",
+    "s003",
+    "s004",
+    "s005",
+    "s008"
+  ],
+  "validation_sessions": [
+    "s006"
+  ],
+  "train_images": 1800,
+  "validation_images": 300,
+  "batch_size": 32,
+  "head_epochs": 20,
+  "fine_tune_epochs": 40,
+  "patience": 6,
+  "fine_tune_patience": 4,
+  "monitor": "val_loss",
+  "target_unknown_rejection": 0.8,
+  "known_rejection_cap": 0.01,
+  "inner_shared_with_early_stopping": true,
+  "test_used": false,
+  "interpretation": "Modelo único nuevo desde ImageNet; métricas internas, no hereda93,52%CV. s007 excluida.",
+  "manifests_sha256": {
+    "train": "4bbaecf79965f1e0edfb0484ae4a1c7b624f1a5f96600cb3c8fa23116e803267",
+    "validation": "662affda54fc476cbb638f41ad1bea4b97de7c6a9efa4027c17f3f403f687f7b"
+  }
+}

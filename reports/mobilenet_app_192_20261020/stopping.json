@@ -1,0 +1,22 @@
+{
+  "best_epoch": 60,
+  "epochs_executed": 60,
+  "stages": [
+    {
+      "phase": "clasificador_congelado",
+      "max_epochs": 20,
+      "executed": 20,
+      "patience": 6
+    },
+    {
+      "phase": "ajuste_fino",
+      "max_epochs": 40,
+      "executed": 40,
+      "patience": 4
+    }
+  ],
+  "training_seconds": 500.33876220000093,
+  "steps_per_epoch": 57,
+  "last_batch_images": 8,
+  "test_used": false
+}

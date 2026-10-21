@@ -1,5 +1,7 @@
 # Entrenamiento cruzado de diez pictogramas
 
+Estado del documento: **desarrollo**; las rondas no sustituyen la prueba final.
+
 ## Qué se compara
 
 La CNN aprende sus pesos desde cero. MobileNetV3-Small también es una CNN,
@@ -73,7 +75,7 @@ rondas comparten datos de entrenamiento.
 ## Ejecutar
 
 ```powershell
-uv run python scripts/train_cross_validation.py
+uv run python scripts/train_cross_validation.py --config config/cross_validation.json --run-id ID_NUEVO
 ```
 
 Cada ejecución crea carpetas nuevas en reports/ y models/. Los checkpoints
@@ -85,7 +87,7 @@ imágenes basándose en resultados de las sesiones externas.
 Si se interrumpe, se puede retomar omitiendo rondas completas:
 
 ```powershell
-uv run python scripts/train_cross_validation.py --resume --run-id cv10_FECHA_HORA
+uv run python scripts/train_cross_validation.py --config config/cross_validation.json --resume --run-id cv10_FECHA_HORA
 ```
 
 Una ronda incompleta se vuelve a entrenar desde su inicio. No se debe alterar

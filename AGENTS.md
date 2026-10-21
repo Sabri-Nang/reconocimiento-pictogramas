@@ -21,11 +21,11 @@ Aplican a todo este repositorio. Comunicarse y documentar en español.
 - `data/`: originales, procesadas y particiones; `models/`: checkpoints locales; `reports/`: evidencia de experimentos; `docs/`: decisiones y protocolos.
 
 ## Inferencia y preprocesamiento
-- Reutilizar `preprocessing.py`: orientación EXIF, RGB y redimensionado LANCZOS. La aplicación vigente recibe128×128; los experimentos pueden fijar192×192 mediante image_size en su configuración, sin alterar config/project.json ni la selección de la aplicación. Entradas procesadas uint8 de 0 a 255, sin aumentos ni normalización externa.
+- Reutilizar `preprocessing.py`: orientación EXIF, RGB y redimensionado LANCZOS. La aplicación vigente recibe192×192 desde config/application.json. config/project.json conserva128 para preparación histórica. Los experimentos fijan su tamaño mediante image_size sin alterar esa configuración histórica. Entradas procesadas uint8 de 0 a 255, sin aumentos ni normalización externa.
 - La normalización específica y los aumentos pertenecen al modelo. MobileNetV3 incorpora su normalización: evitar aplicarla dos veces.
 - Mantener IDs internos sin tildes y textos visibles acentuados. Preservar exactamente el orden entre clases, manifiestos y salidas del modelo.
 - Verificar existencia del checkpoint, coincidencia de clases y cantidad de salidas. No eludir controles de compatibilidad ni completar salidas artificialmente.
-- `selected_model.json` selecciona MobileNet de diez clases `mobilenet_app_20261018`, entrenado con s001-s005 y validado/calibrado con s006. Es un candidato de aplicación, no un checkpoint de CV ni garantía del80,06% observado en seis rondas. No volver al piloto de cinco clases.
+- `config/application.json` selecciona MobileNet de diez clases `mobilenet_app_192_20261020`, entrenado con s001-s005 y s008 (1800) y validado/calibrado con s006. Es un modelo único nuevo; no hereda93,52% de CV ni75% de rechazo. Interno:278/300 correctas,40/50 desconocidas rechazadas,2/300 conocidas rechazadas y277/300 correctas aceptadas. Modelo128 previo respaldado; no volver al piloto de cinco clases.
 - La aplicación usa detector knn_cosine con cinco vecinos de entrenamiento y umbral de similitud calibrado internamente en s006. `confidence_threshold` queda null porque no se usa softmax para rechazar. Similitud menor o igual al umbral implica rechazo. No confundir similitud con probabilidad ni métricas internas con prueba independiente.
 - La carga se cachea; reiniciar la aplicación tras modificar selección o umbral. Ante errores, no presentar resultados anteriores como actuales.
 
@@ -54,3 +54,7 @@ Aplican a todo este repositorio. Comunicarse y documentar en español.
 - Consultar docs/resultados_y_decisiones.md: CNN128:77,95 %, CNN192:70,33 %; MobileNet128:84,62 %, MobileNet192:93,52 %, sobre2100 externas. No son prueba final ni rendimiento demostrado de la aplicación.
 - A192 la CNN con Flatten aumenta323370 a 651050 parámetros; MobileNet conserva944890. No atribuir la diferencia exclusivamente a resolución.
 - Rechazo kNN192:208/300 desconocidas (69,33 %),5/2100 conocidas rechazadas;1961 conocidas correctas aceptadas. No declarar cumplimiento del 70 %. No activar un checkpoint o umbral de CV automáticamente.
+
+## Paquete de aplicación192
+- Consultar docs/modelo_aplicacion_192.md. Umbral propio0,8024037084471637, kNN5 con1800 referencias train. Objetivo80% interno ycap1% interno; no garantías externas.
+- scripts/train_app_192.py --activate crea un experimento único; no repetir sobre el mismo identificador ni sobrescribir evidencia. scripts/verify_app_192.py prueba foto/RPC con desarrollo. Prueba final s007 completada: 291/300 conocidas correctas y29/50 desconocidas rechazadas; ver docs/prueba_final_s007.md. Cámara física móvil pendiente de validación.

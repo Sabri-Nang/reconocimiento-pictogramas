@@ -1,5 +1,8 @@
 # Próxima mejora del entrenamiento y conservación de archivos
 
+Estado del documento: **vigente** como plan; sus resultados descritos son
+históricos o de desarrollo según la sección.
+
 ## Diagnóstico
 
 El mejor experimento de MobileNet en validación cruzada obtuvo 1441/1800

@@ -1,0 +1,23 @@
+{
+  "fold": 6,
+  "session": "s006",
+  "threshold": 0.8202027898243544,
+  "external": {
+    "known_images": 300,
+    "unknown_images": 50,
+    "known_correct_without_rejection": 259,
+    "known_accuracy_without_rejection": 0.8633333333333333,
+    "known_rejected": 5,
+    "known_rejection_rate": 0.016666666666666666,
+    "known_accepted": 295,
+    "known_coverage": 0.9833333333333333,
+    "known_correct_accepted": 256,
+    "known_accuracy_with_rejection": 0.8533333333333334,
+    "accuracy_among_accepted_known": 0.8677966101694915,
+    "known_wrong_accepted": 39,
+    "unknown_rejected": 41,
+    "unknown_rejection_rate": 0.82,
+    "unknown_false_accepted": 9,
+    "unknown_false_acceptance_rate": 0.18000000000000005
+  }
+}

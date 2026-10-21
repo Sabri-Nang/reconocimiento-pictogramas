@@ -1,0 +1,22 @@
+{
+  "session": "s007",
+  "unknown_images": 50,
+  "known_images": 300,
+  "total_metadata_s007": 350,
+  "exact_duplicates": 0,
+  "compared_existing_images": 2700,
+  "decode_checked": true,
+  "copy_hashes_verified": true,
+  "dimensions": {
+    "3072x3072": 42,
+    "2448x2448": 8
+  },
+  "metadata_previous_rows_preserved": true,
+  "near_duplicates_checked": false,
+  "visual_review": "Revisión de hoja de contacto de las 50 imágenes: objetos, texto y fondos fuera del catálogo; no se observan tarjetas de clases conocidas. Revisión a tamaño reducido.",
+  "test_model_evaluated": false,
+  "errors": [],
+  "visual_notes": [
+    "Las imágenes 0048 y 0049 muestran una escena similar; son archivos distintos y se conservan. No se realizó búsqueda automatizada de duplicados perceptuales."
+  ]
+}

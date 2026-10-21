@@ -1,0 +1,110 @@
+{
+  "selected_model": "models/mobilenet_app_192_20261020/best.keras",
+  "ten_classes": [
+    {
+      "class_id": "agua",
+      "photo_accepted": true,
+      "preview_size": [
+        192,
+        192
+      ],
+      "raw_path": "data/raw/known/agua/agua_s006_0001.jpg"
+    },
+    {
+      "class_id": "comer",
+      "photo_accepted": true,
+      "preview_size": [
+        192,
+        192
+      ],
+      "raw_path": "data/raw/known/comer/comer_s006_0001.jpg"
+    },
+    {
+      "class_id": "bano",
+      "photo_accepted": true,
+      "preview_size": [
+        192,
+        192
+      ],
+      "raw_path": "data/raw/known/bano/bano_s006_0001.jpg"
+    },
+    {
+      "class_id": "mama",
+      "photo_accepted": true,
+      "preview_size": [
+        192,
+        192
+      ],
+      "raw_path": "data/raw/known/mama/mama_s006_0001.jpg"
+    },
+    {
+      "class_id": "dolor",
+      "photo_accepted": true,
+      "preview_size": [
+        192,
+        192
+      ],
+      "raw_path": "data/raw/known/dolor/dolor_s006_0001.jpg"
+    },
+    {
+      "class_id": "papa",
+      "photo_accepted": true,
+      "preview_size": [
+        192,
+        192
+      ],
+      "raw_path": "data/raw/known/papa/papa_s006_0001.jpg"
+    },
+    {
+      "class_id": "no",
+      "photo_accepted": true,
+      "preview_size": [
+        192,
+        192
+      ],
+      "raw_path": "data/raw/known/no/no_s006_0001.jpg"
+    },
+    {
+      "class_id": "si",
+      "photo_accepted": true,
+      "preview_size": [
+        192,
+        192
+      ],
+      "raw_path": "data/raw/known/si/si_s006_0001.jpg"
+    },
+    {
+      "class_id": "jugar",
+      "photo_accepted": true,
+      "preview_size": [
+        192,
+        192
+      ],
+      "raw_path": "data/raw/known/jugar/jugar_s006_0001.jpg"
+    },
+    {
+      "class_id": "ayuda",
+      "photo_accepted": true,
+      "preview_size": [
+        192,
+        192
+      ],
+      "raw_path": "data/raw/known/ayuda/ayuda_s006_0001.jpg"
+    }
+  ],
+  "unknown_photo_rejected": true,
+  "camera_rpc": {
+    "class_id": "agua",
+    "confirmed_after": 3,
+    "word": "Agua",
+    "counts": [
+      1,
+      2,
+      3
+    ]
+  },
+  "clear_camera_verified": true,
+  "real_phone_tested": false,
+  "scope": "Integracion local con imágenes internas, no métricas independientes ni cámara física",
+  "test_used": false
+}

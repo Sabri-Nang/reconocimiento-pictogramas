@@ -1,0 +1,23 @@
+{
+  "fold": 7,
+  "session": "s008",
+  "threshold": 0.8351566449176596,
+  "external": {
+    "known_images": 300,
+    "unknown_images": 50,
+    "known_correct_without_rejection": 289,
+    "known_accuracy_without_rejection": 0.9633333333333334,
+    "known_rejected": 0,
+    "known_rejection_rate": 0.0,
+    "known_accepted": 300,
+    "known_coverage": 1.0,
+    "known_correct_accepted": 289,
+    "known_accuracy_with_rejection": 0.9633333333333334,
+    "accuracy_among_accepted_known": 0.9633333333333334,
+    "known_wrong_accepted": 11,
+    "unknown_rejected": 42,
+    "unknown_rejection_rate": 0.84,
+    "unknown_false_accepted": 8,
+    "unknown_false_acceptance_rate": 0.16000000000000003
+  }
+}

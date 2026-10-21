@@ -1,0 +1,12 @@
+{
+  "local_url": "http://127.0.0.1:7860",
+  "endpoint": "recognize_image",
+  "category": "Agua",
+  "preview_size": [
+    192,
+    192
+  ],
+  "real_model": true,
+  "test_used": false,
+  "phone_tested": false
+}

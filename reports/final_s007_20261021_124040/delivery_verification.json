@@ -1,0 +1,10 @@
+{
+  "tests_passed": 29,
+  "tests_seconds": 9.11,
+  "command": "uv run --locked --offline pytest -q tests/test_inference.py tests/test_feature_rejection.py tests/test_project_config.py tests/test_training_artifacts.py",
+  "pdf_pages": 31,
+  "all_pages_rendered": true,
+  "visual_review": "Montaje de todas las páginas y comprobación ampliada de tablas; sin solapamientos ni recortes observados.",
+  "metrics_recomputed_from_saved_csv": true,
+  "inference_rerun": false
+}

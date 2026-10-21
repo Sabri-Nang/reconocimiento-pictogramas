@@ -1,0 +1,11 @@
+{
+  "source_sha256": {
+    "scripts/train_app_192.py": "6e73840950df1b43bb97015b355ec12e95e2c3f3c7920362bbd9958a35f6835a",
+    "scripts/verify_app_192.py": "e3240fab4597cc1a99d7e170a3934d876a0cdc15a322adf50dcea193b119c9d2",
+    "src/reconocimiento_pictogramas/ui.py": "0759b606f454290992ee34ca3ee63d602892396c825bc225be08f788376e706f",
+    "src/reconocimiento_pictogramas/inference.py": "1cf444812581207f5d9df979c3b353d68542a6441530d9128921ccca413973c3",
+    "src/reconocimiento_pictogramas/rejection.py": "6414481a70a7e178658269e41d0a7129c9216115bbfea2ba787a2d203939ee75",
+    "src/reconocimiento_pictogramas/feature_rejection.py": "46534a677fd3ac15a802c71ce5937bafc128d0fcadb63a31b40bc74221fb1165"
+  },
+  "test_used": false
+}

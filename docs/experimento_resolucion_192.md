@@ -1,5 +1,7 @@
 # Experimento de resolución:128 frente a192
 
+Estado del documento: **desarrollo**.
+
 Referencia: cv10_s008_128_20261019. Candidato: cv10_s008_192_20261019.
 Se generan2100 PNG RGB192 directamente de los originales, corrigiendo EXIF y
 redimensionando con LANCZOS. No se amplían los PNG128. Originales, derivados128,

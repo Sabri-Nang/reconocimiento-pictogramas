@@ -1,0 +1,10 @@
+{
+  "python": "3.11.15 (main, Aug  7 2026, 02:24:19) [MSC v.1944 64 bit (AMD64)]",
+  "tensorflow": "2.21.0",
+  "numpy": "2.4.6",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "devices": [
+    "PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')"
+  ],
+  "script_sha256": "ac3ef9a3d15fe6906680adb5b7bc714ba9d384859c892e3843f9ce24018a4554"
+}

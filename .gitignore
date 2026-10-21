@@ -59,3 +59,11 @@ Thumbs.db
 
 # Hojas visuales de nuevas sesiones: copias locales regenerables
 /reports/session_s008_review/contact_sheets/
+
+# Copias locales duplicadas; conservar evidencia estructurada y PDF final en Git
+/data/metadata_antes_*.csv
+/reports/auditoria_s007_*/contact_sheets/
+/reports/auditoria_unknown_s007_*/contacto.jpg
+/reports/mobilenet_app_192_20261020/progress.json
+/output/pdf/*.zip
+/reports/final_s007_*/evidencia_experimentos.zip

@@ -1,0 +1,11 @@
+{
+  "changed_file": "config/application.json",
+  "changed_keys": [
+    "test_evaluated",
+    "status"
+  ],
+  "model_and_detector_unchanged": true,
+  "application_before_sha256": "45e9ecd943e7e03f52ef8fa3590c55ce54d4cb4f35b8a6b07010434947bdb016",
+  "application_after_sha256": "47eec36ec7be0931d31b3823863fd80fa38efccf996fab3700daf06ed9e5b49e",
+  "independent_csv_count_verification": true
+}

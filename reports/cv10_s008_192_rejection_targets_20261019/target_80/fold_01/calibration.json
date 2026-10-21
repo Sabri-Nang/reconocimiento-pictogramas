@@ -1,0 +1,33 @@
+{
+  "feasible": true,
+  "threshold": 0.8117137715747786,
+  "candidate_threshold": 0.8117137715747786,
+  "target_unknown_rejection": 0.8,
+  "known_rejection_cap": 0.01,
+  "allowed_known_rejected": 3,
+  "candidate_known_rejected": 0,
+  "candidate_unknown_rejected": 32,
+  "fold": 1,
+  "calibration_session": "s002",
+  "evaluation_session": "s001",
+  "model_sha256": "06c182c993f657ea83ed1eab9b8000809713c94a05d1b065d224ea5994ae1147",
+  "external_used": false,
+  "internal_metrics": {
+    "known_images": 300,
+    "unknown_images": 40,
+    "known_correct_without_rejection": 284,
+    "known_accuracy_without_rejection": 0.9466666666666667,
+    "known_rejected": 0,
+    "known_rejection_rate": 0.0,
+    "known_accepted": 300,
+    "known_coverage": 1.0,
+    "known_correct_accepted": 284,
+    "known_accuracy_with_rejection": 0.9466666666666667,
+    "accuracy_among_accepted_known": 0.9466666666666667,
+    "known_wrong_accepted": 16,
+    "unknown_rejected": 32,
+    "unknown_rejection_rate": 0.8,
+    "unknown_false_accepted": 8,
+    "unknown_false_acceptance_rate": 0.19999999999999996
+  }
+}

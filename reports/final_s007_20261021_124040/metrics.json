@@ -1,0 +1,494 @@
+{
+  "run_id": "final_s007_20261021_124040",
+  "test_evaluated": true,
+  "model_path": "models/mobilenet_app_192_20261020/best.keras",
+  "model_sha256": "53e5bca0cd99a4ad20a6a3407578c51b74c59ef14480945558c582a61d3bac68",
+  "threshold": 0.8024037084471637,
+  "known_images": 300,
+  "unknown_images": 50,
+  "known_correct_without_rejection": 291,
+  "known_accuracy_without_rejection": 0.97,
+  "known_correct_accepted": 291,
+  "known_accuracy_with_rejection": 0.97,
+  "known_rejected": 0,
+  "known_rejection_rate": 0.0,
+  "known_coverage": 1.0,
+  "known_wrong_accepted": 9,
+  "accuracy_among_accepted_known": 0.97,
+  "unknown_rejected": 29,
+  "unknown_rejection_rate": 0.58,
+  "unknown_false_accepted": 21,
+  "unknown_false_acceptance_rate": 0.42,
+  "overall_operational_correct": 320,
+  "overall_operational_accuracy": 0.9142857142857143,
+  "all_accepted": 321,
+  "accuracy_among_all_accepted": 0.9065420560747663,
+  "unknown_auroc": 0.9980666666666667,
+  "unknown_average_precision": 0.9882706449401573,
+  "closed_set_report": {
+    "agua": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "comer": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "bano": {
+      "precision": 0.967741935483871,
+      "recall": 1.0,
+      "f1-score": 0.9836065573770492,
+      "support": 30.0
+    },
+    "mama": {
+      "precision": 1.0,
+      "recall": 0.9666666666666667,
+      "f1-score": 0.9830508474576272,
+      "support": 30.0
+    },
+    "dolor": {
+      "precision": 0.9090909090909091,
+      "recall": 1.0,
+      "f1-score": 0.9523809523809523,
+      "support": 30.0
+    },
+    "papa": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.9090909090909091,
+      "support": 30.0
+    },
+    "no": {
+      "precision": 1.0,
+      "recall": 0.9,
+      "f1-score": 0.9473684210526315,
+      "support": 30.0
+    },
+    "si": {
+      "precision": 0.9375,
+      "recall": 1.0,
+      "f1-score": 0.967741935483871,
+      "support": 30.0
+    },
+    "jugar": {
+      "precision": 0.9090909090909091,
+      "recall": 1.0,
+      "f1-score": 0.9523809523809523,
+      "support": 30.0
+    },
+    "ayuda": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "accuracy": 0.97,
+    "macro avg": {
+      "precision": 0.9723423753665689,
+      "recall": 0.97,
+      "f1-score": 0.9695620575223993,
+      "support": 300.0
+    },
+    "weighted avg": {
+      "precision": 0.9723423753665689,
+      "recall": 0.97,
+      "f1-score": 0.9695620575223993,
+      "support": 300.0
+    }
+  },
+  "operational_report": {
+    "agua": {
+      "precision": 0.9090909090909091,
+      "recall": 1.0,
+      "f1-score": 0.9523809523809523,
+      "support": 30.0
+    },
+    "comer": {
+      "precision": 0.9375,
+      "recall": 1.0,
+      "f1-score": 0.967741935483871,
+      "support": 30.0
+    },
+    "bano": {
+      "precision": 0.967741935483871,
+      "recall": 1.0,
+      "f1-score": 0.9836065573770492,
+      "support": 30.0
+    },
+    "mama": {
+      "precision": 0.9354838709677419,
+      "recall": 0.9666666666666667,
+      "f1-score": 0.9508196721311475,
+      "support": 30.0
+    },
+    "dolor": {
+      "precision": 0.8108108108108109,
+      "recall": 1.0,
+      "f1-score": 0.8955223880597015,
+      "support": 30.0
+    },
+    "papa": {
+      "precision": 0.9615384615384616,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.8928571428571429,
+      "support": 30.0
+    },
+    "no": {
+      "precision": 0.9642857142857143,
+      "recall": 0.9,
+      "f1-score": 0.9310344827586207,
+      "support": 30.0
+    },
+    "si": {
+      "precision": 0.8823529411764706,
+      "recall": 1.0,
+      "f1-score": 0.9375,
+      "support": 30.0
+    },
+    "jugar": {
+      "precision": 0.8333333333333334,
+      "recall": 1.0,
+      "f1-score": 0.9090909090909091,
+      "support": 30.0
+    },
+    "ayuda": {
+      "precision": 0.9090909090909091,
+      "recall": 1.0,
+      "f1-score": 0.9523809523809523,
+      "support": 30.0
+    },
+    "unknown": {
+      "precision": 1.0,
+      "recall": 0.58,
+      "f1-score": 0.7341772151898734,
+      "support": 50.0
+    },
+    "accuracy": 0.9142857142857143,
+    "macro avg": {
+      "precision": 0.9192026259798383,
+      "recall": 0.9345454545454545,
+      "f1-score": 0.9188283825191109,
+      "support": 350.0
+    },
+    "weighted avg": {
+      "precision": 0.9238196187809904,
+      "recall": 0.9142857142857143,
+      "f1-score": 0.9082768872431546,
+      "support": 350.0
+    }
+  },
+  "closed_confusion_matrix": [
+    [
+      30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      29,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      1,
+      25,
+      0,
+      0,
+      3,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      27,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      30,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      30
+    ]
+  ],
+  "operational_confusion_matrix": [
+    [
+      30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      29,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      1,
+      25,
+      0,
+      0,
+      3,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      27,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      30,
+      0
+    ],
+    [
+      3,
+      2,
+      0,
+      2,
+      4,
+      1,
+      1,
+      2,
+      3,
+      3,
+      29
+    ]
+  ],
+  "classes": [
+    "agua",
+    "comer",
+    "bano",
+    "mama",
+    "dolor",
+    "papa",
+    "no",
+    "si",
+    "jugar",
+    "ayuda"
+  ],
+  "wilson95_descriptive": {
+    "known_accuracy": [
+      0.9439774608583589,
+      0.9841381461905676
+    ],
+    "known_operational_accuracy": [
+      0.9439774608583589,
+      0.9841381461905676
+    ],
+    "unknown_rejection": [
+      0.4423344176857823,
+      0.7062499664528802
+    ],
+    "known_rejection": [
+      8.673617379884035e-19,
+      0.012642971224546034
+    ]
+  },
+  "latency": {
+    "median_seconds": 0.25616579997586086,
+    "p95_seconds": 0.2971465799957514,
+    "first_image_seconds": 0.36492249998264015,
+    "scope": "Carga de imagen, preprocesamiento, clasificador y kNN; ejecución serial CPU local; excluye carga inicial del modelo, UI y red."
+  },
+  "goals": {
+    "known_accuracy_at_least_70": true,
+    "operational_known_accuracy_at_least_70": true,
+    "unknown_rejection_at_least_70": false,
+    "internal_calibration_target_80_reproduced": false,
+    "internal_known_rejection_cap_1_reproduced": true
+  }
+}

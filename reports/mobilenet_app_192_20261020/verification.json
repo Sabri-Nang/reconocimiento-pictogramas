@@ -1,0 +1,10 @@
+{
+  "train_images": 1800,
+  "validation_images": 300,
+  "unknown_images": 50,
+  "train_validation_disjoint": true,
+  "model_sha256": "53e5bca0cd99a4ad20a6a3407578c51b74c59ef14480945558c582a61d3bac68",
+  "references_sha256": "98b7aeb42542b2be1478155e50e8bf087c6ccd2aad9829a48d14575025741430",
+  "activated": true,
+  "test_used": false
+}

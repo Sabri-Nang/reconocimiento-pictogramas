@@ -1,0 +1,6 @@
+
+# Conservar documentos e imágenes byte a byte, sin conversión de finales de línea
+*.pdf binary
+*.png binary
+*.jpg binary
+*.zip binary

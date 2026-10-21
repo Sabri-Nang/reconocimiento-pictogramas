@@ -1,5 +1,7 @@
 # Resultados y decisiones de desarrollo
 
+Estado del documento: **desarrollo**; no contiene resultados de s007.
+
 ## Datos y roles de cada ronda
 
 Se agregaron300 fotografías conocidas en s008. El desarrollo pasó de 1800 a 2100
@@ -95,3 +97,7 @@ final de hipótesis ni del objetivo de rechazo.
 Los datasets, pesos, cachés, credenciales yhojas visuales permanecen locales,
 ignorados por Git; requieren respaldo separado. Metadatos, código, protocolos,
 predicciones y gráficos estadísticos se versionan como evidencia.
+
+## Actualización: calibración con objetivo y límite
+
+El nuevo ensayo mantiene MobileNet192 y sus scores: objetivo interno80 % con límite1 % de conocidas logra225/300 desconocidas rechazadas (75 %),6/2100 conocidas rechazadas (0,29 %) y1961/2100 correctas aceptadas (93,38 %). Supera el objetivo agrupado en desarrollo, aunque s004 externa queda40 % y s006 rechaza1,67 % de conocidas. No es prueba final ni garantía por sesión. Ver [código, protocolo y resultados](rechazo_objetivo_y_limite.md). La aplicación permanece sin cambios.

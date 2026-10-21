@@ -1,5 +1,9 @@
 # Alcance del MVP
 
+Estado del documento: **mixto**. El alcance inicial es histórico; las secciones
+de actualización describen decisiones vigentes o de desarrollo. Consultar
+[estado actual](estado_actual.md) antes de ejecutar comandos.
+
 ## Propósito
 
 Desarrollar una aplicación web local que reciba la imagen de un pictograma y
@@ -165,3 +169,7 @@ streaming anterior; evita el estado nativo «Esperando» y el desfase de dos
 paneles. El navegador dibuja las coordenadas sobre el video; al detener
 cancela la captura y descarta las respuestas de la sesión anterior. La
 clasificación y el umbral conservan su carácter experimental.
+
+## Actualización del modelo de aplicación192
+
+El paquete mobilenet_app_192_20261020 está seleccionado con referencias y umbral propios. Véase [modelo único192](modelo_aplicacion_192.md) para particiones, métricas internas ypruebas. La comprobación local de laRPC no equivale a prueba física de video. s007 sigue reservada.

@@ -1,0 +1,1329 @@
+{
+  "classification": [
+    {
+      "id": "cv10_20261018_000712",
+      "architecture": "cnn",
+      "label": "CV inicial 128 cnn",
+      "stage": "CV desarrollo",
+      "n": 1800,
+      "correct": 915,
+      "accuracy": 0.5083333333333333,
+      "macro_f1": 0.5216715849528393,
+      "std_sessions": 0.31732037788680106,
+      "min_accuracy": 0.13666666666666666,
+      "max_accuracy": 0.9633333333333334,
+      "folds": 6,
+      "source": "reports/cv10_20261018_000712/summary.json",
+      "report": {
+        "agua": {
+          "precision": 0.45251396648044695,
+          "recall": 0.45,
+          "f1-score": 0.45125348189415043,
+          "support": 180.0
+        },
+        "comer": {
+          "precision": 0.8297872340425532,
+          "recall": 0.43333333333333335,
+          "f1-score": 0.5693430656934306,
+          "support": 180.0
+        },
+        "bano": {
+          "precision": 0.4947916666666667,
+          "recall": 0.5277777777777778,
+          "f1-score": 0.510752688172043,
+          "support": 180.0
+        },
+        "mama": {
+          "precision": 0.7699115044247787,
+          "recall": 0.48333333333333334,
+          "f1-score": 0.5938566552901023,
+          "support": 180.0
+        },
+        "dolor": {
+          "precision": 0.44715447154471544,
+          "recall": 0.6111111111111112,
+          "f1-score": 0.5164319248826291,
+          "support": 180.0
+        },
+        "papa": {
+          "precision": 0.8053097345132744,
+          "recall": 0.5055555555555555,
+          "f1-score": 0.621160409556314,
+          "support": 180.0
+        },
+        "no": {
+          "precision": 0.36363636363636365,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.47058823529411764,
+          "support": 180.0
+        },
+        "si": {
+          "precision": 0.9896907216494846,
+          "recall": 0.5333333333333333,
+          "f1-score": 0.6931407942238267,
+          "support": 180.0
+        },
+        "jugar": {
+          "precision": 0.29941860465116277,
+          "recall": 0.5722222222222222,
+          "f1-score": 0.3931297709923664,
+          "support": 180.0
+        },
+        "ayuda": {
+          "precision": 0.5869565217391305,
+          "recall": 0.3,
+          "f1-score": 0.39705882352941174,
+          "support": 180.0
+        },
+        "accuracy": 0.5083333333333333,
+        "macro avg": {
+          "precision": 0.6039170789348577,
+          "recall": 0.5083333333333332,
+          "f1-score": 0.5216715849528393,
+          "support": 1800.0
+        },
+        "weighted avg": {
+          "precision": 0.6039170789348576,
+          "recall": 0.5083333333333333,
+          "f1-score": 0.5216715849528393,
+          "support": 1800.0
+        }
+      },
+      "history_figure": "historial_01.png"
+    },
+    {
+      "id": "cv10_20261018_000712",
+      "architecture": "mobilenet",
+      "label": "CV inicial 128 mobilenet",
+      "stage": "CV desarrollo",
+      "n": 1800,
+      "correct": 1342,
+      "accuracy": 0.7455555555555555,
+      "macro_f1": 0.7473371736358231,
+      "std_sessions": 0.11078842030679054,
+      "min_accuracy": 0.6466666666666666,
+      "max_accuracy": 0.9033333333333333,
+      "folds": 6,
+      "source": "reports/cv10_20261018_000712/summary.json",
+      "report": {
+        "agua": {
+          "precision": 0.844311377245509,
+          "recall": 0.7833333333333333,
+          "f1-score": 0.8126801152737753,
+          "support": 180.0
+        },
+        "comer": {
+          "precision": 0.7166666666666667,
+          "recall": 0.7166666666666667,
+          "f1-score": 0.7166666666666667,
+          "support": 180.0
+        },
+        "bano": {
+          "precision": 0.851063829787234,
+          "recall": 0.8888888888888888,
+          "f1-score": 0.8695652173913043,
+          "support": 180.0
+        },
+        "mama": {
+          "precision": 0.5795918367346938,
+          "recall": 0.7888888888888889,
+          "f1-score": 0.668235294117647,
+          "support": 180.0
+        },
+        "dolor": {
+          "precision": 0.6390243902439025,
+          "recall": 0.7277777777777777,
+          "f1-score": 0.6805194805194805,
+          "support": 180.0
+        },
+        "papa": {
+          "precision": 0.7371794871794872,
+          "recall": 0.6388888888888888,
+          "f1-score": 0.6845238095238095,
+          "support": 180.0
+        },
+        "no": {
+          "precision": 0.7625,
+          "recall": 0.6777777777777778,
+          "f1-score": 0.7176470588235294,
+          "support": 180.0
+        },
+        "si": {
+          "precision": 0.9113924050632911,
+          "recall": 0.8,
+          "f1-score": 0.8520710059171598,
+          "support": 180.0
+        },
+        "jugar": {
+          "precision": 0.7960526315789473,
+          "recall": 0.6722222222222223,
+          "f1-score": 0.7289156626506024,
+          "support": 180.0
+        },
+        "ayuda": {
+          "precision": 0.7248677248677249,
+          "recall": 0.7611111111111111,
+          "f1-score": 0.7425474254742548,
+          "support": 180.0
+        },
+        "accuracy": 0.7455555555555555,
+        "macro avg": {
+          "precision": 0.7562650349367457,
+          "recall": 0.7455555555555555,
+          "f1-score": 0.7473371736358231,
+          "support": 1800.0
+        },
+        "weighted avg": {
+          "precision": 0.7562650349367457,
+          "recall": 0.7455555555555555,
+          "f1-score": 0.7473371736358231,
+          "support": 1800.0
+        }
+      },
+      "history_figure": "historial_02.png"
+    },
+    {
+      "id": "cv10_cnn_gap_20261018",
+      "architecture": "cnn",
+      "label": "CNN GAP 128 cnn",
+      "stage": "CV desarrollo",
+      "n": 1800,
+      "correct": 453,
+      "accuracy": 0.25166666666666665,
+      "macro_f1": 0.24472826722901778,
+      "std_sessions": 0.18143563290844741,
+      "min_accuracy": 0.1,
+      "max_accuracy": 0.5633333333333334,
+      "folds": 6,
+      "source": "reports/cv10_cnn_gap_20261018/summary.json",
+      "report": {
+        "agua": {
+          "precision": 0.13504823151125403,
+          "recall": 0.23333333333333334,
+          "f1-score": 0.1710794297352342,
+          "support": 180.0
+        },
+        "comer": {
+          "precision": 0.3069306930693069,
+          "recall": 0.17222222222222222,
+          "f1-score": 0.2206405693950178,
+          "support": 180.0
+        },
+        "bano": {
+          "precision": 0.1956989247311828,
+          "recall": 0.5055555555555555,
+          "f1-score": 0.28217054263565894,
+          "support": 180.0
+        },
+        "mama": {
+          "precision": 0.17289719626168223,
+          "recall": 0.20555555555555555,
+          "f1-score": 0.18781725888324874,
+          "support": 180.0
+        },
+        "dolor": {
+          "precision": 0.25210084033613445,
+          "recall": 0.5,
+          "f1-score": 0.33519553072625696,
+          "support": 180.0
+        },
+        "papa": {
+          "precision": 0.5588235294117647,
+          "recall": 0.2111111111111111,
+          "f1-score": 0.3064516129032258,
+          "support": 180.0
+        },
+        "no": {
+          "precision": 0.3761467889908257,
+          "recall": 0.22777777777777777,
+          "f1-score": 0.2837370242214533,
+          "support": 180.0
+        },
+        "si": {
+          "precision": 0.5434782608695652,
+          "recall": 0.2777777777777778,
+          "f1-score": 0.36764705882352944,
+          "support": 180.0
+        },
+        "jugar": {
+          "precision": 0.6170212765957447,
+          "recall": 0.16111111111111112,
+          "f1-score": 0.2555066079295154,
+          "support": 180.0
+        },
+        "ayuda": {
+          "precision": 0.1111111111111111,
+          "recall": 0.022222222222222223,
+          "f1-score": 0.037037037037037035,
+          "support": 180.0
+        },
+        "accuracy": 0.25166666666666665,
+        "macro avg": {
+          "precision": 0.32692568528885724,
+          "recall": 0.25166666666666665,
+          "f1-score": 0.24472826722901778,
+          "support": 1800.0
+        },
+        "weighted avg": {
+          "precision": 0.32692568528885724,
+          "recall": 0.25166666666666665,
+          "f1-score": 0.24472826722901778,
+          "support": 1800.0
+        }
+      },
+      "history_figure": "historial_03.png"
+    },
+    {
+      "id": "cv10_cnn_lr0003_20261018",
+      "architecture": "cnn",
+      "label": "CNN LR 0,0003 cnn",
+      "stage": "CV desarrollo",
+      "n": 1800,
+      "correct": 726,
+      "accuracy": 0.4033333333333333,
+      "macro_f1": 0.3894940784973141,
+      "std_sessions": 0.18795980657813224,
+      "min_accuracy": 0.16333333333333333,
+      "max_accuracy": 0.73,
+      "folds": 6,
+      "source": "reports/cv10_cnn_lr0003_20261018/summary.json",
+      "report": {
+        "agua": {
+          "precision": 0.3504273504273504,
+          "recall": 0.22777777777777777,
+          "f1-score": 0.2760942760942761,
+          "support": 180.0
+        },
+        "comer": {
+          "precision": 0.4247787610619469,
+          "recall": 0.26666666666666666,
+          "f1-score": 0.32764505119453924,
+          "support": 180.0
+        },
+        "bano": {
+          "precision": 0.31626506024096385,
+          "recall": 0.5833333333333334,
+          "f1-score": 0.41015625,
+          "support": 180.0
+        },
+        "mama": {
+          "precision": 0.525,
+          "recall": 0.4666666666666667,
+          "f1-score": 0.49411764705882355,
+          "support": 180.0
+        },
+        "dolor": {
+          "precision": 0.3736654804270463,
+          "recall": 0.5833333333333334,
+          "f1-score": 0.455531453362256,
+          "support": 180.0
+        },
+        "papa": {
+          "precision": 0.7213114754098361,
+          "recall": 0.4888888888888889,
+          "f1-score": 0.5827814569536424,
+          "support": 180.0
+        },
+        "no": {
+          "precision": 0.29393939393939394,
+          "recall": 0.5388888888888889,
+          "f1-score": 0.3803921568627451,
+          "support": 180.0
+        },
+        "si": {
+          "precision": 0.5214723926380368,
+          "recall": 0.4722222222222222,
+          "f1-score": 0.4956268221574344,
+          "support": 180.0
+        },
+        "jugar": {
+          "precision": 0.46153846153846156,
+          "recall": 0.36666666666666664,
+          "f1-score": 0.4086687306501548,
+          "support": 180.0
+        },
+        "ayuda": {
+          "precision": 0.1794871794871795,
+          "recall": 0.03888888888888889,
+          "f1-score": 0.0639269406392694,
+          "support": 180.0
+        },
+        "accuracy": 0.4033333333333333,
+        "macro avg": {
+          "precision": 0.41678855551702154,
+          "recall": 0.4033333333333333,
+          "f1-score": 0.3894940784973141,
+          "support": 1800.0
+        },
+        "weighted avg": {
+          "precision": 0.4167885555170215,
+          "recall": 0.4033333333333333,
+          "f1-score": 0.38949407849731416,
+          "support": 1800.0
+        }
+      },
+      "history_figure": "historial_04.png"
+    },
+    {
+      "id": "cv10_mobilenet_extend_20261018",
+      "architecture": "mobilenet",
+      "label": "MobileNet ajuste extendido mobilenet",
+      "stage": "CV desarrollo",
+      "n": 1800,
+      "correct": 1441,
+      "accuracy": 0.8005555555555556,
+      "macro_f1": 0.8013145189304355,
+      "std_sessions": 0.0875193100385831,
+      "min_accuracy": 0.7266666666666667,
+      "max_accuracy": 0.93,
+      "folds": 6,
+      "source": "reports/cv10_mobilenet_extend_20261018/summary.json",
+      "report": {
+        "agua": {
+          "precision": 0.847953216374269,
+          "recall": 0.8055555555555556,
+          "f1-score": 0.8262108262108262,
+          "support": 180.0
+        },
+        "comer": {
+          "precision": 0.8010752688172043,
+          "recall": 0.8277777777777777,
+          "f1-score": 0.8142076502732241,
+          "support": 180.0
+        },
+        "bano": {
+          "precision": 0.8864864864864865,
+          "recall": 0.9111111111111111,
+          "f1-score": 0.8986301369863013,
+          "support": 180.0
+        },
+        "mama": {
+          "precision": 0.6952380952380952,
+          "recall": 0.8111111111111111,
+          "f1-score": 0.7487179487179487,
+          "support": 180.0
+        },
+        "dolor": {
+          "precision": 0.7,
+          "recall": 0.7777777777777778,
+          "f1-score": 0.7368421052631579,
+          "support": 180.0
+        },
+        "papa": {
+          "precision": 0.8125,
+          "recall": 0.7222222222222222,
+          "f1-score": 0.7647058823529411,
+          "support": 180.0
+        },
+        "no": {
+          "precision": 0.7916666666666666,
+          "recall": 0.7388888888888889,
+          "f1-score": 0.764367816091954,
+          "support": 180.0
+        },
+        "si": {
+          "precision": 0.9041916167664671,
+          "recall": 0.8388888888888889,
+          "f1-score": 0.8703170028818443,
+          "support": 180.0
+        },
+        "jugar": {
+          "precision": 0.8580246913580247,
+          "recall": 0.7722222222222223,
+          "f1-score": 0.8128654970760234,
+          "support": 180.0
+        },
+        "ayuda": {
+          "precision": 0.7539267015706806,
+          "recall": 0.8,
+          "f1-score": 0.7762803234501348,
+          "support": 180.0
+        },
+        "accuracy": 0.8005555555555556,
+        "macro avg": {
+          "precision": 0.8051062743277895,
+          "recall": 0.8005555555555557,
+          "f1-score": 0.8013145189304355,
+          "support": 1800.0
+        },
+        "weighted avg": {
+          "precision": 0.8051062743277893,
+          "recall": 0.8005555555555556,
+          "f1-score": 0.8013145189304357,
+          "support": 1800.0
+        }
+      },
+      "history_figure": "historial_05.png"
+    },
+    {
+      "id": "cv10_s008_128_20261019",
+      "architecture": "cnn",
+      "label": "CV con s008 a 128 cnn",
+      "stage": "CV desarrollo",
+      "n": 2100,
+      "correct": 1637,
+      "accuracy": 0.7795238095238095,
+      "macro_f1": 0.7793849084856892,
+      "std_sessions": 0.1443558947138091,
+      "min_accuracy": 0.5233333333333333,
+      "max_accuracy": 0.9533333333333334,
+      "folds": 7,
+      "source": "reports/cv10_s008_128_20261019/summary.json",
+      "report": {
+        "agua": {
+          "precision": 0.7087912087912088,
+          "recall": 0.6142857142857143,
+          "f1-score": 0.6581632653061225,
+          "support": 210.0
+        },
+        "comer": {
+          "precision": 0.848780487804878,
+          "recall": 0.8285714285714286,
+          "f1-score": 0.8385542168674699,
+          "support": 210.0
+        },
+        "bano": {
+          "precision": 0.8217821782178217,
+          "recall": 0.7904761904761904,
+          "f1-score": 0.8058252427184466,
+          "support": 210.0
+        },
+        "mama": {
+          "precision": 0.9042553191489362,
+          "recall": 0.8095238095238095,
+          "f1-score": 0.8542713567839196,
+          "support": 210.0
+        },
+        "dolor": {
+          "precision": 0.6896551724137931,
+          "recall": 0.8571428571428571,
+          "f1-score": 0.7643312101910829,
+          "support": 210.0
+        },
+        "papa": {
+          "precision": 0.9105263157894737,
+          "recall": 0.8238095238095238,
+          "f1-score": 0.865,
+          "support": 210.0
+        },
+        "no": {
+          "precision": 0.6303501945525292,
+          "recall": 0.7714285714285715,
+          "f1-score": 0.6937901498929336,
+          "support": 210.0
+        },
+        "si": {
+          "precision": 0.8584070796460177,
+          "recall": 0.9238095238095239,
+          "f1-score": 0.8899082568807339,
+          "support": 210.0
+        },
+        "jugar": {
+          "precision": 0.7761904761904762,
+          "recall": 0.7761904761904762,
+          "f1-score": 0.7761904761904762,
+          "support": 210.0
+        },
+        "ayuda": {
+          "precision": 0.7039106145251397,
+          "recall": 0.6,
+          "f1-score": 0.6478149100257069,
+          "support": 210.0
+        },
+        "accuracy": 0.7795238095238095,
+        "macro avg": {
+          "precision": 0.7852649047080273,
+          "recall": 0.7795238095238095,
+          "f1-score": 0.7793849084856892,
+          "support": 2100.0
+        },
+        "weighted avg": {
+          "precision": 0.7852649047080275,
+          "recall": 0.7795238095238095,
+          "f1-score": 0.7793849084856893,
+          "support": 2100.0
+        }
+      },
+      "history_figure": "historial_06.png"
+    },
+    {
+      "id": "cv10_s008_128_20261019",
+      "architecture": "mobilenet",
+      "label": "CV con s008 a 128 mobilenet",
+      "stage": "CV desarrollo",
+      "n": 2100,
+      "correct": 1777,
+      "accuracy": 0.8461904761904762,
+      "macro_f1": 0.8461849811498101,
+      "std_sessions": 0.07116565368596191,
+      "min_accuracy": 0.77,
+      "max_accuracy": 0.9566666666666667,
+      "folds": 7,
+      "source": "reports/cv10_s008_128_20261019/summary.json",
+      "report": {
+        "agua": {
+          "precision": 0.8779342723004695,
+          "recall": 0.8904761904761904,
+          "f1-score": 0.8841607565011821,
+          "support": 210.0
+        },
+        "comer": {
+          "precision": 0.8232558139534883,
+          "recall": 0.8428571428571429,
+          "f1-score": 0.8329411764705882,
+          "support": 210.0
+        },
+        "bano": {
+          "precision": 0.8828828828828829,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.9074074074074074,
+          "support": 210.0
+        },
+        "mama": {
+          "precision": 0.8511627906976744,
+          "recall": 0.8714285714285714,
+          "f1-score": 0.8611764705882353,
+          "support": 210.0
+        },
+        "dolor": {
+          "precision": 0.7434782608695653,
+          "recall": 0.8142857142857143,
+          "f1-score": 0.7772727272727272,
+          "support": 210.0
+        },
+        "papa": {
+          "precision": 0.8648648648648649,
+          "recall": 0.7619047619047619,
+          "f1-score": 0.810126582278481,
+          "support": 210.0
+        },
+        "no": {
+          "precision": 0.8040201005025126,
+          "recall": 0.7619047619047619,
+          "f1-score": 0.78239608801956,
+          "support": 210.0
+        },
+        "si": {
+          "precision": 0.9458128078817734,
+          "recall": 0.9142857142857143,
+          "f1-score": 0.9297820823244553,
+          "support": 210.0
+        },
+        "jugar": {
+          "precision": 0.8911917098445595,
+          "recall": 0.819047619047619,
+          "f1-score": 0.8535980148883374,
+          "support": 210.0
+        },
+        "ayuda": {
+          "precision": 0.7955555555555556,
+          "recall": 0.8523809523809524,
+          "f1-score": 0.8229885057471265,
+          "support": 210.0
+        },
+        "accuracy": 0.8461904761904762,
+        "macro avg": {
+          "precision": 0.8480159059353346,
+          "recall": 0.8461904761904762,
+          "f1-score": 0.8461849811498101,
+          "support": 2100.0
+        },
+        "weighted avg": {
+          "precision": 0.8480159059353345,
+          "recall": 0.8461904761904762,
+          "f1-score": 0.8461849811498101,
+          "support": 2100.0
+        }
+      },
+      "history_figure": "historial_07.png"
+    },
+    {
+      "id": "cv10_s008_192_20261019",
+      "architecture": "cnn",
+      "label": "CV con s008 a 192 cnn",
+      "stage": "CV desarrollo",
+      "n": 2100,
+      "correct": 1477,
+      "accuracy": 0.7033333333333334,
+      "macro_f1": 0.7098263367508746,
+      "std_sessions": 0.2578472128706944,
+      "min_accuracy": 0.15333333333333332,
+      "max_accuracy": 0.9166666666666666,
+      "folds": 7,
+      "source": "reports/cv10_s008_192_20261019/summary.json",
+      "report": {
+        "agua": {
+          "precision": 0.7212121212121212,
+          "recall": 0.5666666666666667,
+          "f1-score": 0.6346666666666667,
+          "support": 210.0
+        },
+        "comer": {
+          "precision": 0.7419354838709677,
+          "recall": 0.6571428571428571,
+          "f1-score": 0.696969696969697,
+          "support": 210.0
+        },
+        "bano": {
+          "precision": 0.42018779342723006,
+          "recall": 0.8523809523809524,
+          "f1-score": 0.5628930817610063,
+          "support": 210.0
+        },
+        "mama": {
+          "precision": 0.7701149425287356,
+          "recall": 0.638095238095238,
+          "f1-score": 0.6979166666666666,
+          "support": 210.0
+        },
+        "dolor": {
+          "precision": 0.8031914893617021,
+          "recall": 0.719047619047619,
+          "f1-score": 0.7587939698492462,
+          "support": 210.0
+        },
+        "papa": {
+          "precision": 0.7989949748743719,
+          "recall": 0.7571428571428571,
+          "f1-score": 0.7775061124694377,
+          "support": 210.0
+        },
+        "no": {
+          "precision": 0.7806122448979592,
+          "recall": 0.7285714285714285,
+          "f1-score": 0.7536945812807881,
+          "support": 210.0
+        },
+        "si": {
+          "precision": 0.8403755868544601,
+          "recall": 0.8523809523809524,
+          "f1-score": 0.8463356973995272,
+          "support": 210.0
+        },
+        "jugar": {
+          "precision": 0.782608695652174,
+          "recall": 0.6857142857142857,
+          "f1-score": 0.7309644670050761,
+          "support": 210.0
+        },
+        "ayuda": {
+          "precision": 0.7159763313609467,
+          "recall": 0.5761904761904761,
+          "f1-score": 0.6385224274406333,
+          "support": 210.0
+        },
+        "accuracy": 0.7033333333333334,
+        "macro avg": {
+          "precision": 0.737520966404067,
+          "recall": 0.7033333333333334,
+          "f1-score": 0.7098263367508746,
+          "support": 2100.0
+        },
+        "weighted avg": {
+          "precision": 0.7375209664040668,
+          "recall": 0.7033333333333334,
+          "f1-score": 0.7098263367508745,
+          "support": 2100.0
+        }
+      },
+      "history_figure": "historial_08.png"
+    },
+    {
+      "id": "cv10_s008_192_20261019",
+      "architecture": "mobilenet",
+      "label": "CV con s008 a 192 mobilenet",
+      "stage": "CV desarrollo",
+      "n": 2100,
+      "correct": 1964,
+      "accuracy": 0.9352380952380952,
+      "macro_f1": 0.9352104640621105,
+      "std_sessions": 0.042113477338554875,
+      "min_accuracy": 0.8633333333333333,
+      "max_accuracy": 1.0,
+      "folds": 7,
+      "source": "reports/cv10_s008_192_20261019/summary.json",
+      "report": {
+        "agua": {
+          "precision": 0.9318181818181818,
+          "recall": 0.9761904761904762,
+          "f1-score": 0.9534883720930233,
+          "support": 210.0
+        },
+        "comer": {
+          "precision": 0.9605911330049262,
+          "recall": 0.9285714285714286,
+          "f1-score": 0.9443099273607748,
+          "support": 210.0
+        },
+        "bano": {
+          "precision": 0.9622641509433962,
+          "recall": 0.9714285714285714,
+          "f1-score": 0.966824644549763,
+          "support": 210.0
+        },
+        "mama": {
+          "precision": 0.9049773755656109,
+          "recall": 0.9523809523809523,
+          "f1-score": 0.9280742459396751,
+          "support": 210.0
+        },
+        "dolor": {
+          "precision": 0.8504273504273504,
+          "recall": 0.9476190476190476,
+          "f1-score": 0.8963963963963963,
+          "support": 210.0
+        },
+        "papa": {
+          "precision": 0.9285714285714286,
+          "recall": 0.8666666666666667,
+          "f1-score": 0.896551724137931,
+          "support": 210.0
+        },
+        "no": {
+          "precision": 0.9578947368421052,
+          "recall": 0.8666666666666667,
+          "f1-score": 0.91,
+          "support": 210.0
+        },
+        "si": {
+          "precision": 0.9663461538461539,
+          "recall": 0.9571428571428572,
+          "f1-score": 0.9617224880382775,
+          "support": 210.0
+        },
+        "jugar": {
+          "precision": 0.9471153846153846,
+          "recall": 0.9380952380952381,
+          "f1-score": 0.9425837320574163,
+          "support": 210.0
+        },
+        "ayuda": {
+          "precision": 0.9567307692307693,
+          "recall": 0.9476190476190476,
+          "f1-score": 0.9521531100478469,
+          "support": 210.0
+        },
+        "accuracy": 0.9352380952380952,
+        "macro avg": {
+          "precision": 0.9366736664865307,
+          "recall": 0.9352380952380953,
+          "f1-score": 0.9352104640621105,
+          "support": 2100.0
+        },
+        "weighted avg": {
+          "precision": 0.9366736664865307,
+          "recall": 0.9352380952380952,
+          "f1-score": 0.9352104640621104,
+          "support": 2100.0
+        }
+      },
+      "history_figure": "historial_09.png"
+    },
+    {
+      "id": "cnn_20261009_105933",
+      "architecture": "cnn",
+      "label": "Piloto CNN cinco clases",
+      "stage": "Validación piloto",
+      "n": 150,
+      "correct": 129,
+      "accuracy": 0.86,
+      "macro_f1": 0.8576796899589715,
+      "std_sessions": null,
+      "min_accuracy": null,
+      "max_accuracy": null,
+      "folds": 1,
+      "source": "reports/cnn_20261009_105933/metrics.json",
+      "report": {
+        "agua": {
+          "precision": 0.9090909090909091,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.7692307692307693,
+          "support": 30.0
+        },
+        "comer": {
+          "precision": 0.7567567567567568,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.835820895522388,
+          "support": 30.0
+        },
+        "bano": {
+          "precision": 0.896551724137931,
+          "recall": 0.8666666666666667,
+          "f1-score": 0.8813559322033898,
+          "support": 30.0
+        },
+        "mama": {
+          "precision": 0.8787878787878788,
+          "recall": 0.9666666666666667,
+          "f1-score": 0.9206349206349206,
+          "support": 30.0
+        },
+        "dolor": {
+          "precision": 0.896551724137931,
+          "recall": 0.8666666666666667,
+          "f1-score": 0.8813559322033898,
+          "support": 30.0
+        },
+        "accuracy": 0.86,
+        "macro avg": {
+          "precision": 0.8675477985822813,
+          "recall": 0.8600000000000001,
+          "f1-score": 0.8576796899589715,
+          "support": 150.0
+        },
+        "weighted avg": {
+          "precision": 0.8675477985822814,
+          "recall": 0.86,
+          "f1-score": 0.8576796899589715,
+          "support": 150.0
+        }
+      },
+      "history_figure": "historial_10.png"
+    },
+    {
+      "id": "mobilenet_20261009_111839",
+      "architecture": "mobilenet",
+      "label": "Piloto MobileNet cinco clases",
+      "stage": "Validación piloto",
+      "n": 150,
+      "correct": 124,
+      "accuracy": 0.8266666666666667,
+      "macro_f1": 0.826388230108926,
+      "std_sessions": null,
+      "min_accuracy": null,
+      "max_accuracy": null,
+      "folds": 1,
+      "source": "reports/mobilenet_20261009_111839/metrics.json",
+      "report": {
+        "agua": {
+          "precision": 0.9130434782608695,
+          "recall": 0.7,
+          "f1-score": 0.7924528301886793,
+          "support": 30.0
+        },
+        "comer": {
+          "precision": 0.7428571428571429,
+          "recall": 0.8666666666666667,
+          "f1-score": 0.8,
+          "support": 30.0
+        },
+        "bano": {
+          "precision": 0.90625,
+          "recall": 0.9666666666666667,
+          "f1-score": 0.9354838709677419,
+          "support": 30.0
+        },
+        "mama": {
+          "precision": 0.71875,
+          "recall": 0.7666666666666667,
+          "f1-score": 0.7419354838709677,
+          "support": 30.0
+        },
+        "dolor": {
+          "precision": 0.8928571428571429,
+          "recall": 0.8333333333333334,
+          "f1-score": 0.8620689655172413,
+          "support": 30.0
+        },
+        "accuracy": 0.8266666666666667,
+        "macro avg": {
+          "precision": 0.8347515527950311,
+          "recall": 0.8266666666666665,
+          "f1-score": 0.826388230108926,
+          "support": 150.0
+        },
+        "weighted avg": {
+          "precision": 0.8347515527950311,
+          "recall": 0.8266666666666667,
+          "f1-score": 0.826388230108926,
+          "support": 150.0
+        }
+      },
+      "history_figure": "historial_11.png"
+    },
+    {
+      "id": "mobilenet_app_20261018",
+      "architecture": "mobilenet",
+      "label": "Aplicación MobileNet 128",
+      "stage": "Validación interna",
+      "n": 300,
+      "correct": 237,
+      "accuracy": 0.79,
+      "macro_f1": 0.7916570901334258,
+      "std_sessions": null,
+      "min_accuracy": null,
+      "max_accuracy": null,
+      "folds": 1,
+      "source": "reports/mobilenet_app_20261018/metrics.json",
+      "report": {
+        "agua": {
+          "precision": 0.7941176470588235,
+          "recall": 0.9,
+          "f1-score": 0.84375,
+          "support": 30.0
+        },
+        "comer": {
+          "precision": 0.65625,
+          "recall": 0.7,
+          "f1-score": 0.6774193548387096,
+          "support": 30.0
+        },
+        "bano": {
+          "precision": 0.9032258064516129,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.9180327868852459,
+          "support": 30.0
+        },
+        "mama": {
+          "precision": 0.8275862068965517,
+          "recall": 0.8,
+          "f1-score": 0.8135593220338984,
+          "support": 30.0
+        },
+        "dolor": {
+          "precision": 0.8275862068965517,
+          "recall": 0.8,
+          "f1-score": 0.8135593220338984,
+          "support": 30.0
+        },
+        "papa": {
+          "precision": 0.7575757575757576,
+          "recall": 0.8333333333333334,
+          "f1-score": 0.7936507936507936,
+          "support": 30.0
+        },
+        "no": {
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1-score": 0.75,
+          "support": 30.0
+        },
+        "si": {
+          "precision": 1.0,
+          "recall": 0.8666666666666667,
+          "f1-score": 0.9285714285714286,
+          "support": 30.0
+        },
+        "jugar": {
+          "precision": 0.5945945945945946,
+          "recall": 0.7333333333333333,
+          "f1-score": 0.6567164179104478,
+          "support": 30.0
+        },
+        "ayuda": {
+          "precision": 0.7096774193548387,
+          "recall": 0.7333333333333333,
+          "f1-score": 0.7213114754098361,
+          "support": 30.0
+        },
+        "accuracy": 0.79,
+        "macro avg": {
+          "precision": 0.807061363882873,
+          "recall": 0.79,
+          "f1-score": 0.7916570901334258,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.8070613638828731,
+          "recall": 0.79,
+          "f1-score": 0.7916570901334259,
+          "support": 300.0
+        }
+      },
+      "history_figure": "historial_12.png"
+    },
+    {
+      "id": "mobilenet_app_192_20261020",
+      "architecture": "mobilenet",
+      "label": "Aplicación MobileNet 192",
+      "stage": "Validación interna",
+      "n": 300,
+      "correct": 278,
+      "accuracy": 0.9266666666666666,
+      "macro_f1": 0.9266944041704344,
+      "std_sessions": null,
+      "min_accuracy": null,
+      "max_accuracy": null,
+      "folds": 1,
+      "source": "reports/mobilenet_app_192_20261020/metrics.json",
+      "report": {
+        "agua": {
+          "precision": 0.9655172413793104,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.9491525423728814,
+          "support": 30.0
+        },
+        "comer": {
+          "precision": 0.8235294117647058,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.875,
+          "support": 30.0
+        },
+        "bano": {
+          "precision": 0.9655172413793104,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.9491525423728814,
+          "support": 30.0
+        },
+        "mama": {
+          "precision": 0.90625,
+          "recall": 0.9666666666666667,
+          "f1-score": 0.9354838709677419,
+          "support": 30.0
+        },
+        "dolor": {
+          "precision": 0.8823529411764706,
+          "recall": 1.0,
+          "f1-score": 0.9375,
+          "support": 30.0
+        },
+        "papa": {
+          "precision": 0.9629629629629629,
+          "recall": 0.8666666666666667,
+          "f1-score": 0.9122807017543859,
+          "support": 30.0
+        },
+        "no": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1-score": 0.8888888888888888,
+          "support": 30.0
+        },
+        "si": {
+          "precision": 1.0,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.9655172413793104,
+          "support": 30.0
+        },
+        "jugar": {
+          "precision": 0.8787878787878788,
+          "recall": 0.9666666666666667,
+          "f1-score": 0.9206349206349206,
+          "support": 30.0
+        },
+        "ayuda": {
+          "precision": 0.9333333333333333,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.9333333333333333,
+          "support": 30.0
+        },
+        "accuracy": 0.9266666666666666,
+        "macro avg": {
+          "precision": 0.9318251010783973,
+          "recall": 0.9266666666666667,
+          "f1-score": 0.9266944041704344,
+          "support": 300.0
+        },
+        "weighted avg": {
+          "precision": 0.9318251010783973,
+          "recall": 0.9266666666666666,
+          "f1-score": 0.9266944041704342,
+          "support": 300.0
+        }
+      },
+      "history_figure": "historial_13.png"
+    }
+  ],
+  "rejection": [
+    {
+      "id": "cv10_unknown_20261018",
+      "label": "Softmax 128 seis sesiones",
+      "stage": "CV desarrollo",
+      "source": "reports/cv10_unknown_20261018/summary.json",
+      "known_images": 1800,
+      "unknown_images": 250,
+      "known_correct_without_rejection": 1441,
+      "known_rejected": 415,
+      "known_accepted": 1385,
+      "known_correct_accepted": 1256,
+      "known_wrong_accepted": 129,
+      "unknown_rejected": 150,
+      "unknown_false_accepted": 100,
+      "known_accuracy_without_rejection": 0.8005555555555556,
+      "known_accuracy_with_rejection": 0.6977777777777778,
+      "known_rejection_rate": 0.23055555555555557,
+      "accuracy_among_accepted_known": 0.9068592057761733,
+      "unknown_rejection_rate": 0.6,
+      "unknown_false_acceptance_rate": 0.4
+    },
+    {
+      "id": "cv10_unknown_knn_20261018",
+      "label": "kNN 128 seis sesiones",
+      "stage": "CV desarrollo",
+      "source": "reports/cv10_unknown_knn_20261018/summary.json",
+      "known_images": 1800,
+      "unknown_images": 250,
+      "known_correct_without_rejection": 1441,
+      "known_rejected": 14,
+      "known_accepted": 1786,
+      "known_correct_accepted": 1439,
+      "known_wrong_accepted": 347,
+      "unknown_rejected": 166,
+      "unknown_false_accepted": 84,
+      "known_accuracy_without_rejection": 0.8005555555555556,
+      "known_accuracy_with_rejection": 0.7994444444444444,
+      "known_rejection_rate": 0.0077777777777777776,
+      "accuracy_among_accepted_known": 0.8057110862262038,
+      "unknown_rejection_rate": 0.664,
+      "unknown_false_acceptance_rate": 0.336
+    },
+    {
+      "id": "cv10_unknown_knn_cap05_20261018",
+      "label": "kNN límite interno 5%",
+      "stage": "CV desarrollo",
+      "source": "reports/cv10_unknown_knn_cap05_20261018/summary.json",
+      "known_images": 1800,
+      "unknown_images": 250,
+      "known_correct_without_rejection": 1441,
+      "known_rejected": 287,
+      "known_accepted": 1513,
+      "known_correct_accepted": 1279,
+      "known_wrong_accepted": 234,
+      "unknown_rejected": 241,
+      "unknown_false_accepted": 9,
+      "known_accuracy_without_rejection": 0.8005555555555556,
+      "known_accuracy_with_rejection": 0.7105555555555556,
+      "known_rejection_rate": 0.15944444444444444,
+      "accuracy_among_accepted_known": 0.845340383344349,
+      "unknown_rejection_rate": 0.964,
+      "unknown_false_acceptance_rate": 0.036
+    },
+    {
+      "id": "cv10_s008_unknown_knn_20261019",
+      "label": "kNN 128 con s008",
+      "stage": "CV desarrollo",
+      "source": "reports/cv10_s008_unknown_knn_20261019/summary.json",
+      "known_images": 2100,
+      "unknown_images": 300,
+      "known_correct_without_rejection": 1777,
+      "known_rejected": 10,
+      "known_accepted": 2090,
+      "known_correct_accepted": 1777,
+      "known_wrong_accepted": 313,
+      "unknown_rejected": 197,
+      "unknown_false_accepted": 103,
+      "known_accuracy_without_rejection": 0.8461904761904762,
+      "known_accuracy_with_rejection": 0.8461904761904762,
+      "known_rejection_rate": 0.004761904761904762,
+      "accuracy_among_accepted_known": 0.8502392344497608,
+      "unknown_rejection_rate": 0.6566666666666666,
+      "unknown_false_acceptance_rate": 0.3433333333333333
+    },
+    {
+      "id": "cv10_s008_192_unknown_knn_20261019",
+      "label": "kNN 192 objetivo interno 70%",
+      "stage": "CV desarrollo",
+      "source": "reports/cv10_s008_192_unknown_knn_20261019/summary.json",
+      "known_images": 2100,
+      "unknown_images": 300,
+      "known_correct_without_rejection": 1964,
+      "known_rejected": 5,
+      "known_accepted": 2095,
+      "known_correct_accepted": 1961,
+      "known_wrong_accepted": 134,
+      "unknown_rejected": 208,
+      "unknown_false_accepted": 92,
+      "known_accuracy_without_rejection": 0.9352380952380952,
+      "known_accuracy_with_rejection": 0.9338095238095238,
+      "known_rejection_rate": 0.002380952380952381,
+      "accuracy_among_accepted_known": 0.9360381861575179,
+      "unknown_rejection_rate": 0.6933333333333334,
+      "unknown_false_acceptance_rate": 0.30666666666666664
+    },
+    {
+      "id": "cv10_s008_192_rejection_targets_20261019/target_75",
+      "label": "kNN 192 objetivo 75% límite 1%",
+      "stage": "CV desarrollo",
+      "source": "reports/cv10_s008_192_rejection_targets_20261019/target_75/summary.json",
+      "known_images": 2100,
+      "unknown_images": 300,
+      "known_correct_without_rejection": 1964,
+      "known_rejected": 6,
+      "known_rejection_rate": 0.002857142857142857,
+      "known_correct_accepted": 1961,
+      "known_accuracy_with_rejection": 0.9338095238095238,
+      "unknown_rejected": 219,
+      "unknown_rejection_rate": 0.73,
+      "unknown_false_accepted": 81
+    },
+    {
+      "id": "cv10_s008_192_rejection_targets_20261019/target_80",
+      "label": "kNN 192 objetivo 80% límite 1%",
+      "stage": "CV desarrollo",
+      "source": "reports/cv10_s008_192_rejection_targets_20261019/target_80/summary.json",
+      "known_images": 2100,
+      "unknown_images": 300,
+      "known_correct_without_rejection": 1964,
+      "known_rejected": 6,
+      "known_rejection_rate": 0.002857142857142857,
+      "known_correct_accepted": 1961,
+      "known_accuracy_with_rejection": 0.9338095238095238,
+      "unknown_rejected": 225,
+      "unknown_rejection_rate": 0.75,
+      "unknown_false_accepted": 75
+    },
+    {
+      "id": "mobilenet_app_20261018",
+      "label": "Aplicación 128 interna",
+      "stage": "Validación interna",
+      "source": "reports/mobilenet_app_20261018/rejection/calibration.json",
+      "known_images": 300,
+      "unknown_images": 50,
+      "known_correct_without_rejection": 237,
+      "known_accuracy_without_rejection": 0.79,
+      "known_rejected": 1,
+      "known_rejection_rate": 0.0033333333333333335,
+      "known_accepted": 299,
+      "known_coverage": 0.9966666666666667,
+      "known_correct_accepted": 237,
+      "known_accuracy_with_rejection": 0.79,
+      "accuracy_among_accepted_known": 0.7926421404682275,
+      "known_wrong_accepted": 62,
+      "unknown_rejected": 35,
+      "unknown_rejection_rate": 0.7,
+      "unknown_false_accepted": 15,
+      "unknown_false_acceptance_rate": 0.30000000000000004
+    },
+    {
+      "id": "mobilenet_app_192_20261020",
+      "label": "Aplicación 192 interna",
+      "stage": "Validación interna",
+      "source": "reports/mobilenet_app_192_20261020/calibration.json",
+      "known_images": 300,
+      "unknown_images": 50,
+      "known_correct_without_rejection": 278,
+      "known_accuracy_without_rejection": 0.9266666666666666,
+      "known_rejected": 2,
+      "known_rejection_rate": 0.006666666666666667,
+      "known_accepted": 298,
+      "known_coverage": 0.9933333333333333,
+      "known_correct_accepted": 277,
+      "known_accuracy_with_rejection": 0.9233333333333333,
+      "accuracy_among_accepted_known": 0.9295302013422819,
+      "known_wrong_accepted": 21,
+      "unknown_rejected": 40,
+      "unknown_rejection_rate": 0.8,
+      "unknown_false_accepted": 10,
+      "unknown_false_acceptance_rate": 0.19999999999999996
+    }
+  ],
+  "sources": [
+    "cv10_20261018_000712",
+    "cv10_cnn_gap_20261018",
+    "cv10_cnn_lr0003_20261018",
+    "cv10_mobilenet_extend_20261018",
+    "cv10_s008_128_20261019",
+    "cv10_s008_192_20261019",
+    "cnn_20261009_105933",
+    "mobilenet_20261009_111839",
+    "mobilenet_app_20261018",
+    "mobilenet_app_192_20261020",
+    "resolution_192_20261019",
+    "cv10_unknown_20261018",
+    "cv10_unknown_knn_20261018",
+    "cv10_unknown_knn_cap05_20261018",
+    "cv10_s008_unknown_knn_20261019",
+    "cv10_s008_192_unknown_knn_20261019",
+    "cv10_s008_192_rejection_targets_20261019"
+  ]
+}

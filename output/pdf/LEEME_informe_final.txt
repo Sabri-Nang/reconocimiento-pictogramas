@@ -1,0 +1,9 @@
+Pictovoz - prueba final s007
+
+Informe PDF: 31 páginas.
+Clasificación conocida: 291/300 (97%).
+Desconocidas rechazadas: 29/50 (58%).
+La clasificación cumple el objetivo; el rechazo de desconocidos no.
+No se ajustó el modelo ni el umbral con s007.
+
+El ZIP contiene informe, figuras, predicciones finales, métricas, código de evaluación y evidencia histórica de los experimentos. No incluye pesos ni dataset completo.

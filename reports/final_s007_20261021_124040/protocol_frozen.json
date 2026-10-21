@@ -1,0 +1,93 @@
+{
+  "created_utc": "2026-10-21T15:40:40.353091+00:00",
+  "selection": {
+    "$schema": "./schemas/application.schema.json",
+    "version": 1,
+    "model_path": "models/mobilenet_app_192_20261020/best.keras",
+    "model_sha256": "53e5bca0cd99a4ad20a6a3407578c51b74c59ef14480945558c582a61d3bac68",
+    "classes": [
+      "agua",
+      "comer",
+      "bano",
+      "mama",
+      "dolor",
+      "papa",
+      "no",
+      "si",
+      "jugar",
+      "ayuda"
+    ],
+    "image_size": [
+      192,
+      192
+    ],
+    "confidence_threshold": null,
+    "rejection_detector": {
+      "method": "knn_cosine",
+      "neighbors": 5,
+      "threshold": 0.8024037084471637,
+      "calibrated": true,
+      "calibration_rule": "unknown_target_with_known_cap",
+      "target_unknown_rejection": 0.8,
+      "known_rejection_cap": 0.01,
+      "references_path": "models/mobilenet_app_192_20261020/rejection_references.npz",
+      "references_sha256": "98b7aeb42542b2be1478155e50e8bf087c6ccd2aad9829a48d14575025741430",
+      "model_sha256": "53e5bca0cd99a4ad20a6a3407578c51b74c59ef14480945558c582a61d3bac68",
+      "reference_sessions": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s008"
+      ],
+      "calibration_sessions": [
+        "s006"
+      ]
+    },
+    "status": "vigente; selección y calibración internas s006; prueba final s007 pendiente",
+    "calibration_path": "reports/mobilenet_app_192_20261020/calibration.json",
+    "test_evaluated": false
+  },
+  "protected_hashes": {
+    "config/application.json": "45e9ecd943e7e03f52ef8fa3590c55ce54d4cb4f35b8a6b07010434947bdb016",
+    "config/selected_model.json": "2b02c121b84ac20edbd193348ffcaa10f72b88c3002df50e04ed82bfa320a180",
+    "data/metadata.csv": "40fcc62feac00e2615c49a3633c1ca6b2f62c0cfd2c8d4577438a2e141ad4428",
+    "models/mobilenet_app_192_20261020/best.keras": "53e5bca0cd99a4ad20a6a3407578c51b74c59ef14480945558c582a61d3bac68",
+    "models/mobilenet_app_192_20261020/rejection_references.npz": "98b7aeb42542b2be1478155e50e8bf087c6ccd2aad9829a48d14575025741430"
+  },
+  "test_counts": {
+    "agua": 30,
+    "comer": 30,
+    "bano": 30,
+    "mama": 30,
+    "dolor": 30,
+    "papa": 30,
+    "no": 30,
+    "si": 30,
+    "jugar": 30,
+    "ayuda": 30,
+    "unknown": 50
+  },
+  "development_images_checked": 2400,
+  "overlap": [],
+  "metrics_planned": [
+    "closed_set_accuracy",
+    "precision_recall_f1_per_class",
+    "confusion_matrix_closed",
+    "confusion_matrix_operational_11_labels",
+    "known_correct_accepted",
+    "known_rejection",
+    "unknown_rejection",
+    "unknown_false_acceptance",
+    "coverage",
+    "accuracy_among_accepted",
+    "auroc_unknown",
+    "auprc_unknown"
+  ],
+  "threshold_change_allowed": false,
+  "training_allowed": false,
+  "session": "s007",
+  "seed": 42,
+  "uncertainty": "Wilson95 descriptivo por imagen; imágenes de una sola sesión no equivalen a observaciones independientes entre entornos."
+}

@@ -1,0 +1,36 @@
+{
+  "session": "s007",
+  "known_images": 300,
+  "counts": {
+    "agua": 30,
+    "comer": 30,
+    "bano": 30,
+    "mama": 30,
+    "dolor": 30,
+    "papa": 30,
+    "no": 30,
+    "si": 30,
+    "jugar": 30,
+    "ayuda": 30
+  },
+  "metadata_s007_rows": 300,
+  "dimensions": {
+    "3072x3072": 300
+  },
+  "formats": {
+    "JPEG": 300
+  },
+  "exact_duplicates": 0,
+  "development_images_compared": 2400,
+  "exact_overlap_with_development": [],
+  "original_hashes_preserved": true,
+  "decode_and_preprocessing_checked": true,
+  "partition_config": "test exclusivamente",
+  "unknown_s007": 0,
+  "unknown_pending": 50,
+  "near_duplicates_checked": false,
+  "visual_review": "No realizada por este script",
+  "test_model_evaluated": false,
+  "errors": [],
+  "scope": "Integridad de 300 conocidas s007. Dataset final incompleto hasta incorporar unknown. No prepara splits ni modifica modelos."
+}

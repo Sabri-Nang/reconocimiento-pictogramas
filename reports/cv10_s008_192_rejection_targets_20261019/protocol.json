@@ -1,0 +1,24 @@
+{
+  "source_run": "cv10_s008_192_unknown_knn_20261019",
+  "targets": [
+    0.75,
+    0.8
+  ],
+  "known_rejection_cap": 0.01,
+  "calibration": "Minimo umbral por objetivo unknown interno, siempre que rechazo conocido interno<=1%. Inviable si no cumple; sin fallback ni ajuste externo.",
+  "infeasible_variant_policy": "Si una ronda es inviable no se calcula un promedio externo parcial para esa variante.",
+  "acceptance_criteria": {
+    "all_internal_folds_feasible": true,
+    "external_unknown_rejection_min": 0.7,
+    "external_known_rejection_max": 0.01,
+    "external_correct_accepted_min": 0.93
+  },
+  "cached_scores_reused": true,
+  "external_used_for_threshold": false,
+  "inner_shared_with_early_stopping": true,
+  "interpretation": "Desarrollo adaptativo; las externas ya fueron analizadas antes. No prueba independiente. Limites internos no garantizan externos.",
+  "test_used": false,
+  "application_changed": false,
+  "source_protocol_sha256": "152c7585e3bd16fe64ff0f02bb1d4d0180f29f91ceb371523d54c6693d99578a",
+  "created_utc": "2026-10-19T19:36:52.559796+00:00"
+}

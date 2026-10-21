@@ -1,5 +1,7 @@
 # Protocolo de construcción del dataset
 
+Estado del documento: **vigente**.
+
 ## Objetivo
 
 Construir un dataset reproducible para entrenar, validar y evaluar un sistema de

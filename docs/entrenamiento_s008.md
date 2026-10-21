@@ -1,5 +1,7 @@
 # Sesión s008: revisión y nuevo entrenamiento
 
+Estado del documento: **desarrollo**.
+
 ## Evaluación previa congelada
 
 Antes de incorporar s008 al entrenamiento se evaluó el modelo de aplicación
@@ -76,7 +78,7 @@ umbral de CV sin recalibrar. Solo entonces se ejecuta la prueba final s007.
 
 ```powershell
 uv run python scripts/train_cross_validation.py --config config/cv_s008_128.json --run-id cv10_s008_128_20261019
-uv run python scripts/train_cross_validation.py --run-id cv10_s008_128_20261019 --resume
+uv run python scripts/train_cross_validation.py --config config/cv_s008_128.json --run-id cv10_s008_128_20261019 --resume
 ```
 
 Tras terminar las siete rondas MobileNet:

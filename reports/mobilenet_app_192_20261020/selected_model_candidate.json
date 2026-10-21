@@ -1,0 +1,47 @@
+{
+  "model_path": "models/mobilenet_app_192_20261020/best.keras",
+  "model_sha256": "53e5bca0cd99a4ad20a6a3407578c51b74c59ef14480945558c582a61d3bac68",
+  "classes": [
+    "agua",
+    "comer",
+    "bano",
+    "mama",
+    "dolor",
+    "papa",
+    "no",
+    "si",
+    "jugar",
+    "ayuda"
+  ],
+  "image_size": [
+    192,
+    192
+  ],
+  "confidence_threshold": null,
+  "rejection_detector": {
+    "method": "knn_cosine",
+    "neighbors": 5,
+    "threshold": 0.8024037084471637,
+    "calibrated": true,
+    "calibration_rule": "unknown_target_with_known_cap",
+    "target_unknown_rejection": 0.8,
+    "known_rejection_cap": 0.01,
+    "references_path": "models/mobilenet_app_192_20261020/rejection_references.npz",
+    "references_sha256": "98b7aeb42542b2be1478155e50e8bf087c6ccd2aad9829a48d14575025741430",
+    "model_sha256": "53e5bca0cd99a4ad20a6a3407578c51b74c59ef14480945558c582a61d3bac68",
+    "reference_sessions": [
+      "s001",
+      "s002",
+      "s003",
+      "s004",
+      "s005",
+      "s008"
+    ],
+    "calibration_sessions": [
+      "s006"
+    ]
+  },
+  "status": "MobileNet192 único; selección ycalibración internas s006; prueba final pendiente",
+  "calibration_path": "reports/mobilenet_app_192_20261020/calibration.json",
+  "test_evaluated": false
+}
