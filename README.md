@@ -1,529 +1,303 @@
-# Reconocimiento de pictogramas
+# Pictovoz: reconocimiento de pictogramas
 
-Estado: **vigente**. Para configuración, resultados y clasificación de
-documentos consultar [docs/estado_actual.md](docs/estado_actual.md).
+Pictovoz es un prototipo de aplicación que reconoce fotografías de diez
+pictogramas y las convierte en frases escritas y habladas. Por ejemplo, al
+identificar la tarjeta **agua**, muestra **«Quiero tomar agua»** y genera su
+locución en español. Se ejecuta en una computadora y se utiliza desde un
+navegador.
 
-Aplicación local que utiliza aprendizaje automático para reconocer pictogramas
-a partir de imágenes.
+## ¿Qué problema intentamos resolver?
 
-El usuario cargará una imagen y la aplicación mostrará:
+Un pictograma es una imagen sencilla que representa una idea, una acción o una
+necesidad. Las personas con dificultades para comunicarse mediante el habla
+pueden utilizar estas imágenes como apoyo para expresar lo que necesitan.
+El proyecto explora cómo facilitar el paso de una tarjeta visual a un mensaje
+que otra persona pueda leer o escuchar.
 
-- la categoría reconocida;
-- el nivel de confianza;
-- un aviso cuando el pictograma no pueda reconocerse con suficiente certeza.
+El desafío técnico tiene dos partes: reconocer la tarjeta aunque cambien la
+luz, el fondo, la distancia o la perspectiva, y evitar atribuir un significado
+conocido a una imagen ajena al vocabulario. Una clasificación incorrecta puede
+producir una frase distinta de la que se quería comunicar; por eso se evalúan
+por separado el reconocimiento y el rechazo de imágenes desconocidas.
 
-## Modelo actual de la aplicación
+El alcance actual es un **producto mínimo viable (MVP)**: una versión funcional
+para comprobar la propuesta con un vocabulario acotado. Su utilidad como apoyo
+a la comunicación todavía requiere validación con usuarios; no se ha demostrado
+eficacia clínica.
 
-**Prueba final s007 completada el 21/10/2026:** 291/300 conocidas correctas (97 %),
-0/300 conocidas rechazadas y 29/50 desconocidas rechazadas (58 %). La clasificación
-supera el objetivo del 70 %; el rechazo de desconocidos no lo alcanza.
-Ver [informe, métricas y límites de la prueba final](docs/prueba_final_s007.md).
+## ¿Qué permite hacer?
 
-La aplicación utiliza **MobileNet192 único**, entrenado con1800 conocidas de
-s001–s005 ys008 yvalidado/calibrado internamente con s006. En esa validación
-obtuvo278/300 aciertos (92,67%), rechazó40/50 desconocidas (80%) y2/300 conocidas
-(0,67%). El umbral de similitud es0,8024037084471637. Estos valores internos
-no sustituyen la prueba final s007 ni son el promedio de validación cruzada.
+- Subir una fotografía o capturar una imagen con la cámara del navegador.
+- Reconocer **agua, comer, baño, mamá, dolor, papá, no, sí, jugar y ayuda**.
+- Mostrar una frase fija asociada a la categoría, como «Necesito ayuda» o
+  «Quiero ir al baño», y reproducirla en voz alta.
+- Informar que la tarjeta no fue reconocida cuando no supera el criterio de
+  similitud con los ejemplos conocidos.
+- Consultar las puntuaciones propuestas por el modelo para cada categoría.
 
-Consultar [modelo, calibración ypruebas de integración](docs/modelo_aplicacion_192.md).
-Foto ycámara toman la resolución del modelo seleccionado. El modelo128 anterior
-se conserva como respaldo. Tras cambiar selección, reiniciar el servidor.
+Se trabaja con una tarjeta por imagen. La aplicación no construye mensajes
+combinando varias tarjetas. La pestaña «Cámara en Vivo» vigente permite
+**capturar una imagen y presionar el botón de identificación**.
 
-## Alcance del MVP
+## Estado actual
 
-La primera versión reconocerá diez categorías:
+Estado revisado al **23 de octubre de 2026**. La aplicación activa usa
+`MobileNetV3-Small` a 192 × 192 píxeles, con diez
+clases y un detector kNN coseno de cinco vecinos. La configuración vigente es
+[`config/application.json`](config/application.json); no usar
+[`config/selected_model.json`](config/selected_model.json), que se conserva
+solo como respaldo histórico.
 
-- Agua
-- Comer
-- Ayuda
-- Dolor
-- Baño
-- Jugar
-- Sí
-- No
-- Mamá
-- Papá
+El paquete seleccionado es `mobilenet_app_192_20261020`: un modelo propio de
+la aplicación, entrenado después de comparar alternativas durante el desarrollo.
+La prueba final independiente `s007` se realizó el **21 de octubre de 2026**:
 
-El objetivo inicial es alcanzar al menos un 70 % de exactitud sobre imágenes que
-no hayan sido utilizadas durante el entrenamiento.
+- 291/300 pictogramas conocidos correctamente clasificados (97 %);
+- 0/300 conocidas rechazadas;
+- 29/50 entradas desconocidas rechazadas (58 %).
 
-El alcance detallado se encuentra en
-[`docs/alcance_mvp.md`](docs/alcance_mvp.md).
+Esto significa que hubo nueve errores de clasificación conocidos y que 21
+imágenes desconocidas fueron aceptadas incorrectamente. **El 97 % corresponde
+solo a las 300 imágenes de categorías conocidas**, no a cualquier imagen que
+reciba la aplicación.
 
-## Tecnologías
+### Objetivos cumplidos
 
-- Python 3.11
-- uv
-- TensorFlow y Keras
-- Gradio
-- Pillow
-- NumPy y Pandas
-- scikit-learn
-- Matplotlib y Seaborn
-- Pytest
+- Vocabulario de diez categorías, dataset documentado y preparación reproducible
+  con controles de sesiones y hashes para detectar duplicados exactos.
+- Entrenamiento y comparación de una red convolucional compacta y
+  MobileNetV3-Small, con experimentos a 128 y 192 píxeles.
+- Aplicación local integrada con carga de fotos, captura por cámara, frases y voz.
+- Modelo seleccionado con detector de rechazo calibrado en validación interna.
+- Evaluación final separada del entrenamiento y la calibración, con métricas por
+  clase, matriz de confusión y predicciones conservadas como evidencia.
+- **Mínimo académico de 70 % de exactitud en conocidas superado** en la prueba
+  final: 291 aciertos sobre 300 imágenes.
 
-## Preparación del proyecto
+### Objetivos pendientes y límites
 
-Clonar el repositorio:
+- **El rechazo de desconocidos no alcanza el objetivo del 70 %**: obtuvo 58 %
+  en la prueba final. La calibración interna al 80 % tampoco se reprodujo allí.
+- Falta validar el flujo completo con la cámara física de un celular y medir
+  su comportamiento en condiciones reales de uso.
+- Una sesión final y 50 desconocidas no permiten generalizar a todos los
+  diseños de tarjetas, personas o dispositivos. Los negativos evaluados se
+  concentran principalmente en objetos y escenas.
+- No se ha validado la utilidad comunicativa con usuarios ni el uso clínico.
+  ESP32-CAM, aplicación móvil nativa, API remota propia y despliegue en la nube
+  quedan como posibles extensiones.
+
+Para métricas, límites y evidencia, consultar
+[la prueba final](docs/prueba_final_s007.md) y
+[el estado actual](docs/estado_actual.md).
+
+## Arquitectura y funcionamiento
+
+El proyecto separa la interfaz, el procesamiento de imágenes, la inferencia y
+los experimentos de entrenamiento. El reconocimiento se ejecuta en la
+computadora que aloja la aplicación; el navegador presenta la interfaz.
+
+```mermaid
+flowchart TD
+    A[Foto subida o captura del navegador] --> B[Preprocesamiento compartido: EXIF, RGB y 192 × 192]
+    B --> C[MobileNetV3-Small: puntuaciones de clase y características visuales]
+    C --> D[kNN: similitud con referencias de entrenamiento]
+    D --> E{¿Supera el umbral calibrado?}
+    E -->|Sí| F[Categoría y frase fija]
+    E -->|No| G[Mensaje de tarjeta no reconocida]
+    F --> H[Interfaz: texto y puntuaciones]
+    G --> H
+    F --> I[gTTS: locución de la frase]
+    G --> I
+    I --> J[Reproducción de audio en el navegador]
+```
+
+Los componentes principales están en `src/reconocimiento_pictogramas/`:
+
+- **Interfaz (`ui.py`)**: Gradio organiza foto, captura, identificación y
+  reproducción. Limpia resultados anteriores cuando cambia la imagen o falla
+  la inferencia. `accessible_theme.py` define la presentación visual.
+- **Preprocesamiento (`preprocessing.py`)**: Pillow corrige orientación EXIF,
+  convierte a RGB y redimensiona con LANCZOS. La entrada al modelo es `uint8`
+  de 0 a 255; la normalización específica está dentro del modelo.
+- **Inferencia (`inference.py`)**: TensorFlow/Keras carga el modelo, comprueba
+  integridad y compatibilidad, y obtiene puntuaciones para las diez clases y
+  características visuales de la imagen.
+- **Rechazo (`feature_rejection.py`)**: compara las características con 1.800
+  referencias de entrenamiento y calcula la similitud con los cinco vecinos
+  más próximos. Una similitud menor o igual a `0.8024037084471637` rechaza la
+  entrada. Esa similitud no es una probabilidad de acierto; una puntuación alta
+  de clase tampoco garantiza aceptación.
+- **Frases y voz (`config/communication.json` y `speech.py`)**: cada categoría
+  tiene una frase predefinida. gTTS genera un MP3 temporal y reutiliza la
+  locución durante la ejecución. Si falla la voz, se conserva el resultado
+  escrito. El servicio externo recibe la frase; no recibe la imagen.
+- **Entrenamiento y evaluación (`scripts/` y `cross_validation.py`)**: preparan
+  datos, construyen rondas separadas por sesión y conservan modelos, predicciones,
+  curvas y métricas. Este proceso se ejecuta por separado; usar la aplicación
+  no vuelve a entrenar el modelo ni incorpora capturas al dataset.
+
+`config/application.json` controla el paquete activo, su resolución, el orden
+de clases y el detector. `config/project.json` conserva la configuración
+histórica de preparación a 128 × 128; no define el tamaño de la aplicación
+actual. `config/selected_model.json` es un respaldo histórico.
+
+El repositorio conserva además utilidades de video continuo en `live.py` y
+`camera_widget.py`. La interfaz vigente construida por `build_app()` usa
+capturas individuales: esas utilidades no implican que el seguimiento continuo
+esté activo en el flujo actual.
+
+## Requisitos
+
+- Python 3.11 (la versión fijada está en [`.python-version`](.python-version)).
+- [uv](https://docs.astral.sh/uv/).
+- Los artefactos locales del modelo: el checkpoint y las referencias indicados
+  en [`config/application.json`](config/application.json). Están ignorados por
+  Git y deben restaurarse desde un respaldo seguro antes de usar la aplicación.
+
+## Instalación y comprobación
+
+Desde PowerShell:
 
 ```powershell
 git clone https://github.com/Sabri-Nang/reconocimiento-pictogramas.git
 cd reconocimiento-pictogramas
-```
-
-Crear el entorno e instalar las dependencias:
-
-```powershell
-uv sync
-```
-
-Comprobar la versión de Python:
-
-```powershell
+uv sync --locked
 uv run python --version
-```
-
-Ejecutar las pruebas:
-
-```powershell
+uv run python scripts/validate_config.py
 uv run pytest -v
 ```
 
-## Estructura
+`validate_config.py` comprueba la compatibilidad de las configuraciones del
+dataset y la aplicación; no audita las imágenes ni carga el checkpoint.
+Las pruebas automatizadas tampoco sustituyen la evaluación del modelo real.
 
-```text
-config/      Configuración general del proyecto
-data/        Imágenes originales, procesadas y particiones
-docs/        Alcance y documentación
-models/      Modelos entrenados
-notebooks/   Exploración y experimentos
-reports/     Métricas, gráficos y resultados
-scripts/     Procesos ejecutables
-src/         Código fuente de la aplicación
-tests/       Pruebas automatizadas
-```
-
-## Estado del proyecto
-
-Semana 1 completada:
-
-- alcance del MVP definido;
-- diez clases seleccionadas;
-- estructura del repositorio creada;
-- entorno administrado con uv;
-- dependencias registradas;
-- configuración validada mediante pruebas.
-
-## Funcionalidades futuras
-
-Una vez validado el clasificador podrán evaluarse:
-
-- captura mediante cámara o ESP32-CAM;
-- reproducción de audio;
-- construcción de frases;
-- API remota;
-- aplicación móvil.
-## Interfaz Gradio
-
-Ejecutar desde la carpeta del proyecto:
+## Ejecutar la aplicación
 
 ```powershell
 uv run reconocimiento-pictogramas
 ```
 
-Abrir http://127.0.0.1:7860. Cargar una imagen JPEG o PNG para ver la
-versión RGB de 192 × 192 píxeles del modelo seleccionado. El botón Limpiar reinicia la pantalla.
+Abrir <http://127.0.0.1:7860> y seguir estos pasos:
 
-La interfaz utiliza las diez clases definidas en `config/project.json`.
-Carga el MobileNet y el detector definidos en `config/application.json`.
-Muestra la categoría, la puntuación softmax de esa clase y, por separado, la
-similitud con los cinco ejemplos conocidos más cercanos de entrenamiento.
-La similitud no es probabilidad. Si es menor o igual al umbral calibrado,
-la respuesta es «Pictograma no reconocido», aunque la puntuación de clase sea alta.
+1. En **Subir Foto**, elegir una imagen JPEG o PNG. También se puede entrar en
+   **Cámara en Vivo**, permitir el acceso y capturar una imagen.
+2. Mostrar una sola tarjeta, completa, enfocada y con buena iluminación.
+3. Presionar **Identificar Pictograma**.
+4. Leer la frase y escuchar su locución. Si el navegador bloquea la reproducción
+   automática, usar el botón de audio.
+5. Cambiar la imagen o utilizar **Limpiar imagen y resultado** para otra consulta.
 
-El checkpoint y las referencias de características están ignorados por Git:
-otra instalación necesita ambos archivos indicados en la configuración.
-Se verifican sus hashes, el orden de clases y dimensiones. Reiniciar Gradio
-tras modificar la selección para vaciar las cachés. La prueba final s007 ya se completó; ver `docs/prueba_final_s007.md`.
+El reconocimiento visual es local. La generación de voz usa gTTS y requiere
+Internet cuando la frase todavía no está en la caché de la ejecución.
 
-## Preparar el dataset piloto
+La aplicación verifica hashes, orden de clases, dimensiones del checkpoint y
+referencias del detector antes de inferir. Si se cambia la configuración o el
+umbral, reiniciar el servidor porque la carga está cacheada.
 
-La asignación explícita está en `config/dataset_partitions.json`: s001-s005
-para entrenamiento, s006 para validación y s007 para prueba. Esta asignación
-por sesiones prevalece sobre las proporciones orientativas de project.json.
+Para usar la cámara desde un celular se necesita HTTPS confiable y permiso del
+navegador. La cámara trasera es una preferencia, no una garantía. La validación
+física en dispositivos móviles sigue pendiente.
 
-Validar capturas, metadata, cantidades y duplicados entre todas las sesiones:
+## Datos y preparación
+
+Los originales viven en `data/raw/` y no deben sobrescribirse. La partición de
+referencia es explícita:
+
+- entrenamiento: `s001` a `s005`;
+- validación interna: `s006`;
+- prueba final reservada: `s007`;
+- sesión suplementaria de desarrollo: `s008`.
+
+Para validar las imágenes conocidas, nombres, hashes, cantidades y metadata sin
+modificar archivos:
 
 ```powershell
 uv run python scripts/prepare_dataset.py
 ```
 
-Generar imágenes procesadas y manifiestos:
+El comando valida también `s008`, pero sus archivos no se añaden a los
+manifiestos base de `data/splits/`; los experimentos de siete sesiones usan el
+manifiesto específico conservado en `reports/`. Para regenerar los derivados
+base de 128 × 128 y los manifiestos, tras revisar el alcance de la escritura:
 
 ```powershell
-uv run python scripts/prepare_dataset.py --apply
-uv run pytest -q
-```
-
-Los originales se conservan. El módulo `preprocessing.py`, también utilizado
-por la interfaz, aplica orientación EXIF, RGB y redimensionado LANCZOS a
-128 x 128. Guarda PNG sin aumentos ni normalización (uint8 0-255).
-La normalización específica de cada modelo debe definirse al entrenarlo.
-
-Se generan `data/splits/train.csv`, `validation.csv`, `test.csv` y
-`summary.json`, con rutas relativas, índices de clase y SHA-256 del original.
-Si s007 todavía no existe, test.csv solo tiene cabecera y summary.json marca
-la prueba como pendiente: no constituye una evaluación final disponible.
-Una sesión de prueba parcial provoca un error; no se reemplaza con otras fotos.
-Los desconocidos no se incluyen en estos manifiestos de clases conocidas.
-Aún deben reunirse y separarse para calibración y evaluación del rechazo.
-
-## Entrenar la CNN base
-
-```powershell
-uv run python scripts/train_cnn.py --epochs 30 --batch-size 32
-```
-
-Lee exclusivamente train.csv y validation.csv; comprueba que no compartan
-sesiones, rutas ni hashes. Recibe PNG RGB 128 x 128 con valores 0-255.
-La normalización y los aumentos de entrenamiento están dentro del modelo;
-los aumentos se desactivan durante evaluación e inferencia.
-Selecciona el checkpoint por mínima pérdida de validación con early stopping.
-Cada ejecución crea una carpeta nueva en models/ y reports/ con best.keras,
-configuración, hashes de manifiestos, historial, predicciones, métricas por
-clase, curvas y matriz de confusión de validación. No calibra rechazo ni evalúa
-prueba. La exactitud de validación no acredita el criterio de prueba final.
-
-## Comparar con MobileNetV3-Small
-
-```powershell
-uv run python scripts/train_mobilenet.py --epochs 20 --fine-tune-epochs 10
-```
-
-Utiliza las mismas particiones y aumentos que la CNN. Descarga los pesos
-ImageNet oficiales de Keras y los guarda en models/.keras_cache (ignorado).
-Primero congela la base y entrena el clasificador; luego ajusta las últimas
-30 capas con Adam 1e-5, manteniendo BatchNormalization congelada.
-El checkpoint final es el de menor val_loss entre ambas etapas.
-MobileNetV3 incorpora normalización a -1..1 y recibe RGB 128x128 de 0-255:
-no aplicar otra normalización antes. Los resultados se guardan en una carpeta
-nueva models/mobilenet_* y reports/mobilenet_*. No carga prueba ni desconocidos.
-
-## Modelo de aplicación y calibración
-
-```powershell
-uv run python scripts/train_app_192.py --activate
-uv run reconocimiento-pictogramas
-```
-
-El comando crea un paquete nuevo con un identificador de experimento propio.
-Entrena un único modelo desde ImageNet con1800 imágenes de
-s001-s005; s006 elige la época por val_loss y calibra el detector. No se elige
-un checkpoint de CV como modelo de aplicación. Máximo20 épocas con base
-congelada y40 de ajuste fino continuo, paciencia6/4; no es una repetición exacta
-de la continuación CV de10+30 épocas desde checkpoints intermedios.
-
-El detector conservador se eligió explícitamente: referencia de características
-construida solo con train y menor umbral que rechaza al menos70% de los50 unknown
-de s006. Los resultados de s006 son internos y no independientes: esa misma
-sesión conocida eligió la época. Los porcentajes de CV no son el resultado de
-este único modelo. Se conservan configuración anterior, métricas y calibración
-en reports/mobilenet_app_20261018/. s007 nunca se utiliza en estos comandos.
-
-## Auditar desconocidos
-
-```powershell
-uv run python scripts/audit_unknown.py
-```
-
-Verifica nombres, formato, apertura y duplicados contra conocidas y desconocidas.
-Guarda inventario y reporte en reports/, sin modificar capturas ni asignar
-particiones. La revisión visual y la independencia de sesiones se comprueban
-antes de decidir qué negativos usar en calibración o prueba.
-
-## Dataset completo de diez clases (octubre de 2026)
-
-```powershell
-uv run python scripts/audit_full_dataset.py
 uv run python scripts/prepare_dataset.py --apply --workers 4
 ```
 
-La auditoría completa abre las capturas conocidas y desconocidas, verifica
-metadata, clases, nombres, cantidades de conocidas y duplicados exactos globales.
-Escribe reports/dataset_10_audit/integrity.json e inventory.csv.
-No determina automáticamente calidad visual ni duplicados aproximados.
-Si encuentra s007, se detiene para mantener esa prueba fuera del desarrollo.
+Los desconocidos no son una undécima clase. Se auditan por separado y nunca se
+usan para entrenar el clasificador. Consultar
+[el protocolo del dataset](docs/protocolo_dataset.md) antes de cambiar datos o
+sesiones.
 
-La preparación procesa solo conocidas; las filas unknown no son clases de
-entrenamiento y se auditan aparte. Conserva los manifiestos previos en
-reports/dataset_preparation_backups/. Genera PNG RGB128x128, train.csv con
-s001-s005, validation.csv con s006, test.csv vacío mientras falta s007 y
-un development.csv con todas las conocidas s001-s006 para preparar las futuras
-rondas de validación cruzada. Estas particiones de referencia no implementan
-validación cruzada todavía. Los modelos y resultados del piloto se conservan.
-No se entrena ni se cambia el modelo seleccionado al preparar datos.
+El modelo activo amplía la partición base: se entrenó con `s001`–`s005` y `s008`
+(1.800 conocidas). `s006` aportó 300 conocidas para seleccionar el checkpoint y
+50 desconocidas para calibrar el rechazo. `s007` se mantuvo aislada hasta la
+prueba final de 300 conocidas y 50 desconocidas.
 
-## Validación cruzada con diez clases
+## Entrenamiento y evaluación
+
+No ejecutar entrenamientos para comprobar una instalación. Cada experimento debe
+usar un identificador nuevo, conservar sus artefactos y mantener `s007` fuera de
+la selección de arquitectura, épocas y umbrales.
+
+La validación cruzada actual de desarrollo usa `s001`–`s006` y `s008`:
 
 ```powershell
 uv run python scripts/train_cross_validation.py --config config/cv_s008_128.json --run-id ID_NUEVO
+uv run python scripts/describe_cv_results.py --run-id ID_NUEVO
 ```
 
-Seis rondas por arquitectura, cada una con 1200 imágenes de entrenamiento,
-300 de validación interna para parada temprana y 300 externas para evaluar.
-s007 queda reservada para la prueba final y no participa en las rondas.
-Los modelos se reinician en cada ronda. Se guardan gráficos por época,
-historiales por paso, checkpoints y resultados externos. Ver
-[el protocolo detallado](docs/validacion_cruzada_10_clases.md).
+Los resultados de validación cruzada son de desarrollo; no reemplazan la prueba
+final. En las siete rondas, cada una entrena con cinco sesiones, valida
+internamente con una y evalúa con otra: 1.500/300/300 imágenes conocidas. La
+sesión interna selecciona el checkpoint por menor pérdida de validación; la
+externa se evalúa después de esa selección.
 
-## Continuación del ajuste fino de MobileNet
+Como antecedente de desarrollo, MobileNet192 obtuvo 1.964/2.100 aciertos
+(93,52 %), frente a 1.777/2.100 (84,62 %) de MobileNet128. La CNN compacta
+obtuvo 77,95 % a 128 y 70,33 % a 192. Estos resultados comparan procedimientos
+en desarrollo y no son el rendimiento del paquete único de la aplicación. En
+la CNN, cambiar resolución también cambió la cantidad de parámetros por su
+capa `Flatten`; la diferencia no puede atribuirse exclusivamente al tamaño.
 
-```powershell
-uv run python scripts/extend_mobilenet_cv.py --config config/cv_mobilenet_extended.json --run-id ID_NUEVO
-uv run python scripts/describe_cv_results.py --run-id IDENTIFICADOR_GENERADO
-uv run python scripts/compare_cv_experiments.py --reference cv10_20261018_000712 --candidate IDENTIFICADOR_GENERADO
+Los procedimientos, comparaciones 128/192 y límites de calibración están
+en [la documentación de validación cruzada](docs/validacion_cruzada_10_clases.md),
+[el experimento s008](docs/entrenamiento_s008.md) y
+[las decisiones de resultados](docs/resultados_y_decisiones.md).
+
+La prueba final `s007` ya está sellada. No volver a ejecutar
+`scripts/evaluate_final_s007.py` ni recalibrar con sus resultados para presentar
+una segunda medición como independiente.
+
+## Estructura
+
+```text
+config/   Configuración de clases, aplicación y protocolos.
+data/     Originales, derivados y manifiestos locales.
+docs/     Alcance, protocolos, decisiones y límites.
+models/   Checkpoints y referencias locales ignorados por Git.
+reports/  Evidencia reproducible de auditorías y experimentos.
+scripts/  Preparación, auditoría, entrenamiento y evaluación.
+src/      Aplicación, inferencia y preprocesamiento compartido.
+tests/    Pruebas automatizadas.
 ```
 
-config/cv_mobilenet_extended.json fija el experimento de referencia y el límite
-de épocas adicionales. La época 0 representa su checkpoint; conserva el estado
-Adam, utiliza las mismas rondas y elige por pérdida interna, sin usar s007.
-El objetivo de desarrollo se compara con el conteo exacto (1440/1800 para 80%),
-sin redondear un resultado inferior. Los resultados no son prueba final.
+## Documentación principal
 
-## Archivos versionados y artefactos locales
+- [Estado actual](docs/estado_actual.md): configuración vigente y clasificación
+  de documentos.
+- [Modelo de aplicación 192](docs/modelo_aplicacion_192.md): entrenamiento,
+  calibración y comprobaciones de integración.
+- [Prueba final s007](docs/prueba_final_s007.md): resultados independientes,
+  evidencia y límites.
+- [Alcance del MVP](docs/alcance_mvp.md): objetivos y exclusiones.
+- [Protocolo del dataset](docs/protocolo_dataset.md): captura, metadata y
+  aislamiento por sesión.
 
-Git conserva código, configuración, documentación y evidencia de los experimentos:
-protocolos, manifiestos por ronda, historiales por época y paso, predicciones,
-métricas, verificaciones y gráficos. Estos archivos permiten revisar los resultados
-sin volver a entrenar. Los checkpoints referenciados se conservan localmente.
+## Conservación de evidencia
 
-`.gitignore` excluye el entorno virtual, cachés, capturas originales, imágenes
-procesadas, particiones generadas en `data/splits/`, pesos en `models/`, respaldos
-automáticos de particiones, nuevas hojas de contacto de la auditoría y el estado
-transitorio `progress.json` de las ejecuciones de validación cruzada.
-Las hojas de contacto se regeneran con `scripts/create_dataset_contact_sheets.py`.
-Los archivos ignorados permanecen en disco y requieren respaldo separado; Git
-no respalda las capturas ni los modelos. Las imágenes históricas ya versionadas
-se conservan: agregar una regla no elimina archivos de commits anteriores.
-
-## Evaluar rechazo de desconocidos con MobileNet
-
-```powershell
-uv run python scripts/evaluate_unknown_cv.py --source-run cv10_mobilenet_extend_20261018 --run-id cv10_unknown_20261018
-```
-
-Calibra un umbral por ronda en la sesión interna y evalúa después la externa.
-El objetivo70% se refiere al porcentaje de unknown rechazados; no fija un
-umbral0.70. Informa también conocidos rechazados y exactitud sobre todos los
-conocidos. No entrena, no usa s007 y no cambia el modelo ni el umbral de la
-aplicación. Ver el protocolo y límites en docs/validacion_cruzada_10_clases.md.
-
-Para comparar el rechazo por similitud de características con cinco vecinos
-de entrenamiento (sin modificar pesos ni clases):
-
-```powershell
-uv run python scripts/evaluate_unknown_cv.py --method knn --run-id cv10_unknown_knn_20261018
-uv run python scripts/compare_rejection_results.py --reference cv10_unknown_20261018 --candidate cv10_unknown_knn_20261018
-```
-
-La similitud no es una probabilidad. Referencias: train; umbral: sesión interna;
-evaluación: sesión externa. Los archivos de referencia quedan en models/,
-fuera de Git. El protocolo detallado describe los límites de la comparación.
-
-Para evaluar otra regla de calibración con las mismas puntuaciones de vecinos:
-
-```powershell
-uv run python scripts/calibrate_rejection_known_cap.py --source-run cv10_unknown_knn_20261018 --run-id cv10_unknown_knn_cap05_20261018
-uv run python scripts/compare_rejection_results.py --reference cv10_unknown_knn_20261018 --candidate cv10_unknown_knn_cap05_20261018
-```
-
-Limita el rechazo de conocidos internos al5% y evalúa después la sesión externa.
-Ese límite no es garantía externa. No vuelve a entrenar ni modifica la aplicación.
-
-## Cámara en vivo desde el navegador
-
-En «Cámara en vivo», tocar **Iniciar cámara**, aceptar el permiso y mostrar
-una tarjeta a la vez. La cámara trasera es una preferencia que resuelve el
-navegador. Hay una única vista con el video y el globo superpuesto. «Detener
-y limpiar» apaga las pistas de cámara y retira palabra y estado.
-
-El navegador envía un JPEG de hasta640 píxeles de lado mayor por vez mediante
-una llamada autenticada del componente HTML. Espera la respuesta antes de
-enviar otro; no se acumula una cola de fotogramas ni se utiliza el protocolo
-de streaming de Gradio. El video de la cámara sigue visible durante el análisis.
-Se muestra el contador de imágenes y el tiempo de respuesta. El intervalo
-mínimo tras cada respuesta es0,7s: no equivale a clasificación a30fps.
-
-El detector geométrico busca bordes cuadrilaterales y, si no los encuentra,
-una superficie clara de papel aproximadamente rectangular. Puede fallar o
-confundir otros rectángulos: no es un detector entrenado. La clasificación
-sigue usando el fotograma completo, el MobileNet y el umbral calibrados.
-El globo se confirma con tres observaciones consecutivas aceptadas de la misma
-clase y posición parecida, tolerando pausas de hasta15s. Se retira ante ausencia,
-rechazo o cambio de clase. La estabilización no garantiza que la clase sea correcta.
-
-Los JPEG se decodifican en memoria y se responde con coordenadas, palabra y
-estado; no se guardan fotogramas ni se añaden al dataset. La pestaña Foto
-conserva el flujo de carga de imágenes y sus archivos temporales de Gradio.
-No se utiliza s007 ni se reentrena al usar la cámara.
-
-Servidor local:
-
-```powershell
-uv run reconocimiento-pictogramas
-```
-
-En el celular se necesita HTTPS confiable. Para certificado y clave propios:
-
-```powershell
-uv run reconocimiento-pictogramas --host 0.0.0.0 --port 7861 --ssl-certfile RUTA_CERTIFICADO --ssl-keyfile RUTA_CLAVE
-```
-
-El certificado debe ser confiable en el celular. No se instalan certificados
-automáticamente. Alternativa autorizada por el usuario: enlace HTTPS temporal
-de Gradio con contraseña. Los fotogramas pasan por ese servicio hacia la PC:
-
-```powershell
-$env:PICTOGRAMAS_PASSWORD = Read-Host 'Contraseña del enlace temporal'
-uv run reconocimiento-pictogramas --port 7862 --share
-```
-
-Usuario: pictogramas. El modo local no requiere contraseña. Credenciales y
-certificados locales se excluyen de Git bajo .runtime/. Probar en Chrome o
-Safari del celular; el navegador requiere permiso de cámara. Tras actualizar
-el servidor puede cambiar el enlace temporal: cerrar la página anterior y usar
-el nuevo enlace. Las pruebas locales no sustituyen la prueba en el celular.
-
-## Próximos experimentos y limpieza del repositorio
-
-Consultar [la estrategia de mejora y conservación de archivos](docs/estrategia_mejora_entrenamiento.md) para comparar 128×128 con 192×192, planificar nuevas sesiones y mantener s007 reservada para la prueba final.
-
-La incorporación de s008, su evaluación previa y la nueva validación cruzada de siete sesiones se documentan en [entrenamiento s008](docs/entrenamiento_s008.md).
-
-El análisis de errores de las siete rondas está en [el informe de resultados](reports/cv10_s008_128_20261019/error_analysis/lectura_resultados.md), con un [gráfico comparativo](reports/cv10_s008_128_20261019/error_analysis/classification_analysis.png). Son resultados de desarrollo, sin s007.
-
-La [evaluación de rechazo con los nuevos MobileNet](reports/cv10_s008_unknown_knn_20261019/lectura_resultados.md) obtuvo 65,67 % de rechazo de desconocidas y 0,48 % de rechazo de conocidas en desarrollo. El objetivo de rechazo del 70 % todavía no se cumple de forma agrupada; la aplicación conserva su selección anterior.
-
-El [experimento de resolución192](docs/experimento_resolucion_192.md) compara las mismas siete rondas con128, recalibra rechazo y mide latencia, conservando la aplicación actual.
-
-## Resultados actuales de desarrollo
-
-Con siete sesiones (s001–s006 y s008), cada ronda utiliza **1.500 imágenes para
-entrenar, 300 para parada temprana y 300 para evaluación externa**. s007 continúa
-reservada para la prueba final.
-
-- MobileNet: **84,62 % a128×128 y93,52 % a192×192**.
-- CNN compacta: **77,95 % a128×128 y70,33 % a192×192**.
-- Rechazo MobileNet192: **208/300 desconocidas (69,33 %)** y5/2100 conocidas
-  rechazadas (0,24 %). Todavía no alcanza el objetivo de rechazo70 %.
-
-MobileNet192 es el mejor candidato de clasificación evaluado. Al finalizar la comparación, la aplicación conservaba el modelo128.
-Ahora el modelo único192 está activado; consultar el estado actual al comienzo
-del README. No se hereda el promedio de CV como
-rendimiento de un modelo único. Estos resultados no son prueba final.
-
-Ver [resultados y decisiones](docs/resultados_y_decisiones.md),
-[comparación completa](reports/resolution_192_20261019/lectura_resultados.md) y
-[gráficos128/192](reports/resolution_192_20261019/comparison.png).
-
-La [recalibración de rechazo](docs/rechazo_objetivo_y_limite.md) con objetivo interno80 % y límite1 % obtuvo **225/300 desconocidas rechazadas (75 %)**, **6/2100 conocidas rechazadas (0,29 %)** y conservó1961 conocidas correctas aceptadas. Es un resultado de desarrollo. El paquete único192 posterior tiene su propia calibración; ver el estado actual al comienzo del README.
-
-
-## Interfaz con frase y voz
-
-Ejecutar `uv sync` y `uv run reconocimiento-pictogramas`. La aplicación sigue
-siendo local por defecto. El diseño es secuencial, con pestañas «Subir Foto» y
-«Cámara en Vivo», frase comunicativa destacada, puntuaciones visibles y explicación desplegable.
-La cámara toma una captura: no realiza clasificación continua del video. Para
-analizarla hay que pulsar «Identificar Pictograma». Se conserva el módulo de
-streaming anterior como referencia, pero no se monta en esta nueva interfaz.
-
-`predecir(imagen)` en ui.py recibe PIL.Image y devuelve frase, diccionario de
-probabilidades por categoría y ruta MP3 (o None si no hay audio). Reutiliza
-classify_frame y su preprocesamiento. inference.py solo expone adicionalmente
-las probabilidades que ya calcula; no cambia pesos, clases, rechazo o umbral.
-No se introduce el 75 % de softmax: el rechazo sigue usando kNN y su umbral
-calibrado. Un rechazo muestra «Tarjeta no reconocida. Intenta enfocarla nuevamente.».
-
-Las frases están en config/communication.json. gTTS envía únicamente la frase
-fija a Google Translate TTS y necesita Internet. Los MP3 se cachean en un
-directorio temporal exclusivo del proceso, sin guardar imágenes ni audio en el
-dataset. Si falla la voz, la clasificación sigue disponible y se informa el
-problema. No hay garantía de servicio ni modo sin conexión para generar audio.
-La reproducción automática depende del navegador; el reproductor permite
-iniciarla manualmente y repetirla. En móvil, la cámara requiere HTTPS.
-
-El diseño usa gr.themes.Soft, Verdana/Arial, contraste alto, foco visible y
-botones de al menos48px. En Gradio5 CSS/tema se pasan a Blocks; en Gradio6,
-a launch. Se mantiene la versión6 instalada, sin degradar dependencias.
-Pendiente validación física con móvil, lector de pantalla y reproducción en
-Safari/Chrome móvil. Los cambios no certifican conformidad WCAG.
-
-
-## Paleta serena y ejemplo del tema
-
-Los ocho tokens solicitados viven en `src/reconocimiento_pictogramas/sensory_theme.py`.
-`accessible_theme.py` los aplica también al diseño principal. El fondo es crema;
-las tarjetas blancas, las áreas de apoyo menta y los botones principales mostaza
-con texto carbón. El azul se reserva para foco, bordes y enlaces. Se conservan
-los tonos en modo oscuro para no invertir inesperadamente esta paleta.
-
-Ejecutar `uv run python scripts/demo_tema_tea.py` y abrir http://127.0.0.1:7864.
-Este ejemplo contiene texto, selector, botón y resultado; no carga el modelo.
-El ejemplo y la aplicación usan Soft con overrides `.set()` y respetan la
-ubicación de theme/css según Gradio5 o6. La ejecución se verifica con Gradio6.
-
-El rojo original se utiliza en bordes; su superficie de mensaje se aclara para
-que el texto carbón supere4,5:1. Se comprueban las parejas de texto configuradas
-mediante luminancia sRGB. Esto no certifica accesibilidad integral ni demuestra
-beneficio clínico. Las preferencias sensoriales deben validarse con usuarios.
-
-
-## Cámara móvil y etiquetas en español
-
-La captura solicita por defecto la cámara trasera mediante facingMode ideal
-environment, sin efecto espejo. Si no existe, el navegador puede elegir otra;
-se mantienen el permiso de cámara y el requisito HTTPS. La selección física
-de la cámara debe comprobarse en el teléfono del usuario.
-
-La página declara español y marca su contenido como no traducible, con meta
-notranslate y atributo translate=no. Esto evita que traducción automática
-confunda «Comer» con el sustantivo inglés «comer» y lo muestre como
-«Contendiente». Ninguna clase del modelo tiene ese nombre. Si una página ya
-estaba traducida, elegir «Mostrar original» en Chrome y recargar la nueva URL.
-
-
-Corrección de cámara trasera: WebcamOptions recibe restricciones de medios
-completas, con `{"video":{"facingMode":{"ideal":"environment"}}}`. El
-frontend instalado lee `constraints.video`; colocar facingMode directamente
-en la raíz lo dejaba sin efecto. Se comprueba la estructura serializada para
-el navegador. La preferencia trasera permite conservar el selector de cámara
-y el uso en equipos sin cámara posterior. La prueba física en móvil depende
-del navegador y debe confirmarse tras abrir el enlace actualizado.
-
-
-## Sistema de diseño y guía de componentes
-
-`DESIGN_TOKENS` en sensory_theme.py centraliza colores, tipografía, escala de
-espaciado, radios y objetivos táctiles. TOKENS sigue siendo alias de colors.
-create_theme(primary_action="primary") usa azul/blanco para el botón Primary;
-el valor predeterminado accent conserva la acción mostaza de la aplicación.
-Secondary usa menta/carbón; Accent, mostaza/carbón. Hover no cambia el color.
-
-Ejecutar `uv run python scripts/showcase_design_system.py` y abrir
-http://127.0.0.1:7865. El módulo design_system.py contiene la guía completa:
-tipografía y notas, botones activos/deshabilitados, Textbox, Radio,
-CheckboxGroup, tarjetas, éxito, aviso y validación de campos. Los mensajes
-usan texto además de color. La guía no carga el modelo ni genera audio.
-No contiene animaciones decorativas ni navegación inesperada. Se conserva
-foco visible, controles de al menos48px y texto en unidades relativas.
-Las combinaciones configuradas cumplen contraste de texto4,5:1; esto no es
-una certificación WCAG integral. Faltan validación con lector de pantalla,
-usuarios y preferencias sensoriales individuales.
-
-
-El aviso de bienvenida lee `test_evaluated` de la configuración activa
-`config/application.json`. Con el modelo actual informa que la evaluación
-final ya se realizó; no conserva el aviso histórico de prueba pendiente.
-La finalización de la evaluación no significa ausencia de errores: consultar
-las métricas y límites documentados en `docs/prueba_final_s007.md`.
+Git conserva código, configuración, documentación e informes. Los datos,
+pesos, cachés y archivos transitorios están ignorados y requieren respaldo
+separado. No eliminar `reports/`, checkpoints ni manifiestos históricos para
+“limpiar” el proyecto: son evidencia de los experimentos y resultados previos.

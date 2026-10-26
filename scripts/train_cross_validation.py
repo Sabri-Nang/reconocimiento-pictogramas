@@ -1,5 +1,6 @@
 """Ejecuta CNN y MobileNet por sesión, con parada interna y evaluación externa."""
 import argparse
+import csv
 import hashlib
 import json
 import math

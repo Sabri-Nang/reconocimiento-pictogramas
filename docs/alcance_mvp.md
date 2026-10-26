@@ -19,7 +19,8 @@ El desarrollo comenzó con cinco clases: agua, comer, baño, mamá y dolor.
 Después de validar el proceso de recolección se incorporaron ayuda, jugar, sí,
 no y papá. El dataset actual contiene las diez categorías previstas para el MVP,
 con las sesiones `s001` a `s006` completas. La sesión `s007`, reservada para la
-prueba final, permanece pendiente.
+prueba final, se completó posteriormente; consultar
+[prueba_final_s007.md](prueba_final_s007.md).
 
 Los modelos entrenados durante el piloto de cinco clases deben volver a
 entrenarse antes de considerarlos compatibles con el dataset ampliado.
@@ -43,7 +44,8 @@ El modelo reconocerá diez categorías:
 
 1. El usuario carga una imagen JPEG o PNG.
 2. La aplicación convierte la imagen a RGB.
-3. La imagen se redimensiona a 128 por 128 píxeles.
+3. La imagen se redimensiona al tamaño configurado para el paquete activo
+   (actualmente, 192 por 192 píxeles).
 4. El modelo calcula la probabilidad correspondiente a cada clase.
 5. Se selecciona la categoría con mayor probabilidad.
 6. El detector de aplicación compara características con cinco vecinos conocidos
@@ -118,10 +120,11 @@ Estas funciones podrán agregarse después de validar el clasificador.
 - Interfaz local desarrollada con Gradio.
 - Documentación de instalación, entrenamiento y uso.
 
-## Selección de aplicación de octubre de2026
+## Selección de aplicación de octubre de 2026
 
 Se prepara un MobileNet único de diez clases con s001-s005 para entrenamiento,
-s006 para parada y calibración conservadora de rechazo, y s007 reservada.
+s006 para parada y calibración conservadora de rechazo, y s007 reservada en ese
+momento.
 Las referencias son vectores de entrenamiento; no incluyen validación. La
 interfaz verifica checkpoint, referencias y orden de clases antes de predecir.
 Las métricas de s006 son internas; no confirman criterios de prueba final.
@@ -131,8 +134,9 @@ Las métricas de s006 son internas; no confirman criterios de prueba final.
 Se incorpora una pestaña de cámara en vivo, también accesible desde navegador
 móvil mediante HTTPS. La cámara trasera se solicita como preferencia; el
 navegador y el dispositivo determinan su disponibilidad y requieren permiso.
-Se procesan fotogramas a intervalos nominales de0,5 segundos; no es video
-clasificado a30fps ni se garantiza esa frecuencia en cualquier computadora/red.
+Se procesan fotogramas a intervalos nominales de 0,5 segundos; no es video
+clasificado a 30 fps ni se garantiza esa frecuencia en cualquier computadora o
+red.
 
 Un contorno cuadrilateral activa la clasificación del fotograma completo.
 La búsqueda geométrica no es un detector de objetos entrenado: puede perder
@@ -151,10 +155,10 @@ crear archivos temporales de transporte. No se entrena ni usa s007. No se
 modificaron los pesos ni el umbral. Falta evaluar video real y acceso móvil
 HTTPS en el dispositivo del usuario; las pruebas por API no sustituyen eso.
 
-Corrección de estabilidad de video: se toleran hasta15 segundos entre
+Corrección de estabilidad de video: se toleran hasta 15 segundos entre
 fotogramas aceptados de la misma clase y ubicación similar. El antiguo
-límite3s reiniciaba la confirmación cuando la red o inferencia demoraban4s.
-La interfaz muestra el progreso1/3 y2/3 y la clase candidata. Se mantienen
+límite de 3 s reiniciaba la confirmación cuando la red o la inferencia demoraban
+4 s. La interfaz muestra el progreso 1/3 y 2/3 y la clase candidata. Se mantienen
 las tres observaciones y el mismo umbral; no se rebaja el rechazo.
 Se comprobó con la cola real de streaming local, no con cámara móvil.
 
@@ -170,6 +174,10 @@ paneles. El navegador dibuja las coordenadas sobre el video; al detener
 cancela la captura y descarta las respuestas de la sesión anterior. La
 clasificación y el umbral conservan su carácter experimental.
 
-## Actualización del modelo de aplicación192
+## Actualización del modelo de aplicación 192
 
-El paquete mobilenet_app_192_20261020 está seleccionado con referencias y umbral propios. Véase [modelo único192](modelo_aplicacion_192.md) para particiones, métricas internas ypruebas. La comprobación local de laRPC no equivale a prueba física de video. s007 sigue reservada.
+El paquete `mobilenet_app_192_20261020` está seleccionado con referencias y
+umbral propios. Véase [modelo único de 192](modelo_aplicacion_192.md) para las
+particiones, métricas internas y pruebas. La comprobación local de la RPC no
+equivale a una prueba física de video. La prueba final de s007 está documentada
+en [prueba_final_s007.md](prueba_final_s007.md).

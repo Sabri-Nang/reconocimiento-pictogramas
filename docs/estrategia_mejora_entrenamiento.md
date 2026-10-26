@@ -1,7 +1,9 @@
-# Próxima mejora del entrenamiento y conservación de archivos
+# Plan histórico de mejora del entrenamiento y conservación de archivos
 
-Estado del documento: **vigente** como plan; sus resultados descritos son
-históricos o de desarrollo según la sección.
+Estado del documento: **histórico**. Este plan orientó los experimentos de
+resolución y la selección de la aplicación antes de la prueba final. Consultar
+[estado actual](estado_actual.md) y [prueba final s007](prueba_final_s007.md)
+para el estado vigente.
 
 ## Diagnóstico
 
@@ -27,7 +29,7 @@ exactitud de clasificación y requiere su propia calibración.
    el detector geométrico de tarjetas y el clasificador son etapas distintas.
 2. Capturar nuevas sesiones de desarrollo representativas del celular real,
    con otras condiciones de fondo, iluminación, distancia y orientación.
-   Usar identificadores nuevos disponibles posteriores a s007; reservar s007
+   Usar identificadores nuevos posteriores a s008; s007 ya se reservó y usó
    exclusivamente para la prueba final. Dos sesiones nuevas permiten separar
    mejor ampliación de entrenamiento y calibración, aunque no son requisito
    para comenzar la comparación de resolución. Como punto de partida, mantener
@@ -50,8 +52,9 @@ exactitud de clasificación y requiere su propia calibración.
    modelo para la aplicación y recalibrar similitud con datos representativos
    separados del entrenamiento. Los umbrales y referencias actuales no se
    transfieren automáticamente a otro modelo o resolución.
-6. Congelar modelo, preprocesamiento, referencias y umbral. Evaluar s007 una
-   sola vez al final, informando métricas por clase y rechazo de desconocidos.
+6. Congelar modelo, preprocesamiento, referencias y umbral. Evaluar una futura
+   sesión de prueba una sola vez al final, informando métricas por clase y
+   rechazo de desconocidos.
 
 192×192 contiene 2,25 veces más píxeles que 128×128: puede conservar más detalle,
 pero no garantiza más exactitud ni implica exactamente 2,25 veces más tiempo.

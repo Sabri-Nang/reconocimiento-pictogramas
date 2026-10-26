@@ -14,6 +14,7 @@ def main():
     from reconocimiento_pictogramas.training_artifacts import plot_history
     base=ROOT/'reports'/args.run_id
     protocol=read(base/'protocol.json');summary=read(base/'summary.json')
+    extended='source_run' in protocol['config']
     classes=[c['id'] for c in protocol['project']['classes']]
     architectures=list(summary['results'])
     lines=['# Lectura de los entrenamientos de diez clases','',

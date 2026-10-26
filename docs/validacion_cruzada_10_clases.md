@@ -116,8 +116,8 @@ se decide usando resultados de desarrollo y no constituye una prueba final.
 ## Experimento CNN con promedio global
 
 Se cambia únicamente `Flatten` por `GlobalAveragePooling2D`; la capa Dense64,
-Dropout0.3, convoluciones, aumentos, Adam0.001, lotes32, semillas, máximo30
-épocas y paciencia6 se conservan. Cada ronda comienza desde cero. Se compara
+Dropout 0.3, convoluciones, aumentos, Adam 0.001, lotes de 32, semillas, máximo de 30
+épocas y paciencia 6 se conservan. Cada ronda comienza desde cero. Se compara
 con la CNN de `cv10_20261018_000712`, sin consultar s007. La selección de
 checkpoint sigue dependiendo de la pérdida interna, no del acierto externo.
 La mejora es una hipótesis: reducir parámetros también puede reducir capacidad.
@@ -136,8 +136,8 @@ los checkpoints locales, en `models/cv10_cnn_gap_20261018/`.
 
 Se conserva la arquitectura original con Flatten y se cambia únicamente
 la tasa inicial de Adam: de 0.001 a 0.0003. No se incorpora reducción
-automática de tasa ni se modifican los aumentos, lotes, semillas, máximo30
-épocas, paciencia6 o criterio val_loss. Se reinicia la CNN en cada ronda.
+automática de tasa ni se modifican los aumentos, lotes, semillas, máximo de 30
+épocas, paciencia 6 o criterio `val_loss`. Se reinicia la CNN en cada ronda.
 La referencia es cv10_20261018_000712; no la variante de promedio global.
 
 ```powershell
@@ -178,7 +178,7 @@ descripción de separación de puntuaciones, sin elegir con ella un umbral exter
 No se mezclan puntuaciones de modelos distintos para calibrar un umbral global.
 
 El reporte compara las probabilidades externas conocidas con las del experimento
-original y reúne1800 conocidas y250 unknown externos únicos. Incluye curvas de
+original y reúne 1.800 conocidas y 250 unknown externos únicos. Incluye curvas de
 calibración internas, predicciones, gráficos, protocolo y controles reproducibles.
 Las rondas comparten datos; los resultados son desarrollo adaptativo, no prueba
 final ni estimación independiente después de elegir el mejor modelo.
@@ -217,7 +217,8 @@ recalcula cada umbral usando únicamente las puntuaciones internas.
 
 Se evalúa el procedimiento de desarrollo; elegir probarlo después de ver
 errores previos es una decisión adaptativa. No hay prueba final independiente
-ni selección automática de detector para la interfaz. s007 sigue reservada.
+ni selección automática de detector para la interfaz. s007 se mantuvo reservada
+hasta la prueba final; consultar [prueba_final_s007.md](prueba_final_s007.md).
 
 ## Recalibración con límite de rechazo de conocidos internos
 

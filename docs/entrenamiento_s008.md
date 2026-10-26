@@ -93,30 +93,31 @@ los informes anteriores para futuras conclusiones y señalar desarrollo adaptati
 ## Resultados completos y decisión siguiente
 
 Las siete rondas finalizaron. CNN acertó 1637/2100 (77,95 %) y MobileNet
-1777/2100 (84,62 %). Sobre las mismas1800 fotos históricas: CNN1359 frente a915
-anteriores; MobileNet1535 frente a1441. Cambian datos train, algunas sesiones
+1.777/2.100 (84,62 %). Sobre las mismas 1.800 fotos históricas: CNN 1.359 frente a 915
+anteriores; MobileNet 1.535 frente a 1.441. Cambian datos de entrenamiento, algunas sesiones
 internas y el presupuesto MobileNet, por lo que no se atribuye causalmente toda
 la diferencia a s008. CNN supera a MobileNet en la sesión s008 externa (278/300
 frente a242/300), aunque MobileNet es mejor globalmente. En distancia larga,
-MobileNet obtiene373/576 (64,76 %); corta533/564 (94,50 %) y media871/960 (90,73 %).
+MobileNet obtiene 373/576 (64,76 %); corta 533/564 (94,50 %) y media 871/960 (90,73 %).
 El análisis y gráfico están en reports/cv10_s008_128_20261019/error_analysis/.
 
 Rechazo conservador kNN5:197/300 desconocidas rechazadas (65,67 %),103 aceptadas
-por error. Se rechazaron10/2100 conocidas (0,48 %), todas ya mal clasificadas;
+por error. Se rechazaron 10/2.100 conocidas (0,48 %), todas ya mal clasificadas;
 se conservaron los1777 aciertos (84,62 % sobre todas las conocidas).
-Faltaron13 rechazos de desconocidas para llegar a210/300, el70 % agrupado.
-Por sesión, la tasa oscila entre35 % en s004 y78 % en s006; s008 obtiene36/50
-(72 %). El objetivo interno70 % no garantiza70 % externo. No seleccionar un
+Faltaron 13 rechazos de desconocidas para llegar a 210/300, el 70 % agrupado.
+Por sesión, la tasa oscila entre 35 % en s004 y 78 % en s006; s008 obtiene 36/50
+(72 %). El objetivo interno del 70 % no garantiza el 70 % externo. No seleccionar un
 umbral a partir de esas puntuaciones externas ni promediar umbrales de modelos
 para activarlo en la aplicación. Evidencia: reports/cv10_s008_unknown_knn_20261019/.
 
-Se verificaron2400 predicciones externas únicas, aislamiento de sesiones y hashes,
+Se verificaron 2.400 predicciones externas únicas, aislamiento de sesiones y hashes,
 umbrales guardados antes de evaluación externa y compatibilidad con predicciones
 originales de clasificación. La selección de la aplicación permanece intacta.
 Los resultados no prueban las hipótesis finales ni rechazo de todo pictograma ajeno.
 
-El siguiente experimento recomendado compara128 con192 desde los originales,
+El siguiente experimento recomendado compara 128 con 192 desde los originales,
 con las mismas siete rondas, semillas y presupuestos y midiendo latencia además
 de aciertos. Se deberán recalibrar referencias/umbral por modelo. Su ejecución
 no se inició durante este análisis. El rechazo necesita estudiar estabilidad
-entre sesiones; subir resolución no garantiza solucionarlo. s007 sigue reservada.
+entre sesiones; subir resolución no garantiza solucionarlo. s007 se mantuvo reservada
+hasta la prueba final; consultar [prueba_final_s007.md](prueba_final_s007.md).

@@ -1,0 +1,149 @@
+{
+  "platform": "Windows-10-10.0.26300-SP0",
+  "python": "3.11.15 (main, Aug  7 2026, 02:24:19) [MSC v.1944 64 bit (AMD64)]",
+  "pid": 11316,
+  "scope": "Un proceso local Windows, servidor Gradio e inferencia secuencial; sin gTTS ni s007",
+  "stages": [
+    {
+      "stage": "python_inicial",
+      "elapsed_seconds": 0.05,
+      "working_set_mib": 16.53,
+      "peak_working_set_mib": 16.53,
+      "private_commit_mib": 9.74,
+      "peak_commit_mib": 9.74
+    },
+    {
+      "stage": "importar_interfaz",
+      "elapsed_seconds": 11.7,
+      "working_set_mib": 130.36,
+      "peak_working_set_mib": 130.36,
+      "private_commit_mib": 464.21,
+      "peak_commit_mib": 464.21
+    },
+    {
+      "stage": "construir_gradio",
+      "elapsed_seconds": 11.97,
+      "working_set_mib": 134.38,
+      "peak_working_set_mib": 134.38,
+      "private_commit_mib": 467.8,
+      "peak_commit_mib": 467.8
+    },
+    {
+      "stage": "servidor_gradio_iniciado",
+      "elapsed_seconds": 13.64,
+      "working_set_mib": 140.86,
+      "peak_working_set_mib": 140.86,
+      "private_commit_mib": 475.0,
+      "peak_commit_mib": 475.0
+    },
+    {
+      "stage": "modelo_cargado",
+      "elapsed_seconds": 40.12,
+      "working_set_mib": 441.57,
+      "peak_working_set_mib": 449.97,
+      "private_commit_mib": 1133.83,
+      "peak_commit_mib": 1142.24
+    },
+    {
+      "stage": "detector_cargado",
+      "elapsed_seconds": 40.18,
+      "working_set_mib": 446.21,
+      "peak_working_set_mib": 462.04,
+      "private_commit_mib": 1138.79,
+      "peak_commit_mib": 1154.72
+    },
+    {
+      "stage": "primera_prediccion",
+      "elapsed_seconds": 41.84,
+      "working_set_mib": 507.61,
+      "peak_working_set_mib": 554.48,
+      "private_commit_mib": 1244.13,
+      "peak_commit_mib": 1252.06
+    },
+    {
+      "stage": "predicciones_10",
+      "elapsed_seconds": 45.23,
+      "working_set_mib": 510.11,
+      "peak_working_set_mib": 582.13,
+      "private_commit_mib": 1245.88,
+      "peak_commit_mib": 1318.1
+    },
+    {
+      "stage": "predicciones_20",
+      "elapsed_seconds": 47.77,
+      "working_set_mib": 510.2,
+      "peak_working_set_mib": 582.23,
+      "private_commit_mib": 1245.96,
+      "peak_commit_mib": 1318.13
+    },
+    {
+      "stage": "predicciones_30",
+      "elapsed_seconds": 50.33,
+      "working_set_mib": 510.22,
+      "peak_working_set_mib": 582.24,
+      "private_commit_mib": 1245.96,
+      "peak_commit_mib": 1318.17
+    },
+    {
+      "stage": "reposo_5_segundos",
+      "elapsed_seconds": 55.33,
+      "working_set_mib": 510.22,
+      "peak_working_set_mib": 582.24,
+      "private_commit_mib": 1245.96,
+      "peak_commit_mib": 1318.17
+    },
+    {
+      "stage": "servidor_cerrado",
+      "elapsed_seconds": 55.5,
+      "working_set_mib": 510.21,
+      "peak_working_set_mib": 582.24,
+      "private_commit_mib": 1245.93,
+      "peak_commit_mib": 1318.17
+    }
+  ],
+  "sample_paths": [
+    "data/raw/known/agua/agua_s001_0001.jpg",
+    "data/raw/known/comer/comer_s001_0001.jpg",
+    "data/raw/known/bano/bano_s001_0001.jpg",
+    "data/raw/known/mama/mama_s001_0001.jpg",
+    "data/raw/known/dolor/dolor_s001_0001.jpg",
+    "data/raw/known/papa/papa_s001_0001.jpg",
+    "data/raw/known/no/no_s001_0001.jpg",
+    "data/raw/known/si/si_s001_0001.jpg",
+    "data/raw/known/jugar/jugar_s001_0001.jpg",
+    "data/raw/known/ayuda/ayuda_s001_0001.jpg"
+  ],
+  "prediction_seconds": [
+    0.8232351000187919,
+    0.2777576000080444,
+    0.301310500013642,
+    0.2960937999887392,
+    0.5999031999963336,
+    0.7298622000380419,
+    0.3206198000116274,
+    0.28584190004039556,
+    0.27765940001700073,
+    0.2942934000166133,
+    0.2571329000056721,
+    0.25381349999224767,
+    0.2620042000198737,
+    0.2572408000123687,
+    0.21827850001864135,
+    0.25672989996382967,
+    0.25792389997513965,
+    0.27034879999700934,
+    0.26053550001233816,
+    0.2501388000091538,
+    0.2535073999897577,
+    0.25530720001552254,
+    0.250149599974975,
+    0.25068309996277094,
+    0.23389239999232814,
+    0.2697174000204541,
+    0.26767840003594756,
+    0.2621437000343576,
+    0.2598499999730848,
+    0.2553747000056319
+  ],
+  "completed": true
+}

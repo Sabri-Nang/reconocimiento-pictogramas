@@ -15,7 +15,7 @@ La interfaz lo presenta como pictograma no reconocido. No se cambió esta regla.
 
 src/reconocimiento_pictogramas/rejection.py, calibrate_threshold:
 elige el mínimo umbral que alcanza la fracción solicitada de desconocidas
-internas, respetando igualdad yempates. No confundir tasa objetivo con umbral0,80.
+internas, respetando igualdad y empates. No confundir tasa objetivo con umbral 0,80.
 
 La nueva calibrate_target_with_known_cap agrega el límite sobre TODAS las
 conocidas internas, incluidas las mal clasificadas. Si el umbral mínimo para
@@ -26,7 +26,7 @@ devuelve feasible=false ythreshold=None. No se activa un umbral inviable.
 
 scripts/evaluate_rejection_targets.py reutiliza las puntuaciones de
 cv10_s008_192_unknown_knn_20261019, sin nuevos pesos ni referencias. Prueba75%
-y80% internos con límite1% (máximo3 de300 conocidas internas). Guarda todas
+y 80 % internos con límite del 1 % (máximo 3 de 300 conocidas internas). Guarda todas
 las calibraciones antes de leer puntuaciones externas. Si alguna ronda es
 inviable, no produce un promedio externo parcial para esa variante. No ajusta
 umbrales para corregir errores concretos de la externa. Se verifican pesos,
@@ -39,19 +39,19 @@ interno o agrupado no garantiza el mismo límite en cada sesión externa.
 
 ## Resultados
 
-Referencia con objetivo70%:208/300 desconocidas rechazadas (69,33%),5/2100
+Referencia con objetivo del 70 %: 208/300 desconocidas rechazadas (69,33 %), 5/2.100
 conocidas rechazadas (0,24%),1961 conocidas correctas aceptadas (93,38%).
-Objetivo75% con límite1%:219/300 (73%),6/2100 (0,29%),1961/2100 (93,38%).
-Objetivo80% con límite1%:225/300 (75%),6/2100 (0,29%),1961/2100 (93,38%).
+Objetivo del 75 % con límite del 1 %: 219/300 (73 %), 6/2.100 (0,29 %), 1.961/2.100 (93,38 %).
+Objetivo del 80 % con límite del 1 %: 225/300 (75 %), 6/2.100 (0,29 %), 1.961/2.100 (93,38 %).
 Ambas variantes son viables en todas las rondas y cumplen los criterios externos
 agrupados. La del80% agrega17 rechazos correctos de desconocidas respecto de
 referencia, sin perder aciertos adicionales de conocidas; rechaza una conocida
 más que ya estaba mal clasificada. No mejora los pesos del clasificador.
 
-Se elige objetivo80% con límite1% como candidato para la próxima calibración
-del modelo único192. No es un umbral global: cada modelo de CV tiene uno distinto.
+Se elige el objetivo del 80 % con límite del 1 % como candidato para la próxima
+calibración del modelo único de 192. No es un umbral global: cada modelo de CV tiene uno distinto.
 La aplicación permanece con su modelo128 anterior ysu umbral original. Para
-actualizarla se necesita un modelo único192, sus referencias ycalibración propia.
+actualizarla se necesita un modelo único de 192, sus referencias y calibración propia.
 
 Persisten diferencias: a80% interno s004 externa rechaza16/40 (40%) ys00122/40
 (55%); s006 rechaza5/300 conocidas (1,67%) aunque el límite interno era1%.

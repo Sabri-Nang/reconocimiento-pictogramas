@@ -1,7 +1,7 @@
 [project]
 name = "reconocimiento-pictogramas"
 version = "0.1.0"
-description = "Add your description here"
+description = "Aplicación local para reconocer pictogramas y generar frases asistivas."
 readme = "README.md"
 authors = [
     { name = "Sabrina Sanches", email = "sabrinadelosangelessanches@gmail.com" }

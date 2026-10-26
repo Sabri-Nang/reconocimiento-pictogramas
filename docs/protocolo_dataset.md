@@ -53,7 +53,8 @@ Al momento de actualizar este protocolo están completas `s001` a `s006`:
 - 250 imágenes `unknown`;
 - 2.050 imágenes registradas en total.
 
-La sesión `s007` permanece pendiente y reservada para la prueba final.
+La sesión `s007` se reservó para la prueba final, que ya fue completada. Sus
+resultados se documentan en [prueba_final_s007.md](prueba_final_s007.md).
 
 ## Dispositivo y configuración común
 
@@ -271,11 +272,11 @@ Los fondos son variados y realistas. No se deben elegir únicamente las imágene
 que el modelo reconoce bien. Las decisiones tomadas con `s006` deben documentarse
 antes de evaluar `s007`.
 
-### s007 - Prueba final pendiente
+### s007 - Prueba final completada
 
-`s007` debe capturarse otro día o en otro ambiente y mantenerse apartada hasta
-finalizar el desarrollo. El plan previsto replica la estructura general de
-`s006`, pero utiliza fondos reales variados y no debe copiar sus escenas.
+`s007` se capturó y se mantuvo apartada hasta finalizar el desarrollo. El plan
+aplicado replica la estructura general de `s006`, pero utiliza fondos reales
+variados y no copia sus escenas.
 
 - `0001-0010`: luz natural, perspectiva frontal y tres distancias;
 - `0011-0020`: luz artificial, perspectiva frontal y tres distancias;
@@ -311,7 +312,7 @@ Distribución y función:
 - `s004`: 40 imágenes, perspectivas moderadas;
 - `s005`: 40 imágenes, condiciones combinadas;
 - `s006`: 50 imágenes de validación para calibrar el umbral;
-- `s007`: 50 imágenes pendientes para la evaluación final del rechazo.
+- `s007`: 50 imágenes destinadas a la evaluación final del rechazo.
 
 Las imágenes `unknown` de `s001` a `s005` forman parte del desarrollo; las de
 `s006` pertenecen a validación y las de `s007` a prueba.
@@ -383,10 +384,19 @@ orden cronológico EXIF de cada carpeta.
 Aunque compartan identificador de sesión experimental, las nuevas capturas se
 realizaron en fechas posteriores. Esta circunstancia debe considerarse al
 interpretar resultados y está documentada en este protocolo; ninguna imagen de
-`s006` puede pasar a entrenamiento. Quedan pendientes las 30 imágenes de `s007`
-por cada clase y las 50 imágenes `unknown` de prueba para alcanzar las 2.400
-imágenes planificadas.
+`s006` puede pasar a entrenamiento. La captura de las 30 imágenes de `s007` por
+clase y las 50 imágenes `unknown` de prueba ya está completada.
 
 ## Ampliación de desarrollo s008
 
-s008 incorpora 300 conocidas (30 por clase) y 50 objetos o escenas sin tarjetas. Es desarrollo, no reemplaza s007. Ayuda conserva numeración de importación: 0001–0008 y0025–0026 cortas;0009–0016 y0027–0028 medias;0017–0024 y0029–0030 largas. Usar metadata, sin inferir distancias por bloques de diez para esa clase. Los planes automáticos históricos no describen s008; no regenerar sus filas con ellos. Ver [revisión y entrenamiento](entrenamiento_s008.md).
+s008 incorpora 300 conocidas (30 por clase) y 50 objetos o escenas sin tarjetas.
+Es una sesión de desarrollo y no reemplaza s007. Ayuda conserva la numeración de
+importación: 0001–0008 y 0025–0026 son cortas; 0009–0016 y 0027–0028, medias;
+0017–0024 y 0029–0030, largas. Usar la metadata sin inferir distancias por
+bloques de diez para esa clase. Los planes automáticos históricos no describen
+s008; no regenerar sus filas con ellos. Ver [revisión y entrenamiento](entrenamiento_s008.md).
+
+`scripts/prepare_dataset.py` valida s008 como sesión suplementaria, incluidos sus
+nombres, cantidades y hashes, pero conserva la partición base en `data/splits/`.
+Los experimentos de siete sesiones deben usar sus manifiestos específicos en
+`reports/`; no se debe incorporar s008 silenciosamente a la partición base.
