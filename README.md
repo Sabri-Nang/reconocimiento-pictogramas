@@ -36,7 +36,7 @@ eficacia clínica.
 - Consultar las puntuaciones propuestas por el modelo para cada categoría.
 
 Se trabaja con una tarjeta por imagen. La aplicación no construye mensajes
-combinando varias tarjetas. La pestaña «Cámara en Vivo» vigente permite
+combinando varias tarjetas. La pestaña «Tomar foto» vigente permite
 **capturar una imagen y presionar el botón de identificación**.
 
 ## Estado actual
@@ -180,16 +180,20 @@ uv run reconocimiento-pictogramas
 
 Abrir <http://127.0.0.1:7860> y seguir estos pasos:
 
-1. En **Subir Foto**, elegir una imagen JPEG o PNG. También se puede entrar en
-   **Cámara en Vivo**, permitir el acceso y capturar una imagen.
+1. En **Subir foto**, elegir una imagen JPEG o PNG. También se puede entrar en
+   **Tomar foto**, permitir el acceso y capturar una imagen.
 2. Mostrar una sola tarjeta, completa, enfocada y con buena iluminación.
-3. Presionar **Identificar Pictograma**.
-4. Leer la frase y escuchar su locución. Si el navegador bloquea la reproducción
-   automática, usar el botón de audio.
-5. Cambiar la imagen o utilizar **Limpiar imagen y resultado** para otra consulta.
+3. Presionar **2. Identificar pictograma**.
+4. Revisar si la frase expresa lo que se desea comunicar. La voz es opcional:
+   presionar **Escuchar frase** para generarla. Si el navegador no inicia la voz,
+   usar reproducir en el control de audio; también permite pausarla y repetirla.
+5. Cambiar la imagen o utilizar **Empezar de nuevo** para otra consulta.
 
-El reconocimiento visual es local. La generación de voz usa gTTS y requiere
-Internet cuando la frase todavía no está en la caché de la ejecución.
+Identificar no genera voz ni contacta al servicio gTTS. Al pedir escuchar la frase,
+se envía solo ese texto al servicio de Google y se requiere Internet si todavía
+no está en caché. Cambiar la imagen o la pestaña limpia el resultado e invalida
+las predicciones y locuciones pendientes. Las puntuaciones técnicas están en
+**Ayuda y detalles del reconocimiento**, cerrado inicialmente.
 
 La aplicación verifica hashes, orden de clases, dimensiones del checkpoint y
 referencias del detector antes de inferir. Si se cambia la configuración o el
@@ -301,3 +305,20 @@ Git conserva código, configuración, documentación e informes. Los datos,
 pesos, cachés y archivos transitorios están ignorados y requieren respaldo
 separado. No eliminar `reports/`, checkpoints ni manifiestos históricos para
 “limpiar” el proyecto: son evidencia de los experimentos y resultados previos.
+
+## Sistema de diseño accesible
+
+La interfaz conserva Gradio y utiliza un flujo de tres pasos, una frase destacada,
+voz voluntaria, foco visible y controles principales de al menos 48 px. La paleta,
+tipografía y espaciado se definen en tokens compartidos. Consultar el
+[sistema de diseño](docs/sistema_diseno_accesible.md) y la
+[verificación UX](docs/verificacion_ux_20261029.md), incluidos sus límites.
+
+Para abrir la guía interactiva de componentes sin cargar el modelo:
+
+```powershell
+uv run python scripts/showcase_design_system.py
+```
+
+Disponible en `http://127.0.0.1:7865`. Estas mejoras no equivalen a una
+certificación WCAG ni sustituyen la validación con personas usuarias.

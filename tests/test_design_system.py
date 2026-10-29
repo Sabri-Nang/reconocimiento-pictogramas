@@ -15,7 +15,7 @@ def test_primary_and_accent_theme_preserve_their_roles():
     assert primary.button_primary_background_fill == TOKENS["primary"]
     assert primary.button_primary_text_color == TOKENS["surface"]
     assert primary.button_primary_background_fill_hover == primary.button_primary_background_fill
-    # La llamada a la acción de la app existente conserva mostaza y carbón.
+    # El tema predeterminado de los ejemplos conserva mostaza y carbón.
     accent = create_theme()
     assert accent.button_primary_background_fill == TOKENS["accent"]
     assert accent.button_primary_text_color == TOKENS["text"]

@@ -181,3 +181,12 @@ umbral propios. Véase [modelo único de 192](modelo_aplicacion_192.md) para las
 particiones, métricas internas y pruebas. La comprobación local de la RPC no
 equivale a una prueba física de video. La prueba final de s007 está documentada
 en [prueba_final_s007.md](prueba_final_s007.md).
+
+## Revisión de accesibilidad de octubre de 2026
+
+La interfaz actual mantiene Gradio y capturas individuales. Las pestañas se llaman
+«Subir foto» y «Tomar foto». Identificar muestra la frase sin generar ni reproducir
+voz; la persona la solicita con «Escuchar frase». Las puntuaciones están plegadas
+en ayuda. Cambiar imagen o pestaña, o empezar de nuevo, invalida los resultados y
+audios pendientes. Se valida JPEG/PNG en la carga por archivo. El modelo y su
+criterio de rechazo se conservan. Véase [sistema de diseño accesible](sistema_diseno_accesible.md).

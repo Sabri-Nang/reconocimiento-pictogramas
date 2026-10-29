@@ -90,14 +90,15 @@ def status_card(text: str, kind: str = "ready") -> str:
     )
 
 
-def _identify(image: Image.Image | None):
+def _identify(image: Image.Image | str | None, *, with_audio=True):
     """Adapta la inferencia existente; no cambia su preprocesamiento ni rechazo."""
     if image is None:
         return "Seleccioná o capturá una imagen para continuar.", {}, None, status_card("Falta una imagen.", "error")
     try:
         # classify_frame utiliza exactamente el preprocesamiento y el detector
         # del modelo seleccionado. No se añade un umbral softmax arbitrario.
-        result = classify_frame(image)
+        # La carga por archivo conserva el formato original para validar JPEG/PNG.
+        result = classify_frame(prepare_image(image) if isinstance(image, str) else image)
         phrase = UNRECOGNIZED if result["rejected"] else PHRASES[result["label"]]
         scores = {NAMES[key]: float(value) for key, value in result["probabilities"].items()}
     except (ValueError, OSError, RuntimeError) as error:
@@ -107,8 +108,10 @@ def _identify(image: Image.Image | None):
         state = "Tarjeta no reconocida por el criterio de rechazo del modelo. Intentá mejorar el enfoque y la iluminación."
         kind = "rejected"
     else:
-        state = "Tarjeta identificada. Podés escuchar o volver a reproducir la frase."
+        state = f"Tarjeta identificada: {phrase}. Revisá si expresa lo que querés comunicar."
         kind = "accepted"
+    if not with_audio:
+        return phrase, scores, None, status_card(state, kind)
     try:
         audio_path = synthesize_phrase(phrase)
     except AudioGenerationError:
@@ -128,12 +131,13 @@ def predecir(imagen: Image.Image | None) -> tuple[str, dict[str, float], str | N
 
 
 def reset_result():
-    return "", {}, None, status_card("Cuando tengas la imagen lista, presioná Identificar Pictograma.")
+    return "", {}, None, status_card("Elegí una imagen y presioná Identificar pictograma.")
 
 
 def reset_for_session(session):
     """Invalida predicciones y locuciones pendientes solo de esta sesión."""
     session["revision"] += 1
+    session["phrase"] = ""
     return reset_result()
 
 
@@ -149,6 +153,60 @@ def identify_current(image, session):
 
 def clear_session(session):
     return None, None, *reset_for_session(session)
+
+
+def image_changed(image, session):
+    cleared = reset_for_session(session)
+    if image is None:
+        return cleared
+    if isinstance(image, str):
+        try:
+            prepare_image(image)
+        except (ValueError, OSError):
+            return "", {}, None, status_card("No se pudo abrir la foto. Elegí un archivo JPEG o PNG válido.", "error")
+    return "", {}, None, status_card("Imagen lista. Presioná Identificar pictograma.")
+
+
+def begin_identification(image, session):
+    """Captura la revisión ANTES de encolar, también si el modelo está ocupado."""
+    reset_for_session(session)
+    request = (image, session["revision"])
+    return "", {}, None, status_card("Identificando la tarjeta. Esperá un momento."), request
+
+
+def identify_request(request, session):
+    image, revision = request
+    if revision != session["revision"]:
+        return (gr.skip(),) * 4
+    result = _identify(image, with_audio=False)
+    if revision != session["revision"]:
+        return (gr.skip(),) * 4
+    session["phrase"] = result[0] if result[1] else ""
+    return result
+
+
+def begin_voice(session):
+    phrase = session.get("phrase", "")
+    message = "Preparando la voz. Esperá un momento." if phrase else "Primero identificá una tarjeta para escuchar su frase."
+    return None, status_card(message), (phrase, session["revision"])
+
+
+def speak_request(request, session):
+    """La voz requiere una acción explícita y nunca revive una frase anterior."""
+    phrase, revision = request
+    if revision != session["revision"]:
+        return gr.skip(), gr.skip()
+    if not phrase:
+        return None, status_card("Primero identificá una tarjeta para escuchar su frase.")
+    try:
+        path = synthesize_phrase(phrase)
+        state = status_card("Voz lista. Si no empieza, presioná reproducir en el control de audio.")
+    except AudioGenerationError:
+        path = None
+        state = status_card("La voz no está disponible. La frase sigue escrita. Podés volver a intentar.", "error")
+    if revision != session["revision"]:
+        return gr.skip(), gr.skip()
+    return path, state
 
 
 APP_HEAD = '<meta name="google" content="notranslate">'
@@ -188,58 +246,77 @@ def build_app() -> gr.Blocks:
         blocks_options.update(theme=accessible_theme(), css=ACCESSIBLE_CSS, head=APP_HEAD)
     with gr.Blocks(title="Pictovoz · Identificación asistiva", **blocks_options) as app:
         gr.HTML(
-            '<header id="welcome-card"><span class="status-badge">Modelo entrenado · versión experimental</span>'
-            '<h1>Pictovoz</h1><p>Mostrá un pictograma y transformalo en una frase para comunicarte.</p>'
-            f'<p>Elegí una foto o usá la cámara. {escape(model_evaluation_notice())}</p></header>'
+            '<a class="skip-link" href="#result-heading">Ir a la frase</a>'
+            '<header id="welcome-card"><p class="brand-note">APOYO A LA COMUNICACIÓN</p>'
+            '<h1>Pictovoz</h1><p>Una tarjeta. Una frase para expresarte.</p>'
+            '<ol class="task-steps" aria-label="Pasos para comunicarte">'
+            '<li><span aria-hidden="true">1</span> Elegí una imagen</li>'
+            '<li><span aria-hidden="true">2</span> Identificá la tarjeta</li>'
+            '<li><span aria-hidden="true">3</span> Revisá tu frase</li></ol></header>'
         )
-        with gr.Accordion("Categorías y detalles del modelo", open=False):
-            gr.Markdown("**Categorías disponibles:** " + ", ".join(NAMES.values()) + ".")
-            gr.Markdown("Las barras muestran las opciones que propone el modelo. La app también comprueba si la imagen se parece a los pictogramas conocidos antes de aceptar el resultado.")
+        gr.Markdown("**Podés hacerlo a tu ritmo.** Usá una sola tarjeta, con buena luz y el dibujo completo.")
         with gr.Column(elem_classes=["pictovoz-section"]):
-            gr.Markdown("## 1. Elegí cómo mostrar el pictograma")
+            gr.Markdown("## 1. Elegí una imagen")
             with gr.Tabs():
-                with gr.Tab("Subir Foto"):
+                with gr.Tab("Subir foto") as upload_tab:
+                    gr.Markdown("Elegí una foto de tu dispositivo. Formatos: JPEG o PNG.")
                     upload = gr.Image(
-                        type="pil", sources=["upload"], image_mode=None,
+                        type="filepath", sources=["upload"], image_mode=None,
                         label="Foto del pictograma", height=320,
                     )
-                    identify_upload = gr.Button("Identificar Pictograma", variant="primary", elem_id="recognize-upload")
-                with gr.Tab("Cámara en Vivo"):
-                    gr.Markdown("Se solicita la cámara trasera si está disponible. Permití el acceso, capturá una imagen y presioná **Identificar Pictograma**. Desde el celular necesitás HTTPS.")
+                    identify_upload = gr.Button("2. Identificar pictograma", variant="primary", elem_id="recognize-upload")
+                with gr.Tab("Tomar foto") as camera_tab:
+                    gr.Markdown("Activá la cámara cuando quieras. Mostrá la tarjeta y tomá una foto. Después presioná **Identificar pictograma**.")
                     camera = gr.Image(
                         type="pil", sources=["webcam"], image_mode=None,
                         label="Captura de cámara", height=320, **rear_camera_options(),
                     )
-                    identify_camera = gr.Button("Identificar Pictograma", variant="primary", elem_id="recognize-camera")
+                    identify_camera = gr.Button("2. Identificar pictograma", variant="primary", elem_id="recognize-camera")
+                    with gr.Accordion("Ayuda con la cámara", open=False):
+                        gr.Markdown("Permití el acceso cuando el navegador lo solicite. Se prefiere la cámara trasera si está disponible. En el celular se necesita HTTPS. Si la cámara no funciona, podés usar **Subir foto**.")
         with gr.Column(elem_id="result-card"):
-            gr.Markdown("## 2. Tu frase para comunicarte")
-            phrase = gr.Textbox(
-                label="Frase Comunicativa", value="", placeholder="Tu frase aparecerá acá",
-                interactive=False, lines=2, elem_id="communication-phrase",
+            gr.HTML('<h2 id="result-heading" tabindex="-1">3. Tu frase para comunicarte</h2>')
+            state = gr.HTML(status_card("Elegí una foto o tomá una imagen para comenzar."))
+            gr.Markdown("**Frase de la tarjeta**")
+            phrase = gr.Markdown(
+                value="", min_height=96, container=True, padding=True,
+                elem_id="communication-phrase",
             )
-            state = gr.HTML(status_card("Cargá una foto o capturá una imagen para comenzar."))
-            audio = gr.Audio(type="filepath", autoplay=True, label="Locución de Voz", interactive=False)
-            gr.Markdown("La voz se reproduce al identificar. Si el navegador no la inicia, tocá el botón de reproducción. gTTS necesita Internet y recibe solo la frase a pronunciar.")
+            gr.Markdown("**La voz es opcional.** Al presionar Escuchar frase, se envía solo el texto al servicio de voz de Google. Necesita Internet.")
+            listen = gr.Button("Escuchar frase", variant="secondary", elem_id="listen-phrase")
+            audio = gr.Audio(type="filepath", autoplay=True, label="Voz · reproducir o pausar", interactive=False, elem_id="phrase-audio")
+            clear = gr.Button("Empezar de nuevo", variant="secondary", elem_id="clear-result")
+
+        gr.Markdown("**El modelo puede equivocarse.** Comprobá que la frase coincida con lo que querés decir.")
+        with gr.Accordion("Ayuda y detalles del reconocimiento", open=False):
+            gr.Markdown("**Tarjetas disponibles:** " + ", ".join(NAMES.values()) + ".")
+            gr.Markdown(model_evaluation_notice())
             scores = gr.Label(label="Puntuaciones por categoría · no son certeza de acierto", num_top_classes=3, elem_id="class-scores")
-            with gr.Accordion("Cómo interpretar las puntuaciones", open=False):
-                gr.Markdown("Una puntuación alta puede acompañar una tarjeta rechazada. La decisión conserva el detector de similitud calibrado del modelo.")
-            clear = gr.Button("Limpiar imagen y resultado", variant="secondary")
+            gr.Markdown("Estas puntuaciones son información técnica. Una puntuación alta puede acompañar una tarjeta rechazada. La decisión usa el detector de similitud calibrado del modelo.")
+            gr.Markdown("**Si no se reconoce:** acercá la tarjeta, mejorá la luz y probá otra foto. No hace falta responder en un tiempo determinado.")
 
         session = gr.State(value=lambda: {"revision": 0})
+        request = gr.State()
+        voice_request = gr.State()
         outputs = [phrase, scores, audio, state]
         # Se limpian los resultados al cambiar la imagen o antes de identificar.
         # Así un error o una nueva captura no conservan una locución anterior.
         for image, button in ((upload, identify_upload), (camera, identify_camera)):
-            image.change(reset_for_session, inputs=session, outputs=outputs, queue=False)
-            button.click(reset_for_session, inputs=session, outputs=outputs, queue=False).then(
-                identify_current, inputs=[image, session], outputs=outputs,
+            image.change(image_changed, inputs=[image, session], outputs=outputs, queue=False)
+            button.click(begin_identification, inputs=[image, session], outputs=[*outputs, request], queue=False).then(
+                identify_request, inputs=[request, session], outputs=outputs,
                 concurrency_limit=1, concurrency_id="pictogram_model",
             )
+        for source_tab in (upload_tab, camera_tab):
+            source_tab.select(reset_for_session, inputs=session, outputs=outputs, queue=False)
+        listen.click(begin_voice, inputs=session, outputs=[audio, state, voice_request], queue=False).then(
+            speak_request, inputs=[voice_request, session], outputs=[audio, state],
+            concurrency_limit=1, concurrency_id="pictovoz_voice",
+        )
         clear.click(
             clear_session, inputs=session,
             outputs=[upload, camera, *outputs], queue=False,
         )
-        gr.Markdown("**Consejo:** usá una sola tarjeta por imagen, con buena luz y sin tapar el dibujo.")
         # Español explícito y no traducible: «Comer» es una categoría, no una palabra inglesa.
         app.load(fn=None, js=SPANISH_UI_JS, queue=False)
     return app

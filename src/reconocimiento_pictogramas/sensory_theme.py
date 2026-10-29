@@ -98,7 +98,7 @@ def create_theme(*, primary_action="accent"):
         "color_accent": t["primary"],
         "color_accent_soft": t["secondary"],
         # Primary azul/blanco: 5,72:1. Accent mostaza/carbón: 7,13:1.
-        # La app conserva por defecto su llamada a la acción mostaza.
+        # La app elige primary; el valor predeterminado conserva los ejemplos mostaza.
         # Hover estable: no hay destellos ni cambios bruscos de luminosidad.
         "button_primary_background_fill": action_background,
         "button_primary_background_fill_hover": action_background,
